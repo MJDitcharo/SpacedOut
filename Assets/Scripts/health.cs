@@ -20,6 +20,7 @@ public class health : MonoBehaviour
     // Health takes damage
     public void DoDamage(int _dmg)
     {
+
         currHealth -= _dmg;
         if(currHealth <= 0)
         {
@@ -30,5 +31,6 @@ public class health : MonoBehaviour
     virtual public void Death()
     {
         Destroy(gameObject);
+        
     }
 }

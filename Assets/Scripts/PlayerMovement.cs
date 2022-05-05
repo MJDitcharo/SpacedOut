@@ -7,7 +7,6 @@ public class playerMovement : MonoBehaviour
     public float moveSpeed = 5f;
 
     public CharacterController cc;
-    public Camera cam;
 
     Vector2 movement;
     Vector2 mousePosition;
@@ -20,7 +19,7 @@ public class playerMovement : MonoBehaviour
     void Update()
     {
         movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); //move the player with wasd
-        mousePosition = cam.ScreenToWorldPoint(Input.mousePosition); //get the mouse position
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //get the mouse position
     }
 
     void FixedUpdate()
