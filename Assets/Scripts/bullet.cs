@@ -5,14 +5,20 @@ using UnityEngine;
 public class bullet : MonoBehaviour
 {
     public GameObject hitEffect;
+    public int damage = 10;
 
+
+    private void Start()
+    {
+        Destroy(gameObject, 5);
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
         health HP = collision.gameObject.GetComponent<health>();
         if (HP != null)
         {
-            HP.DoDamage(10);
+            HP.DoDamage(damage);
             Debug.Log("Damage Dealt");
         }
 
