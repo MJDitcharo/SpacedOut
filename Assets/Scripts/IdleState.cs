@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class IdleState : State
 {
-    // Start is called before the first frame update
+    [SerializeField] WanderState wanderState;
+
     void Start()
     {
         
     }
 
-    public override void RunCurrentState()
+    public override State RunCurrentState()
     {
-
+        return wanderState;
     }
 }
