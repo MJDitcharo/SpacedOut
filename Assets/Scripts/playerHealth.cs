@@ -8,7 +8,7 @@ public class playerHealth : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.CompareTag("Walls"))
+        if (hit.gameObject.CompareTag("Bullet"))
         {
             health -= 10;
             if (health == 0)

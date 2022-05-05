@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
-    public GameObject hiteffect;
+    public GameObject hitEffect;
+    public int damage = 10;
+
+
+    private void Start()
+    {
+        Destroy(gameObject, 5);
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!collision.gameObject.CompareTag("Player"))
+        health HP = collision.gameObject.GetComponent<health>();
+        if (HP != null)
         {
-            GameObject effect = Instantiate(hiteffect, transform.position, Quaternion.identity); //create a bullet with no rotation at the postion 
+            HP.DoDamage(damage);
+            Debug.Log("Damage Dealt");
+        }
+
+            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity); //create a bullet with no rotation at the postion 
             Destroy(effect, 2f);     //destroy game object and effect upon collison
             Destroy(gameObject);     //destroy game object and effect upon collisons
-        }
     }
 }
