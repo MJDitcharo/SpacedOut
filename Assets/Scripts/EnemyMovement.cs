@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    GameObject player;
+    public float movementSpeed;
+
     void Start()
     {
-        
+        player = GameManager.instance.player;
     }
 
     // Update is called once per frame
