@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public GameObject player;
+    public playerMovement movement;
+    public GameObject pauseMenu;
     public int enemyCount;
 
     // Start is called before the first frame update
@@ -15,6 +17,7 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         player = GameObject.FindGameObjectWithTag("Player");
+        movement = player.GetComponent<playerMovement>();
     }
 
     // Update is called once per frame
