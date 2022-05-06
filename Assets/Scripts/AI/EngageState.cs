@@ -18,7 +18,7 @@ public class EngageState : State
     {
         if (Vector2.Distance(transform.position, GameManager.instance.player.transform.position) <= attackDistance)
         {
-            return attackState;
+            //return attackState;
         }
 
         movement.MoveToLocation(GameManager.instance.player.transform.position);
