@@ -7,10 +7,9 @@ public class bullet : MonoBehaviour
     public GameObject hitEffect;
     public int damage = 10;
 
-
     private void Start()
     {
-        Destroy(gameObject, 5);
+        Destroy(gameObject, 3);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -26,4 +25,7 @@ public class bullet : MonoBehaviour
             Destroy(effect, 2f);     //destroy game object and effect upon collison
             Destroy(gameObject);     //destroy game object and effect upon collisons
     }
+
+   
+
 }
