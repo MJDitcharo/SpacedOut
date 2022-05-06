@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    State currentState;
+    [SerializeField] State currentState;
 
     [SerializeField] IdleState idleState;
     [SerializeField] WanderState wanderState;
