@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public GameObject player;
-    public playerMovement movement;
+    public PlayerMovement movement;
     public GameObject pauseMenu;
     public int enemyCount;
 
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         player = GameObject.FindGameObjectWithTag("Player");
-        movement = player.GetComponent<playerMovement>();
+        movement = player.GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
