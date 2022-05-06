@@ -2,32 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Movement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    [SerializeField] playerHealth ph;
+    public float moveSpeed = 1f;
+    Vector3 movement;
+    Vector3 mousePosition;
+    Animator playerAnimation;
 
     public CharacterController cc;
-
-    Vector2 movement;
-    Vector2 mousePosition;
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         cc = gameObject.GetComponent<CharacterController>();
+        playerAnimation = gameObject.GetComponent<Animator>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); //move the player with wasd
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //get the mouse position
-    }
+        movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized; //move the player with wasd
+        playerAnimation.SetFloat("Velocity", cc.velocity.magnitude);
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            playerAnimation.SetTrigger("Roll");
+            StartCoroutine(Rolling());
 
+        }
+
+    }
+    // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 lookDirection = new Vector2(mousePosition.x - cc.transform.position.x, mousePosition.y - cc.transform.position.y); //subtract two vectors to get a vector from the player and mouse position
-        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f; //gets the angle from the character position to the mouse position to look that way
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle)); //set it to the player
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //gets mouse position relative to camera
+        mousePosition.y = 0f; //prevent player from looking up
+        Debug.DrawLine(transform.position, mousePosition, Color.red, 2f);
+        //move the charcter towards the mouse position
+        transform.LookAt(mousePosition);
+        cc.Move(new Vector3(0, -1, 0));
+        cc.Move(moveSpeed * Time.deltaTime * movement);
+    }
 
-        cc.Move(moveSpeed * Time.deltaTime * movement); //move the player per frame
+    public IEnumerator Rolling()
+    {
+        ph.isDamageable = false;
+        yield return new WaitForSeconds(1f);
+        ph.isDamageable = true;
+
     }
 }
