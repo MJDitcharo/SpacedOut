@@ -16,6 +16,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void MoveToLocation(Vector3 position)
     {
+        Debug.Log("moving to " + position);
         navmeshAgent.SetDestination(position);
     }
 }
