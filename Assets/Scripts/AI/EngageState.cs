@@ -16,9 +16,10 @@ public class EngageState : State
 
     public override State RunCurrentState()
     {
-        if (Vector2.Distance(transform.position, GameManager.instance.player.transform.position) <= attackDistance)
+        //Debug.Log(Vector3.Distance(transform.position, GameManager.instance.player.transform.position));
+        if (Vector3.Distance(transform.position, GameManager.instance.player.transform.position) <= attackDistance)
         {
-            //return attackState;
+            return attackState;
         }
 
         movement.MoveToLocation(GameManager.instance.player.transform.position);
