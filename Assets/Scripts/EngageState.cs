@@ -21,6 +21,8 @@ public class EngageState : State
             return attackState;
         }
 
+        movement.MoveToLocation(GameManager.instance.player.transform.position);
+
         return this;
     }
 }

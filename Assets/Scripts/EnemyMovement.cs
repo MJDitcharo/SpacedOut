@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [SerializeField] NavMeshAgent navmeshAgent;
     GameObject player;
     public float movementSpeed;
 
@@ -12,9 +14,8 @@ public class EnemyMovement : MonoBehaviour
         player = GameManager.instance.player;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void MoveToLocation(Vector3 position)
     {
-        
+        navmeshAgent.SetDestination(position);
     }
 }

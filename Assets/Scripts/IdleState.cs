@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IdleState : State
 {
-    [SerializeField] WanderState wanderState;
+    [SerializeField] EngageState engageState;
 
     void Start()
     {
@@ -13,6 +13,6 @@ public class IdleState : State
 
     public override State RunCurrentState()
     {
-        return wanderState;
+        return engageState;
     }
 }

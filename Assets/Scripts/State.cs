@@ -4,5 +4,7 @@ using UnityEngine;
 
 public abstract class State : MonoBehaviour
 {
+    public EnemyMovement movement;
+
     public abstract State RunCurrentState();
 }
