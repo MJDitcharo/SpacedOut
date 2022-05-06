@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4248155413606760050}
   - component: {fileID: 4248155413606760051}
   - component: {fileID: -4130124187028443351}
+  - component: {fileID: 6653985360994865982}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9811321, g: 0.023139905, b: 0.023139905, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -113,3 +114,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   currHealth: 50
+--- !u!114 &6653985360994865982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4248155413606760048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9aa949a19d7f39498899fa4c77db5e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 4248155413606760050}
