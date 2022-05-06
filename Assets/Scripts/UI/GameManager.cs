@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
         movement = player.GetComponent<PlayerMovement>();
+        pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+
     }
 
     // Update is called once per frame

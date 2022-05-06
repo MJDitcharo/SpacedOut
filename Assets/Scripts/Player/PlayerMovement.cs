@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         cc = gameObject.GetComponent<CharacterController>();
         playerAnimation = gameObject.GetComponent<Animator>();
     }
@@ -28,18 +27,20 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Rolling());
 
         }
+        
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //gets mouse position relative to camera
+        mousePosition.y = transform.position.y; //prevent player from looking up
+        Debug.DrawLine(transform.position, mousePosition, Color.red, 2f);
+        //move the charcter towards the mouse position
+        transform.LookAt(mousePosition);
+        cc.Move(new Vector3(0, -1, 0) * Time.deltaTime);
+        cc.Move(moveSpeed * Time.deltaTime * movement);
 
     }
     // Update is called once per frame
     void FixedUpdate()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //gets mouse position relative to camera
-        mousePosition.y = 0f; //prevent player from looking up
-        Debug.DrawLine(transform.position, mousePosition, Color.red, 2f);
-        //move the charcter towards the mouse position
-        transform.LookAt(mousePosition);
-        cc.Move(new Vector3(0, -1, 0));
-        cc.Move(moveSpeed * Time.deltaTime * movement);
+       
     }
 
     public IEnumerator Rolling()
