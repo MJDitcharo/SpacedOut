@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //gets mouse position relative to camera
-        mousePosition.y = 0f; //prevent player from looking up
+        mousePosition.y = transform.position.y; //prevent player from looking up
         Debug.DrawLine(transform.position, mousePosition, Color.red, 2f);
         //move the charcter towards the mouse position
         transform.LookAt(mousePosition);
