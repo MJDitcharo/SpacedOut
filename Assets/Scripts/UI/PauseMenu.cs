@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,8 @@ public class PauseMenu : MonoBehaviour
 
     //false by default
     [SerializeField]
+    GameObject pauseMenuVisual;
     bool gameIsPaused = false;
-    [SerializeField]
-     GameObject pauseMenuVisual;
-
     private void Update()
     {
         PauseGame();
@@ -22,8 +21,14 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetButtonUp("Cancel"))
         {
             gameIsPaused = !gameIsPaused;
-            Debug.Log("Pause Pressed");
+            Debug.Log("Paused?" + gameIsPaused);
             pauseMenuVisual.SetActive(gameIsPaused);
+
+            //freeze time
+            if (gameIsPaused)
+                Time.timeScale = 0;
+            else
+                Time.timeScale = 1;
         }
     }
 }
