@@ -22,7 +22,7 @@ public class bullet : MonoBehaviour
         }
 
             GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity); //create a bullet with no rotation at the postion 
-            Destroy(effect, 2f);     //destroy game object and effect upon collison
+            Destroy(effect, 0.2f);     //destroy game object and effect upon collison
             Destroy(gameObject);     //destroy game object and effect upon collisons
     }
 
