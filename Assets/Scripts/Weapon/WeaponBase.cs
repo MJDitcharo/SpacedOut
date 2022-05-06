@@ -27,7 +27,7 @@ public class WeaponBase : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); //spawn the bullet and reference the bullet to modify 
         Rigidbody rb = bullet.GetComponent<Rigidbody>(); //acess the rigidbody of the game object
-        rb.AddForce(firePoint.up * bulletForce, ForceMode.Impulse); //add a force in the up vector
+        rb.AddForce(firePoint.forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
 
     }
 
