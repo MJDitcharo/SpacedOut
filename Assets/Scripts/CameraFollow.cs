@@ -13,7 +13,6 @@ public class CameraFollow : MonoBehaviour
         offset = transform.position - GameManager.instance.player.transform.position;
     }
 
-    // Update is called once per frame
     void LateUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, GameManager.instance.player.transform.position + offset, followSpeed * Time.deltaTime);
