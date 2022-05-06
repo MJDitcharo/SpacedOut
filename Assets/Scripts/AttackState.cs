@@ -8,6 +8,7 @@ public class AttackState : State
 
     public override State RunCurrentState()
     {
+        Debug.Log("attacking");
         return this;
     }
 }
