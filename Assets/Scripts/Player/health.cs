@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class health : MonoBehaviour
 {
-    [SerializeField] int maxHealth = 50;
-    [SerializeField] int currHealth;
+    public int maxHealth = 100;
+    public int currHealth;
     
     
 
@@ -18,7 +18,7 @@ public class health : MonoBehaviour
     
 
     // Health takes damage
-    public void DoDamage(int _dmg)
+    public virtual void DoDamage(int _dmg)
     {
 
         currHealth -= _dmg;
