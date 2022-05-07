@@ -6,19 +6,30 @@ public class DoorTrigger : MonoBehaviour
 {
     [SerializeField]
     BoxCollider doorCollider;
+    [SerializeField]
+    GameObject doorSlider;
     private int doorRoomId = 1;
-    bool doorOpen;
+    bool doorOpen = true;
 
     private void OnTriggerExit(Collider other)
     {
         //when the player is done touching the trigger, close the door
         if (other.gameObject == GameManager.instance.player)
-            CloseDoor();
+        {
+            if (doorOpen)
+                CloseDoor();
+            else
+                OpenDoor();
+
+        }
     }
 
     private void CloseDoor()
     {
         Debug.Log("Door Will Close");
+        doorSlider.transform.position += new Vector3(-2, 0, 0);
+        doorOpen = false;
+
     }
     private void OpenDoor()
     {
