@@ -7,22 +7,27 @@ public class AttackState : State
     [SerializeField] float attackDistance;
     [SerializeField] EngageState engageState;
 
+    [SerializeField] float rotationSpeed = 10f;
+    Coroutine lookCoroutine;
+
     public Transform firePoint;
     public GameObject bulletPrefab; //instance of bullet prefab
 
-    public float fireRate = 7f; //firerate
+    [SerializeField] float firerate = 1;
+    float nextShot;
     public float bulletForce = 20f;
     public float Damage; //damage
 
-    private float nextShotFired = 0f; //counter for next bullet that is fired
-
     public override State RunCurrentState()
     {
-        if(Vector3.Distance(transform.position, GameManager.instance.player.transform.position) >= attackDistance)
+        if(Vector3.Distance(transform.position, GameManager.instance.player.transform.position) >= attackDistance + 2)
         {
             return engageState;
         }
 
+        if (lookCoroutine == null)
+            lookCoroutine = StartCoroutine(TurnToPlayer());
+        
         Attack();
 
         return this;
@@ -30,13 +35,37 @@ public class AttackState : State
 
     void Attack()
     {
-        Shoot();
+        if(Time.time > nextShot)
+        {
+            nextShot = Time.time + firerate;
+            Shoot();
+        }
     }
     public void Shoot()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); //spawn the bullet and reference the bullet to modify 
         Rigidbody rb = bullet.GetComponent<Rigidbody>(); //acess the rigidbody of the game object
-        rb.AddForce(firePoint.up * bulletForce, ForceMode.Impulse); //add a force in the up vector
+        rb.AddForce(firePoint.forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
 
+    }
+
+    IEnumerator TurnToPlayer()
+    {
+        Debug.Log("running coroutine");
+        Quaternion lookRoation = Quaternion.LookRotation(GameManager.instance.player.transform.position - new Vector3(transform.position.x, GameManager.instance.player.transform.position.y, transform.position.z));
+
+        float time = 0;
+
+        while(time < 1)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRoation, time);
+
+            time += Time.deltaTime * rotationSpeed;
+
+            yield return null;
+        }
+        lookCoroutine = null;
+
+        
     }
 }
