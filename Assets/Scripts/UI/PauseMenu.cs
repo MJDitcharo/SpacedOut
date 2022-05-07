@@ -24,11 +24,17 @@ public class PauseMenu : MonoBehaviour
             Debug.Log("Paused?" + gameIsPaused);
             pauseMenuVisual.SetActive(gameIsPaused);
 
-            //freeze time
+            //freeze time and player
             if (gameIsPaused)
+            {
                 Time.timeScale = 0;
+                GameManager.instance.movement.enabled = false; 
+            }
             else
+            {
                 Time.timeScale = 1;
+                GameManager.instance.movement.enabled = true;
+            }
         }
     }
 }
