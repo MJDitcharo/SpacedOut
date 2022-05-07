@@ -27,6 +27,7 @@ public class DoorTrigger : MonoBehaviour
     private void CloseDoor()
     {
         Debug.Log("Door Will Close");
+        
         doorSlider.transform.position += new Vector3(-2, 0, 0);
         doorOpen = false;
 

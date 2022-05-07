@@ -289,6 +289,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &665154325 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5891558553955832077, guid: a7feda4cdad993f42a7e4048a1a5a2c1, type: 3}
+  m_PrefabInstance: {fileID: 6444841170620370297}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &734325826 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6556374629185574427, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
@@ -830,7 +835,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761995559}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 30.037666, y: -117.74393, z: 152.30365}
+  m_LocalPosition: {x: -34.9, y: -101.5, z: 208.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -941,6 +946,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 558133142, guid: a7feda4cdad993f42a7e4048a1a5a2c1, type: 3}
+      propertyPath: doorSlider
+      value: 
+      objectReference: {fileID: 665154325}
+    - target: {fileID: 3507562391563643881, guid: a7feda4cdad993f42a7e4048a1a5a2c1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.75
+      objectReference: {fileID: 0}
     - target: {fileID: 6444841171178463980, guid: a7feda4cdad993f42a7e4048a1a5a2c1, type: 3}
       propertyPath: m_Size.z
       value: 0.77510834
