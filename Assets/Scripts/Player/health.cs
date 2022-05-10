@@ -30,7 +30,7 @@ public class health : MonoBehaviour
 
     virtual public void Death()
     {
+        GameManager.instance.enemyCount--;
         Destroy(gameObject);
-        
     }
 }

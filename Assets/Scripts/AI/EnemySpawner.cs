@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    List<GameObject> spawnPoints;
-    GameObject[] enemies;
+    [SerializeField] List<GameObject> spawnPoints;
+    [SerializeField] GameObject[] enemies;
 
-    private void OnEnable()
+    private void Start()
     {
-        spawnPoints = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy Spawn"));
+        StartCoroutine(SpawnEnemies(3));
     }
 
-    public void SpawnEnemies()
+    public IEnumerator SpawnEnemies(float time)
     {
+        List<GameObject> temp = new List<GameObject>(spawnPoints);
+        yield return new WaitForSeconds(time);
         for(int i = 0; i < enemies.Length; i++)
         {
-            Transform spawnPoint = spawnPoints[(int)Random.Range(0, spawnPoints.Count - 1)].transform;
+            Transform spawnPoint = temp[(int)Random.Range(0, temp.Count - 1)].transform;
             Instantiate(enemies[i], spawnPoint.position, Quaternion.identity);
-            spawnPoints.Remove(spawnPoint.gameObject);
+            temp.Remove(spawnPoint.gameObject);
+            GameManager.instance.enemyCount++;
         }
     }
 }
