@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public PlayerMovement movement;
     public GameObject pauseMenu;
     public int enemyCount;
+
+    public int sceneIndex;
     public int checkpointIndex;
     public GameObject[] checkpoints;
 
@@ -31,7 +33,11 @@ public class GameManager : MonoBehaviour
 
     public void Respawn()
     {
-        
+        player.transform.position = checkpoints[checkpointIndex].transform.position;
     }
     
+    public void SaveGame()
+    {
+
+    }
 }
