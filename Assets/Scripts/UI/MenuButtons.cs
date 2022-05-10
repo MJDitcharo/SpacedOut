@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-public class PauseMenuButtons : MonoBehaviour
-{
 
-  
+public class MenuButtons : MonoBehaviour
+{
 
     public void ResumeClicked()
     {
@@ -15,5 +13,10 @@ public class PauseMenuButtons : MonoBehaviour
     public void QuitClicked()
     {
         Application.Quit();
+    }
+
+    public void RestartLevelClicked()
+    {
+
     }
 }
