@@ -31,8 +31,6 @@ public class DoorTrigger : MonoBehaviour
         sliderLTransform = doorSliderL.transform.position;
         sliderRTransform = doorSliderR.transform.position;
 
-
-
         closedPositionL = sliderLTransform;
         openPositionL = new Vector3(sliderLTransform.x - doorMovement, sliderLTransform.y, sliderLTransform.z);
 
@@ -63,10 +61,11 @@ public class DoorTrigger : MonoBehaviour
         
         Debug.Log("Door Will Close");
 
-        doorSliderL.transform.position = closedPositionL;
-        doorSliderR.transform.position = closedPositionR;
+        doorSliderL.SetActive(true);
+        doorSliderR.SetActive(true);
+        //doorSliderL.transform.position = closedPositionL;
+        //doorSliderR.transform.position = closedPositionR;
 
-        
         doorOpen = false;
 
     }
@@ -74,8 +73,10 @@ public class DoorTrigger : MonoBehaviour
     {
         Debug.Log("Door will open");
 
-        doorSliderL.transform.position = openPositionL;
-        doorSliderR.transform.position = openPositionR;
+        doorSliderL.SetActive(false);
+        doorSliderR.SetActive(false);
+        //doorSliderL.transform.position = openPositionL;
+        //doorSliderR.transform.position = openPositionR;
 
         doorOpen = false;
     }
