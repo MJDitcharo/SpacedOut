@@ -16,4 +16,8 @@ public class PopUpMenu : MonoBehaviour
         Time.timeScale = 1;
         GameManager.instance.movement.enabled = true;
     }
+
+
+
+    
 }

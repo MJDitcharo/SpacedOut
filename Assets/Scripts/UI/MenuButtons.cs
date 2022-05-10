@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuButtons : MonoBehaviour
+public class MenuButtons : PopUpMenu
 {
 
     public void ResumeClicked()
     {
-
+        Debug.Log("Resume clicked");
+        //UnfreezeWorld();
     }
 
     public void QuitClicked()
