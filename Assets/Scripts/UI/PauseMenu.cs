@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : PopUpMenu
 {
     //put gameIsPaused into gamemanager 
 
@@ -24,17 +24,10 @@ public class PauseMenu : MonoBehaviour
             Debug.Log("Paused?" + gameIsPaused);
             pauseMenuVisual.SetActive(gameIsPaused);
 
-            //freeze time and player
             if (gameIsPaused)
-            {
-                Time.timeScale = 0;
-                GameManager.instance.movement.enabled = false; 
-            }
+                FreezeWorld();
             else
-            {
-                Time.timeScale = 1;
-                GameManager.instance.movement.enabled = true;
-            }
+                UnfreezeWorld();
         }
     }
 }
