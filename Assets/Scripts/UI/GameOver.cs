@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameOver : MonoBehaviour
+public class GameOver : PopUpMenu
 {
     private void FixedUpdate()
     {
