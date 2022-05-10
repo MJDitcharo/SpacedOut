@@ -20,9 +20,7 @@ public class bullet : MonoBehaviour
             HP.DoDamage(damage);
             Debug.Log("Damage Dealt");
         }
-
-            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity); //create a bullet with no rotation at the postion 
-            Destroy(effect, 0.2f);     //destroy game object and effect upon collison
+            Instantiate(hitEffect, transform.position, Quaternion.identity); //create a bullet with no rotation at the postion 
             Destroy(gameObject);     //destroy game object and effect upon collisons
     }
 
