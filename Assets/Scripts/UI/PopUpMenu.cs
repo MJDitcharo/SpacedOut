@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class PopUpMenu : MonoBehaviour
 {
-    public void FreezeWorld()
+    public void FreezeWorld(GameObject objectToToggle)
     {
-        //freeze time and player
-            Time.timeScale = 0;
-            GameManager.instance.movement.enabled = false;
+        Time.timeScale = 0;
+        GameManager.instance.movement.enabled = false;
+        objectToToggle.SetActive(true);
     }
 
-    public void UnfreezeWorld()
+    public void UnfreezeWorld(GameObject objectToToggle)
     {
         Time.timeScale = 1;
         GameManager.instance.movement.enabled = true;
+        objectToToggle.SetActive(false);
     }
-
-
-
-    
 }

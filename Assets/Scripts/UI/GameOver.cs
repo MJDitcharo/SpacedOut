@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class GameOver : PopUpMenu
 {
-    private void FixedUpdate()
+    
+    private void Awake()
     {
-        //if the player's health is zero
-        //{
-        //
-        //}
+        
     }
+    
 }

@@ -10,7 +10,16 @@ public class PauseMenu : PopUpMenu
     //false by default
     [SerializeField]
     GameObject pauseMenuVisual;
+
+
     bool gameIsPaused = false;
+
+    private void Awake()
+    {
+        //false by default
+        pauseMenuVisual.SetActive(false);
+    }
+
     private void Update()
     {
         PauseGame();
@@ -25,9 +34,9 @@ public class PauseMenu : PopUpMenu
             pauseMenuVisual.SetActive(gameIsPaused);
 
             if (gameIsPaused)
-                FreezeWorld();
+                FreezeWorld(pauseMenuVisual);
             else
-                UnfreezeWorld();
+                UnfreezeWorld(pauseMenuVisual);
         }
     }
 }

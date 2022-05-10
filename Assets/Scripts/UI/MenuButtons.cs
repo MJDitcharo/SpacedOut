@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class MenuButtons : PopUpMenu
 {
-
+    //button objects
+    [SerializeField]
+    GameObject menuVisual;
     public void ResumeClicked()
     {
         Debug.Log("Resume clicked");
-        //UnfreezeWorld();
+        UnfreezeWorld(menuVisual);
+        menuVisual.SetActive(false);
     }
 
     public void QuitClicked()
