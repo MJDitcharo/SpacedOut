@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public PlayerMovement movement;
     public GameObject pauseMenu;
     public int enemyCount;
+    public int checkpointIndex;
+    public GameObject[] checkpoints;
 
     // Start is called before the first frame update
     void Awake()
@@ -19,7 +21,7 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         movement = player.GetComponent<PlayerMovement>();
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
-
+        checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
     }
 
     private void Update()
@@ -27,6 +29,9 @@ public class GameManager : MonoBehaviour
 
     }
 
-
+    public void Respawn()
+    {
+        
+    }
     
 }
