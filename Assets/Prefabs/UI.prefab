@@ -1828,6 +1828,9 @@ MonoBehaviour:
   movement: {fileID: 0}
   pauseMenu: {fileID: 0}
   enemyCount: 0
+  sceneIndex: 0
+  checkpointIndex: 0
+  checkpoints: []
 --- !u!1 &1836739411248381380
 GameObject:
   m_ObjectHideFlags: 0
@@ -2729,7 +2732,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 0aa6095ddf0316646a1b0d510c7af0f7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
