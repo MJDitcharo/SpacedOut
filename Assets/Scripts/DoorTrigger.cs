@@ -24,11 +24,19 @@ public class DoorTrigger : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject == GameManager.instance.player)
+        {
+            //check if the room is cleared
+        }
+    }
+
     private void CloseDoor()
     {
         Debug.Log("Door Will Close");
         
-        doorSlider.transform.position += new Vector3(-2, 0, 0);
+        doorSlider.transform.position += new Vector3(0, 2, 0);
         doorOpen = false;
 
     }
