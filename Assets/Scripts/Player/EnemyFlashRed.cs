@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EnemyFlashRed : MonoBehaviour
 {
-    Color collideColor = Color.red;
-    Color normalColor = Color.yellow;
+    [SerializeField] Color collideColor;
+    [SerializeField] Color normalColor;
+    [SerializeField] Renderer rend;
 
     [SerializeField] float flashTime = .1f;
 
@@ -19,9 +20,9 @@ public class EnemyFlashRed : MonoBehaviour
 
     IEnumerator FlashRed()
     {
-        GetComponent<Renderer>().material.color = collideColor;
+        rend.material.color = collideColor;
         yield return new WaitForSeconds(flashTime);
-        GetComponent<Renderer>().material.color = normalColor;
+        rend.material.color = normalColor;
     }
 
 }
