@@ -36,6 +36,18 @@ public class GameManager : MonoBehaviour
     public void Respawn()
     {
         player.transform.position = checkpoints[checkpointIndex].transform.position;
+        player.GetComponent<playerHealth>().currHealth = player.GetComponent<playerHealth>().maxHealth;
+
+        for (int i  = checkpoints.Length - 1; i >= 0; i--)
+        {
+            if (i == checkpointIndex)
+            {
+                checkpoints[i].GetComponent<RoomManager>().EndLockDown();
+                continue;
+            }
+            checkpoints[i].GetComponent<RoomManager>().LockDownRoom();
+            checkpoints[i].GetComponent<RoomManager>().collider.enabled = true;
+        }
     }
     
     public void SaveGame()
