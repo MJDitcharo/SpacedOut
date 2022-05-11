@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyFlashRed : MonoBehaviour
 {
+    [SerializeField] playerHealth ph;
+
     [SerializeField] Color collideColor;
     [SerializeField] Color[] normalColor;
     [SerializeField] Renderer rend;
@@ -23,7 +25,8 @@ public class EnemyFlashRed : MonoBehaviour
     {
         if(collider.gameObject.tag == "Bullet")
         {
-            StartCoroutine(FlashRed());
+            if(ph.isDamageable)
+                StartCoroutine(FlashRed());
         }
     }
 
