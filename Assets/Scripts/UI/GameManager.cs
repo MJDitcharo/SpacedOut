@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public PlayerMovement movement;
     public GameObject pauseMenu;
     public int enemyCount;
+    public HealthBar healthBar;
 
     public int sceneIndex;
     public int checkpointIndex = 0;
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         movement = player.GetComponent<PlayerMovement>();
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+        healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
         //checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
     }
 

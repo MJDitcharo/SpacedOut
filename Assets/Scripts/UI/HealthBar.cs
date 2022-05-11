@@ -16,7 +16,7 @@ public class HealthBar : MonoBehaviour
     public void SetHealth(float health)
     {
         if (health <= 1 && health >= 0)
-            currentHealth = health;
+            image.fillAmount = currentHealth;
     }
 
 }
