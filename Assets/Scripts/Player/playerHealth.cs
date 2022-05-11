@@ -21,7 +21,7 @@ public class playerHealth : health
 
             delayDamge = Time.time + 1f / delayRate;
             currHealth -= dmg;
-            GameManager.instance.healthBar.SetHealth(currHealth / maxHealth);
+            GameManager.instance.healthBar.SetHealth((float)currHealth / maxHealth);
             if (currHealth <= 0)
             {
                 Debug.Log("Dead");
