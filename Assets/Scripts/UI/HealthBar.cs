@@ -6,17 +6,16 @@ public class HealthBar : MonoBehaviour
 {
     [SerializeField]
     private Image image;
+    
 
-    private float currentHealth;
     private void Awake()
     {
-        currentHealth = image.fillAmount;
+        image.fillAmount = 1;
     }
 
     public void SetHealth(float health)
     {
-        if (health <= 1 && health >= 0)
-            currentHealth = health;
+            image.fillAmount = health;
     }
 
 }
