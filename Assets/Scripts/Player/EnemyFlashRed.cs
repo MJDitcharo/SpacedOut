@@ -25,8 +25,9 @@ public class EnemyFlashRed : MonoBehaviour
     {
         if(collider.gameObject.tag == "Bullet")
         {
-            if(ph.isDamageable)
-                StartCoroutine(FlashRed());
+            if (ph != null && ph.isDamageable == false)
+                return;
+            StartCoroutine(FlashRed());
         }
     }
 

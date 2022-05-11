@@ -1899,6 +1899,7 @@ MonoBehaviour:
   movement: {fileID: 0}
   pauseMenu: {fileID: 0}
   enemyCount: 0
+  healthBar: {fileID: 0}
   sceneIndex: 0
   checkpointIndex: 0
   checkpoints: []
@@ -1990,7 +1991,7 @@ GameObject:
   - component: {fileID: 1836739411468418259}
   m_Layer: 5
   m_Name: Player Health Bar
-  m_TagString: Untagged
+  m_TagString: HealthBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -28,26 +28,26 @@ public class GameManager : MonoBehaviour
         //checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
     }
 
-    private void Update()
+    private void LateUpdate()
     {
 
     }
 
     public void Respawn()
     {
-        player.transform.position = checkpoints[checkpointIndex].transform.position;
-        player.GetComponent<playerHealth>().currHealth = player.GetComponent<playerHealth>().maxHealth;
-
-        for (int i  = checkpoints.Length - 1; i >= 0; i--)
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        for(int i = 0; i < enemies.Length; i++)
         {
-            if (i == checkpointIndex)
-            {
-                checkpoints[i].GetComponent<RoomManager>().EndLockDown();
-                continue;
-            }
-            checkpoints[i].GetComponent<RoomManager>().LockDownRoom();
-            checkpoints[i].GetComponent<RoomManager>().collider.enabled = true;
+            Destroy(enemies[i]);
         }
+        enemyCount = 0;
+
+        player.GetComponent<PlayerMovement>().WarpToPosition(checkpoints[checkpointIndex].transform.position);
+        player.GetComponent<playerHealth>().currHealth = player.GetComponent<playerHealth>().maxHealth;
+        healthBar.SetHealth(1);
+
+        checkpoints[checkpointIndex].GetComponent<RoomManager>().EndLockDown();
+        checkpoints[checkpointIndex + 1].GetComponent<RoomManager>().collider.enabled = true;
     }
     
     public void SaveGame()

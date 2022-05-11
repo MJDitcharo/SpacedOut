@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     Animator playerAnimation;
 
     public CharacterController cc;
+    Vector3 warpedPositon;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,10 +38,16 @@ public class PlayerMovement : MonoBehaviour
         cc.Move(moveSpeed * Time.deltaTime * movement);
 
     }
-    // Update is called once per frame
-    void FixedUpdate()
+    
+    void LateUpdate()
     {
-       
+        if(warpedPositon != Vector3.zero)
+        {
+            cc.enabled = false;
+            transform.position = warpedPositon;
+            warpedPositon = Vector3.zero;
+            cc.enabled = true;
+        }
     }
 
     public IEnumerator Rolling()
@@ -49,5 +56,10 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(1f);
         ph.isDamageable = true;
 
+    }
+
+    public void WarpToPosition(Vector3 position)
+    {
+        warpedPositon = position;
     }
 }

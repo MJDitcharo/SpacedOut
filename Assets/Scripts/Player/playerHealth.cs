@@ -24,7 +24,7 @@ public class playerHealth : health
             GameManager.instance.healthBar.SetHealth((float)currHealth / maxHealth);
             if (currHealth <= 0)
             {
-                Debug.Log("Dead");
+                GameManager.instance.Respawn();
             }
         }
     }
