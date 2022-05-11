@@ -21,6 +21,10 @@ public class MenuButtons : PopUpMenu
 
     public void RestartLevelClicked()
     {
+        //making sure the game is unpaused
+        UnfreezeWorld();
+        GameManager.instance.Respawn();
 
+        //UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
 }
