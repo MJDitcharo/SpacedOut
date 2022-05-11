@@ -5,21 +5,26 @@ using UnityEngine;
 public class WeaponBase : MonoBehaviour
 {
     public Transform firePoint;
+    [SerializeField]
     public GameObject bulletPrefab; //instance of bullet prefab
 
-    public float fireRate = 7f; //firerate
+    [SerializeField]
+    protected float fireRate = 7f; //firerate
+    [SerializeField]
     public float bulletForce = 20f;
-    public float ammoCount; //ammo count 
-    public float Damage; //damage
+    [SerializeField]
+    protected int ammoCount; //ammo count 
+    protected float damage; //damage
 
-    private float nextShotFired = 0f; //counter for next bullet that is fired
+    protected float nextShotFired = 0f; //counter for next bullet that is fired
     // Update is called once per frame
     public virtual void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time >= nextShotFired) //if the first mouse button is down
+        if (Input.GetButton("Fire1") && Time.time >= nextShotFired && ammoCount != 0) //if the first mouse button is down
         {
             nextShotFired = Time.time + 1f / fireRate; //delay for the next bullet fired
             Shoot(); //shoot method
+            ammoCount--;
         }
     }
 

@@ -12,30 +12,29 @@ public class DoorTrigger : MonoBehaviour
     GameObject doorSliderR;
 
 
-    Vector3 sliderLTransform;
-    Vector3 sliderRTransform;
+    //Vector3 sliderLTransform;
+    //Vector3 sliderRTransform;
 
-    Vector3 openPositionL;
-    Vector3 closedPositionL;
-    Vector3 openPositionR;
-    Vector3 closedPositionR;
+    //Vector3 openPositionL;
+    //Vector3 closedPositionL;
+    //Vector3 openPositionR;
+    //Vector3 closedPositionR;
 
-    private int doorRoomId = 1;
-    bool doorOpen = true;
 
     //how far the door panels open
-    float doorMovement = 1f;
+    const float doorMovement = 1f;
 
+    bool doorOpen = false;
     private void Awake()
     {
-        sliderLTransform = doorSliderL.transform.position;
-        sliderRTransform = doorSliderR.transform.position;
+        //sliderLTransform = doorSliderL.transform.position;
+        //sliderRTransform = doorSliderR.transform.position;
 
-        closedPositionL = sliderLTransform;
-        openPositionL = new Vector3(sliderLTransform.x - doorMovement, sliderLTransform.y, sliderLTransform.z);
+        //closedPositionL = sliderLTransform;
+        //openPositionL = new Vector3(sliderLTransform.x - doorMovement, sliderLTransform.y, sliderLTransform.z);
 
-        closedPositionR = sliderRTransform;
-        openPositionR= new Vector3(sliderRTransform.x + doorMovement, sliderRTransform.y, sliderRTransform.z);
+        //closedPositionR = sliderRTransform;
+        //openPositionR= new Vector3(sliderRTransform.x + doorMovement, sliderRTransform.y, sliderRTransform.z);
 
     }
 
@@ -79,6 +78,12 @@ public class DoorTrigger : MonoBehaviour
         //doorSliderR.transform.position = openPositionR;
 
         doorOpen = false;
+    }
+
+    //see which side of the door the player came from
+    private void CheckSide()
+    {
+
     }
 
 }
