@@ -10,6 +10,7 @@ public class RoomManager : MonoBehaviour
     public Collider collider;
 
     [SerializeField] EnemySpawner enemySpawner;
+    [SerializeField] float spawnTime = 1;
 
     public void LockDownRoom()
     {
@@ -17,7 +18,7 @@ public class RoomManager : MonoBehaviour
         doorEnter.SetActive(true);
         doorExit.SetActive(true);
 
-        StartCoroutine(enemySpawner.SpawnEnemies(3));
+        StartCoroutine(enemySpawner.SpawnEnemies(spawnTime));
     }
 
     public void EndLockDown()
