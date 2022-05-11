@@ -7,7 +7,7 @@ public class RoomManager : MonoBehaviour
 {
     [SerializeField] GameObject doorEnter;
     [SerializeField] GameObject doorExit;
-    [SerializeField] Collider collider;
+    public Collider collider;
 
     [SerializeField] EnemySpawner enemySpawner;
 
