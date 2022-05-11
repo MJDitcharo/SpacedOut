@@ -31,6 +31,11 @@ public class health : MonoBehaviour
     virtual public void Death()
     {
         GameManager.instance.enemyCount--;
+        if (GameManager.instance.enemyCount <= 0)
+        {
+            GameManager.instance.checkpoints[GameManager.instance.checkpointIndex].GetComponent<RoomManager>().EndLockDown();
+            GameManager.instance.checkpointIndex++;
+        }
         Destroy(gameObject);
     }
 }

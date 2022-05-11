@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public int enemyCount;
 
     public int sceneIndex;
-    public int checkpointIndex;
+    public int checkpointIndex = 0;
     public GameObject[] checkpoints;
 
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         movement = player.GetComponent<PlayerMovement>();
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
-        checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
+        //checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
     }
 
     private void Update()

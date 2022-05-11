@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnEnemies(3));
+        //StartCoroutine(SpawnEnemies(3));
     }
 
     public IEnumerator SpawnEnemies(float time)
