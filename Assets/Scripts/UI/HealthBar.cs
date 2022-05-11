@@ -5,28 +5,18 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField]
-    private Slider slider;
+    private Image image;
 
-    private int currentHealth;
+    private float currentHealth;
     private void Awake()
     {
-        slider = GetComponent<Slider>();
-        currentHealth = (int)slider.value;
+        currentHealth = image.fillAmount;
     }
 
-    public void SetHealth(int health)
+    public void SetHealth(float health)
     {
-        if (health <= slider.maxValue && health >= slider.minValue)
+        if (health <= 1 && health >= 0)
             currentHealth = health;
-    }
-
-    public void SetMaxHealth(int health)
-    {
-        slider.maxValue = health;
-    }
-    public void SetMinHealth(int health)
-    {
-        slider.minValue = health;
     }
 
 }
