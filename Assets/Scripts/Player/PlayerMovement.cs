@@ -6,8 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] playerHealth ph;
     public float moveSpeed = 1f;
+    [SerializeField] float pushbackFalloffSpeed = 4;
     Vector3 movement;
     Vector3 mousePosition;
+    public Vector3 pushback;
     Animator playerAnimation;
 
     public CharacterController cc;
@@ -20,8 +22,9 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+        pushback = Vector3.Lerp(pushback, Vector3.zero, pushbackFalloffSpeed * Time.deltaTime);
         movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized; //move the player with wasd
-        playerAnimation.SetFloat("Velocity", cc.velocity.magnitude);
+        playerAnimation.SetFloat("Velocity", Mathf.Lerp(playerAnimation.GetFloat("Velocity"), cc.velocity.magnitude, Time.deltaTime * 4));
         if (Input.GetKeyUp(KeyCode.Space))
         {
             playerAnimation.SetTrigger("Roll");
@@ -34,8 +37,8 @@ public class PlayerMovement : MonoBehaviour
         Debug.DrawLine(transform.position, mousePosition, Color.red, 2f);
         //move the charcter towards the mouse position
         transform.LookAt(mousePosition);
-        cc.Move(new Vector3(0, -1, 0) * Time.deltaTime);
-        cc.Move(moveSpeed * Time.deltaTime * movement);
+        //cc.Move(new Vector3(0, -1, 0) * Time.deltaTime);
+        cc.Move(moveSpeed * Time.deltaTime * (movement + pushback));
 
     }
     
