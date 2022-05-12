@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class RoomManager : MonoBehaviour
 {
-    [SerializeField] GameObject doorEnter;
+    public GameObject doorEnter;
     [SerializeField] GameObject doorExit;
     public Collider collider;
 

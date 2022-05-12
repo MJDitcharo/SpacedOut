@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
 
         checkpoints[checkpointIndex].GetComponent<RoomManager>().EndLockDown();
         checkpoints[checkpointIndex + 1].GetComponent<RoomManager>().collider.enabled = true;
+        checkpoints[checkpointIndex + 1].GetComponent<RoomManager>().doorEnter.SetActive(false);
     }
     
     public void SaveGame()
