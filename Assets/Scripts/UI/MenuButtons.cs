@@ -9,22 +9,21 @@ public class MenuButtons : PopUpMenu
     GameObject menuVisual;
     public void ResumeClicked()
     {
-        Debug.Log("Resume clicked");
-        UnfreezeWorld(menuVisual);
-        menuVisual.SetActive(false);
+        GameManager.instance.pmenu.UnpauseGame();
     }
 
     public void QuitClicked()
     {
+        GameManager.instance.pmenu.UnpauseGame();
         Application.Quit();
     }
 
     public void RestartLevelClicked()
     {
         //making sure the game is unpaused
-        UnfreezeWorld();
-        GameManager.instance.Respawn();
-
-        //UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        GameManager.instance.pmenu.UnpauseGame();
+        //GameManager.instance.Respawn();
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
+    
 }

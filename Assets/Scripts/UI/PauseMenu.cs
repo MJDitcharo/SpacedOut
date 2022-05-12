@@ -12,7 +12,7 @@ public class PauseMenu : PopUpMenu
     GameObject pauseMenuVisual;
 
 
-    bool gameIsPaused = false;
+    public bool gameIsPaused = false;
 
     private void Awake()
     {
@@ -22,21 +22,42 @@ public class PauseMenu : PopUpMenu
 
     private void Update()
     {
-        PauseGame();
+        if(Input.GetButtonUp("Cancel"))
+        {
+            if (gameIsPaused)
+                UnpauseGame();
+            else
+                PauseGame();
+        }
     }
 
     public void PauseGame()
     {
-        if (Input.GetButtonUp("Cancel"))
-        {
-            gameIsPaused = !gameIsPaused;
-            Debug.Log("Paused?" + gameIsPaused);
-            pauseMenuVisual.SetActive(gameIsPaused);
+        //if (Input.GetButtonUp("Cancel"))
+        //{
+        //    gameIsPaused = !gameIsPaused;
+        //    Debug.Log("Paused?" + gameIsPaused);
+        //    pauseMenuVisual.SetActive(gameIsPaused);
 
-            if (gameIsPaused)
-                FreezeWorld(pauseMenuVisual);
-            else
-                UnfreezeWorld(pauseMenuVisual);
-        }
+        //    if (gameIsPaused)
+        //        FreezeWorld(pauseMenuVisual);
+        //    else
+        //        UnfreezeWorld(pauseMenuVisual);
+        //}
+        gameIsPaused = true;
+        FreezeWorld();
+        pauseMenuVisual.SetActive(gameIsPaused);
+        Debug.Log("Paused: " + gameIsPaused);
+
+    }
+
+    public void UnpauseGame()
+    {
+        gameIsPaused = false;
+        UnfreezeWorld(pauseMenuVisual);
+        pauseMenuVisual.SetActive(gameIsPaused);
+        Debug.Log("Paused: " + gameIsPaused);
+
+
     }
 }

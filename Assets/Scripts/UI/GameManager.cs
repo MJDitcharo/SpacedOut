@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     public int enemyCount;
     public HealthBar healthBar;
-
+    public PauseMenu pmenu;
     public int sceneIndex;
     public int checkpointIndex = 0;
     public GameObject[] checkpoints;
@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
         //checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
+        pmenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
+
     }
 
     private void LateUpdate()

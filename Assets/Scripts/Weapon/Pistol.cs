@@ -6,5 +6,4 @@ public class Pistol : WeaponBase
 {
     //uses the base Update function
 
-    
 }

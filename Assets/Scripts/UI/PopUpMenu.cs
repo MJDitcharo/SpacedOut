@@ -17,6 +17,12 @@ public class PopUpMenu : MonoBehaviour
         GameManager.instance.movement.enabled = true;
         objectToToggle.SetActive(false);
     }
+
+    public void FreezeWorld()
+    {
+        Time.timeScale = 0;
+        GameManager.instance.movement.enabled = false;
+    }
     public void UnfreezeWorld()
     {
         Time.timeScale = 1;
