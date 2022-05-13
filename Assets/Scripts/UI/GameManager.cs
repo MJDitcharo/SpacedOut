@@ -8,13 +8,16 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public PlayerMovement movement;
-    public GameObject pauseMenu;
     public int enemyCount;
-    public HealthBar healthBar;
     public PauseMenu pmenu;
     public int sceneIndex;
     public int checkpointIndex = 0;
     public GameObject[] checkpoints;
+
+    //UI
+    public HealthBar healthBar;
+    public GameObject pauseMenu;
+
 
     // Start is called before the first frame update
     void Awake()

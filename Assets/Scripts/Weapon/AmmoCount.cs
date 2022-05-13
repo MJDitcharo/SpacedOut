@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class AmmoCount : MonoBehaviour
+public class AmmoCount : AmmoCountBase
 {
-    [SerializeField]
-    public int currentAmmo { get; set; }
-
-    private void Start()
+    override protected void GetAmmoCount()
     {
-        
+
     }
 }

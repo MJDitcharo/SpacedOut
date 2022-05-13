@@ -33,22 +33,10 @@ public class PauseMenu : PopUpMenu
 
     public void PauseGame()
     {
-        //if (Input.GetButtonUp("Cancel"))
-        //{
-        //    gameIsPaused = !gameIsPaused;
-        //    Debug.Log("Paused?" + gameIsPaused);
-        //    pauseMenuVisual.SetActive(gameIsPaused);
-
-        //    if (gameIsPaused)
-        //        FreezeWorld(pauseMenuVisual);
-        //    else
-        //        UnfreezeWorld(pauseMenuVisual);
-        //}
         gameIsPaused = true;
         FreezeWorld();
         pauseMenuVisual.SetActive(gameIsPaused);
         Debug.Log("Paused: " + gameIsPaused);
-
     }
 
     public void UnpauseGame()
@@ -57,7 +45,5 @@ public class PauseMenu : PopUpMenu
         UnfreezeWorld(pauseMenuVisual);
         pauseMenuVisual.SetActive(gameIsPaused);
         Debug.Log("Paused: " + gameIsPaused);
-
-
     }
 }
