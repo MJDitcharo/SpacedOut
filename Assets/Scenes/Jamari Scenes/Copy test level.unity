@@ -754,14 +754,30 @@ PrefabInstance:
       propertyPath: checkpoints.Array.data[1]
       value: 
       objectReference: {fileID: 1550968053}
+    - target: {fileID: 3562883926763392241, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
+      propertyPath: quantity
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3693878533370605075, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -16.900002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4449619307714412593, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
+      propertyPath: m_TagString
+      value: AmmoCount
       objectReference: {fileID: 0}
     - target: {fileID: 5601617176400430421, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5796276362737430759, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450346329091514169, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
+      propertyPath: textMeshPro
+      value: 
+      objectReference: {fileID: 1461924617}
     - target: {fileID: 8237575614888856517, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
@@ -1456,7 +1472,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3743390652330680519, guid: ac0d6938d6ec6a64e82dadac4285cf64, type: 3}
   fireRate: 3
   bulletForce: 15
-  ammoCount: 200
+  ammoCount: 20
 --- !u!1 &1296037753
 GameObject:
   m_ObjectHideFlags: 0
@@ -1698,6 +1714,17 @@ Transform:
   m_Father: {fileID: 1296037754}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1461924617 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5671005194217604958, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
+  m_PrefabInstance: {fileID: 685491387}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1466437291
 GameObject:
   m_ObjectHideFlags: 0
@@ -2358,7 +2385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4268597916284530, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.76
+      value: -4.662
       objectReference: {fileID: 0}
     - target: {fileID: 4268597916284530, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
       propertyPath: m_LocalPosition.z

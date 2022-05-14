@@ -4,8 +4,5 @@ using UnityEngine;
 using UnityEngine.UI;
 public class AmmoCount : AmmoCountBase
 {
-    override protected void GetAmmoCount()
-    {
-
-    }
+    
 }

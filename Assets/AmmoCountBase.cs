@@ -4,15 +4,13 @@ using UnityEngine;
 public class AmmoCountBase : MonoBehaviour
 {
     [SerializeField]
-    int quantity;
+    public int Quantity { get; set; } = 0;
     [SerializeField]
     TMPro.TextMeshProUGUI textMeshPro;
 
     private void Awake()
     {
-        GetAmmoCount();
-        textMeshPro.text = quantity.ToString();
-
+        UpdateVisual();
     }
 
     private void Update()
@@ -24,14 +22,32 @@ public class AmmoCountBase : MonoBehaviour
     //public void OnWeaponSwitch()
     //change the ammo count
 
-    private void UpdateAmmoCount()
+    protected void UpdateVisual()
     {
-
+        textMeshPro.text = Quantity.ToString();
     }
 
-    protected virtual void GetAmmoCount()
+    protected void SubtractAmmo(int ammo = 0)
     {
+        if (ammo == 0)
+            Quantity--;
+        else
+            Quantity -= ammo;
+        UpdateVisual();
+    }
+    protected void AddAmmo(int ammo = 0)
+    {
+        if (ammo == 0)
+            Quantity++;
+        else
+            Quantity += ammo;
+        UpdateVisual();
+    }
 
+    public virtual void SetAmmoCount(int ammo)
+    {
+        Quantity = ammo;
+        UpdateVisual();
     }
 
 }

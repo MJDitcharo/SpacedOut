@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponBase : MonoBehaviour
@@ -15,9 +13,17 @@ public class WeaponBase : MonoBehaviour
     [SerializeField]
     protected int ammoCount; //ammo count 
     protected float damage; //damage
-
+    AmmoCount ammoCountVisual;
     protected float nextShotFired = 0f; //counter for next bullet that is fired
-    // Update is called once per frame
+                                        // Update is called once per frame
+
+    private void Awake()
+    {
+        //grab ammo for UI
+        ammoCountVisual = GameManager.instance.ammoCount;
+        ammoCountVisual.SetAmmoCount(ammoCount);
+    }
+
     public virtual void Update()
     {
         if (Input.GetButton("Fire1") && Time.time >= nextShotFired && ammoCount != 0) //if the first mouse button is down
@@ -25,6 +31,7 @@ public class WeaponBase : MonoBehaviour
             nextShotFired = Time.time + 1f / fireRate; //delay for the next bullet fired
             Shoot(); //shoot method
             ammoCount--;
+            ammoCountVisual.SetAmmoCount(ammoCount);
         }
     }
 
@@ -40,4 +47,5 @@ public class WeaponBase : MonoBehaviour
     {
         gameObject.SetActive(isActive);
     }
+
 }
