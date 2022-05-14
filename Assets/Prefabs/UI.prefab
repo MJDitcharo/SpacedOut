@@ -2116,6 +2116,7 @@ MonoBehaviour:
   checkpoints: []
   healthBar: {fileID: 0}
   pauseMenu: {fileID: 0}
+  ammoCount: {fileID: 0}
 --- !u!1 &1836739411248381380
 GameObject:
   m_ObjectHideFlags: 0
@@ -2930,7 +2931,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5da218d7d7c3fb549b08f112c29092d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quantity: 0
   textMeshPro: {fileID: 5796276362737430759}
 --- !u!1 &4531022627968829446
 GameObject:
@@ -3193,7 +3193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8237575614888856517}
   - component: {fileID: 5344358313012906322}
-  - component: {fileID: 1215762427009179713}
+  - component: {fileID: 4887922547632000371}
   m_Layer: 5
   m_Name: Equipped Gun Image
   m_TagString: Untagged
@@ -3218,7 +3218,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: -0}
+  m_AnchoredPosition: {x: -1, y: 0}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5344358313012906322
@@ -3229,7 +3229,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5071187583474629802}
   m_CullTransparentMesh: 1
---- !u!114 &1215762427009179713
+--- !u!114 &4887922547632000371
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3250,7 +3250,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300014, guid: 5acb27b603af6d44ea6113c4b7b15385, type: 3}
-  m_Type: 3
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3574,7 +3574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7ddf345244afd40b738b7dc85df05a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quantity: 0
   textMeshPro: {fileID: 0}
 --- !u!1 &8411186509388189212
 GameObject:
