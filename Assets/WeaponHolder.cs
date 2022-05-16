@@ -7,8 +7,7 @@ public class WeaponHolder : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField]
-    int selectedWeapon = 0;
-
+    public int selectedWeapon = 0;
     static public WeaponHolder instance;
 
 
@@ -23,12 +22,7 @@ public class WeaponHolder : MonoBehaviour
     }
     private void Update()
     {
-        if (SwitchWeapons())
-        {
-            //update the UI
-            //AmmoCount ammo = transform.GetChild(selectedWeapon).gameObject.GetComponent<AmmoCount>();
-            //GameManager.instance.ammoCount.SetAmmoCount(ammo.Quantity);
-        }
+        SwitchWeapons();
     }
 
     private void SelectWeapon()

@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class Heavy : WeaponBase
 {
-   
+    private void Awake()
+    {
+        weaponID = WeaponID.Heavy;
+    }
 }

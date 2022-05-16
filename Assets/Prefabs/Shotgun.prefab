@@ -106,7 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7475352714956614141}
-  - component: {fileID: 7340519207896918276}
+  - component: {fileID: 8731587446779546870}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -131,7 +131,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7340519207896918276
+--- !u!114 &8731587446779546870
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,13 +140,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8830912256881924189}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40478ad5c42546e46842b2ffc3fe2e2a, type: 3}
+  m_Script: {fileID: 11500000, guid: 037e688efbeb48445be8a5309d63b5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 150271276195679488}
   bulletPrefab: {fileID: 3743390652330680519, guid: ac0d6938d6ec6a64e82dadac4285cf64, type: 3}
-  fireRate: 3
-  bulletForce: 20
+  fireRate: 2
+  bulletForce: 30
   ammoCount: 15
 --- !u!1 &9058567498615695302
 GameObject:

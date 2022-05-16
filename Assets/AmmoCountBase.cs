@@ -5,6 +5,7 @@ public class AmmoCountBase : MonoBehaviour
 {
     [SerializeField]
     public int Quantity { get; set; } = 0;
+    //int maxAmmo;
     [SerializeField]
     TMPro.TextMeshProUGUI textMeshPro;
 
@@ -17,6 +18,7 @@ public class AmmoCountBase : MonoBehaviour
     {
         textMeshPro.text = Quantity.ToString();
     }
+
     /// <summary>
     /// Subtract the specified ammo. Subtracts 1 bullet by default
     /// </summary>
@@ -25,6 +27,8 @@ public class AmmoCountBase : MonoBehaviour
     {
         if (ammo == 0)
             Quantity--;
+        else if (Quantity - ammo < 0)
+            Quantity = 0;
         else
             Quantity -= ammo;
         UpdateVisual();
@@ -45,7 +49,8 @@ public class AmmoCountBase : MonoBehaviour
 
     public virtual void SetAmmoCount(int ammo)
     {
-        Quantity = ammo;
+        if (ammo >= 0)
+            Quantity = ammo;
         UpdateVisual();
     }
 

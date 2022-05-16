@@ -4,5 +4,9 @@ using UnityEngine;
 
 public class Shotgun : WeaponBase
 {
-  
+    private void Awake()
+    {
+        weaponID = WeaponID.Rifle;
+    }
+
 }

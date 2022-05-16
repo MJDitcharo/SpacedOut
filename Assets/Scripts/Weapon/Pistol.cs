@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class Pistol : WeaponBase
 {
-
     //uses the base Update function
-
-
     private void Awake()
     {
         weaponID = WeaponID.Pistol;
-        
     }
 }

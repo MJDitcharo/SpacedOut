@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour
     public HealthBar healthBar;
     public GameObject pauseMenu;
     public AmmoCount ammoCount;
-    
+
+
 
 
     // Start is called before the first frame update
@@ -32,7 +33,6 @@ public class GameManager : MonoBehaviour
         healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
         //checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
         pmenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
-        //set default ui stats
         ammoCount = GameObject.FindGameObjectWithTag("AmmoCount").GetComponent<AmmoCount>();
     }
 
