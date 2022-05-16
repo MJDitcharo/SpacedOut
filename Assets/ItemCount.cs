@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class AmmoCountBase : MonoBehaviour
+public class ItemCount : MonoBehaviour
 {
     [SerializeField]
     int quantity = 0;
-    int maxAmmo = 0;
+    [SerializeField]
+    int max = 0;
     //int maxAmmo;
     [SerializeField]
     TMPro.TextMeshProUGUI textMeshPro;
@@ -24,7 +25,7 @@ public class AmmoCountBase : MonoBehaviour
     /// Subtract the specified ammo. Subtracts 1 bullet by default
     /// </summary>
     /// <param name="ammo"></param>
-    public void SubtractAmmo(int ammo = 0)
+    public void Subtract(int ammo = 0)
     {
         if (ammo == 0)
             quantity--;
@@ -39,27 +40,27 @@ public class AmmoCountBase : MonoBehaviour
     /// Adds the specified ammo. Adds 1 bullet by default
     /// </summary>
     /// <param name="ammo"></param>
-    public void AddAmmo(int ammo = 0)
+    public void Add(int ammo = 0)
     {
         if (ammo == 0)
             quantity++;
-        else if (ammo + quantity > maxAmmo)
-            quantity = maxAmmo;
+        else if (ammo + quantity > max)
+            quantity = max;
         else
             quantity += ammo;
         UpdateVisual();
     }
 
-    public virtual void SetAmmoCount(int ammo)
+    public virtual void SetQuantity(int ammo)
     {
         if (ammo >= 0)
             quantity = ammo;
         UpdateVisual();
     }
 
-    public virtual void SetMaxAmmoCount(int ammo)
+    public virtual void SetMaximumQuatnity(int ammo)
     {
-        maxAmmo = ammo;
+        max = ammo;
         UpdateVisual();
     }
 

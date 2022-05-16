@@ -17,9 +17,10 @@ public class GameManager : MonoBehaviour
     //UI
     public HealthBar healthBar;
     public GameObject pauseMenu;
-    public AmmoCount ammoCount;
-    public BoardWipeCount boardWipeCount;
-    public GrenadeCount grenadeCount;
+    public ItemCount ammoCount;
+    public  ItemCount boardWipeCount;
+    public ItemCount grenadeCount;
+    public ItemCount skrapCount;
 
 
 
@@ -34,11 +35,15 @@ public class GameManager : MonoBehaviour
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
         //checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
-        pmenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
-        ammoCount = GameObject.FindGameObjectWithTag("AmmoCount").GetComponent<AmmoCount>();
-        boardWipeCount = GameObject.FindGameObjectWithTag("BoardWipeCount").GetComponent<BoardWipeCount>();
-        grenadeCount = GameObject.FindGameObjectWithTag("GrenadeCount").GetComponent<GrenadeCount>();
 
+        //ui stuff
+        pmenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
+        ammoCount = GameObject.FindGameObjectWithTag("AmmoCount").GetComponent<ItemCount>();
+        boardWipeCount = GameObject.FindGameObjectWithTag("BoardWipeCount").GetComponent<ItemCount>();
+        grenadeCount = GameObject.FindGameObjectWithTag("GrenadeCount").GetComponent<ItemCount>();
+        skrapCount = GameObject.Find("Skrap Count").GetComponent<ItemCount>();
+        if (skrapCount != null)
+            Debug.Log("FoundSkrap Count");
     }
 
     private void LateUpdate()

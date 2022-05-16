@@ -6,6 +6,6 @@ public class GrenadePickup : Pickups
 {
     override protected void ItemToIncrement()
     {
-        GameManager.instance.grenadeCount.AddAmmo();
+        GameManager.instance.grenadeCount.Add(quantity);
     }
 }

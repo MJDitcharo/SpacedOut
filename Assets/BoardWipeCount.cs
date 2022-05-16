@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoardWipeCount : AmmoCountBase
+public class BoardWipeCount : ItemCount
 {
 
 }

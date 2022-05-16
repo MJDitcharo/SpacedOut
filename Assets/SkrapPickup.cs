@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoardWipePickup : Pickups
+public class SkrapPickup : Pickups
 {
     protected override void ItemToIncrement()
     {
-        GameManager.instance.boardWipeCount.Add(quantity);
+        Debug.Log("Max: " + quantity);
+        GameManager.instance.skrapCount.Add(quantity);
     }
 }

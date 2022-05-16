@@ -56,7 +56,7 @@ public class WeaponBase : MonoBehaviour
 
         //deplete ammo
         ammoCount--;
-        GameManager.instance.ammoCount.SubtractAmmo();
+        GameManager.instance.ammoCount.Subtract();
     }
 
     public virtual void SetActive(bool isActive) //set current weapon to sctive
@@ -66,8 +66,8 @@ public class WeaponBase : MonoBehaviour
 
     private void UpdateVisual()
     {
-        GameManager.instance.ammoCount.SetAmmoCount(ammoCount);
-        GameManager.instance.ammoCount.SetMaxAmmoCount(maxAmmo);
+        GameManager.instance.ammoCount.SetQuantity(ammoCount);
+        GameManager.instance.ammoCount.SetMaximumQuatnity(maxAmmo);
     }
 
 }
