@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class WeaponBase : MonoBehaviour
 {
+    protected enum WeaponID { Pistol, Shotgun, Heavy, Rifle, Melee };
+    [SerializeField]
+    private static bool weaponOnStart = false;
+    protected WeaponID weaponID;
     public Transform firePoint;
     [SerializeField]
     public GameObject bulletPrefab; //instance of bullet prefab
@@ -11,17 +15,30 @@ public class WeaponBase : MonoBehaviour
     [SerializeField]
     public float bulletForce = 20f;
     [SerializeField]
-    protected int ammoCount; //ammo count 
+    public int ammoCount; //ammo count 
     protected float damage; //damage
-    AmmoCount ammoCountVisual;
     protected float nextShotFired = 0f; //counter for next bullet that is fired
                                         // Update is called once per frame
 
-    private void Awake()
+    private void Start()
     {
-        //grab ammo for UI
-        ammoCountVisual = GameManager.instance.ammoCount;
-        ammoCountVisual.SetAmmoCount(ammoCount);
+        //grab ammo for UI. Only do this one time
+        Debug.Log("Start: First weapon shown?" + weaponOnStart);
+        if (!weaponOnStart)
+        {
+            UpdateVisual();
+            weaponOnStart = true;
+        }
+    }
+    private void OnEnable()
+    {
+        Debug.Log("Enabled: First weapon shown?" + weaponOnStart);
+
+        if (weaponOnStart)
+        {
+            UpdateVisual();
+
+        }
     }
 
     public virtual void Update()
@@ -30,8 +47,6 @@ public class WeaponBase : MonoBehaviour
         {
             nextShotFired = Time.time + 1f / fireRate; //delay for the next bullet fired
             Shoot(); //shoot method
-            ammoCount--;
-            ammoCountVisual.SetAmmoCount(ammoCount);
         }
     }
 
@@ -41,11 +56,22 @@ public class WeaponBase : MonoBehaviour
         Rigidbody rb = bullet.GetComponent<Rigidbody>(); //acess the rigidbody of the game object
         rb.AddForce(firePoint.forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
 
+
+        Debug.Log("Visual is null?" + GameManager.instance.ammoCount == null);
+
+        //deplete ammo
+        ammoCount--;
+        GameManager.instance.ammoCount.SubtractAmmo();
     }
 
     public virtual void SetActive(bool isActive) //set current weapon to sctive
     {
         gameObject.SetActive(isActive);
+    }
+
+    private void UpdateVisual()
+    {
+        GameManager.instance.ammoCount.SetAmmoCount(ammoCount);
     }
 
 }

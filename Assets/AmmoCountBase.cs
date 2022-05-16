@@ -13,21 +13,15 @@ public class AmmoCountBase : MonoBehaviour
         UpdateVisual();
     }
 
-    private void Update()
-    {
-        //check if ammo count changed
-        //update ammo count depending on which ammo count was changed
-    }
-
-    //public void OnWeaponSwitch()
-    //change the ammo count
-
     protected void UpdateVisual()
     {
         textMeshPro.text = Quantity.ToString();
     }
-
-    protected void SubtractAmmo(int ammo = 0)
+    /// <summary>
+    /// Subtract the specified ammo. Subtracts 1 bullet by default
+    /// </summary>
+    /// <param name="ammo"></param>
+    public void SubtractAmmo(int ammo = 0)
     {
         if (ammo == 0)
             Quantity--;
@@ -35,7 +29,12 @@ public class AmmoCountBase : MonoBehaviour
             Quantity -= ammo;
         UpdateVisual();
     }
-    protected void AddAmmo(int ammo = 0)
+
+    /// <summary>
+    /// Adds the specified ammo. Adds 1 bullet by default
+    /// </summary>
+    /// <param name="ammo"></param>
+    public void AddAmmo(int ammo = 0)
     {
         if (ammo == 0)
             Quantity++;
