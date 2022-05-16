@@ -1812,7 +1812,7 @@ GameObject:
   - component: {fileID: 8679909735756870786}
   m_Layer: 5
   m_Name: Grenade Slot
-  m_TagString: Untagged
+  m_TagString: GrenadeCount
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1863,6 +1863,7 @@ GameObject:
   - component: {fileID: 3693878533370605075}
   - component: {fileID: 3140120365820849150}
   - component: {fileID: 5009489839452367010}
+  - component: {fileID: 7465481330279478744}
   m_Layer: 5
   m_Name: 'Board Wipe Count '
   m_TagString: Untagged
@@ -1989,6 +1990,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7465481330279478744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825736943056189673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2605be10590ae49499fc0245559dfc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quantity: 0
+  textMeshPro: {fileID: 5009489839452367010}
 --- !u!1 &1836739410025169331
 GameObject:
   m_ObjectHideFlags: 0
@@ -2117,6 +2132,8 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   pauseMenu: {fileID: 0}
   ammoCount: {fileID: 0}
+  boardWipeCount: {fileID: 0}
+  grenadeCount: {fileID: 0}
 --- !u!1 &1836739411248381380
 GameObject:
   m_ObjectHideFlags: 0
@@ -2569,7 +2586,7 @@ GameObject:
   - component: {fileID: 6291318146250569001}
   m_Layer: 5
   m_Name: Board Wipe
-  m_TagString: Untagged
+  m_TagString: BoardWipeCount
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3061,6 +3078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5da218d7d7c3fb549b08f112c29092d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quantity: 0
   textMeshPro: {fileID: 5796276362737430759}
 --- !u!1 &4531022627968829446
 GameObject:
@@ -3780,6 +3798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c7ddf345244afd40b738b7dc85df05a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quantity: 0
   textMeshPro: {fileID: 5671005194217604958}
 --- !u!1 &8074753626753948070
 GameObject:

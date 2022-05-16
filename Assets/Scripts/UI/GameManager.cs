@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public HealthBar healthBar;
     public GameObject pauseMenu;
     public AmmoCount ammoCount;
+    public BoardWipeCount boardWipeCount;
+    public GrenadeCount grenadeCount;
 
 
 
@@ -34,6 +36,9 @@ public class GameManager : MonoBehaviour
         //checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
         pmenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
         ammoCount = GameObject.FindGameObjectWithTag("AmmoCount").GetComponent<AmmoCount>();
+        boardWipeCount = GameObject.FindGameObjectWithTag("BoardWipeCount").GetComponent<BoardWipeCount>();
+        grenadeCount = GameObject.FindGameObjectWithTag("GrenadeCount").GetComponent<GrenadeCount>();
+
     }
 
     private void LateUpdate()
