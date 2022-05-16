@@ -67,6 +67,7 @@ public class WeaponBase : MonoBehaviour
     private void UpdateVisual()
     {
         GameManager.instance.ammoCount.SetAmmoCount(ammoCount);
+        GameManager.instance.ammoCount.SetMaxAmmoCount(maxAmmo);
     }
 
 }

@@ -6,6 +6,6 @@ public class Pickups : MonoBehaviour
 {
     //number of items this will give the player
     [SerializeField]
-    public int Quantity { get; set; }
+    protected int quantity;
 
 }

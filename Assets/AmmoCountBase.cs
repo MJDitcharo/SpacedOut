@@ -4,7 +4,8 @@ using UnityEngine;
 public class AmmoCountBase : MonoBehaviour
 {
     [SerializeField]
-    public int Quantity { get; set; } = 0;
+    int quantity = 0;
+    int maxAmmo = 0;
     //int maxAmmo;
     [SerializeField]
     TMPro.TextMeshProUGUI textMeshPro;
@@ -16,7 +17,7 @@ public class AmmoCountBase : MonoBehaviour
 
     protected void UpdateVisual()
     {
-        textMeshPro.text = Quantity.ToString();
+        textMeshPro.text = quantity.ToString();
     }
 
     /// <summary>
@@ -26,11 +27,11 @@ public class AmmoCountBase : MonoBehaviour
     public void SubtractAmmo(int ammo = 0)
     {
         if (ammo == 0)
-            Quantity--;
-        else if (Quantity - ammo < 0)
-            Quantity = 0;
+            quantity--;
+        else if (quantity - ammo < 0)
+            quantity = 0;
         else
-            Quantity -= ammo;
+            quantity -= ammo;
         UpdateVisual();
     }
 
@@ -41,16 +42,24 @@ public class AmmoCountBase : MonoBehaviour
     public void AddAmmo(int ammo = 0)
     {
         if (ammo == 0)
-            Quantity++;
+            quantity++;
+        else if (ammo + quantity > maxAmmo)
+            quantity = maxAmmo;
         else
-            Quantity += ammo;
+            quantity += ammo;
         UpdateVisual();
     }
 
     public virtual void SetAmmoCount(int ammo)
     {
         if (ammo >= 0)
-            Quantity = ammo;
+            quantity = ammo;
+        UpdateVisual();
+    }
+
+    public virtual void SetMaxAmmoCount(int ammo)
+    {
+        maxAmmo = ammo;
         UpdateVisual();
     }
 
