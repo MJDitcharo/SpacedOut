@@ -28,15 +28,15 @@ public class OpenChest : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+            GameManager.instance.prompt.ShowPrompt("Press F To Open");
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && !playAni && Input.GetKeyDown(KeyCode.F)) //only move if colliding eith the player and do it once 
         {
-            //instantiate it on the UI
-            //have a boolean to tell if it's on or not
-
-
-
             defaultVec = crateTop.position;
             playAni = true;
         }
@@ -45,7 +45,7 @@ public class OpenChest : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         pLight.enabled = false; //disable light after exiting trigger
-        
+        GameManager.instance.prompt.HidePrompt();
     }
 
 }

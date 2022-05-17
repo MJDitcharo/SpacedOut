@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public ItemCount grenadeCount;
     public ItemCount skrapCount;
     public playerHealth playerHealth;
+    public UIPrompt prompt;
     
 
     // Start is called before the first frame update
@@ -44,8 +45,9 @@ public class GameManager : MonoBehaviour
         boardWipeCount = GameObject.FindGameObjectWithTag("BoardWipeCount").GetComponent<ItemCount>();
         grenadeCount = GameObject.FindGameObjectWithTag("GrenadeCount").GetComponent<ItemCount>();
         skrapCount = GameObject.Find("Skrap Count").GetComponent<ItemCount>();
-        if (skrapCount != null)
-            Debug.Log("FoundSkrap Count");
+        prompt = GameObject.Find("UIPrompt").GetComponent<UIPrompt>();
+        if (prompt != null)
+            Debug.Log("Prompt found");
     }
 
     private void LateUpdate()

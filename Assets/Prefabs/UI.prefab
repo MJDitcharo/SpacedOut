@@ -2125,6 +2125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e979adb1ea5f2a449e3babe27136b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullets: []
   player: {fileID: 0}
   movement: {fileID: 0}
   enemyCount: 0
@@ -2139,6 +2140,7 @@ MonoBehaviour:
   grenadeCount: {fileID: 0}
   skrapCount: {fileID: 0}
   playerHealth: {fileID: 0}
+  prompt: {fileID: 0}
 --- !u!1 &1836739411248381380
 GameObject:
   m_ObjectHideFlags: 0
@@ -2871,7 +2873,7 @@ GameObject:
   - component: {fileID: 1215771774004140045}
   - component: {fileID: 8744063294972422257}
   m_Layer: 0
-  m_Name: Interaction
+  m_Name: UIPrompt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
