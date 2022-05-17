@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public List<GameObject> bullets;
     public GameObject player;
     public PlayerMovement movement;
     public int enemyCount;

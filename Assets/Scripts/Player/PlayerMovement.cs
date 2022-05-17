@@ -25,13 +25,17 @@ public class PlayerMovement : MonoBehaviour
         pushback = Vector3.Lerp(pushback, Vector3.zero, pushbackFalloffSpeed * Time.deltaTime);
         movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized; //move the player with wasd
         playerAnimation.SetFloat("Velocity", Mathf.Lerp(playerAnimation.GetFloat("Velocity"), cc.velocity.magnitude, Time.deltaTime * 4));
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             playerAnimation.SetTrigger("Roll");
             StartCoroutine(Rolling());
 
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            WipeBoard();
+        }
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //gets mouse position relative to camera
         mousePosition.y = transform.position.y; //prevent player from looking up
         Debug.DrawLine(transform.position, mousePosition, Color.red, 2f);
@@ -64,5 +68,15 @@ public class PlayerMovement : MonoBehaviour
     public void WarpToPosition(Vector3 position)
     {
         warpedPositon = position;
+    }
+
+    public void WipeBoard()
+    {
+
+        for (int i = 0; i < GameManager.instance.bullets.Count; i++)
+        {
+            Destroy(GameManager.instance.bullets[i]);
+        }
+        GameManager.instance.bullets.Clear();
     }
 }
