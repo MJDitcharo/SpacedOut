@@ -12,7 +12,7 @@ public class playerHealth : health
     private float delayDamge = 0f;
 
 
-    void AddHealth(float percentage)
+    public void AddHealth(float percentage)
     {
         currHealth += (int)(maxHealth * percentage);
 

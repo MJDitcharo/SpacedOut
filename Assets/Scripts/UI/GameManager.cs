@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public  ItemCount boardWipeCount;
     public ItemCount grenadeCount;
     public ItemCount skrapCount;
-
+    public playerHealth playerHealth;
 
 
 
@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         player = GameObject.FindGameObjectWithTag("Player");
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<playerHealth>();
         movement = player.GetComponent<PlayerMovement>();
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();

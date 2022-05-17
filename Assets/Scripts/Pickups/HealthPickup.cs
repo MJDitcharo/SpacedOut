@@ -6,6 +6,6 @@ public class HealthPickup : Pickups
 {
     protected override void Increment()
     {
-        //GameManager.instance.player.
+        GameManager.instance.playerHealth.AddHealth(quantity * .01f);
     }
 }
