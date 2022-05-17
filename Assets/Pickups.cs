@@ -14,10 +14,13 @@ public abstract class Pickups : MonoBehaviour
         {
             Debug.Log("hit");
             //give the player bullets
-            ItemToIncrement();
+            Increment();
             Destroy(gameObject);
         }
     }
 
-    protected abstract void ItemToIncrement();
+    /// <summary>
+    /// Put whatever needs to be changed in here.
+    /// </summary>
+    protected abstract void Increment();
 }

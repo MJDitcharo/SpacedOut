@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GrenadePickup : Pickups
 {
-    override protected void ItemToIncrement()
+    override protected void Increment()
     {
         GameManager.instance.grenadeCount.Add(quantity);
     }

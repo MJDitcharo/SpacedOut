@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoardWipePickup : Pickups
 {
-    protected override void ItemToIncrement()
+    protected override void Increment()
     {
         GameManager.instance.boardWipeCount.Add(quantity);
     }
