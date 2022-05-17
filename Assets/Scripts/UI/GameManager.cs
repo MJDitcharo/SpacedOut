@@ -19,12 +19,12 @@ public class GameManager : MonoBehaviour
     public HealthBar healthBar;
     public GameObject pauseMenu;
     public ItemCount ammoCount;
-    public  ItemCount boardWipeCount;
+    public ItemCount boardWipeCount;
     public ItemCount grenadeCount;
     public ItemCount skrapCount;
     public playerHealth playerHealth;
     public UIPrompt prompt;
-    
+    public UIChest chestUI;
 
     // Start is called before the first frame update
     void Awake()
@@ -46,8 +46,9 @@ public class GameManager : MonoBehaviour
         grenadeCount = GameObject.FindGameObjectWithTag("GrenadeCount").GetComponent<ItemCount>();
         skrapCount = GameObject.Find("Skrap Count").GetComponent<ItemCount>();
         prompt = GameObject.Find("UIPrompt").GetComponent<UIPrompt>();
-        if (prompt != null)
-            Debug.Log("Prompt found");
+        chestUI = GameObject.Find("Chest UI").GetComponent<UIChest>();
+        if (chestUI != null)
+            Debug.Log("Object found");
     }
 
     private void LateUpdate()

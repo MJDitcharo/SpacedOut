@@ -26,4 +26,8 @@ public class MenuButtons : PopUpMenu
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
     
+    public void OKChestClicked()
+    {
+
+    }
 }

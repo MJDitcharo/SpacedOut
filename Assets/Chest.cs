@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenChest : MonoBehaviour
+public class Chest : MonoBehaviour
 {
-    [SerializeField] Transform crateTop;
+    [SerializeField] 
+    Transform crateTop;
     Light pLight;
     bool playAni = false;
     Vector3 defaultVec;
     [SerializeField] Vector3 offset;
     [SerializeField] float time = 0.01f;
-
-    public GameManager gm = GameManager.instance;
+    [SerializeField]
+    List<GameObject> chestContents;
 
     // Start is called before the first frame update
     void Start()
@@ -35,17 +36,36 @@ public class OpenChest : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        //open the chest
         if (other.gameObject.CompareTag("Player") && !playAni && Input.GetKeyDown(KeyCode.F)) //only move if colliding eith the player and do it once 
-        {
-            defaultVec = crateTop.position;
-            playAni = true;
-        }
+            OpenChest();
     }
 
     private void OnTriggerExit(Collider other)
     {
         pLight.enabled = false; //disable light after exiting trigger
         GameManager.instance.prompt.HidePrompt();
+        //turn off visual
+        GameManager.instance.chestUI.chestVisual.SetActive(true);
+    }
+
+    private void OpenChest()
+    {
+        defaultVec = crateTop.position;
+        playAni = true;
+
+        //turn on chest visual
+        GameManager.instance.chestUI.chestVisual.SetActive(true);
+        //pour out contents
+        for (int i = 0; i < GameManager.instance.chestUI.slotParent.transform.childCount; i++)
+        {
+            GameObject obj = GameManager.instance.chestUI.slotParent.transform.Find("Slot " + (i + 1)).gameObject;
+            
+            //print GetText for every item in ChestContents
+            //print to each slot in ChestSlots
+            if (i == chestContents.Count)
+                break;
+        }
     }
 
 }
