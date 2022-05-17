@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6333993955720059268}
   - component: {fileID: 3166532833214040779}
   - component: {fileID: 8511412810629819843}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 2291179577105618346}
   - component: {fileID: 2519469891191574351}
   - component: {fileID: 5863445506168100210}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Turret Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -257,6 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 2291179577105618346}
   attackState: {fileID: 2291179577105618355}
+  suicideAttackState: {fileID: 0}
   attackDistance: 20
 --- !u!114 &2291179577105618355
 MonoBehaviour:
@@ -271,6 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 2291179577105618346}
+  attackType: 0
   attackDistance: 25
   engageState: {fileID: 2291179577105618354}
   rotationSpeed: 20
@@ -348,7 +350,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3439382645808615070}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Firepoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

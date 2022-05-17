@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AttackState : State
 {
+    enum AttackType { normal = 0, shotgun }
+    [SerializeField] AttackType attackType = AttackType.normal;
     [SerializeField] float attackDistance;
     [SerializeField] EngageState engageState;
 
@@ -43,10 +45,27 @@ public class AttackState : State
     }
     public void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); //spawn the bullet and reference the bullet to modify 
-        Rigidbody rb = bullet.GetComponent<Rigidbody>(); //acess the rigidbody of the game object
-        rb.AddForce(firePoint.forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
-
+        switch(attackType)
+        {
+            case AttackType.normal:
+                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); //spawn the bullet and reference the bullet to modify 
+                Rigidbody rb = bullet.GetComponent<Rigidbody>(); //acess the rigidbody of the game object
+                rb.AddForce(firePoint.forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
+                GameManager.instance.bullets.Add(bullet);
+                break;
+            case AttackType.shotgun:
+                for (float angle = -30; angle <= 30; angle += 5)
+                {
+                    GameObject bulletInstance = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); //spawn the bullet and reference the bullet to modify 
+                    Rigidbody rigidbody = bulletInstance.GetComponent<Rigidbody>(); //acess the rigidbody of the game object
+                    //firePoint.Rotate(0, 5, 0);
+                    firePoint.localEulerAngles = new Vector3(0, angle, 0);
+                    rigidbody.AddForce(firePoint.forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
+                    GameManager.instance.bullets.Add(bulletInstance);
+                }
+                break;
+        }
+        
     }
 
     IEnumerator TurnToPlayer()
