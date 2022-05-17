@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+        pushback = new Vector3(pushback.x, 0, pushback.z);
         pushback = Vector3.Lerp(pushback, Vector3.zero, pushbackFalloffSpeed * Time.deltaTime);
         movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized; //move the player with wasd
         playerAnimation.SetFloat("Velocity", Mathf.Lerp(playerAnimation.GetFloat("Velocity"), cc.velocity.magnitude, Time.deltaTime * 4));
