@@ -77,5 +77,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(GameManager.instance.bullets[i]);
         }
+        GameManager.instance.bullets.Clear();
     }
 }
