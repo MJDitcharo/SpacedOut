@@ -1812,7 +1812,7 @@ GameObject:
   - component: {fileID: 8679909735756870786}
   m_Layer: 5
   m_Name: Grenade Slot
-  m_TagString: GrenadeCount
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1866,7 +1866,7 @@ GameObject:
   - component: {fileID: 1084553306347338756}
   m_Layer: 5
   m_Name: 'Board Wipe Count '
-  m_TagString: Untagged
+  m_TagString: BoardWipeCount
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1888,7 +1888,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -16.9, y: 19.00003}
+  m_AnchoredPosition: {x: -16.900002, y: 19.00003}
   m_SizeDelta: {x: 32.016, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3140120365820849150
@@ -2003,6 +2003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quantity: 0
+  max: 5
   textMeshPro: {fileID: 5009489839452367010}
 --- !u!1 &1836739410025169331
 GameObject:
@@ -2135,6 +2136,7 @@ MonoBehaviour:
   ammoCount: {fileID: 0}
   boardWipeCount: {fileID: 0}
   grenadeCount: {fileID: 0}
+  skrapCount: {fileID: 0}
 --- !u!1 &1836739411248381380
 GameObject:
   m_ObjectHideFlags: 0
@@ -2412,6 +2414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quantity: 0
+  max: 100
   textMeshPro: {fileID: 46246517885721478}
 --- !u!1 &2044950927790256750
 GameObject:
@@ -2813,7 +2816,7 @@ GameObject:
   - component: {fileID: 6291318146250569001}
   m_Layer: 5
   m_Name: Board Wipe
-  m_TagString: BoardWipeCount
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3306,6 +3309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quantity: 0
+  max: 5
   textMeshPro: {fileID: 5796276362737430759}
 --- !u!1 &4531022627968829446
 GameObject:
@@ -3925,7 +3929,7 @@ GameObject:
   - component: {fileID: 4479936838532536168}
   m_Layer: 5
   m_Name: Grenade Count
-  m_TagString: Untagged
+  m_TagString: GrenadeCount
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4060,6 +4064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quantity: 0
+  max: 5
   textMeshPro: {fileID: 5671005194217604958}
 --- !u!1 &8074753626753948070
 GameObject:
