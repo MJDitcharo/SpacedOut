@@ -10,6 +10,9 @@ public class OpenChest : MonoBehaviour
     Vector3 defaultVec;
     [SerializeField] Vector3 offset;
     [SerializeField] float time = 0.01f;
+
+    public GameManager gm = GameManager.instance;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,10 +28,15 @@ public class OpenChest : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && !playAni) //only move if colliding eith the player and do it once 
+        if (other.gameObject.CompareTag("Player") && !playAni && Input.GetKeyDown(KeyCode.F)) //only move if colliding eith the player and do it once 
         {
+            //instantiate it on the UI
+            //have a boolean to tell if it's on or not
+
+
+
             defaultVec = crateTop.position;
             playAni = true;
         }

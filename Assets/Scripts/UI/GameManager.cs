@@ -22,8 +22,7 @@ public class GameManager : MonoBehaviour
     public ItemCount grenadeCount;
     public ItemCount skrapCount;
     public playerHealth playerHealth;
-
-
+    
 
     // Start is called before the first frame update
     void Awake()
@@ -36,6 +35,7 @@ public class GameManager : MonoBehaviour
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
         //checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
+
 
         //ui stuff
         pmenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
