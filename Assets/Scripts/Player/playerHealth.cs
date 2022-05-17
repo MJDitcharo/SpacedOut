@@ -12,7 +12,15 @@ public class playerHealth : health
     private float delayDamge = 0f;
 
 
+    void AddHealth(float percentage)
+    {
+        currHealth += (int)(maxHealth * percentage);
 
+        if (currHealth > maxHealth)
+            currHealth = maxHealth;
+
+        GameManager.instance.healthBar.SetHealth((float)currHealth / maxHealth);
+    }
 
     public override void DoDamage(int dmg)
     {

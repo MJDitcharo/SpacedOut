@@ -5,6 +5,7 @@ using UnityEngine;
 public class EngageState : State
 {
     [SerializeField] AttackState attackState;
+    [SerializeField] SuicideAttackState suicideAttackState;
 
     [SerializeField] float attackDistance;
 
@@ -19,6 +20,10 @@ public class EngageState : State
         //Debug.Log(Vector3.Distance(transform.position, GameManager.instance.player.transform.position));
         if (Vector3.Distance(transform.position, GameManager.instance.player.transform.position) <= attackDistance)
         {
+            if(GetComponent<SuicideAttackState>() != null)
+            {
+                return suicideAttackState;
+            }
             return attackState;
         }
 
