@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-
+            WipeBoard();
         }
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //gets mouse position relative to camera
         mousePosition.y = transform.position.y; //prevent player from looking up
@@ -73,5 +73,9 @@ public class PlayerMovement : MonoBehaviour
     public void WipeBoard()
     {
 
+        for (int i = 0; i < GameManager.instance.bullets.Count; i++)
+        {
+            Destroy(GameManager.instance.bullets[i]);
+        }
     }
 }
