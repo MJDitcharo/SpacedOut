@@ -23,7 +23,7 @@ public abstract class Pickups : MonoBehaviour
     /// Put whatever needs to be changed in here.
     /// </summary>
     protected abstract void Increment();
-    protected string GetString()
+    public string GetString()
     {
         return itemStr;
     }

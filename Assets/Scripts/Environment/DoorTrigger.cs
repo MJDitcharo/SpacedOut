@@ -24,7 +24,6 @@ public class DoorTrigger : MonoBehaviour
     //how far the door panels open
     const float doorMovement = 1f;
 
-    bool doorOpen = false;
     private void Awake()
     {
         //sliderLTransform = doorSliderL.transform.position;
@@ -57,27 +56,14 @@ public class DoorTrigger : MonoBehaviour
 
     private void CloseDoor()
     {
-        
-        Debug.Log("Door Will Close");
-
         doorSliderL.SetActive(true);
         doorSliderR.SetActive(true);
-        //doorSliderL.transform.position = closedPositionL;
-        //doorSliderR.transform.position = closedPositionR;
-
-        doorOpen = false;
 
     }
     private void OpenDoor()
     {
-        Debug.Log("Door will open");
-
         doorSliderL.SetActive(false);
         doorSliderR.SetActive(false);
-        //doorSliderL.transform.position = openPositionL;
-        //doorSliderR.transform.position = openPositionR;
-
-        doorOpen = false;
     }
 
     //see which side of the door the player came from

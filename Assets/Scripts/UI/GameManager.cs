@@ -47,8 +47,6 @@ public class GameManager : MonoBehaviour
         skrapCount = GameObject.Find("Skrap Count").GetComponent<ItemCount>();
         prompt = GameObject.Find("UIPrompt").GetComponent<UIPrompt>();
         chestUI = GameObject.Find("Chest UI").GetComponent<UIChest>();
-        if (chestUI != null)
-            Debug.Log("Object found");
     }
 
     private void LateUpdate()

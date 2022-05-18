@@ -12,7 +12,9 @@ public class Chest : MonoBehaviour
     [SerializeField] Vector3 offset;
     [SerializeField] float time = 0.01f;
     [SerializeField]
-    List<GameObject> chestContents;
+    List<Pickups> chestContents;
+    bool chestOpened = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,7 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(!chestOpened)
             GameManager.instance.prompt.ShowPrompt("Press F To Open");
     }
 
@@ -44,28 +47,33 @@ public class Chest : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         pLight.enabled = false; //disable light after exiting trigger
-        GameManager.instance.prompt.HidePrompt();
-        //turn off visual
-        GameManager.instance.chestUI.chestVisual.SetActive(true);
     }
 
     private void OpenChest()
     {
+        GameManager.instance.prompt.HidePrompt();
         defaultVec = crateTop.position;
         playAni = true;
 
         //turn on chest visual
-        GameManager.instance.chestUI.chestVisual.SetActive(true);
+        GameManager.instance.chestUI.Activate(chestContents);
         //pour out contents
-        for (int i = 0; i < GameManager.instance.chestUI.slotParent.transform.childCount; i++)
+        //for (int i = 0; i < GameManager.instance.chestUI.GetChildCount(); i++)
+        //{
+        //    string objName = "Slot " + (i + 1);
+        //    GameManager.instance.chestUI.SetText(objName, string.Empty);
+        //    //print GetText for every item in ChestContents
+        //    //print to each slot in ChestSlots
+        //    if (i == chestContents.Count)
+        //        break;
+        //}
+
+        for (int i = 0; i < chestContents.Count; i++)
         {
-            GameObject obj = GameManager.instance.chestUI.slotParent.transform.Find("Slot " + (i + 1)).gameObject;
-            
-            //print GetText for every item in ChestContents
-            //print to each slot in ChestSlots
-            if (i == chestContents.Count)
-                break;
+            string objName = "Slot " + (i + 1);
+            GameManager.instance.chestUI.SetText(objName, chestContents[i].GetString());
         }
+        chestOpened = true;
     }
 
 }

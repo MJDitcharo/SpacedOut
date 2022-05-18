@@ -28,6 +28,6 @@ public class MenuButtons : PopUpMenu
     
     public void OKChestClicked()
     {
-
+        GameManager.instance.chestUI.Deactivate();
     }
 }
