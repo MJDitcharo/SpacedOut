@@ -43,4 +43,8 @@ public class UIChest : PopUpMenu
     {
         slotParent.transform.Find(name).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = value;
     }
+    public bool Active()
+    {
+        return chestVisual.activeSelf;
+    }
 }
