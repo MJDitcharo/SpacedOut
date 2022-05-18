@@ -41,7 +41,7 @@ public class WeaponBase : MonoBehaviour
 
     public virtual void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time >= nextShotFired && ammoCount != 0) //if the first mouse button is down
+        if (Input.GetButton("Fire1") && Time.time >= nextShotFired && ammoCount != 0 && Time.timeScale > 0) //if the first mouse button is down
         {
             nextShotFired = Time.time + 1f / fireRate; //delay for the next bullet fired
             Shoot(); //shoot method
