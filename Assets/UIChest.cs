@@ -9,10 +9,9 @@ public class UIChest : PopUpMenu
     [SerializeField]
     public GameObject chestVisual;
 
-    private List<TMPro.TextMeshProUGUI> childrenText = new List<TMPro.TextMeshProUGUI>();
+    private List<TMPro.TextMeshProUGUI> childrenText = new();
     private void Start()
     {
-        int i = 0;
         //grab all text components at the start
         foreach (Transform t in slotParent.transform)
             childrenText.Add(t.gameObject.GetComponent<TMPro.TextMeshProUGUI>());
@@ -21,7 +20,7 @@ public class UIChest : PopUpMenu
     public void Activate(List<Pickups> chestContents)
     {
         for (int i = 0; i < chestContents.Count; i++)
-            childrenText[i].text = chestContents[i].GetString();
+            childrenText[i].text = chestContents[i].GetItemString();
 
         chestVisual.SetActive(true);
         FreezeWorld();
@@ -43,7 +42,7 @@ public class UIChest : PopUpMenu
     {
         slotParent.transform.Find(name).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = value;
     }
-    public bool Active()
+    override public bool IsActive()
     {
         return chestVisual.activeSelf;
     }

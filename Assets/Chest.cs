@@ -13,6 +13,12 @@ public class Chest : MonoBehaviour
     [SerializeField] float time = 0.01f;
     [SerializeField]
     List<Pickups> chestContents;
+
+    List<int> chestQuantities;
+    [SerializeField]
+    int health, ammo, skrap, grenade, boardWipe;
+    
+    List<int> playerCounts;
     bool chestOpened = false;
 
 
@@ -54,26 +60,47 @@ public class Chest : MonoBehaviour
         GameManager.instance.prompt.HidePrompt();
         defaultVec = crateTop.position;
         playAni = true;
+        chestOpened = true;
 
         //turn on chest visual
         GameManager.instance.chestUI.Activate(chestContents);
-        //pour out contents
-        //for (int i = 0; i < GameManager.instance.chestUI.GetChildCount(); i++)
-        //{
-        //    string objName = "Slot " + (i + 1);
-        //    GameManager.instance.chestUI.SetText(objName, string.Empty);
-        //    //print GetText for every item in ChestContents
-        //    //print to each slot in ChestSlots
-        //    if (i == chestContents.Count)
-        //        break;
-        //}
 
         for (int i = 0; i < chestContents.Count; i++)
         {
             string objName = "Slot " + (i + 1);
-            GameManager.instance.chestUI.SetText(objName, chestContents[i].GetString());
+            GameManager.instance.chestUI.SetText(objName, chestContents[i].GetItemString());
         }
-        chestOpened = true;
+        //reward contents
     }
 
+    private void PlayerItems()
+    {
+        //get items player has
+        //should only grab the types inside of chestContents
+        //store the quantity of the specified items the player has in playerCounts
+    }
+
+    private void FillChest()
+    {
+        //instantiate the items in chest contents
+        //spawn them just below the player
+            //copy the player's x and z, make the y lower than the player
+        //get the quantities of the chestContents
+    }
+
+    private void GiveChestContents()
+    {
+        //change the y value of the instantiated items to match the player's
+    }
+
+    private void ShwoQuantityChange()
+    {
+        //FillChest
+        //PlayerItems
+        //build a string with the change in quantites
+            //ex: Ammo x 10 ~ 34 -> 44
+              //player quantites^  ^new player quantites
+    }
+
+    
 }

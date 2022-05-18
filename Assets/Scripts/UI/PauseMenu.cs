@@ -22,7 +22,7 @@ public class PauseMenu : PopUpMenu
 
     private void Update()
     {
-        if(Input.GetButtonUp("Cancel") && !GameManager.instance.chestUI.Active())
+        if(Input.GetButtonUp("Cancel") && !GameManager.instance.chestUI.IsActive())
         {
             if (gameIsPaused)
                 UnpauseGame();
@@ -46,4 +46,10 @@ public class PauseMenu : PopUpMenu
         pauseMenuVisual.SetActive(gameIsPaused);
         Debug.Log("Paused: " + gameIsPaused);
     }
+
+    override public bool IsActive()
+    {
+        return pauseMenuVisual.activeSelf;
+    }
+
 }

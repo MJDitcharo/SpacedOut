@@ -29,4 +29,10 @@ public class PopUpMenu : MonoBehaviour
         GameManager.instance.movement.enabled = true;
     }
 
+    virtual public bool IsActive()
+    {
+        return false;
+    }
+   
+    
 }
