@@ -31,9 +31,9 @@ public class Chest : MonoBehaviour
 
     List<Pickups> chestContents2;
 
-    List<Drop> playerRewards;
+    List<Drop> playerRewards = new();
 
-    List<int> playerCounts;
+    List<int> playerCounts = new();
     bool chestOpened = false;
 
 
@@ -41,7 +41,6 @@ public class Chest : MonoBehaviour
     void Start()
     {
         pLight = GetComponent<Light>(); //get light component in the box
-        FillChest();
     }
 
     // Update is called once per frame
@@ -75,6 +74,8 @@ public class Chest : MonoBehaviour
     {
         //grab the player's current items
         AddPlayerItems();
+        //fill chest contents
+        FillChest();
 
         //turn off prompt and start animation
         GameManager.instance.prompt.HidePrompt();
@@ -83,7 +84,7 @@ public class Chest : MonoBehaviour
         chestOpened = true;
 
         //turn on chest visual
-        GameManager.instance.chestUI.Activate(chestContents);
+        GameManager.instance.chestUI.Activate(playerRewards);
 
         ShowQuantityChange();
         //reward contents
@@ -104,7 +105,9 @@ public class Chest : MonoBehaviour
 
     private void FillChest()
     {
+        //set rewards, fill the chestQuantities list
         playerRewards.Add(new Drop(ammo, "Ammo", playerCounts[(int)Rewards.Ammo]));
+
         playerRewards.Add(new Drop(skrap, "Skrap", playerCounts[(int)Rewards.Skrap]));
         playerRewards.Add(new Drop(grenade, "Grenade", playerCounts[(int)Rewards.Grenade]));
         playerRewards.Add(new Drop(boardWipe, "Board Wipe", playerCounts[(int)Rewards.BoardWipe]));

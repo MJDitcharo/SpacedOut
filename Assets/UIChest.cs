@@ -17,10 +17,10 @@ public class UIChest : PopUpMenu
             childrenText.Add(t.gameObject.GetComponent<TMPro.TextMeshProUGUI>());
     }
 
-    public void Activate(List<Pickups> chestContents)
+    public void Activate(List<Drop> chestContents)
     {
         for (int i = 0; i < chestContents.Count; i++)
-            childrenText[i].text = chestContents[i].GetItemName();
+            childrenText[i].text = chestContents[i].ItemName;
 
         chestVisual.SetActive(true);
         FreezeWorld();
