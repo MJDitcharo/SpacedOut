@@ -9,7 +9,7 @@ public class WeaponHolder : MonoBehaviour
     [SerializeField]
     public int selectedWeapon = 0;
     static public WeaponHolder instance;
-
+    List<KeyCode> keys = new List<KeyCode> { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, };
 
     private void Awake()
     {
@@ -58,25 +58,10 @@ public class WeaponHolder : MonoBehaviour
                 selectedWeapon--;
         }
 
-        if (Input.GetKey(KeyCode.Alpha1))
+        for (int i = 0; i < keys.Count; i++)
         {
-            selectedWeapon = (int)WeaponBase.WeaponID.Pistol;
-        }
-        else if (Input.GetKey(KeyCode.Alpha2))
-        {
-            selectedWeapon = (int)WeaponBase.WeaponID.Rifle;
-        }
-        else if (Input.GetKey(KeyCode.Alpha3))
-        {
-            selectedWeapon = (int)WeaponBase.WeaponID.Shotgun;
-        }
-        else if (Input.GetKey(KeyCode.Alpha4))
-        {
-            selectedWeapon = (int)WeaponBase.WeaponID.Heavy;
-        }
-        else if (Input.GetKey(KeyCode.Alpha5))
-        {
-            selectedWeapon = (int)WeaponBase.WeaponID.Melee;
+            if (Input.GetKey(keys[i]))
+                selectedWeapon = i;
         }
 
         SelectWeapon();
