@@ -7,7 +7,7 @@ public class MenuButtons : PopUpMenu
     //button objects
     [SerializeField]
     GameObject menuVisual;
-    public void ResumeClicked()
+    static public void ResumeClicked()
     {
         GameManager.instance.pmenu.UnpauseGame();
     }

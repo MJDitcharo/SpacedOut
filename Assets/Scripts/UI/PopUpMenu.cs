@@ -29,6 +29,14 @@ public class PopUpMenu : MonoBehaviour
         GameManager.instance.movement.enabled = true;
     }
 
+
+    //virtual protected void AcceptButtonPress(KeyCode key, bool check)
+    //{
+    //    if (Input.GetKeyDown(key) && check)
+            
+
+    //}
+
     virtual public bool IsActive()
     {
         return false;

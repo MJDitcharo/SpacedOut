@@ -14,7 +14,7 @@ public class PauseMenu : PopUpMenu
 
     public bool gameIsPaused = false;
 
-    private void Awake()
+    private void Start()
     {
         //false by default
         pauseMenuVisual.SetActive(false);
@@ -24,6 +24,7 @@ public class PauseMenu : PopUpMenu
     {
         if(Input.GetButtonUp("Cancel") && !GameManager.instance.chestUI.IsActive())
         {
+
             if (gameIsPaused)
                 UnpauseGame();
             else
@@ -51,5 +52,7 @@ public class PauseMenu : PopUpMenu
     {
         return pauseMenuVisual.activeSelf;
     }
+
+  
 
 }
