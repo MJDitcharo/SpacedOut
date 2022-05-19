@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WeaponBase : MonoBehaviour
 {
-    protected enum WeaponID { Pistol, Shotgun, Heavy, Rifle, Melee };
+    public enum WeaponID { Pistol, Shotgun, Heavy, Rifle, Melee };
     [SerializeField]
     private static bool weaponOnStart = false;
     protected WeaponID weaponID;

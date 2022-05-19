@@ -58,6 +58,27 @@ public class WeaponHolder : MonoBehaviour
                 selectedWeapon--;
         }
 
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            selectedWeapon = (int)WeaponBase.WeaponID.Pistol;
+        }
+        else if (Input.GetKey(KeyCode.Alpha2))
+        {
+            selectedWeapon = (int)WeaponBase.WeaponID.Rifle;
+        }
+        else if (Input.GetKey(KeyCode.Alpha3))
+        {
+            selectedWeapon = (int)WeaponBase.WeaponID.Shotgun;
+        }
+        else if (Input.GetKey(KeyCode.Alpha4))
+        {
+            selectedWeapon = (int)WeaponBase.WeaponID.Heavy;
+        }
+        else if (Input.GetKey(KeyCode.Alpha5))
+        {
+            selectedWeapon = (int)WeaponBase.WeaponID.Melee;
+        }
+
         SelectWeapon();
 
 
