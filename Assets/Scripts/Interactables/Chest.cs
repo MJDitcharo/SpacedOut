@@ -133,19 +133,16 @@ public class Chest : MonoBehaviour
 
     private void ShowQuantityChange()
     {
-        int slotCount = 1;
         foreach(int rewards in Enum.GetValues(typeof(Rewards)))
         {
             if (playerItems[(int)rewards] + playerRewards[(int)rewards].Quantity != playerItems[(int)rewards])
-                AddToSlots(ref slotCount, (Rewards)rewards);
+                AddToSlots((Rewards)rewards);
         }
     }
 
-    private void AddToSlots(ref int slotCount, Rewards reward)
+    private void AddToSlots(Rewards reward)
     {
-        GameManager.instance.chestUI.SetText("Slot " + slotCount.ToString(), playerRewards[(int)reward].ItemName);
-        slotCount++;
-
+        GameManager.instance.chestUI.SetText(playerRewards[(int)reward].ItemName);
     }
 
 }

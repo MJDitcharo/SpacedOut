@@ -14,18 +14,6 @@ public class Drop
     }
 
     /// <summary>
-    /// Used for Pickups classes
-    /// </summary>
-    /// <param name="mQuantity"></param>
-    /// <param name="mItemName"></param>
-    /// <param name="isChestDrop"></param>
-    public Drop(int mQuantity, string mItemName)
-    {
-        Quantity = mQuantity;
-        ItemName = mItemName + " x " + Quantity;
-    }
-
-    /// <summary>
     /// Used for Chests. Gives ItemName the following format:
     ///     ItemName = mItemName + " x " + Quantity + " " + oldCount + " -> " + newCount;
     /// </summary>
@@ -37,6 +25,6 @@ public class Drop
         Quantity = mQuantity;
         int newCount = Helper.AddInt(Quantity, oldCount, max);
 
-        ItemName = mItemName + " x " + Quantity + " " + oldCount + " -> " + newCount;
+        ItemName = mItemName + " x " + Quantity + "\t" + oldCount + " -> " + newCount;
     }
 }
