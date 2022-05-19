@@ -6,7 +6,7 @@ public class ItemCount : MonoBehaviour
     [SerializeField]
     int quantity = 0;
     [SerializeField]
-    int max = 0;
+    private int max = 0;
     //int maxAmmo;
     [SerializeField]
     TMPro.TextMeshProUGUI textMeshPro;
@@ -40,14 +40,17 @@ public class ItemCount : MonoBehaviour
     /// Adds the specified ammo. Adds 1 bullet by default
     /// </summary>
     /// <param name="ammo"></param>
-    public void Add(int ammo = 0)
+    public void Add(int ammo)
     {
-        if (ammo == 0)
-            quantity++;
-        else if (ammo + quantity > max)
+        if (ammo + quantity > max)
             quantity = max;
         else
             quantity += ammo;
+        UpdateVisual();
+    }
+    public virtual void SetMaximumQuatnity(int ammo)
+    {
+        max = ammo;
         UpdateVisual();
     }
 
@@ -61,11 +64,10 @@ public class ItemCount : MonoBehaviour
     {
         return quantity;
     }
-
-    public virtual void SetMaximumQuatnity(int ammo)
+    public int GetMaximumQuantity()
     {
-        max = ammo;
-        UpdateVisual();
+        return max;
     }
+
 
 }

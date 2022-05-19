@@ -32,10 +32,11 @@ public class Drop
     /// <param name="mQuantity"></param>
     /// <param name="mItemName"></param>
     /// <param name="oldCount"></param>
-    public Drop(int mQuantity, string mItemName, int oldCount)
+    public Drop(int mQuantity, int max, string mItemName, int oldCount)
     {
         Quantity = mQuantity;
-        int newCount = Quantity + oldCount;
+        int newCount = Helper.AddInt(Quantity, oldCount, max);
+
         ItemName = mItemName + " x " + Quantity + " " + oldCount + " -> " + newCount;
     }
 }

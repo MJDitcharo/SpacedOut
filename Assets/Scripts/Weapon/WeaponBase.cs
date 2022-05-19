@@ -68,6 +68,7 @@ public class WeaponBase : MonoBehaviour
     {
         GameManager.instance.ammoCount.SetQuantity(ammoCount);
         GameManager.instance.ammoCount.SetMaximumQuatnity(maxAmmo);
+
     }
 
 }

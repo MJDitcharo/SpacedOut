@@ -24,7 +24,10 @@ public class HealthBar : MonoBehaviour
 
     public void AddHealth(float health)
     {
-        image.fillAmount += health;
+        if (health + image.fillAmount > 1)
+            image.fillAmount = 1;
+        else
+            image.fillAmount += health;
     }
 
     public float GetHealthFloat()

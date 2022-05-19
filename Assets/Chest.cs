@@ -31,10 +31,23 @@ public class Chest : MonoBehaviour
     bool chestOpened = false;
 
 
+    //convenience variables
+    ItemCount grenadeCountInst;
+    ItemCount ammoCountInst;
+    ItemCount boardWipeInst;
+    ItemCount skrapCountInst;
+    HealthBar healthBarInst;
+
     // Start is called before the first frame update
     void Start()
     {
         pLight = GetComponent<Light>(); //get light component in the box
+
+        grenadeCountInst = GameManager.instance.grenadeCount;
+        ammoCountInst = GameManager.instance.ammoCount;
+        boardWipeInst = GameManager.instance.boardWipeCount;
+        skrapCountInst = GameManager.instance.skrapCount;
+        healthBarInst = GameManager.instance.healthBar;
     }
 
     // Update is called once per frame
@@ -61,6 +74,7 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        GameManager.instance.prompt.HidePrompt();
         pLight.enabled = false; //disable light after exiting trigger
     }
 
@@ -89,31 +103,31 @@ public class Chest : MonoBehaviour
     {
         //get current items player has
         //should only grab the types inside of chestContents
-        playerItems.Add(GameManager.instance.ammoCount.GetQuantity());
-        playerItems.Add(GameManager.instance.skrapCount.GetQuantity());
-        playerItems.Add(GameManager.instance.grenadeCount.GetQuantity());
-        playerItems.Add(GameManager.instance.boardWipeCount.GetQuantity());
-        playerItems.Add(GameManager.instance.healthBar.GetHealthInt());
+        playerItems.Add(ammoCountInst.GetQuantity());
+        playerItems.Add(skrapCountInst.GetQuantity());
+        playerItems.Add(grenadeCountInst.GetQuantity());
+        playerItems.Add(boardWipeInst.GetQuantity());
+        playerItems.Add(healthBarInst.GetHealthInt());
         //store the quantity of the specified items the player has in playerCounts
     }
 
     private void FillChest()
     {
         //set rewards, fill the chestQuantities list
-        playerRewards.Add(new Drop(ammo, "Ammo", playerItems[(int)Rewards.Ammo]));
-        playerRewards.Add(new Drop(skrap, "Skrap", playerItems[(int)Rewards.Skrap]));
-        playerRewards.Add(new Drop(grenade, "Grenade", playerItems[(int)Rewards.Grenade]));
-        playerRewards.Add(new Drop(boardWipe, "Board Wipe", playerItems[(int)Rewards.BoardWipe]));
-        playerRewards.Add(new Drop(health, "Health", playerItems[(int)Rewards.Health]));
+        playerRewards.Add(new Drop(ammo, ammoCountInst.GetMaximumQuantity(), "Ammo", playerItems[(int)Rewards.Ammo]));
+        playerRewards.Add(new Drop(skrap, skrapCountInst.GetMaximumQuantity(), "Skrap", playerItems[(int)Rewards.Skrap]));
+        playerRewards.Add(new Drop(grenade, grenadeCountInst.GetMaximumQuantity(), "Grenade", playerItems[(int)Rewards.Grenade]));
+        playerRewards.Add(new Drop(boardWipe, boardWipeInst.GetMaximumQuantity(), "Board Wipe", playerItems[(int)Rewards.BoardWipe]));
+        playerRewards.Add(new Drop(health, healthBarInst.GetHealthInt(), "Health", playerItems[(int)Rewards.Health]));
     }
 
     private void RewardContents()
     {
-        GameManager.instance.ammoCount.Add(ammo);
-        GameManager.instance.skrapCount.Add(skrap);
-        GameManager.instance.grenadeCount.Add(grenade);
-        GameManager.instance.boardWipeCount.Add(boardWipe);
-        GameManager.instance.healthBar.AddHealth(health);
+        ammoCountInst.Add(ammo);
+        skrapCountInst.Add(skrap);
+        grenadeCountInst.Add(grenade);
+        boardWipeInst.Add(boardWipe);
+        healthBarInst.AddHealth(health);
         ShowQuantityChange();
     }
 
@@ -122,7 +136,7 @@ public class Chest : MonoBehaviour
         int slotCount = 1;
         foreach(int rewards in Enum.GetValues(typeof(Rewards)))
         {
-            if (playerItems[(int)rewards] + playerRewards[(int)rewards].Quantity != 0)
+            if (playerItems[(int)rewards] + playerRewards[(int)rewards].Quantity != playerItems[(int)rewards])
                 AddToSlots(ref slotCount, (Rewards)rewards);
         }
     }
