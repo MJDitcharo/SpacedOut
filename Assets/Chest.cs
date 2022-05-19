@@ -23,17 +23,11 @@ public class Chest : MonoBehaviour
     [SerializeField] Vector3 offset;
     [SerializeField] float time = 0.01f;
     [SerializeField]
-    List<Pickups> chestContents;
-
-    List<int> chestQuantities;
-    [SerializeField]
     int health, ammo, skrap, grenade, boardWipe;
-
-    List<Pickups> chestContents2;
 
     List<Drop> playerRewards = new();
 
-    List<int> playerCounts = new();
+    List<int> playerItems = new();
     bool chestOpened = false;
 
 
@@ -73,7 +67,7 @@ public class Chest : MonoBehaviour
     private void OpenChest()
     {
         //grab the player's current items
-        AddPlayerItems();
+        GetPlayerItems();
         //fill chest contents
         FillChest();
 
@@ -83,35 +77,34 @@ public class Chest : MonoBehaviour
         playAni = true;
         chestOpened = true;
 
-        //turn on chest visual
-        GameManager.instance.chestUI.Activate(playerRewards);
-
-        ShowQuantityChange();
-        //reward contents
+        //reward contents and SetText
         RewardContents();
+
+        //turn on chest visual
+        GameManager.instance.chestUI.Activate();
+
     }
 
-    private void AddPlayerItems()
+    private void GetPlayerItems()
     {
-        //get items player has
+        //get current items player has
         //should only grab the types inside of chestContents
-        playerCounts.Add(GameManager.instance.ammoCount.GetQuantity());
-        playerCounts.Add(GameManager.instance.skrapCount.GetQuantity());
-        playerCounts.Add(GameManager.instance.grenadeCount.GetQuantity());
-        playerCounts.Add(GameManager.instance.boardWipeCount.GetQuantity());
-        playerCounts.Add(GameManager.instance.healthBar.GetHealthInt());
+        playerItems.Add(GameManager.instance.ammoCount.GetQuantity());
+        playerItems.Add(GameManager.instance.skrapCount.GetQuantity());
+        playerItems.Add(GameManager.instance.grenadeCount.GetQuantity());
+        playerItems.Add(GameManager.instance.boardWipeCount.GetQuantity());
+        playerItems.Add(GameManager.instance.healthBar.GetHealthInt());
         //store the quantity of the specified items the player has in playerCounts
     }
 
     private void FillChest()
     {
         //set rewards, fill the chestQuantities list
-        playerRewards.Add(new Drop(ammo, "Ammo", playerCounts[(int)Rewards.Ammo]));
-
-        playerRewards.Add(new Drop(skrap, "Skrap", playerCounts[(int)Rewards.Skrap]));
-        playerRewards.Add(new Drop(grenade, "Grenade", playerCounts[(int)Rewards.Grenade]));
-        playerRewards.Add(new Drop(boardWipe, "Board Wipe", playerCounts[(int)Rewards.BoardWipe]));
-        playerRewards.Add(new Drop(health, "Health", playerCounts[(int)Rewards.Health]));
+        playerRewards.Add(new Drop(ammo, "Ammo", playerItems[(int)Rewards.Ammo]));
+        playerRewards.Add(new Drop(skrap, "Skrap", playerItems[(int)Rewards.Skrap]));
+        playerRewards.Add(new Drop(grenade, "Grenade", playerItems[(int)Rewards.Grenade]));
+        playerRewards.Add(new Drop(boardWipe, "Board Wipe", playerItems[(int)Rewards.BoardWipe]));
+        playerRewards.Add(new Drop(health, "Health", playerItems[(int)Rewards.Health]));
     }
 
     private void RewardContents()
@@ -121,14 +114,15 @@ public class Chest : MonoBehaviour
         GameManager.instance.grenadeCount.Add(grenade);
         GameManager.instance.boardWipeCount.Add(boardWipe);
         GameManager.instance.healthBar.AddHealth(health);
+        ShowQuantityChange();
     }
 
     private void ShowQuantityChange()
     {
-        int slotCount = 0;
+        int slotCount = 1;
         foreach(int rewards in Enum.GetValues(typeof(Rewards)))
         {
-            if (playerCounts[(int)rewards] + chestQuantities[(int)rewards] != 0)
+            if (playerItems[(int)rewards] + playerRewards[(int)rewards].Quantity != 0)
                 AddToSlots(ref slotCount, (Rewards)rewards);
         }
     }
