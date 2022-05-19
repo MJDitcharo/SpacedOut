@@ -10,7 +10,7 @@ public class DoorTrigger : MonoBehaviour
     GameObject doorSliderL;
     [SerializeField]
     GameObject doorSliderR;
-
+    public bool Lockdown { private get; set; }
 
     //Vector3 sliderLTransform;
     //Vector3 sliderRTransform;
@@ -40,7 +40,7 @@ public class DoorTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //opendoor
-        if (other.gameObject == GameManager.instance.player)
+        if (other.gameObject == GameManager.instance.player && !GameManager.instance.Lockdown)
         {
             //check if room is clear of enemies
             OpenDoor();
@@ -53,7 +53,6 @@ public class DoorTrigger : MonoBehaviour
             CloseDoor();
         }
     }
-
     private void CloseDoor()
     {
         doorSliderL.SetActive(true);
@@ -65,11 +64,4 @@ public class DoorTrigger : MonoBehaviour
         doorSliderL.SetActive(false);
         doorSliderR.SetActive(false);
     }
-
-    //see which side of the door the player came from
-    private void CheckSide()
-    {
-
-    }
-
 }

@@ -37,6 +37,7 @@ public class Chest : MonoBehaviour
     ItemCount boardWipeInst;
     ItemCount skrapCountInst;
     HealthBar healthBarInst;
+    playerHealth playerHealthInst;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +49,7 @@ public class Chest : MonoBehaviour
         boardWipeInst = GameManager.instance.boardWipeCount;
         skrapCountInst = GameManager.instance.skrapCount;
         healthBarInst = GameManager.instance.healthBar;
+        playerHealthInst = GameManager.instance.playerHealth;
     }
 
     // Update is called once per frame
@@ -67,8 +69,11 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (!chestOpened)
+            GameManager.instance.prompt.ShowPrompt("Press F To Open");
+
         //open the chest
-        if (other.gameObject.CompareTag("Player") && !playAni && Input.GetKeyDown(KeyCode.F)) //only move if colliding eith the player and do it once 
+        if (other.gameObject.CompareTag("Player") && !playAni && Input.GetKey(KeyCode.F)) //only move if colliding eith the player and do it once 
             OpenChest();
     }
 
@@ -118,7 +123,7 @@ public class Chest : MonoBehaviour
         playerRewards.Add(new Drop(skrap, skrapCountInst.GetMaximumQuantity(), "Skrap", playerItems[(int)Rewards.Skrap]));
         playerRewards.Add(new Drop(grenade, grenadeCountInst.GetMaximumQuantity(), "Grenade", playerItems[(int)Rewards.Grenade]));
         playerRewards.Add(new Drop(boardWipe, boardWipeInst.GetMaximumQuantity(), "Board Wipe", playerItems[(int)Rewards.BoardWipe]));
-        playerRewards.Add(new Drop(health, healthBarInst.GetHealthInt(), "Health", playerItems[(int)Rewards.Health]));
+        playerRewards.Add(new Drop(health, healthBarInst.GetMaxHealth(), "Health", playerItems[(int)Rewards.Health]));
     }
 
     private void RewardContents()
@@ -127,7 +132,8 @@ public class Chest : MonoBehaviour
         skrapCountInst.Add(skrap);
         grenadeCountInst.Add(grenade);
         boardWipeInst.Add(boardWipe);
-        healthBarInst.AddHealth(health);
+        Debug.Log("Health to add: " + health);
+        healthBarInst.AddHealth((float)(health * .01f));
         ShowQuantityChange();
     }
 
