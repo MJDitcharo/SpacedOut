@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public playerHealth playerHealth;
     public UIPrompt prompt;
     public UIChest chestUI;
+    public bool Lockdown { get; set; } = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -67,6 +68,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<playerHealth>().currHealth = player.GetComponent<playerHealth>().maxHealth;
         healthBar.SetHealth(1);
 
+        Debug.Log("End lockdown");
         checkpoints[checkpointIndex].GetComponent<RoomManager>().EndLockDown();
         checkpoints[checkpointIndex + 1].GetComponent<RoomManager>().collider.enabled = true;
         checkpoints[checkpointIndex + 1].GetComponent<RoomManager>().doorEnter.SetActive(false);
