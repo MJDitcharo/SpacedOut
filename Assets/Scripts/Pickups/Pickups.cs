@@ -7,7 +7,12 @@ public abstract class Pickups : MonoBehaviour
     //number of items this will give the player
     [SerializeField]
     protected int quantity;
-    protected string itemStr;
+    protected Drop drop = new Drop();
+    private void Start()
+    {
+        drop.Quantity = quantity;
+        InitialValues();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == GameManager.instance.player)
@@ -20,11 +25,15 @@ public abstract class Pickups : MonoBehaviour
     }
 
     /// <summary>
-    /// Put whatever needs to be changed in here.
+    /// Put whatever needs to be incremented in here.
     /// </summary>
     protected abstract void Increment();
-    public string GetItemString()
+    /// <summary>
+    /// Must assign drop.itemStr. This method will be called on Start()
+    /// </summary>
+    protected abstract void InitialValues();
+    public string GetItemName()
     {
-        return itemStr;
+        return drop.ItemName;
     }
 }

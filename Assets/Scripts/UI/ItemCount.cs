@@ -57,6 +57,10 @@ public class ItemCount : MonoBehaviour
             quantity = ammo;
         UpdateVisual();
     }
+    public int GetQuantity()
+    {
+        return quantity;
+    }
 
     public virtual void SetMaximumQuatnity(int ammo)
     {

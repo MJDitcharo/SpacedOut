@@ -20,7 +20,7 @@ public class UIChest : PopUpMenu
     public void Activate(List<Pickups> chestContents)
     {
         for (int i = 0; i < chestContents.Count; i++)
-            childrenText[i].text = chestContents[i].GetItemString();
+            childrenText[i].text = chestContents[i].GetItemName();
 
         chestVisual.SetActive(true);
         FreezeWorld();
