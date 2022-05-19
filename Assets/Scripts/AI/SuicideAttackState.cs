@@ -14,6 +14,8 @@ public class SuicideAttackState : State
     [SerializeField] Color flashColor;
     [SerializeField] Renderer rend;
     [SerializeField] float flashInterval = .1f;
+    [SerializeField] GameObject hitEffect;
+
     Color[] initialColor;
     Coroutine flashing;
 
@@ -57,6 +59,7 @@ public class SuicideAttackState : State
         {
             GameManager.instance.player.GetComponent<playerHealth>().DoDamage(10);
             GameManager.instance.movement.pushback += (-pushbackMultiplier * (transform.position - GameManager.instance.player.transform.position).normalized);
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
         }
         //StopCoroutine(flashing);
         Destroy(gameObject);
