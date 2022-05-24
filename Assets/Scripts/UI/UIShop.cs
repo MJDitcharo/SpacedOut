@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Shop : PopUpMenu
+public class UIShop : PopUpMenu
 {
-    public static UI_Shop instance;
+    public static UIShop instance;
     public int skrap = 300;
     public Upgrade[] upgrades;
 
@@ -69,20 +69,17 @@ public class UI_Shop : PopUpMenu
    // }
     public void BuyUpgrade (Upgrade upgrade)
     {
-        if (coins >= upgrade.cost)
-        {
-            coins -= upgrade.cost;
-            upgrade.quantity++;
-            upgrade.itemRef.transform.GetChild(0).GetComponent<Text>().text = upgrade.quantity.ToString();
-            ApplyUpgrade(upgrade);
-        }
+        //if (coins >= upgrade.cost)
+        //{
+        //    coins -= upgrade.cost;
+        //    upgrade.quantity++;
+        //    upgrade.itemRef.transform.GetChild(0).GetComponent<Text>().text = upgrade.quantity.ToString();
+        //    ApplyUpgrade(upgrade);
+        //}
     }
     public void ApplyUpgrade(Upgrade upgrade)
     {
-        switch (upgrade.name)
-        {
 
-        }
     }
     public void ToggleShop()
     {
@@ -90,7 +87,7 @@ public class UI_Shop : PopUpMenu
     }
     private void OnGui()
     {
-        cointText.text = "Skrap: " + coins.ToString();
+        //cointText.text = "Skrap: " + coins.ToString();
     }
 
     public static string Item01;

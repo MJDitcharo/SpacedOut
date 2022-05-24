@@ -2791,6 +2791,7 @@ GameObject:
   - component: {fileID: 8089203020698050004}
   - component: {fileID: 8089203020698050005}
   - component: {fileID: 8089203020698049962}
+  - component: {fileID: 6439165234558674510}
   m_Layer: 5
   m_Name: BoardWipeBack
   m_TagString: Untagged
@@ -2904,6 +2905,25 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6439165234558674510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8089203020698050007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9e52e58094d424f877eb5bd8e92c0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skrap: 300
+  upgrades: []
+  cointText: {fileID: 0}
+  shopUI: {fileID: 0}
+  shopContent: {fileID: 0}
+  itemPrefab: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &8089203020855442234
 GameObject:
   m_ObjectHideFlags: 0
