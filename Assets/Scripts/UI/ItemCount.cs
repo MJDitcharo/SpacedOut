@@ -40,8 +40,10 @@ public class ItemCount : MonoBehaviour
     /// Adds the specified ammo. Adds 1 bullet by default
     /// </summary>
     /// <param name="ammo"></param>
-    public void Add(int ammo)
+    public void Add(int ammo = 0)
     {
+        if (ammo == 0)
+            quantity++;
         if (ammo + quantity > max)
             quantity = max;
         else
