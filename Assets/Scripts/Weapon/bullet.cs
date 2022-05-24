@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
+    public float explosiveRadius = 0;
+
     public GameObject hitEffect;
     public int damage = 10;
 
@@ -14,14 +16,31 @@ public class bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if(explosiveRadius > 0)
+        {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, explosiveRadius);
+            for(int i = 0; i < colliders.Length; i++)
+            {
+                health healthScript = colliders[i].GetComponent<health>();
+                RaycastHit hit;
+                if(healthScript != null && Physics.Raycast(transform.position, colliders[i].transform.position - transform.position, out hit, Mathf.Infinity) && hit.collider.gameObject == colliders[i].gameObject)
+                {
+                    healthScript.DoDamage(damage);
+                }
+            }
+            Instantiate(hitEffect, transform.position, Quaternion.identity); //create a bullet with no rotation at the postion 
+            Destroy(gameObject);     //destroy game object and effect upon collisons
+            return;
+        }
+
         health HP = collision.gameObject.GetComponent<health>();
         if (HP != null)
         {
             HP.DoDamage(damage);
             Debug.Log("Damage Dealt");
         }
-            Instantiate(hitEffect, transform.position, Quaternion.identity); //create a bullet with no rotation at the postion 
-            Destroy(gameObject);     //destroy game object and effect upon collisons
+        Instantiate(hitEffect, transform.position, Quaternion.identity); //create a bullet with no rotation at the postion 
+        Destroy(gameObject);     //destroy game object and effect upon collisons
     }
 
    

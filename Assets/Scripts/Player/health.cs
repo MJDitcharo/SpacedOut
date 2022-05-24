@@ -20,6 +20,7 @@ public class health : MonoBehaviour
     // Health takes damage
     public virtual void DoDamage(int _dmg)
     {
+        StartCoroutine(GetComponent<EnemyFlashRed>().FlashRed());
 
         currHealth -= _dmg;
         if(currHealth <= 0)

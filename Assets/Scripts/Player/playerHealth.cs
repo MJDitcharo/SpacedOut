@@ -24,16 +24,16 @@ public class playerHealth : health
 
     public override void DoDamage(int dmg)
     {
-        if (isDamageable)
-        {
+        if (!isDamageable)
+            return;
 
-            delayDamge = Time.time + 1f / delayRate;
-            currHealth -= dmg;
-            GameManager.instance.healthBar.SetHealth((float)currHealth / maxHealth);
-            if (currHealth <= 0)
-            {
-                GameManager.instance.Respawn();
-            }
+        delayDamge = Time.time + 1f / delayRate;
+        currHealth -= dmg;
+        StartCoroutine(GetComponent<EnemyFlashRed>().FlashRed());
+        GameManager.instance.healthBar.SetHealth((float)currHealth / maxHealth);
+        if (currHealth <= 0)
+        {
+            GameManager.instance.Respawn();
         }
     }
 }

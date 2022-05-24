@@ -18,7 +18,9 @@ public class WeaponBase : MonoBehaviour
     public int ammoCount; //ammo count 
     [SerializeField]
     private int maxAmmo;
-    protected float damage; //damage
+    [SerializeField] protected float damage = 10; //damage
+    [SerializeField] protected float damageMultiplier = 1;
+    [SerializeField] protected float fireRateMultiplier = 1;
     protected float nextShotFired = 0f; //counter for next bullet that is fired
                                         // Update is called once per frame
 
@@ -43,7 +45,7 @@ public class WeaponBase : MonoBehaviour
     {
         if (Input.GetButton("Fire1") && Time.time >= nextShotFired && ammoCount != 0 && Time.timeScale > 0) //if the first mouse button is down
         {
-            nextShotFired = Time.time + 1f / fireRate; //delay for the next bullet fired
+            nextShotFired = Time.time + 1f / fireRate * fireRateMultiplier; //delay for the next bullet fired
             Shoot(); //shoot method
         }
     }
@@ -52,6 +54,8 @@ public class WeaponBase : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); //spawn the bullet and reference the bullet to modify 
         Rigidbody rb = bullet.GetComponent<Rigidbody>(); //acess the rigidbody of the game object
+        bullet bulletScript = bullet.GetComponent<bullet>();
+        bulletScript.damage = (int)(damage * damageMultiplier);
         rb.AddForce(firePoint.forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
 
         //deplete ammo
