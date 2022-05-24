@@ -24,7 +24,8 @@ public class GameManager : MonoBehaviour
     public ItemCount skrapCount;
     public playerHealth playerHealth;
     public UIPrompt prompt;
-    public UIChest chestUI;
+    public UIInterface chestUI;
+    
     public bool Lockdown { get; set; } = false;
 
     // Start is called before the first frame update
@@ -47,7 +48,7 @@ public class GameManager : MonoBehaviour
         grenadeCount = GameObject.FindGameObjectWithTag("GrenadeCount").GetComponent<ItemCount>();
         skrapCount = GameObject.Find("Skrap Count").GetComponent<ItemCount>();
         prompt = GameObject.Find("UIPrompt").GetComponent<UIPrompt>();
-        chestUI = GameObject.Find("Chest UI").GetComponent<UIChest>();
+        chestUI = GameObject.Find("Chest UI").GetComponent<UIInterface>();
     }
 
     private void LateUpdate()

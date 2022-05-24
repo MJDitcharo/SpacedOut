@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIChest : PopUpMenu
+public class UIInterface : PopUpMenu
 {
     [SerializeField]
     private GameObject slotParent;
