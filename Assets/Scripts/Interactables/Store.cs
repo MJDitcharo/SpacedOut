@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Store : MonoBehaviour
 {
-    [SerializeField]bool inStore = false;
+    bool inStore = false;
+    [SerializeField] string prompt = "Press F To Enter";
     // Update is called once per frames
     private void OnTriggerEnter(Collider other)
     {
-            GameManager.instance.prompt.ShowPrompt("Press F To Enter");
+            GameManager.instance.prompt.ShowPrompt(prompt);
     }
 
     private void OnTriggerStay(Collider other)

@@ -23,8 +23,17 @@ public class Drop
     public Drop(int mQuantity, int max, string mItemName, int oldCount)
     {
         Quantity = mQuantity;
-        int newCount = Helper.AddInt(Quantity, oldCount, max);
+        int newCount = AddInt(Quantity, oldCount, max);
 
         ItemName = mItemName + " x " + Quantity + "\t" + oldCount + " -> " + newCount;
+    }
+    private int AddInt(int num1, int num2, int max)
+    {
+        int result = 0;
+        if (num1 + num2 > max)
+            result = max;
+        else
+            result = num1 + num2;
+        return result;
     }
 }
