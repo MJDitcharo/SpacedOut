@@ -5,7 +5,6 @@ using UnityEngine;
 public class bullet : MonoBehaviour
 {
     public float explosiveRadius = 0;
-    [SerializeField] float pushbackMultiplier = 1;
     public GameObject hitEffect;
     public int damage = 10;
 
@@ -25,7 +24,6 @@ public class bullet : MonoBehaviour
                 RaycastHit hit;
                 if(healthScript != null && Physics.Raycast(transform.position, colliders[i].transform.position - transform.position, out hit, Mathf.Infinity) && hit.collider.gameObject == colliders[i].gameObject)
                 {
-                    colliders[i].GetComponent<EnemyMovement>().pushback += (-pushbackMultiplier * (transform.position - colliders[i].transform.position).normalized);
                     healthScript.DoDamage(damage);
                 }
             }
