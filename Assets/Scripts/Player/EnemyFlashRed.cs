@@ -31,7 +31,7 @@ public class EnemyFlashRed : MonoBehaviour
         }
     }
 
-    IEnumerator FlashRed()
+    public IEnumerator FlashRed()
     {
         for(int i = 0; i < normalColor.Length; i++)
         {
