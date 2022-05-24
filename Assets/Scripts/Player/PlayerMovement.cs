@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] playerHealth ph;
     public float moveSpeed = 1f;
     [SerializeField] float pushbackFalloffSpeed = 4;
+    [SerializeField] float rollSpeed = 4;
+    [SerializeField] float rollCooldown = 1;
+    float rollTimer = 0;
     Vector3 movement;
     Vector3 mousePosition;
     public Vector3 pushback;
@@ -24,13 +27,16 @@ public class PlayerMovement : MonoBehaviour
     {
         pushback = new Vector3(pushback.x, 0, pushback.z);
         pushback = Vector3.Lerp(pushback, Vector3.zero, pushbackFalloffSpeed * Time.deltaTime);
-        movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized; //move the player with wasd
+        movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized; //move the player with wasd
         playerAnimation.SetFloat("Velocity", Mathf.Lerp(playerAnimation.GetFloat("Velocity"), cc.velocity.magnitude, Time.deltaTime * 4));
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        rollTimer += Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Space) && rollTimer >= rollCooldown)
         {
+            rollTimer = 0f;
+            pushback += transform.forward.normalized * rollSpeed;
             playerAnimation.SetTrigger("Roll");
             StartCoroutine(Rolling());
-
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
