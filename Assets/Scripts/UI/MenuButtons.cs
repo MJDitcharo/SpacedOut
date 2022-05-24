@@ -30,4 +30,17 @@ public class MenuButtons : PopUpMenu
     {
         GameManager.instance.chestUI.Deactivate();
     }
+    public void BuyBoardWipe()
+    {
+         GameManager.instance.boardWipeCount.Add();
+         GameManager.instance.skrapCount.Subtract();
+
+    }
+    public void BuyGrenade()
+    {
+        GameManager.instance.grenadeCount.Add();
+        GameManager.instance.skrapCount.Subtract();
+
+    }
+
 }
