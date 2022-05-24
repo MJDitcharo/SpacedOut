@@ -10,7 +10,7 @@ public class DoorTrigger : MonoBehaviour
     GameObject doorSliderL;
     [SerializeField]
     GameObject doorSliderR;
-    public bool Lockdown { private get; set; }
+    public bool closed { private get; set; }
 
     //Vector3 sliderLTransform;
     //Vector3 sliderRTransform;
@@ -40,7 +40,7 @@ public class DoorTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //opendoor
-        if (other.gameObject == GameManager.instance.player && !GameManager.instance.Lockdown)
+        if (other.gameObject == GameManager.instance.player && !closed)
         {
             //check if room is clear of enemies
             OpenDoor();

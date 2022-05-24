@@ -15,14 +15,16 @@ public class RoomManager : MonoBehaviour
     public void LockDownRoom()
     {
         collider.enabled = false;
-        GameManager.instance.Lockdown = true;
+        doorEnter.SetActive(true);
+        doorExit.SetActive(true);
 
         StartCoroutine(enemySpawner.SpawnEnemies(spawnTime));
     }
 
     public void EndLockDown()
     {
-        GameManager.instance.Lockdown = false;
+        doorEnter.SetActive(true);
+        doorExit.SetActive(false);
         GameManager.instance.SaveGame();
     }
 
