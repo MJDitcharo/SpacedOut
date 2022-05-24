@@ -30,17 +30,32 @@ public class MenuButtons : PopUpMenu
     {
         GameManager.instance.chestUI.Deactivate();
     }
+    // Allows you to buy anything in the shop taking away the proper amount of skrap while adding the item
     public void BuyBoardWipe()
     {
          GameManager.instance.boardWipeCount.Add();
+
          GameManager.instance.skrapCount.Subtract();
 
     }
     public void BuyGrenade()
     {
         GameManager.instance.grenadeCount.Add();
+
         GameManager.instance.skrapCount.Subtract();
 
     }
+    public void BuyArmor()
+    {
+        //GameManager.instance.armorCount.Add();
 
+        GameManager.instance.skrapCount.Subtract();
+        
+    }
+    public void BuyHealth()
+    {
+        GameManager.instance.playerHealth.AddHealth(25);
+        
+        GameManager.instance.skrapCount.Subtract();
+    }
 }
