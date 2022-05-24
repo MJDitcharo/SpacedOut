@@ -5,8 +5,4 @@ using UnityEngine.UI;
 public class Grenade : MonoBehaviour
 {
 
-    private void Update()
-    {
-
-    }
 }
