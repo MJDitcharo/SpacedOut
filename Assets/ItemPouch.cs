@@ -13,9 +13,9 @@ public class ItemPouch : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && GameManager.instance.boardWipeCount.GetQuantity() > 0)
             ThrowBoardWipe();
-        else if (Input.GetKeyDown(KeyCode.Q))
+        else if (Input.GetKeyDown(KeyCode.Q) && GameManager.instance.grenadeCount.GetQuantity() > 0)
             ThrowGrenade();
     }
 
