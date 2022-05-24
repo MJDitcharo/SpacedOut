@@ -9,8 +9,6 @@ public class ItemPouch : MonoBehaviour
     [SerializeField]
     GameObject boardWipe;
     float throwForce = 20;
-
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && GameManager.instance.boardWipeCount.GetQuantity() > 0)
@@ -21,20 +19,21 @@ public class ItemPouch : MonoBehaviour
 
     private void ThrowItem(GameObject itemToThrow)
     {
-        Instantiate(itemToThrow, transform.position, Quaternion.identity);
-        Rigidbody body = grenade.GetComponent<Rigidbody>(); //acess the rigidbody of the game object
+        GameObject item = Instantiate(itemToThrow, transform.position, transform.rotation);
+        Rigidbody body = item.GetComponent<Rigidbody>(); //acess the rigidbody of the game object
         body.AddForce(transform.forward * throwForce, ForceMode.Impulse);
     }
 
     private void ThrowGrenade()
     {
         ThrowItem(grenade);
-
+        GameManager.instance.grenadeCount.Subtract();
     }
 
     private void ThrowBoardWipe()
     {
         ThrowItem(boardWipe);
+        GameManager.instance.boardWipeCount.Subtract();
     }
 
 }
