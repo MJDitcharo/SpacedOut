@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.DrawLine(transform.position, mousePosition, Color.red, 2f);
         //move the charcter towards the mouse position
         transform.LookAt(mousePosition);
-        //cc.Move(new Vector3(0, -1, 0) * Time.deltaTime);
+        cc.Move(new Vector3(0, -1, 0) * Time.deltaTime);
         cc.Move(moveSpeed * Time.deltaTime * (movement + pushback));
 
     }
