@@ -30,7 +30,7 @@ public class UI_Shop : PopUpMenu
    
     private void Start()
     {
-        TMPro.TextMeshProUGUI text = transform.FindChild("Skrap").GetComponent<TMPro.TextMeshProUGUI>();
+        TMPro.TextMeshProUGUI text = transform.Find("Skrap").GetComponent<TMPro.TextMeshProUGUI>();
         //GameMananger.instance.boardWipeCost = text.text
     }
 
