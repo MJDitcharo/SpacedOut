@@ -49,6 +49,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedWeapon: 0
+  gunImages: {fileID: 0}
+--- !u!1 &1026084979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1026084980}
+  - component: {fileID: 1026084981}
+  m_Layer: 0
+  m_Name: Item Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1026084980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026084979}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.0866, z: 0.0704}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4268597916284530}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1026084981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026084979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3114de83dadcd44448e69bb3a8c07e50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grenade: {fileID: 738636767962388003, guid: 7e68e880335a93d4181683c3b61ccb51, type: 3}
+  boardWipe: {fileID: 4666655611087599272, guid: 3ede2e38d61373149bfca5522ebc30f5, type: 3}
 --- !u!1 &1065841237378988
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,6 +260,7 @@ Transform:
   - {fileID: 4603727116098756}
   - {fileID: 8461729911571754188}
   - {fileID: 819579282}
+  - {fileID: 1026084980}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -269,6 +317,9 @@ MonoBehaviour:
   ph: {fileID: 8001050053760360989}
   moveSpeed: 10
   pushbackFalloffSpeed: 4
+  rollSpeed: 4
+  rollCooldown: 1
+  rollInvulnerability: 0.5
   pushback: {x: 0, y: 0, z: 0}
   cc: {fileID: 143350241100547368}
 --- !u!114 &8001050053760360989
