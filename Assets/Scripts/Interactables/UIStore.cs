@@ -10,27 +10,24 @@ public class UIStore : PopUpMenu
     private GameObject slotParent;
     [SerializeField]
     private GameObject storeVisual;
-    
+
     private enum PickupCosts { Health, Ammo, Grenade, BoardWipe, Armor };
 
     private void Start()
     {
-        foreach(Transform transform in storeVisual.transform)
-        {
-            if (transform.name != "Weapon Upgrades Page")
-                transform.gameObject.SetActive(true);
-        }
     }
 
     public void Activate()
     {
         storeVisual.SetActive(true);
+        GameObject.Find("Weapon Upgrades Page").gameObject.SetActive(false);
         FreezeWorld();
     }
-
     public void Deactivate()
     {
         storeVisual.SetActive(false);
+        foreach (Transform transform in storeVisual.transform)
+            transform.gameObject.SetActive(false);
         UnfreezeWorld();
     }
 
