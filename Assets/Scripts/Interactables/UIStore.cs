@@ -25,7 +25,7 @@ public class UIStore : PopUpMenu
 
     protected Dictionary<TMPro.TextMeshProUGUI, int> pickups;
     protected enum WeaponUpgradeCosts { Pistol, Shotgun, Heavy, Rifle, Melee };
-    protected int[] defaultWeaponUpgradeCosts = { 1000, 1000, 1000, 1000, 1000 };
+    protected int[] defaultWeaponUpgradeCosts = { 1000, 1250, 1250, 1250, 1000 };
     protected List<TMPro.TextMeshProUGUI> weaponText = new List<TMPro.TextMeshProUGUI>();
     protected List<int> weaponCost = new List<int>();
 
@@ -195,32 +195,49 @@ public class UIStore : PopUpMenu
     {
         //WeaponHolder.instance.UpgradeDamage("Pistol", 1.5f);
         //WeaponHolder.instance.UpgradeFireRate("Pistol", 1.5f);
-        WeaponHolder.instance.UpgradeDamage(0, 1.5f);
-        WeaponHolder.instance.UpgradeFireRate(0, 1.5f);
+        if (GameManager.instance.skrapCount.GetQuantity() >= defaultWeaponUpgradeCosts[(int)WeaponUpgradeCosts.Pistol])
+        {
+            WeaponHolder.instance.UpgradeDamage(0, 1.5f);
+            WeaponHolder.instance.UpgradeFireRate(0, 1.5f);
+            GameManager.instance.skrapCount.Subtract(defaultPickupCosts[(int)WeaponUpgradeCosts.Pistol]);
+        }
     }
 
     public void UpgradeShotgun()
     {
         //WeaponHolder.instance.UpgradeDamage("Shotgun", 1.5f);
         //WeaponHolder.instance.UpgradeFireRate("Shotgun", 1.5f);
-        WeaponHolder.instance.UpgradeDamage(2, 1.5f);
-        WeaponHolder.instance.UpgradeFireRate(2, 1.5f);
+        if (GameManager.instance.skrapCount.GetQuantity() >= defaultWeaponUpgradeCosts[(int)WeaponUpgradeCosts.Shotgun])
+        {
+            WeaponHolder.instance.UpgradeDamage(1, 1.5f);
+            WeaponHolder.instance.UpgradeFireRate(1, 1.5f);
+            GameManager.instance.skrapCount.Subtract(defaultPickupCosts[(int)WeaponUpgradeCosts.Shotgun]);
+
+        }
     }
 
     public void UpgradeHeavy()
     {
         //WeaponHolder.instance.UpgradeDamage("Heavy", 1.5f);
         //WeaponHolder.instance.UpgradeFireRate("Heavy", 1.5f);
-        WeaponHolder.instance.UpgradeDamage(3, 1.5f);
-        WeaponHolder.instance.UpgradeFireRate(3, 1.5f);
+        if (GameManager.instance.skrapCount.GetQuantity() >= defaultWeaponUpgradeCosts[(int)WeaponUpgradeCosts.Heavy])
+        {
+            WeaponHolder.instance.UpgradeDamage(2, 1.5f);
+            WeaponHolder.instance.UpgradeFireRate(2, 1.5f);
+            GameManager.instance.skrapCount.Subtract(defaultPickupCosts[(int)WeaponUpgradeCosts.Heavy]);
+        }
     }
 
     public void UpgradeRifle()
     {
         //WeaponHolder.instance.UpgradeDamage("Rifle", 1.5f);
         //WeaponHolder.instance.UpgradeFireRate("Rifle", 1.5f);
-        WeaponHolder.instance.UpgradeDamage(4, 1.5f);
-        WeaponHolder.instance.UpgradeFireRate(4, 1.5f);
+        if (GameManager.instance.skrapCount.GetQuantity() >= defaultWeaponUpgradeCosts[(int)WeaponUpgradeCosts.Rifle])
+        {
+            WeaponHolder.instance.UpgradeDamage(3, 1.5f);
+            WeaponHolder.instance.UpgradeFireRate(3, 1.5f);
+            GameManager.instance.skrapCount.Subtract(defaultPickupCosts[(int)WeaponUpgradeCosts.Rifle]);
+        }
     }
 
     #endregion
