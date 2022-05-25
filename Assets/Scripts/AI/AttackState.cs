@@ -23,7 +23,9 @@ public class AttackState : State
 
     public override State RunCurrentState()
     {
-        if(Vector3.Distance(transform.position, GameManager.instance.player.transform.position) >= attackDistance + 2)
+        RaycastHit hit;
+        Physics.Raycast(transform.position, GameManager.instance.player.transform.position + new Vector3(0, 1, 0) - transform.position, out hit, Mathf.Infinity);
+        if(Vector3.Distance(transform.position, GameManager.instance.player.transform.position) >= attackDistance + 2 || hit.collider.gameObject != GameManager.instance.player)
         {
             return engageState;
         }
