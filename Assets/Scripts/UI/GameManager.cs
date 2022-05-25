@@ -24,7 +24,8 @@ public class GameManager : MonoBehaviour
     public ItemCount skrapCount;
     public playerHealth playerHealth;
     public UIPrompt prompt;
-    public UIInterface chestUI;
+    public UIChest chestUI;
+    public UIShop shopUI;
     
     public bool Lockdown { get; set; } = false;
 
@@ -48,7 +49,8 @@ public class GameManager : MonoBehaviour
         grenadeCount = GameObject.FindGameObjectWithTag("GrenadeCount").GetComponent<ItemCount>();
         skrapCount = GameObject.Find("Skrap Count").GetComponent<ItemCount>();
         prompt = GameObject.Find("UIPrompt").GetComponent<UIPrompt>();
-        chestUI = GameObject.Find("Chest UI").GetComponent<UIInterface>();
+        chestUI = GameObject.Find("Chest UI").GetComponent<UIChest>();
+        shopUI = GameObject.Find("Shop UI").GetComponent<UIShop>();
     }
 
     private void LateUpdate()

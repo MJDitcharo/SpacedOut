@@ -69,9 +69,6 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (!chestOpened)
-            GameManager.instance.prompt.ShowPrompt("Press F To Open");
-
         //open the chest
         if (other.gameObject.CompareTag("Player") && !playAni && Input.GetKey(KeyCode.F)) //only move if colliding eith the player and do it once 
             OpenChest();
