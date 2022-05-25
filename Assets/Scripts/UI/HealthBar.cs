@@ -43,7 +43,6 @@ public class HealthBar : MonoBehaviour
 
     public int GetHealthInt()
     {
-        Debug.Log((int)(image.fillAmount * 100));
         return (int)(image.fillAmount * 100);
     }
 
