@@ -179,9 +179,9 @@ public class UIStore : PopUpMenu
     }
     public void BuyAmmo()
     {
-        if (GameManager.instance.skrapCount.GetQuantity() >= defaultPickupCosts[(int)PickupCosts.Armor])
+        if (GameManager.instance.skrapCount.GetQuantity() >= defaultPickupCosts[(int)PickupCosts.Ammo])
         {
-            GameManager.instance.ammoCount.Add(25);
+            GameManager.instance.ammoCount.Add(5);
             GameManager.instance.skrapCount.Subtract(defaultPickupCosts[(int)PickupCosts.Ammo]);
             Debug.Log("Skrap Taken");
         }

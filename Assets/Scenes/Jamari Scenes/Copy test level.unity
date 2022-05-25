@@ -1075,6 +1075,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -15.601173
       objectReference: {fileID: 0}
+    - target: {fileID: 8431106459503419987, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyAmmo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431106459503419987, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIStore, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431106459503419987, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8744063294972422257, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
       propertyPath: m_fontStyle
       value: 1
@@ -1655,23 +1667,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 966607101739825896, guid: 38fec1d218fbc3640a09519ca6432e86, type: 3}
       propertyPath: ammo
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 966607101739825896, guid: 38fec1d218fbc3640a09519ca6432e86, type: 3}
       propertyPath: skrap
-      value: 2500
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 966607101739825896, guid: 38fec1d218fbc3640a09519ca6432e86, type: 3}
       propertyPath: health
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 966607101739825896, guid: 38fec1d218fbc3640a09519ca6432e86, type: 3}
       propertyPath: grenade
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 966607101739825896, guid: 38fec1d218fbc3640a09519ca6432e86, type: 3}
       propertyPath: boardWipe
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 966607101739825897, guid: 38fec1d218fbc3640a09519ca6432e86, type: 3}
       propertyPath: m_RootOrder
