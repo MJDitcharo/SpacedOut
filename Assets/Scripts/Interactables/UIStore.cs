@@ -12,6 +12,9 @@ public class UIStore : PopUpMenu
     public GameObject weaponsPage;
     [SerializeField]
     private GameObject storeVisual;
+    [SerializeField]
+    private TMPro.TextMeshProUGUI purchaseMessage;
+
 
     //pickup page
     public enum PickupCosts { Health, Ammo, Grenade, BoardWipe, Armor };
@@ -25,7 +28,7 @@ public class UIStore : PopUpMenu
 
     protected Dictionary<TMPro.TextMeshProUGUI, int> pickups;
     protected enum WeaponUpgradeCosts { Pistol, Shotgun, Heavy, Rifle, Melee };
-    protected int[] defaultWeaponUpgradeCosts = { 1000, 1250, 1250, 1250, 1000 };
+    protected int[] defaultWeaponUpgradeCosts = { 1000, 1250, 1250, 2000, 1000 };
     protected List<TMPro.TextMeshProUGUI> weaponText = new List<TMPro.TextMeshProUGUI>();
     protected List<int> weaponCost = new List<int>();
 
@@ -51,6 +54,7 @@ public class UIStore : PopUpMenu
             weaponCost.Add(defaultWeaponUpgradeCosts[i]);
             weaponText.Add(item.Find("Cost").gameObject.GetComponent<TMPro.TextMeshProUGUI>());
         }
+
 
         //add all 
         //int i = 0;
@@ -82,11 +86,7 @@ public class UIStore : PopUpMenu
     {
         //check to see if the player has enough money
         //if not, make the text red
-        if (purchaseFailed)
-            ShowPurchaseFailed();
     }
-
-
 
     public void Activate()
     {
@@ -100,9 +100,13 @@ public class UIStore : PopUpMenu
         UnfreezeWorld();
     }
 
-    private void ShowPurchaseFailed()
+    private void ShowPurchaseMessage()
     {
-
+        if (!purchaseFailed)
+        {
+            purchaseMessage.text = "Thank You!";
+            purchaseMessage.color = Color.green;
+        }
     }
 
 
@@ -149,7 +153,7 @@ public class UIStore : PopUpMenu
             Debug.Log("Skrap Taken");
         }
         else
-            purchaseFailed = true;
+            ShowPurchaseMessage();
 
 
     }
@@ -162,7 +166,7 @@ public class UIStore : PopUpMenu
             Debug.Log("Skrap Taken");
         }
         else
-            purchaseFailed = true;
+            ShowPurchaseMessage();
 
     }
     public void BuyHealth()
@@ -175,7 +179,7 @@ public class UIStore : PopUpMenu
 
         }
         else
-            purchaseFailed = true;
+            ShowPurchaseMessage();
     }
     public void BuyAmmo()
     {
@@ -186,7 +190,7 @@ public class UIStore : PopUpMenu
             Debug.Log("Skrap Taken");
         }
         else
-            purchaseFailed = true;
+            ShowPurchaseMessage();
     }
     #endregion
 
