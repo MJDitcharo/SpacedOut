@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075144798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.187, y: 1.053, z: 2.378}
+  m_LocalPosition: {x: -0.5126, y: 1.053, z: 2.355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -242,6 +242,7 @@ Transform:
   m_Children:
   - {fileID: 4099279166858034}
   - {fileID: 1075144799}
+  - {fileID: 2608691515854102952}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -352,6 +353,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navmeshAgent: {fileID: 945561905}
+  pushbackFalloffSpeed: 4
+  pushback: {x: 0, y: 0, z: 0}
   movementSpeed: 3
 --- !u!114 &945561900
 MonoBehaviour:
@@ -385,7 +388,10 @@ MonoBehaviour:
   attackDistance: 25
   engageState: {fileID: 945561902}
   rotationSpeed: 20
-  firePoint: {fileID: 1075144799}
+  firePoints:
+  - {fileID: 1075144799}
+  - {fileID: 2608691515854102952}
+  firepointIndex: 0
   bulletPrefab: {fileID: 8561360944684799367, guid: a81cc78e4f6754945abd712808e008fa, type: 3}
   firerate: 0.2
   bulletForce: 20
@@ -554,3 +560,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8736030389708035423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2608691515854102952}
+  m_Layer: 0
+  m_Name: Turret Fire 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2608691515854102952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8736030389708035423}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.525, y: 1.066, z: 2.3322}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4806244831832490}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
