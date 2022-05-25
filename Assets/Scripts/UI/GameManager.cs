@@ -80,9 +80,22 @@ public class GameManager : MonoBehaviour
         }
         enemyCount = 0;
 
+        GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
+        for (int i = 0; i < bullets.Length; i++)
+        {
+            Destroy(bullets[i]);
+        }
+
         player.GetComponent<PlayerMovement>().WarpToPosition(checkpoints[checkpointIndex].transform.position);
         player.GetComponent<playerHealth>().currHealth = player.GetComponent<playerHealth>().maxHealth;
         healthBar.SetHealth(1);
+
+        for(int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
+        {
+            WeaponBase currentWeapon = WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>();
+            currentWeapon.ammoCount = currentWeapon.maxAmmo;
+            currentWeapon.UpdateVisual();
+        }
 
         Debug.Log("End lockdown");
         checkpoints[checkpointIndex].GetComponent<RoomManager>().EndLockDown();

@@ -17,7 +17,7 @@ public class WeaponBase : MonoBehaviour
     [SerializeField]
     public int ammoCount; //ammo count 
     [SerializeField]
-    private int maxAmmo;
+    public int maxAmmo;
     [SerializeField] protected float damage = 10; //damage
     [SerializeField] protected float damageMultiplier = 1;
     [SerializeField] protected float fireRateMultiplier = 1;
@@ -68,7 +68,7 @@ public class WeaponBase : MonoBehaviour
         gameObject.SetActive(isActive);
     }
 
-    private void UpdateVisual()
+    public void UpdateVisual()
     {
         GameManager.instance.ammoCount.SetQuantity(ammoCount);
         GameManager.instance.ammoCount.SetMaximumQuatnity(maxAmmo);

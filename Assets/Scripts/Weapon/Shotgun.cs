@@ -9,7 +9,7 @@ public class Shotgun : WeaponBase
 
     private void Awake()
     {
-        weaponID = WeaponID.Rifle;
+        weaponID = WeaponID.Shotgun;
     }
 
     public override void Update()
