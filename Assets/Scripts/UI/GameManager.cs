@@ -37,8 +37,21 @@ public class GameManager : MonoBehaviour
         movement = player.GetComponent<PlayerMovement>();
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
-        //checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
+        checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
 
+        //sort the array of checkpoints by name
+        for(int i = 0; i < checkpoints.Length; i++)
+        {
+            for(int j = i; j < checkpoints.Length; j++)
+            {
+                if(checkpoints[i].name.CompareTo(checkpoints[j].name) > 0)
+                {
+                    GameObject temp = checkpoints[i];
+                    checkpoints[i] = checkpoints[j];
+                    checkpoints[j] = temp;
+                }
+            }
+        }
 
         //ui stuff
         pmenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
