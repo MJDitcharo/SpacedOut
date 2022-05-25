@@ -75,4 +75,14 @@ public class WeaponBase : MonoBehaviour
 
     }
 
+    public void SetDamageMultiplier(float multiplier)
+    {
+        damageMultiplier = multiplier;
+    }
+
+    public void SetFireRateMultiplier(float multiplier)
+    {
+        fireRateMultiplier = multiplier;
+    }
+
 }
