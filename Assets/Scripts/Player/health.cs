@@ -34,11 +34,8 @@ public class health : MonoBehaviour
         GameManager.instance.enemyCount--;
         if (GameManager.instance.enemyCount <= 0)
         {
-            if(GameManager.instance.checkpoints.Length != 0)
-            {
-                GameManager.instance.checkpointIndex++;
-                GameManager.instance.checkpoints[GameManager.instance.checkpointIndex].GetComponent<RoomManager>().EndLockDown();
-            }
+            GameManager.instance.checkpointIndex++;
+            GameManager.instance.checkpoints[GameManager.instance.checkpointIndex].GetComponent<RoomManager>().EndLockDown();
         }
         Destroy(gameObject);
     }
