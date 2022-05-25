@@ -9,6 +9,7 @@ public class WeaponHolder : MonoBehaviour
     [SerializeField]
     public int selectedWeapon = 0;
     static public WeaponHolder instance;
+    [SerializeField] GameObject gunImages;
     List<KeyCode> keys = new List<KeyCode> { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, };
 
     private void Awake()
@@ -16,6 +17,12 @@ public class WeaponHolder : MonoBehaviour
         instance = this;
         SelectWeapon();
     }
+
+    private void Start()
+    {
+        gunImages = GameObject.FindGameObjectWithTag("Gun Images");
+    }
+
     private void FixedUpdate()
     {
 
@@ -31,9 +38,15 @@ public class WeaponHolder : MonoBehaviour
         foreach (Transform t in this.gameObject.transform)
         {
             if (selectedWeapon == i)
+            {
                 t.gameObject.SetActive(true);
+                gunImages.transform.GetChild(i).gameObject.SetActive(true);
+            }
             else
+            {
                 t.gameObject.SetActive(false);
+                gunImages.transform.GetChild(i).gameObject.SetActive(false);
+            }
             i++;
         }
     }
@@ -75,11 +88,13 @@ public class WeaponHolder : MonoBehaviour
 
     public void UpgradeFireRate(int weapon, float multiplier)
     {
+        Debug.Log(WeaponHolder.instance.name);
         Debug.Log(transform.GetChild(weapon).GetComponent<WeaponBase>());
         transform.GetChild(weapon).GetComponent<WeaponBase>().SetFireRateMultiplier(multiplier);
     }
     public void UpgradeDamage(int weapon, float multiplier)
     {
+        Debug.Log(WeaponHolder.instance.name);
         Debug.Log(transform.GetChild(weapon).GetComponent<WeaponBase>());
         transform.GetChild(weapon).GetComponent<WeaponBase>().SetDamageMultiplier(multiplier);
     }
