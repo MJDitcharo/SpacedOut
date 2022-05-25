@@ -307,7 +307,9 @@ MonoBehaviour:
   attackDistance: 15
   engageState: {fileID: 6761313578797408150}
   rotationSpeed: 10
-  firePoint: {fileID: 7900933348093904058}
+  firePoints:
+  - {fileID: 7900933348093904058}
+  firepointIndex: 0
   bulletPrefab: {fileID: 8561360944684799367, guid: a81cc78e4f6754945abd712808e008fa, type: 3}
   firerate: 1
   bulletForce: 20
@@ -340,6 +342,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navmeshAgent: {fileID: 6761313578797408139}
+  pushbackFalloffSpeed: 4
+  pushback: {x: 0, y: 0, z: 0}
   movementSpeed: 3
 --- !u!114 &-2240521247887194773
 MonoBehaviour:

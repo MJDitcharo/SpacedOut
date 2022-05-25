@@ -12,7 +12,8 @@ public class AttackState : State
     [SerializeField] float rotationSpeed = 10f;
     Coroutine lookCoroutine;
 
-    public Transform firePoint;
+    public Transform[] firePoints;
+    public int firepointIndex = 0;
     public GameObject bulletPrefab; //instance of bullet prefab
 
     [SerializeField] float firerate = 1;
@@ -48,20 +49,25 @@ public class AttackState : State
         switch(attackType)
         {
             case AttackType.normal:
-                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); //spawn the bullet and reference the bullet to modify 
+                GameObject bullet = Instantiate(bulletPrefab, firePoints[firepointIndex].position, firePoints[firepointIndex].rotation); //spawn the bullet and reference the bullet to modify 
                 Rigidbody rb = bullet.GetComponent<Rigidbody>(); //acess the rigidbody of the game object
-                rb.AddForce(firePoint.forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
+                rb.AddForce(firePoints[firepointIndex].forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
                 GameManager.instance.bullets.Add(bullet);
+                firepointIndex++;
+                if (firepointIndex >= firePoints.Length)
+                    firepointIndex = 0;
                 break;
             case AttackType.shotgun:
                 for (float angle = -30; angle <= 30; angle += 5)
                 {
-                    GameObject bulletInstance = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); //spawn the bullet and reference the bullet to modify 
+                    GameObject bulletInstance = Instantiate(bulletPrefab, firePoints[firepointIndex].position, firePoints[firepointIndex].rotation); //spawn the bullet and reference the bullet to modify 
                     Rigidbody rigidbody = bulletInstance.GetComponent<Rigidbody>(); //acess the rigidbody of the game object
-                    firePoint.localEulerAngles = new Vector3(0, angle, 0);
-                    rigidbody.AddForce(firePoint.forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
+                    firePoints[firepointIndex].localEulerAngles = new Vector3(0, angle, 0);
+                    rigidbody.AddForce(firePoints[firepointIndex].forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
                     GameManager.instance.bullets.Add(bulletInstance);
                 }
+                if (firepointIndex >= firePoints.Length)
+                    firepointIndex = 0;
                 break;
         }
         
@@ -69,7 +75,7 @@ public class AttackState : State
 
     IEnumerator TurnToPlayer()
     {
-        Debug.Log("running coroutine");
+        //Debug.Log("running coroutine");
         Quaternion lookRoation = Quaternion.LookRotation(GameManager.instance.player.transform.position - new Vector3(transform.position.x, GameManager.instance.player.transform.position.y, transform.position.z));
 
         float time = 0;
