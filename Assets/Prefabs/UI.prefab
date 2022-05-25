@@ -606,7 +606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0628ad96d7f94204caef9e62f40d4c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuVisual: {fileID: 1822495019}
 --- !u!1 &560077440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,7 +1092,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0628ad96d7f94204caef9e62f40d4c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuVisual: {fileID: 1822495019}
 --- !u!1 &1144187059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,7 +1319,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0628ad96d7f94204caef9e62f40d4c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuVisual: {fileID: 1144187059}
 --- !u!1 &1822495019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,7 +1682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0628ad96d7f94204caef9e62f40d4c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuVisual: {fileID: 1144187059}
 --- !u!1 &224132367871150753
 GameObject:
   m_ObjectHideFlags: 0
@@ -2569,7 +2565,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pistol
+  m_text: Board Wipe
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3944,7 +3940,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0628ad96d7f94204caef9e62f40d4c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuVisual: {fileID: 1822495019}
 --- !u!1 &2356723656262300007
 GameObject:
   m_ObjectHideFlags: 0
@@ -4158,6 +4153,7 @@ GameObject:
   - component: {fileID: 2549298405439179461}
   - component: {fileID: 1464412043468167116}
   - component: {fileID: 258540892771994887}
+  - component: {fileID: 6548648361654095117}
   m_Layer: 5
   m_Name: Board Wipe Border
   m_TagString: Untagged
@@ -4270,7 +4266,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1464412043468167116}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6548648361654095117}
+        m_TargetAssemblyTypeName: ShopMenuButtons, Assembly-CSharp
+        m_MethodName: BuyBoardWipe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6548648361654095117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491129150396911195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca15e587c9d196446980f9b349a5e99b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pages: []
+  storeVisual: {fileID: 0}
 --- !u!1 &2533600343764284575
 GameObject:
   m_ObjectHideFlags: 0
@@ -5966,7 +5988,7 @@ GameObject:
   - component: {fileID: 3868011969559959316}
   - component: {fileID: 4333753343561422317}
   - component: {fileID: 1943784853322005527}
-  - component: {fileID: 5402615004559735972}
+  - component: {fileID: 7722193912984953437}
   m_Layer: 0
   m_Name: Exit Store
   m_TagString: Untagged
@@ -6077,19 +6099,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5402615004559735972}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 7722193912984953437}
+        m_TargetAssemblyTypeName: ShopMenuButtons, Assembly-CSharp
+        m_MethodName: ExitShop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5402615004559735972
+--- !u!114 &7722193912984953437
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6098,10 +6120,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4005099624404219312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0628ad96d7f94204caef9e62f40d4c28, type: 3}
+  m_Script: {fileID: 11500000, guid: ca15e587c9d196446980f9b349a5e99b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuVisual: {fileID: 4005099624404219312}
+  pages: []
+  storeVisual: {fileID: 0}
 --- !u!1 &4066262143510219672
 GameObject:
   m_ObjectHideFlags: 0
@@ -7401,7 +7424,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0628ad96d7f94204caef9e62f40d4c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuVisual: {fileID: 3319523205043563436}
 --- !u!1 &5286232823216459935
 GameObject:
   m_ObjectHideFlags: 0
@@ -8014,7 +8036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4963859783875401430
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11558,7 +11580,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotParent: {fileID: 0}
+  pages:
+  - {fileID: 3064963588479827042}
+  - {fileID: 5635452604050651065}
   storeVisual: {fileID: 4274644922237887884}
 --- !u!1 &8967163237504657363
 GameObject:
