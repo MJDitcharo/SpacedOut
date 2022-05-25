@@ -5,8 +5,6 @@ using UnityEngine;
 public class MenuButtons : PopUpMenu
 {
     //button objects
-    [SerializeField]
-    GameObject menuVisual;
     #region Pause/Game Over Buttons
     static public void ResumeClicked()
     {
