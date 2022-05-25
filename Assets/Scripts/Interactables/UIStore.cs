@@ -111,7 +111,7 @@ public class UIStore : PopUpMenu
         }
         else
             purchaseFailed = true;
-        ShowPurchaseMessage(purchaseFailed);
+        //ShowPurchaseMessage(purchaseFailed);
     }
 
     private void CheckPurchaseItem(playerHealth health, int cost, int quantity)
@@ -125,7 +125,7 @@ public class UIStore : PopUpMenu
         }
         else
             purchaseFailed = true;
-        ShowPurchaseMessage(purchaseFailed);
+        //ShowPurchaseMessage(purchaseFailed);
     }
 
     private void CheckPurchaseItem(int weaponIndex, float multiplier)
@@ -141,7 +141,7 @@ public class UIStore : PopUpMenu
         }
         else
             purchaseFailed = true;
-        ShowPurchaseMessage(purchaseFailed);
+        //ShowPurchaseMessage(purchaseFailed);
     }
     private void ShowPurchaseMessage(bool purchaseFailed)
     {
