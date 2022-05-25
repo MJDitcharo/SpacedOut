@@ -14,8 +14,12 @@ public class bullet : MonoBehaviour
         Destroy(gameObject, 2);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
+        playerHealth playerHP = other.gameObject.GetComponent<playerHealth>();
+        if (playerHP != null && !playerHP.isDamageable)
+            return;
+        
         if(explosiveRadius > 0)
         {
             Collider[] colliders = Physics.OverlapSphere(transform.position, explosiveRadius);
@@ -34,7 +38,7 @@ public class bullet : MonoBehaviour
             return;
         }
 
-        health HP = collision.gameObject.GetComponent<health>();
+        health HP = other.gameObject.GetComponent<health>();
         if (HP != null)
         {
             HP.DoDamage(damage);
