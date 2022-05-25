@@ -31,14 +31,13 @@ public class UIStore : PopUpMenu
     protected int[] defaultWeaponUpgradeCosts = { 1000, 1250, 1250, 2000, 1000 };
     protected List<TMPro.TextMeshProUGUI> weaponText = new List<TMPro.TextMeshProUGUI>();
     protected List<int> weaponCost = new List<int>();
+    int tempCurrentSkrap;
 
-
-
-    protected bool purchaseFailed = false;
 
     private void Start()
     {
-
+        if (purchaseMessage != null)
+            purchaseMessage.text = string.Empty;
         if (pickupsPage == null || weaponsPage == null)
             return;
         int i = 0;
@@ -91,6 +90,7 @@ public class UIStore : PopUpMenu
     public void Activate()
     {
         storeVisual.SetActive(true);
+        tempCurrentSkrap = GameManager.instance.skrapCount.GetQuantity();
         //GameObject.Find("Weapon Upgrades Page").gameObject.SetActive(false);
         FreezeWorld();
     }
@@ -100,15 +100,62 @@ public class UIStore : PopUpMenu
         UnfreezeWorld();
     }
 
-    private void ShowPurchaseMessage()
+    private void CheckPurchaseItem(ItemCount itemCount, int cost, int quantity = 0)
+    {
+        bool purchaseFailed;
+        if (GameManager.instance.skrapCount.GetQuantity() >= cost)
+        {
+            itemCount.Add(quantity);
+            GameManager.instance.skrapCount.Subtract(cost);
+            purchaseFailed = false;
+        }
+        else
+            purchaseFailed = true;
+        ShowPurchaseMessage(purchaseFailed);
+    }
+
+    private void CheckPurchaseItem(playerHealth health, int cost, int quantity)
+    {
+        bool purchaseFailed;
+        if (GameManager.instance.skrapCount.GetQuantity() >= cost)
+        {
+            health.AddHealth(quantity);
+            GameManager.instance.skrapCount.Subtract(cost);
+            purchaseFailed = false;
+        }
+        else
+            purchaseFailed = true;
+        ShowPurchaseMessage(purchaseFailed);
+    }
+
+    private void CheckPurchaseItem(int weaponIndex, float multiplier)
+    {
+        bool purchaseFailed;
+        //WeaponHolder.instance.UpgradeFireRate("Pistol", 1.5f);
+        if (GameManager.instance.skrapCount.GetQuantity() >= defaultWeaponUpgradeCosts[(int)WeaponUpgradeCosts.Pistol])
+        {
+            WeaponHolder.instance.UpgradeDamage(weaponIndex, multiplier);
+            WeaponHolder.instance.UpgradeFireRate(0, 1.5f);
+            GameManager.instance.skrapCount.Subtract(defaultWeaponUpgradeCosts[(int)WeaponUpgradeCosts.Pistol]);
+            purchaseFailed = false;
+        }
+        else
+            purchaseFailed = true;
+        ShowPurchaseMessage(purchaseFailed);
+    }
+    private void ShowPurchaseMessage(bool purchaseFailed)
     {
         if (!purchaseFailed)
         {
-            purchaseMessage.text = "Thank You!";
             purchaseMessage.color = Color.green;
+            purchaseMessage.text = "Thank You!";
+        }
+        else  //if no money was taken
+        {
+            purchaseMessage.color = Color.red;
+            purchaseMessage.text = "Transaction Failed!";
         }
     }
-
 
     #region Shop Buttons
     public void ExitShop()
@@ -134,116 +181,49 @@ public class UIStore : PopUpMenu
     // Allows you to buy anything in the shop taking away the proper amount of skrap while adding the item
     public void BuyBoardWipe()
     {
-        if (GameManager.instance.skrapCount.GetQuantity() >= defaultPickupCosts[(int)PickupCosts.BoardWipe])
-        {
-            GameManager.instance.boardWipeCount.Add();
-            GameManager.instance.skrapCount.Subtract(defaultPickupCosts[(int)PickupCosts.BoardWipe]);
-            Debug.Log("Skrap Taken");
-        }
-        else
-            purchaseFailed = true;
-
+        CheckPurchaseItem(GameManager.instance.boardWipeCount, defaultPickupCosts[(int)PickupCosts.BoardWipe]);
     }
     public void BuyGrenade()
     {
-        if (GameManager.instance.skrapCount.GetQuantity() >= defaultPickupCosts[(int)PickupCosts.Grenade])
-        {
-            GameManager.instance.grenadeCount.Add();
-            GameManager.instance.skrapCount.Subtract(defaultPickupCosts[(int)PickupCosts.Grenade]);
-            Debug.Log("Skrap Taken");
-        }
-        else
-            ShowPurchaseMessage();
-
-
+        CheckPurchaseItem(GameManager.instance.grenadeCount, defaultPickupCosts[(int)PickupCosts.Grenade]);
     }
     public void BuyArmor()
     {
-        if (GameManager.instance.skrapCount.GetQuantity() >= defaultPickupCosts[(int)PickupCosts.Armor])
-        {
-            //GameManager.instance.armorCount.Add();
-            GameManager.instance.skrapCount.Subtract(defaultPickupCosts[(int)PickupCosts.Armor]);
-            Debug.Log("Skrap Taken");
-        }
-        else
-            ShowPurchaseMessage();
-
+        //armor doesn't work
     }
     public void BuyHealth()
     {
-        if (GameManager.instance.skrapCount.GetQuantity() >= defaultPickupCosts[(int)PickupCosts.Armor])
-        {
-            GameManager.instance.playerHealth.AddHealth(25);
-            GameManager.instance.skrapCount.Subtract(defaultPickupCosts[(int)PickupCosts.Health]);
-            Debug.Log("Skrap Taken");
-
-        }
-        else
-            ShowPurchaseMessage();
+        CheckPurchaseItem(GameManager.instance.playerHealth, defaultPickupCosts[(int)PickupCosts.Health], 25);
     }
     public void BuyAmmo()
     {
-        if (GameManager.instance.skrapCount.GetQuantity() >= defaultPickupCosts[(int)PickupCosts.Ammo])
-        {
-            GameManager.instance.ammoCount.Add(5);
-            GameManager.instance.skrapCount.Subtract(defaultPickupCosts[(int)PickupCosts.Ammo]);
-            Debug.Log("Skrap Taken");
-        }
-        else
-            ShowPurchaseMessage();
+        CheckPurchaseItem(GameManager.instance.ammoCount, defaultPickupCosts[(int)PickupCosts.Ammo]);
     }
     #endregion
 
     #region WeaponButtons
     public void UpgradePistol()
     {
-        //WeaponHolder.instance.UpgradeDamage("Pistol", 1.5f);
-        //WeaponHolder.instance.UpgradeFireRate("Pistol", 1.5f);
-        if (GameManager.instance.skrapCount.GetQuantity() >= defaultWeaponUpgradeCosts[(int)WeaponUpgradeCosts.Pistol])
-        {
-            WeaponHolder.instance.UpgradeDamage(0, 1.5f);
-            WeaponHolder.instance.UpgradeFireRate(0, 1.5f);
-            GameManager.instance.skrapCount.Subtract(defaultPickupCosts[(int)WeaponUpgradeCosts.Pistol]);
-        }
+        CheckPurchaseItem(0, 1.5f);
     }
 
     public void UpgradeShotgun()
     {
-        //WeaponHolder.instance.UpgradeDamage("Shotgun", 1.5f);
-        //WeaponHolder.instance.UpgradeFireRate("Shotgun", 1.5f);
-        if (GameManager.instance.skrapCount.GetQuantity() >= defaultWeaponUpgradeCosts[(int)WeaponUpgradeCosts.Shotgun])
-        {
-            WeaponHolder.instance.UpgradeDamage(1, 1.5f);
-            WeaponHolder.instance.UpgradeFireRate(1, 1.5f);
-            GameManager.instance.skrapCount.Subtract(defaultPickupCosts[(int)WeaponUpgradeCosts.Shotgun]);
-
-        }
+        CheckPurchaseItem(1, 1.5f);
     }
 
     public void UpgradeHeavy()
     {
-        //WeaponHolder.instance.UpgradeDamage("Heavy", 1.5f);
-        //WeaponHolder.instance.UpgradeFireRate("Heavy", 1.5f);
-        if (GameManager.instance.skrapCount.GetQuantity() >= defaultWeaponUpgradeCosts[(int)WeaponUpgradeCosts.Heavy])
-        {
-            WeaponHolder.instance.UpgradeDamage(2, 1.5f);
-            WeaponHolder.instance.UpgradeFireRate(2, 1.5f);
-            GameManager.instance.skrapCount.Subtract(defaultPickupCosts[(int)WeaponUpgradeCosts.Heavy]);
-        }
+        CheckPurchaseItem(2, 1.5f);
     }
 
     public void UpgradeRifle()
     {
-        //WeaponHolder.instance.UpgradeDamage("Rifle", 1.5f);
-        //WeaponHolder.instance.UpgradeFireRate("Rifle", 1.5f);
-        if (GameManager.instance.skrapCount.GetQuantity() >= defaultWeaponUpgradeCosts[(int)WeaponUpgradeCosts.Rifle])
-        {
-            WeaponHolder.instance.UpgradeDamage(3, 1.5f);
-            WeaponHolder.instance.UpgradeFireRate(3, 1.5f);
-            GameManager.instance.skrapCount.Subtract(defaultPickupCosts[(int)WeaponUpgradeCosts.Rifle]);
-        }
+        CheckPurchaseItem(3, 1.5f);
     }
 
+
     #endregion
+
     #endregion
 }
