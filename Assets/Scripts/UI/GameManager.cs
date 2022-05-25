@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     public playerHealth playerHealth;
     public UIPrompt prompt;
     public UIChest chestUI;
+    public UIStore shopUI;
+    
     public bool Lockdown { get; set; } = false;
 
     // Start is called before the first frame update
@@ -37,8 +39,21 @@ public class GameManager : MonoBehaviour
         movement = player.GetComponent<PlayerMovement>();
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
-        //checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
+        checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
 
+        //sort the array of checkpoints by name
+        for(int i = 0; i < checkpoints.Length; i++)
+        {
+            for(int j = i; j < checkpoints.Length; j++)
+            {
+                if(checkpoints[i].name.CompareTo(checkpoints[j].name) > 0)
+                {
+                    GameObject temp = checkpoints[i];
+                    checkpoints[i] = checkpoints[j];
+                    checkpoints[j] = temp;
+                }
+            }
+        }
 
         //ui stuff
         pmenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
@@ -48,6 +63,7 @@ public class GameManager : MonoBehaviour
         skrapCount = GameObject.Find("Skrap Count").GetComponent<ItemCount>();
         prompt = GameObject.Find("UIPrompt").GetComponent<UIPrompt>();
         chestUI = GameObject.Find("Chest UI").GetComponent<UIChest>();
+        shopUI = GameObject.Find("Shop UI").GetComponent<UIStore>();
     }
 
     private void LateUpdate()

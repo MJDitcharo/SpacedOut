@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Store : MonoBehaviour
 {
-    [SerializeField]bool inStore = false;
+    bool inStore = false;
+    [SerializeField] string prompt = "Press F To Enter";
     // Update is called once per frames
     private void OnTriggerEnter(Collider other)
     {
-            GameManager.instance.prompt.ShowPrompt("Press F To Enter");
+            GameManager.instance.prompt.ShowPrompt(prompt);
     }
 
     private void OnTriggerStay(Collider other)
@@ -17,9 +18,7 @@ public class Store : MonoBehaviour
         if (!inStore)
         {
             if (other.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.F))
-            {
                 EnterStore();
-            }
         }
     }
 
@@ -33,7 +32,7 @@ public class Store : MonoBehaviour
     {
         GameManager.instance.prompt.HidePrompt();
         inStore = true;
-        //GameManager.instance.storeUI.Activate();
+        GameManager.instance.shopUI.Activate();
     }
 
 }

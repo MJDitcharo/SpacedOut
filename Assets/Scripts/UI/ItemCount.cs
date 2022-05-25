@@ -40,16 +40,17 @@ public class ItemCount : MonoBehaviour
     /// Adds the specified ammo. Adds 1 bullet by default
     /// </summary>
     /// <param name="ammo"></param>
-    public void Add(int ammo = 0)
+    public void Add(int ammo = System.Int32.MaxValue)
     {
-        if (ammo == 0)
+        if (ammo == System.Int32.MaxValue)
             quantity++;
-        if (ammo + quantity > max)
+        else if (ammo + quantity > max)
             quantity = max;
         else
             quantity += ammo;
         UpdateVisual();
     }
+
     public virtual void SetMaximumQuatnity(int ammo)
     {
         max = ammo;

@@ -9,7 +9,12 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        //StartCoroutine(SpawnEnemies(3));
+        spawnPoints = new List<GameObject>();
+        
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            spawnPoints.Add(transform.GetChild(i).gameObject);
+        }
     }
 
     public IEnumerator SpawnEnemies(float time)
