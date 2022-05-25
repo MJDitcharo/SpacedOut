@@ -72,4 +72,13 @@ public class WeaponHolder : MonoBehaviour
         else
             return true;
     }
+
+    public void UpgradeFireRate(int weapon, float multiplier)
+    {
+        transform.GetChild(weapon).GetComponent<WeaponBase>().SetFireRateMultiplier(multiplier);
+    }
+    public void UpgradeDamage(int weapon, float multiplier)
+    {
+        transform.GetChild(weapon).GetComponent<WeaponBase>().SetDamageMultiplier(multiplier);
+    }
 }
