@@ -2524,7 +2524,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pages: {fileID: 0}
+  pickupsPage: {fileID: 0}
+  weaponsPage: {fileID: 0}
   storeVisual: {fileID: 0}
   defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &1441929293705699394
@@ -3519,6 +3520,7 @@ GameObject:
   - component: {fileID: 6885510915029512844}
   - component: {fileID: 8964374584429049832}
   - component: {fileID: 6679724147245912176}
+  - component: {fileID: 2161234110093672838}
   m_Layer: 5
   m_Name: Pistol Border
   m_TagString: Untagged
@@ -3631,7 +3633,35 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8964374584429049832}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2161234110093672838}
+        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
+        m_MethodName: UpgradePistol
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2161234110093672838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008025333619510363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupsPage: {fileID: 0}
+  weaponsPage: {fileID: 0}
+  storeVisual: {fileID: 0}
+  defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &2044950927790256750
 GameObject:
   m_ObjectHideFlags: 0
@@ -4056,13 +4086,14 @@ GameObject:
   - component: {fileID: 9212637441966326738}
   - component: {fileID: 7015299443887927563}
   - component: {fileID: 4638713749171182878}
+  - component: {fileID: 348495570989923026}
   m_Layer: 5
   m_Name: Melee Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8334423823028088860
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4169,6 +4200,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &348495570989923026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2372706041656266735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupsPage: {fileID: 0}
+  weaponsPage: {fileID: 0}
+  storeVisual: {fileID: 0}
+  defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &2491129150396911195
 GameObject:
   m_ObjectHideFlags: 0
@@ -4264,7 +4311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pages: {fileID: 0}
+  pickupsPage: {fileID: 0}
+  weaponsPage: {fileID: 0}
   storeVisual: {fileID: 0}
   defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!114 &2203107043326467588
@@ -4335,7 +4383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pages: {fileID: 0}
+  pickupsPage: {fileID: 0}
+  weaponsPage: {fileID: 0}
   storeVisual: {fileID: 0}
   defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &2533600343764284575
@@ -5416,6 +5465,7 @@ GameObject:
   - component: {fileID: 8170982209444777999}
   - component: {fileID: 8216684429682018873}
   - component: {fileID: 3340326196189477718}
+  - component: {fileID: 1577502428703092251}
   m_Layer: 5
   m_Name: Heavy Border
   m_TagString: Untagged
@@ -5528,7 +5578,35 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8216684429682018873}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1577502428703092251}
+        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
+        m_MethodName: UpgradeHeavy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1577502428703092251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3205163569855514226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupsPage: {fileID: 0}
+  weaponsPage: {fileID: 0}
+  storeVisual: {fileID: 0}
+  defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &3319523205043563436
 GameObject:
   m_ObjectHideFlags: 0
@@ -5699,7 +5777,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pages: {fileID: 0}
+  pickupsPage: {fileID: 3064963588479827042}
+  weaponsPage: {fileID: 5635452604050651065}
   storeVisual: {fileID: 0}
   defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!114 &8491326216254994631
@@ -5984,7 +6063,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pages: {fileID: 0}
+  pickupsPage: {fileID: 0}
+  weaponsPage: {fileID: 0}
   storeVisual: {fileID: 0}
   defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &3994901568126975581
@@ -6269,7 +6349,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pages: {fileID: 0}
+  pickupsPage: {fileID: 0}
+  weaponsPage: {fileID: 0}
   storeVisual: {fileID: 0}
   defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &4066262143510219672
@@ -6633,7 +6714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4475949552404624101
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8664,9 +8745,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Board Wipe
-
-'
+  m_text: Pistol
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9760,7 +9839,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pages: {fileID: 0}
+  pickupsPage: {fileID: 0}
+  weaponsPage: {fileID: 0}
   storeVisual: {fileID: 0}
   defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &7204134550396431163
@@ -10433,6 +10513,7 @@ GameObject:
   - component: {fileID: 8920878319684162754}
   - component: {fileID: 6854917725403725788}
   - component: {fileID: 2483510825732724600}
+  - component: {fileID: 5161115203800043824}
   m_Layer: 5
   m_Name: Shotgun Border
   m_TagString: Untagged
@@ -10545,7 +10626,35 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6854917725403725788}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5161115203800043824}
+        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
+        m_MethodName: UpgradeShotgun
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5161115203800043824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8219068785696974263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupsPage: {fileID: 0}
+  weaponsPage: {fileID: 0}
+  storeVisual: {fileID: 0}
+  defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &8381421885276438864
 GameObject:
   m_ObjectHideFlags: 0
@@ -10558,6 +10667,7 @@ GameObject:
   - component: {fileID: 7197593245462084865}
   - component: {fileID: 2218158246427425103}
   - component: {fileID: 5267355051345159957}
+  - component: {fileID: 4272794514208194150}
   m_Layer: 5
   m_Name: Rifle Border
   m_TagString: Untagged
@@ -10670,7 +10780,35 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2218158246427425103}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4272794514208194150}
+        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
+        m_MethodName: UpgradeRifle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4272794514208194150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8381421885276438864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupsPage: {fileID: 0}
+  weaponsPage: {fileID: 0}
+  storeVisual: {fileID: 0}
+  defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &8411186509388189212
 GameObject:
   m_ObjectHideFlags: 0
@@ -11245,7 +11383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pages: {fileID: 0}
+  pickupsPage: {fileID: 0}
+  weaponsPage: {fileID: 0}
   storeVisual: {fileID: 0}
   defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &8486200961213701110
@@ -11783,7 +11922,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pages: {fileID: 3064963588479827042}
+  pickupsPage: {fileID: 3064963588479827042}
+  weaponsPage: {fileID: 5635452604050651065}
   storeVisual: {fileID: 4274644922237887884}
   defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &8967163237504657363

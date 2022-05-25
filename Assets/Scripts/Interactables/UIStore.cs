@@ -6,25 +6,28 @@ using UnityEngine.UI;
 
 public class UIStore : PopUpMenu
 {
-
     [SerializeField]
-    private GameObject pickupsPage = null;
+    public GameObject pickupsPage;
+    [SerializeField]
+    public GameObject weaponsPage;
     [SerializeField]
     private GameObject storeVisual;
 
     //pickup page
     public enum PickupCosts { Health, Ammo, Grenade, BoardWipe, Armor };
     public int[] defaultPickupCosts = { 200, 200, 300, 1500, 100 };
+    protected List<TMPro.TextMeshProUGUI> pickupText = new List<TMPro.TextMeshProUGUI>();
+    protected List<int> pickupCosts = new List<int>();
+
 
     protected int boardWipeCost, healthCost, ammoCost, grenadeCost, armorCost;
     protected TMPro.TextMeshProUGUI boardWipeCostStr, healthCostStr, ammoCostStr, grenadeCostStr, armorCoststr;
 
-
     protected Dictionary<TMPro.TextMeshProUGUI, int> pickups;
     protected enum WeaponUpgradeCosts { Pistol, Shotgun, Heavy, Rifle, Melee };
-    protected int[] defaultWeaponUpgradeCosts = { 200, 200, 300, 1500, 100 };
-    protected Dictionary<TMPro.TextMeshProUGUI, int> weaponUpgrades;
-
+    protected int[] defaultWeaponUpgradeCosts = { 1000, 1000, 1000, 1000, 1000 };
+    protected List<TMPro.TextMeshProUGUI> weaponText = new List<TMPro.TextMeshProUGUI>();
+    protected List<int> weaponCost = new List<int>();
 
 
 
@@ -32,33 +35,21 @@ public class UIStore : PopUpMenu
 
     private void Start()
     {
-        if (pickupsPage == null)
+
+        if (pickupsPage == null || weaponsPage == null)
             return;
+        int i = 0;
         foreach (Transform item in pickupsPage.transform)
         {
+            //2 lists - one for textmesh, one for cost
+            pickupCosts.Add(defaultPickupCosts[i]);
+            pickupText.Add(item.Find("Cost").gameObject.GetComponent<TMPro.TextMeshProUGUI>());
+        }
 
-            if (item.name == "Health")
-            {
-                Debug.Log("Inside" + item.name);
-                healthCost = defaultPickupCosts[(int)PickupCosts.Health];
-                healthCostStr = item.Find("Cost").gameObject.GetComponent<TMPro.TextMeshProUGUI>();
-                Debug.Log(healthCostStr.text);
-            }
-            else if(item.name == "Board Wipe")
-            {
-                boardWipeCost = defaultPickupCosts[(int)PickupCosts.BoardWipe];
-                boardWipeCostStr = item.Find("Cost").gameObject.GetComponent<TMPro.TextMeshProUGUI>();
-            }
-            else if (item.name == "Ammo")
-            {
-                ammoCost = defaultPickupCosts[(int)PickupCosts.Ammo];
-                ammoCostStr = item.Find("Cost").gameObject.GetComponent<TMPro.TextMeshProUGUI>();
-            }
-            else if (item.name == "Grenade")
-            {
-                grenadeCost = defaultPickupCosts[(int)PickupCosts.Grenade];
-                grenadeCostStr = item.Find("Cost").gameObject.GetComponent<TMPro.TextMeshProUGUI>();
-            }
+        foreach (Transform item in weaponsPage.transform)
+        {
+            weaponCost.Add(defaultWeaponUpgradeCosts[i]);
+            weaponText.Add(item.Find("Cost").gameObject.GetComponent<TMPro.TextMeshProUGUI>());
         }
 
         //add all 
@@ -114,10 +105,6 @@ public class UIStore : PopUpMenu
 
     }
 
-    public void NextPage()
-    {
-        if()
-    }
 
     #region Shop Buttons
     public void ExitShop()
@@ -125,6 +112,21 @@ public class UIStore : PopUpMenu
         GameManager.instance.shopUI.Deactivate();
     }
 
+    public void NextPage()
+    {
+        if (!weaponsPage.activeInHierarchy && pickupsPage.activeInHierarchy)
+        {
+            weaponsPage.SetActive(true);
+            pickupsPage.SetActive(false);
+        }
+        else
+        {
+            pickupsPage.SetActive(true);
+            weaponsPage.SetActive(false);
+        }
+    }
+
+    #region PickupButtons
     // Allows you to buy anything in the shop taking away the proper amount of skrap while adding the item
     public void BuyBoardWipe()
     {
@@ -170,7 +172,7 @@ public class UIStore : PopUpMenu
             GameManager.instance.playerHealth.AddHealth(25);
             GameManager.instance.skrapCount.Subtract(defaultPickupCosts[(int)PickupCosts.Health]);
             Debug.Log("Skrap Taken");
-            
+
         }
         else
             purchaseFailed = true;
@@ -186,7 +188,41 @@ public class UIStore : PopUpMenu
         else
             purchaseFailed = true;
     }
-
     #endregion
 
+    #region WeaponButtons
+    public void UpgradePistol()
+    {
+        //WeaponHolder.instance.UpgradeDamage("Pistol", 1.5f);
+        //WeaponHolder.instance.UpgradeFireRate("Pistol", 1.5f);
+        WeaponHolder.instance.UpgradeDamage(0, 1.5f);
+        WeaponHolder.instance.UpgradeFireRate(0, 1.5f);
+    }
+
+    public void UpgradeShotgun()
+    {
+        //WeaponHolder.instance.UpgradeDamage("Shotgun", 1.5f);
+        //WeaponHolder.instance.UpgradeFireRate("Shotgun", 1.5f);
+        WeaponHolder.instance.UpgradeDamage(2, 1.5f);
+        WeaponHolder.instance.UpgradeFireRate(2, 1.5f);
+    }
+
+    public void UpgradeHeavy()
+    {
+        //WeaponHolder.instance.UpgradeDamage("Heavy", 1.5f);
+        //WeaponHolder.instance.UpgradeFireRate("Heavy", 1.5f);
+        WeaponHolder.instance.UpgradeDamage(3, 1.5f);
+        WeaponHolder.instance.UpgradeFireRate(3, 1.5f);
+    }
+
+    public void UpgradeRifle()
+    {
+        //WeaponHolder.instance.UpgradeDamage("Rifle", 1.5f);
+        //WeaponHolder.instance.UpgradeFireRate("Rifle", 1.5f);
+        WeaponHolder.instance.UpgradeDamage(4, 1.5f);
+        WeaponHolder.instance.UpgradeFireRate(4, 1.5f);
+    }
+
+    #endregion
+    #endregion
 }
