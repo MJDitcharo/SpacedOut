@@ -2386,8 +2386,9 @@ GameObject:
   - component: {fileID: 1734538388074246943}
   - component: {fileID: 2460537174170423717}
   - component: {fileID: 8431106459503419987}
+  - component: {fileID: 5596359512991973326}
   m_Layer: 5
-  m_Name: Ammo Border
+  m_Name: Ammo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2498,7 +2499,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2460537174170423717}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5596359512991973326}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5596359512991973326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387827718762564776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pages: {fileID: 0}
+  storeVisual: {fileID: 0}
+  defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &1441929293705699394
 GameObject:
   m_ObjectHideFlags: 0
@@ -3288,7 +3316,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22, y: -28}
+  m_AnchoredPosition: {x: 50.000008, y: -75}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4470991726197650191
@@ -3328,8 +3356,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4293897728
+  m_fontColor: {r: 0, g: 0.68235296, b: 0.93725497, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3353,7 +3381,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -3382,7 +3410,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 73.72168, y: 0, z: 58.42102, w: 0}
+  m_margin: {x: 0.39189196, y: 0, z: 1.3867493, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3401,7 +3429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quantity: 0
-  max: 100
+  max: 2500
   textMeshPro: {fileID: 46246517885721478}
 --- !u!1 &1904082868161182218
 GameObject:
@@ -4152,10 +4180,11 @@ GameObject:
   - component: {fileID: 5037666669089261447}
   - component: {fileID: 2549298405439179461}
   - component: {fileID: 1464412043468167116}
-  - component: {fileID: 258540892771994887}
-  - component: {fileID: 6548648361654095117}
+  - component: {fileID: 2183593761180588539}
+  - component: {fileID: 2203107043326467588}
+  - component: {fileID: 15577075751172762}
   m_Layer: 5
-  m_Name: Board Wipe Border
+  m_Name: Board Wipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4223,7 +4252,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &258540892771994887
+--- !u!114 &2183593761180588539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491129150396911195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pages: {fileID: 0}
+  storeVisual: {fileID: 0}
+  defaultPickupCosts: c8000000c80000002c010000dc05000064000000
+--- !u!114 &2203107043326467588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4267,8 +4311,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6548648361654095117}
-        m_TargetAssemblyTypeName: ShopMenuButtons, Assembly-CSharp
+      - m_Target: {fileID: 15577075751172762}
+        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
         m_MethodName: BuyBoardWipe
         m_Mode: 1
         m_Arguments:
@@ -4279,7 +4323,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6548648361654095117
+--- !u!114 &15577075751172762
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4288,11 +4332,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2491129150396911195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca15e587c9d196446980f9b349a5e99b, type: 3}
+  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pages: []
+  pages: {fileID: 0}
   storeVisual: {fileID: 0}
+  defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &2533600343764284575
 GameObject:
   m_ObjectHideFlags: 0
@@ -4820,7 +4865,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 200
+  m_text: 300
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -5728,13 +5773,14 @@ GameObject:
   - component: {fileID: 4419748552190458408}
   - component: {fileID: 3203349809521514353}
   - component: {fileID: 8236213279394383500}
+  - component: {fileID: 1500335313733564014}
   m_Layer: 5
-  m_Name: Armor Border
+  m_Name: Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8551618697855039610
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5840,7 +5886,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3203349809521514353}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1500335313733564014}
+        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
+        m_MethodName: BuyArmor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1500335313733564014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3929386886307343763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pages: {fileID: 0}
+  storeVisual: {fileID: 0}
+  defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &3994901568126975581
 GameObject:
   m_ObjectHideFlags: 0
@@ -5988,7 +6061,7 @@ GameObject:
   - component: {fileID: 3868011969559959316}
   - component: {fileID: 4333753343561422317}
   - component: {fileID: 1943784853322005527}
-  - component: {fileID: 7722193912984953437}
+  - component: {fileID: 6162941775798833585}
   m_Layer: 0
   m_Name: Exit Store
   m_TagString: Untagged
@@ -6099,8 +6172,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7722193912984953437}
-        m_TargetAssemblyTypeName: ShopMenuButtons, Assembly-CSharp
+      - m_Target: {fileID: 6162941775798833585}
+        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
         m_MethodName: ExitShop
         m_Mode: 1
         m_Arguments:
@@ -6111,7 +6184,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7722193912984953437
+--- !u!114 &6162941775798833585
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6120,11 +6193,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4005099624404219312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca15e587c9d196446980f9b349a5e99b, type: 3}
+  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pages: []
+  pages: {fileID: 0}
   storeVisual: {fileID: 0}
+  defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &4066262143510219672
 GameObject:
   m_ObjectHideFlags: 0
@@ -6486,7 +6560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4475949552404624101
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6728,7 +6802,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2,500
+  m_text: 1500
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -8326,7 +8400,7 @@ GameObject:
   - component: {fileID: 6698228803137027043}
   - component: {fileID: 6058821835675652632}
   m_Layer: 5
-  m_Name: Grenade
+  m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9184,7 +9258,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 250
+  m_text: 100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -9476,8 +9550,9 @@ GameObject:
   - component: {fileID: 59659252293974986}
   - component: {fileID: 159752863207340197}
   - component: {fileID: 7530485088084991227}
+  - component: {fileID: 5217152829342802760}
   m_Layer: 5
-  m_Name: Grenade Border
+  m_Name: Grenade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9587,7 +9662,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 159752863207340197}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5217152829342802760}
+        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
+        m_MethodName: BuyGrenade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5217152829342802760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6993690664380621725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pages: {fileID: 0}
+  storeVisual: {fileID: 0}
+  defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &7204134550396431163
 GameObject:
   m_ObjectHideFlags: 0
@@ -10932,8 +11034,9 @@ GameObject:
   - component: {fileID: 3141404975122082873}
   - component: {fileID: 2592353438954274457}
   - component: {fileID: 3048889531843436468}
+  - component: {fileID: 7299445491839122683}
   m_Layer: 5
-  m_Name: Health Border
+  m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11044,7 +11147,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2592353438954274457}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7299445491839122683}
+        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
+        m_MethodName: BuyHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7299445491839122683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8472638261462064931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pages: {fileID: 0}
+  storeVisual: {fileID: 0}
+  defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &8486200961213701110
 GameObject:
   m_ObjectHideFlags: 0
@@ -11580,10 +11710,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pages:
-  - {fileID: 3064963588479827042}
-  - {fileID: 5635452604050651065}
+  pages: {fileID: 3064963588479827042}
   storeVisual: {fileID: 4274644922237887884}
+  defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &8967163237504657363
 GameObject:
   m_ObjectHideFlags: 0
