@@ -14,6 +14,8 @@ public class RoomManager : MonoBehaviour
 
     public void LockDownRoom()
     {
+        Debug.Log("Locking down room!");
+
         collider.enabled = false;
         doorEnter.SetActive(true);
         doorExit.SetActive(true);
@@ -23,6 +25,8 @@ public class RoomManager : MonoBehaviour
 
     public void EndLockDown()
     {
+        Debug.Log("Unlocking room!");
+
         doorEnter.SetActive(true);
         doorExit.SetActive(false);
         GameManager.instance.SaveGame();
