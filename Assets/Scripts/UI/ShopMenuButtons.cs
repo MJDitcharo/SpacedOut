@@ -10,6 +10,11 @@ public class ShopMenuButtons : UIStore
         GameManager.instance.shopUI.Deactivate();
     }
 
+    public void NextPage()
+    {
+
+    }
+
     // Allows you to buy anything in the shop taking away the proper amount of skrap while adding the item
     public void BuyBoardWipe()
     {

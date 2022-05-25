@@ -8,7 +8,7 @@ public class UIStore : PopUpMenu
 {
 
     [SerializeField]
-    private GameObject pages = null;
+    private GameObject pickupsPage = null;
     [SerializeField]
     private GameObject storeVisual;
 
@@ -32,9 +32,9 @@ public class UIStore : PopUpMenu
 
     private void Start()
     {
-        if (pages == null)
+        if (pickupsPage == null)
             return;
-        foreach (Transform item in pages.transform)
+        foreach (Transform item in pickupsPage.transform)
         {
 
             if (item.name == "Health")
@@ -112,6 +112,11 @@ public class UIStore : PopUpMenu
     private void ShowPurchaseFailed()
     {
 
+    }
+
+    public void NextPage()
+    {
+        if()
     }
 
     #region Shop Buttons
