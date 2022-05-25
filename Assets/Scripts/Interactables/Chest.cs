@@ -56,9 +56,7 @@ public class Chest : MonoBehaviour
     void Update()
     {
         if (playAni)
-        {
             crateTop.position = Vector3.Lerp(crateTop.position, defaultVec + offset, time); //mpve the top of the box 
-        }
     } 
 
     private void OnTriggerEnter(Collider other)
@@ -129,7 +127,6 @@ public class Chest : MonoBehaviour
         skrapCountInst.Add(skrap);
         grenadeCountInst.Add(grenade);
         boardWipeInst.Add(boardWipe);
-        Debug.Log("Health to add: " + health);
         healthBarInst.AddHealth((float)(health * .01f));
         ShowQuantityChange();
     }

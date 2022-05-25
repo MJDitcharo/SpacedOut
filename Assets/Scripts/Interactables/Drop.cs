@@ -25,7 +25,7 @@ public class Drop
         Quantity = mQuantity;
         int newCount = AddInt(Quantity, oldCount, max);
 
-        ItemName = mItemName + " x " + Quantity + "\t" + oldCount + " -> " + newCount;
+        ItemName = mItemName + " x " + Quantity + " \t" + oldCount + " -> " + newCount;
     }
     private int AddInt(int num1, int num2, int max)
     {

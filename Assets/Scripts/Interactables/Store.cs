@@ -18,9 +18,7 @@ public class Store : MonoBehaviour
         if (!inStore)
         {
             if (other.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.F))
-            {
                 EnterStore();
-            }
         }
     }
 
@@ -34,7 +32,7 @@ public class Store : MonoBehaviour
     {
         GameManager.instance.prompt.HidePrompt();
         inStore = true;
-        //GameManager.instance.storeUI.Activate();
+        GameManager.instance.shopUI.Activate();
     }
 
 }
