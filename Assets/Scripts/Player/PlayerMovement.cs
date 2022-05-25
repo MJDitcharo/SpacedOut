@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float pushbackFalloffSpeed = 4;
     [SerializeField] float rollSpeed = 4;
     [SerializeField] float rollCooldown = 1;
+    [SerializeField] float rollInvulnerability = .5f;
     float rollTimer = 0;
     Vector3 movement;
     Vector3 mousePosition;
@@ -67,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
     public IEnumerator Rolling()
     {
         ph.isDamageable = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(rollInvulnerability);
         ph.isDamageable = true;
 
     }
