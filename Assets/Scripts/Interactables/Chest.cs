@@ -61,8 +61,7 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!chestOpened)
-            GameManager.instance.prompt.ShowPrompt("Press F To Open");
+
     }
 
     private void OnTriggerStay(Collider other)
