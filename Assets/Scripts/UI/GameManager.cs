@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public UIPrompt prompt;
     public UIChest chestUI;
     public UIStore shopUI;
+    public bool menuIsActive = false;
     
     public bool Lockdown { get; set; } = false;
 

@@ -116,14 +116,19 @@ public class UIStore : PopUpMenu
     private void CheckPurchaseAmmo(ItemCount itemCount, int cost, int quantity = 0)
     {
         bool purchaseFailed;
+        WeaponBase weaponToUpdate = null;
         if (GameManager.instance.skrapCount.GetQuantity() >= cost)
         {
             for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
             {
                 WeaponBase currentWeapon = WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>();
                 currentWeapon.ammoCount = currentWeapon.maxAmmo;
-                currentWeapon.UpdateVisual();
+                if (currentWeapon.isActiveAndEnabled)
+                    weaponToUpdate = currentWeapon;
             }
+
+            if (weaponToUpdate != null)
+                weaponToUpdate.UpdateVisual();
             GameManager.instance.skrapCount.Subtract(cost);
             purchaseFailed = false;
         }
