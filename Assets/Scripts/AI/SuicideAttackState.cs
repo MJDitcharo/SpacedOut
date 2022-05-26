@@ -59,10 +59,10 @@ public class SuicideAttackState : State
         {
             GameManager.instance.player.GetComponent<playerHealth>().DoDamage(10);
             GameManager.instance.movement.pushback += (-pushbackMultiplier * (transform.position - GameManager.instance.player.transform.position).normalized);
-            Instantiate(hitEffect, transform.position, Quaternion.identity);
         }
         GameManager.instance.enemyCount--;
         //StopCoroutine(flashing);
+        Instantiate(hitEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
