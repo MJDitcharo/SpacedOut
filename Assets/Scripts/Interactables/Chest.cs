@@ -57,7 +57,7 @@ public class Chest : MonoBehaviour
     {
         if (playAni)
             crateTop.position = Vector3.Lerp(crateTop.position, defaultVec + offset, time); //mpve the top of the box 
-    } 
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -122,15 +122,19 @@ public class Chest : MonoBehaviour
 
     private void RewardContents()
     {
+        WeaponBase weaponToUpdate = null; //weapon to update the visual
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
         {
             WeaponBase currentWeapon = WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>();
             currentWeapon.ammoCount += ammo;
             if (currentWeapon.ammoCount > currentWeapon.maxAmmo)
                 currentWeapon.ammoCount = currentWeapon.maxAmmo;
-            currentWeapon.UpdateVisual();
+            if (currentWeapon.isActiveAndEnabled)
+                weaponToUpdate = currentWeapon;
         }
-        
+
+        if (weaponToUpdate != null)
+            weaponToUpdate.UpdateVisual();
         //ammoCountInst.Add(ammo);
         skrapCountInst.Add(skrap);
         grenadeCountInst.Add(grenade);
@@ -141,7 +145,7 @@ public class Chest : MonoBehaviour
 
     private void ShowQuantityChange()
     {
-        foreach(int rewards in Enum.GetValues(typeof(Rewards)))
+        foreach (int rewards in Enum.GetValues(typeof(Rewards)))
         {
             if (playerItems[(int)rewards] + playerRewards[(int)rewards].Quantity != playerItems[(int)rewards])
                 AddToSlots((Rewards)rewards);
