@@ -26,8 +26,8 @@ public class bullet : MonoBehaviour
             for(int i = 0; i < colliders.Length; i++)
             {
                 health healthScript = colliders[i].GetComponent<health>();
-                RaycastHit hit;
-                if(healthScript != null && Physics.Raycast(transform.position, colliders[i].transform.position - transform.position, out hit, Mathf.Infinity) && hit.collider.gameObject == colliders[i].gameObject)
+                //RaycastHit hit;
+                if(healthScript != null /*&& Physics.Raycast(transform.position, colliders[i].transform.position - transform.position, out hit, Mathf.Infinity) && hit.collider.gameObject == colliders[i].gameObject*/)
                 {
                     colliders[i].GetComponent<EnemyMovement>().pushback += (-pushbackMultiplier* (transform.position - colliders[i].transform.position).normalized);
                     healthScript.DoDamage(damage);
