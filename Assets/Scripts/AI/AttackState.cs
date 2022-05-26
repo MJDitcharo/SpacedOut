@@ -25,7 +25,7 @@ public class AttackState : State
     {
         RaycastHit hit;
         Physics.Raycast(transform.position, GameManager.instance.player.transform.position + new Vector3(0, 1, 0) - transform.position, out hit, Mathf.Infinity);
-        if(Vector3.Distance(transform.position, GameManager.instance.player.transform.position) >= attackDistance + 2 || hit.collider.gameObject != GameManager.instance.player)
+        if(Vector3.Distance(transform.position, GameManager.instance.player.transform.position) >= attackDistance + 2 || hit.collider == null || hit.collider.gameObject != GameManager.instance.player)
         {
             return engageState;
         }

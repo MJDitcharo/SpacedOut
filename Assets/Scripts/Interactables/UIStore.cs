@@ -149,11 +149,11 @@ public class UIStore : PopUpMenu
     {
         bool purchaseFailed;
         //WeaponHolder.instance.UpgradeFireRate("Pistol", 1.5f);
-        if (GameManager.instance.skrapCount.GetQuantity() >= defaultWeaponUpgradeCosts[(int)WeaponUpgradeCosts.Pistol])
+        if (GameManager.instance.skrapCount.GetQuantity() >= defaultWeaponUpgradeCosts[weaponIndex])
         {
             WeaponHolder.instance.UpgradeDamage(weaponIndex, multiplier);
-            WeaponHolder.instance.UpgradeFireRate(0, 1.5f);
-            GameManager.instance.skrapCount.Subtract(defaultWeaponUpgradeCosts[(int)WeaponUpgradeCosts.Pistol]);
+            WeaponHolder.instance.UpgradeFireRate(weaponIndex, multiplier);
+            GameManager.instance.skrapCount.Subtract(defaultWeaponUpgradeCosts[weaponIndex]);
             purchaseFailed = false;
         }
         else
