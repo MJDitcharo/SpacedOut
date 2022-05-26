@@ -220,6 +220,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35834644}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &37459635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2044950927790256750, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
+  m_PrefabInstance: {fileID: 271483896}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &155955639
 GameObject:
   m_ObjectHideFlags: 0
@@ -1562,6 +1567,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1433833025, guid: 7b60863fe47a2b64d9d8a9ba0b6c7ce6, type: 3}
+      propertyPath: prompt
+      value: 'Press F To Enter '
+      objectReference: {fileID: 0}
     - target: {fileID: 1952169175861292364, guid: 7b60863fe47a2b64d9d8a9ba0b6c7ce6, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1609,6 +1618,10 @@ PrefabInstance:
     - target: {fileID: 1952169175861292365, guid: 7b60863fe47a2b64d9d8a9ba0b6c7ce6, type: 3}
       propertyPath: m_Name
       value: Level 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1952169176204540934, guid: 7b60863fe47a2b64d9d8a9ba0b6c7ce6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2917613687044033557, guid: 7b60863fe47a2b64d9d8a9ba0b6c7ce6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1736,7 +1749,7 @@ GameObject:
   - component: {fileID: 1122983301}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Checkpoint
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -2806,6 +2819,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 819579283, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: gunImages
+      value: 
+      objectReference: {fileID: 37459635}
+    - target: {fileID: 1026084980, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1147752367711628, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
       propertyPath: m_Name
       value: Stylized Astronaut
