@@ -25,6 +25,7 @@ public class health : MonoBehaviour
         currHealth -= _dmg;
         if(currHealth <= 0)
         {
+            GetComponent<Collider>().enabled = false;
             Death();
         }
     }
