@@ -113,7 +113,24 @@ public class UIStore : PopUpMenu
             purchaseFailed = true;
         //ShowPurchaseMessage(purchaseFailed);
     }
-
+    private void CheckPurchaseAmmo(ItemCount itemCount, int cost, int quantity = 0)
+    {
+        bool purchaseFailed;
+        if (GameManager.instance.skrapCount.GetQuantity() >= cost)
+        {
+            for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
+            {
+                WeaponBase currentWeapon = WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>();
+                currentWeapon.ammoCount = currentWeapon.maxAmmo;
+                currentWeapon.UpdateVisual();
+            }
+            GameManager.instance.skrapCount.Subtract(cost);
+            purchaseFailed = false;
+        }
+        else
+            purchaseFailed = true;
+        //ShowPurchaseMessage(purchaseFailed);
+    }
     private void CheckPurchaseItem(playerHealth health, int cost, int quantity)
     {
         bool purchaseFailed;
@@ -197,7 +214,7 @@ public class UIStore : PopUpMenu
     }
     public void BuyAmmo()
     {
-        CheckPurchaseItem(GameManager.instance.ammoCount, defaultPickupCosts[(int)PickupCosts.Ammo]);
+        CheckPurchaseAmmo(GameManager.instance.ammoCount, defaultPickupCosts[(int)PickupCosts.Ammo]);
     }
     #endregion
 

@@ -122,7 +122,16 @@ public class Chest : MonoBehaviour
 
     private void RewardContents()
     {
-        ammoCountInst.Add(ammo);
+        for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
+        {
+            WeaponBase currentWeapon = WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>();
+            currentWeapon.ammoCount += ammo;
+            if (currentWeapon.ammoCount > currentWeapon.maxAmmo)
+                currentWeapon.ammoCount = currentWeapon.maxAmmo;
+            currentWeapon.UpdateVisual();
+        }
+        
+        //ammoCountInst.Add(ammo);
         skrapCountInst.Add(skrap);
         grenadeCountInst.Add(grenade);
         boardWipeInst.Add(boardWipe);
