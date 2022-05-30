@@ -63,6 +63,17 @@ public class WeaponBase : MonoBehaviour
         GameManager.instance.ammoCount.Subtract();
     }
 
+    public void AddAmmo(int ammo = System.Int32.MaxValue)
+    {
+        if (ammo == System.Int32.MaxValue)
+            ammoCount++;
+        else if (ammo + ammoCount > maxAmmo)
+            ammoCount = maxAmmo;
+        else
+            ammoCount+= ammo;
+        UpdateVisual();
+    }
+
     public virtual void SetActive(bool isActive) //set current weapon to sctive
     {
         gameObject.SetActive(isActive);

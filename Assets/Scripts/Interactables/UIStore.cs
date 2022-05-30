@@ -111,30 +111,21 @@ public class UIStore : PopUpMenu
         }
         else
             purchaseFailed = true;
-        //ShowPurchaseMessage(purchaseFailed);
+        ShowPurchaseMessage(purchaseFailed);
     }
-    private void CheckPurchaseAmmo(ItemCount itemCount, int cost, int quantity = 0)
+    private void PurchaseAmmo(ItemCount itemCount, string weaponName, int cost, int quantity = 0)
     {
         bool purchaseFailed;
-        WeaponBase weaponToUpdate = null;
         if (GameManager.instance.skrapCount.GetQuantity() >= cost)
         {
-            for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
-            {
-                WeaponBase currentWeapon = WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>();
-                currentWeapon.ammoCount = currentWeapon.maxAmmo;
-                if (currentWeapon.isActiveAndEnabled)
-                    weaponToUpdate = currentWeapon;
-            }
-
-            if (weaponToUpdate != null)
-                weaponToUpdate.UpdateVisual();
+            WeaponBase currentWeapon = WeaponHolder.instance.transform.Find(weaponName).GetComponent<WeaponBase>();
+            currentWeapon.AddAmmo(quantity);
             GameManager.instance.skrapCount.Subtract(cost);
-            purchaseFailed = false;
+            purchaseFailed = true;
         }
         else
-            purchaseFailed = true;
-        //ShowPurchaseMessage(purchaseFailed);
+            purchaseFailed = false;
+        ShowPurchaseMessage(purchaseFailed);
     }
     private void CheckPurchaseItem(playerHealth health, int cost, int quantity)
     {
@@ -147,7 +138,7 @@ public class UIStore : PopUpMenu
         }
         else
             purchaseFailed = true;
-        //ShowPurchaseMessage(purchaseFailed);
+        ShowPurchaseMessage(purchaseFailed);
     }
 
     private void CheckPurchaseItem(int weaponIndex, float multiplier)
@@ -163,19 +154,19 @@ public class UIStore : PopUpMenu
         }
         else
             purchaseFailed = true;
-        //ShowPurchaseMessage(purchaseFailed);
+        ShowPurchaseMessage(purchaseFailed);
     }
     private void ShowPurchaseMessage(bool purchaseFailed)
     {
         if (!purchaseFailed)
         {
-            purchaseMessage.color = Color.green;
-            purchaseMessage.text = "Thank You!";
+            //purchaseMessage.color = Color.green;
+            //purchaseMessage.text = "Thank You!";
         }
-        else  //if no money was taken
+        else 
         {
-            purchaseMessage.color = Color.red;
-            purchaseMessage.text = "Transaction Failed!";
+            //purchaseMessage.color = Color.red;
+            //purchaseMessage.text = "Transaction Failed!";
         }
     }
 
@@ -217,10 +208,6 @@ public class UIStore : PopUpMenu
     {
         CheckPurchaseItem(GameManager.instance.playerHealth, defaultPickupCosts[(int)PickupCosts.Health], 25);
     }
-    public void BuyAmmo()
-    {
-        CheckPurchaseAmmo(GameManager.instance.ammoCount, defaultPickupCosts[(int)PickupCosts.Ammo]);
-    }
     #endregion
 
     #region WeaponButtons
@@ -229,21 +216,37 @@ public class UIStore : PopUpMenu
         CheckPurchaseItem(0, 1.5f);
     }
 
+    public void BuyPistolAmmo()
+    {
+        PurchaseAmmo(GameManager.instance.ammoCount, "Pistol", defaultPickupCosts[(int)PickupCosts.Ammo], 25);
+    }
+
     public void UpgradeShotgun()
     {
-        CheckPurchaseItem(1, 1.5f);
+
+    }
+
+    public void BuyShotgunAmmo()
+    {
+        PurchaseAmmo(GameManager.instance.ammoCount, "Shotgun", defaultPickupCosts[(int)PickupCosts.Ammo], 10);
     }
 
     public void UpgradeHeavy()
     {
         CheckPurchaseItem(2, 1.5f);
     }
-
+    public void BuyHeavyAmmo()
+    {
+        PurchaseAmmo(GameManager.instance.ammoCount, "Heavy", defaultPickupCosts[(int)PickupCosts.Ammo], 5);
+    }
     public void UpgradeRifle()
     {
         CheckPurchaseItem(3, 1.5f);
     }
-
+    public void BuyRifleAmmo()
+    {
+        PurchaseAmmo(GameManager.instance.ammoCount, "Rifle", defaultPickupCosts[(int)PickupCosts.Ammo], 10);
+    }
 
     #endregion
 
