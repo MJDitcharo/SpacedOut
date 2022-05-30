@@ -9,6 +9,7 @@ public class Store : MonoBehaviour
     // Update is called once per frames
     private void OnTriggerEnter(Collider other)
     {
+         if (other.gameObject.CompareTag("Player"))
             GameManager.instance.prompt.ShowPrompt(prompt);
     }
 
@@ -24,8 +25,12 @@ public class Store : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        inStore = false;
-        GameManager.instance.prompt.HidePrompt();
+        if (other.gameObject.CompareTag("Player"))
+        {
+            inStore = false;
+            GameManager.instance.prompt.HidePrompt();
+        }
+
     }
 
     private void EnterStore()
