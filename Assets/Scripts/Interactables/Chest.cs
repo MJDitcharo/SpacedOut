@@ -61,7 +61,8 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
+        if (other.gameObject.CompareTag("Player")) //only move if colliding eith the player and do it once 
+            GameManager.instance.prompt.ShowPrompt("Press F to Enter");
     }
 
     private void OnTriggerStay(Collider other)
@@ -73,8 +74,12 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        GameManager.instance.prompt.HidePrompt();
-        pLight.enabled = false; //disable light after exiting trigger
+        if (other.gameObject.CompareTag("Player")) //only move if colliding eith the player and do it once 
+        {
+            GameManager.instance.prompt.HidePrompt();
+            pLight.enabled = false; //disable light after exiting trigger
+
+        }
     }
 
     private void OpenChest()

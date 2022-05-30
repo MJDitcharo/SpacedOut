@@ -51,39 +51,36 @@ public class WeaponHolder : MonoBehaviour
         }
     }
 
-    private bool SwitchWeapons()
+    private void SwitchWeapons()
     {
         int prevWeapon = selectedWeapon;
 
         int maxChild = transform.childCount - 1;
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
-        {
-            if (selectedWeapon >= maxChild)
-                selectedWeapon = 0;
-            else
-                selectedWeapon++;
-        }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-        {
-            if (selectedWeapon <= 0)
-                selectedWeapon = maxChild;
-            else
-                selectedWeapon--;
-        }
+        //if (Time.timeScale > 0)
+        //{
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+            {
+                if (selectedWeapon >= maxChild)
+                    selectedWeapon = 0;
+                else
+                    selectedWeapon++;
+            }
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+            {
+                if (selectedWeapon <= 0)
+                    selectedWeapon = maxChild;
+                else
+                    selectedWeapon--;
+            }
 
-        for (int i = 0; i < keys.Count; i++)
-        {
-            if (Input.GetKey(keys[i]))
-                selectedWeapon = i;
-        }
+            for (int i = 0; i < keys.Count; i++)
+            {
+                if (Input.GetKey(keys[i]))
+                    selectedWeapon = i;
+            }
 
-        SelectWeapon();
-
-
-        if (prevWeapon == selectedWeapon)
-            return false;
-        else
-            return true;
+            SelectWeapon();
+        //}
     }
 
     public void UpgradeFireRate(int weapon, float multiplier)
