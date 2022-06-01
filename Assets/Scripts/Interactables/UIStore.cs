@@ -11,9 +11,11 @@ public class UIStore : PopUpMenu
     [SerializeField]
     public GameObject weaponsPage;
     [SerializeField]
-    private GameObject storeVisual;
+    private GameObject shopVisual;
     [SerializeField]
     private TMPro.TextMeshProUGUI purchaseMessage;
+    [SerializeField]
+    private List<GameObject> pages;
 
 
     //pickup page
@@ -54,30 +56,15 @@ public class UIStore : PopUpMenu
             weaponText.Add(item.Find("Cost").gameObject.GetComponent<TMPro.TextMeshProUGUI>());
         }
 
-
-        //add all 
-        //int i = 0;
-        //foreach (Transform transform in pages[i].transform) //get to the children of the page
-        //{
-        //    int j = 0;
-        //    Debug.Log(transform.name);
-        //    if (transform.parent.name == "Pickups Page")
-        //    {
-        //        foreach(Transform nextTrans in transform)
-        //        {
-        //            pickups.Add(nextTrans.Find("Cost").gameObject.GetComponent<TMPro.TextMeshProUGUI>(), defaultPickupCosts[j]);
-        //            break;
-        //        }
-        //    }
-        //    //else if (transform.parent.name == "Weapon Upgrade Page")
-        //    //{
-        //    //    weaponUpgrades.Add(transform.Find("Cost").gameObject.GetComponent<TMPro.TextMeshProUGUI>(), defaultWeaponUpgradeCosts[j]);
-        //    //}
-        //    j++;
-        //    i++;
-        //}
-
-
+        //new pages system
+        foreach(Transform page in shopVisual.transform)
+        {
+            if (page.name.Contains("Page"))
+            {
+                Debug.Log("Added" + page.name);
+                pages.Add(page.gameObject);
+            }
+        }
 
     }
 
@@ -89,14 +76,14 @@ public class UIStore : PopUpMenu
 
     public void Activate()
     {
-        storeVisual.SetActive(true);
+        shopVisual.SetActive(true);
         tempCurrentSkrap = GameManager.instance.skrapCount.GetQuantity();
         //GameObject.Find("Weapon Upgrades Page").gameObject.SetActive(false);
         FreezeWorld();
     }
     public void Deactivate()
     {
-        storeVisual.SetActive(false);
+        shopVisual.SetActive(false);
         UnfreezeWorld();
     }
 
