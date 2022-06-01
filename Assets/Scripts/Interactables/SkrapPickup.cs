@@ -13,5 +13,4 @@ public class SkrapPickup : Pickups
     {
         drop.ItemName = "Skrap x " + quantity.ToString();
     }
-
 }

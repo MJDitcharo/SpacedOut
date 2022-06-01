@@ -6,7 +6,7 @@ public abstract class Pickups : MonoBehaviour
 {
     //number of items this will give the player
     [SerializeField]
-    protected int quantity;
+    public int quantity;
     protected Drop drop = new Drop();
     private void Start()
     {

@@ -133,8 +133,8 @@ GameObject:
   - component: {fileID: 2291179577105618355}
   - component: {fileID: 2291179577105618356}
   - component: {fileID: 2291179577105618346}
-  - component: {fileID: 2519469891191574351}
   - component: {fileID: 5863445506168100210}
+  - component: {fileID: -3005862007651072849}
   m_Layer: 8
   m_Name: Turret Enemy
   m_TagString: Enemy
@@ -347,20 +347,6 @@ MonoBehaviour:
   pushbackFalloffSpeed: 4
   pushback: {x: 0, y: 0, z: 0}
   movementSpeed: 3
---- !u!114 &2519469891191574351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2291179577105618357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6f487dc335e16246b2966375a6151e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currHealth: 100
 --- !u!114 &5863445506168100210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +364,22 @@ MonoBehaviour:
   normalColor: []
   rend: {fileID: 2291179577105618349}
   flashTime: 0.1
+--- !u!114 &-3005862007651072849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2291179577105618357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5b63156061008a41a13ee90db58dfd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currHealth: 100
+  drops: {fileID: 6076811627386069490, guid: d0306af4078577240a9a23e69fb7f953, type: 3}
+  dropQuantity: 200
 --- !u!1 &6290055366700743287
 GameObject:
   m_ObjectHideFlags: 0
