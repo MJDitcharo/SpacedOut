@@ -16,6 +16,7 @@ public class UIStore : PopUpMenu
     private TMPro.TextMeshProUGUI purchaseMessage;
     [SerializeField]
     private List<GameObject> pages;
+    private GameObject activePage;
 
 
     //pickup page
@@ -40,29 +41,21 @@ public class UIStore : PopUpMenu
     {
         if (purchaseMessage != null)
             purchaseMessage.text = string.Empty;
-        if (pickupsPage == null || weaponsPage == null)
-            return;
-        int i = 0;
-        foreach (Transform item in pickupsPage.transform)
-        {
-            //2 lists - one for textmesh, one for cost
-            pickupCosts.Add(defaultPickupCosts[i]);
-            pickupText.Add(item.Find("Cost").gameObject.GetComponent<TMPro.TextMeshProUGUI>());
-        }
-
-        foreach (Transform item in weaponsPage.transform)
-        {
-            weaponCost.Add(defaultWeaponUpgradeCosts[i]);
-            weaponText.Add(item.Find("Cost").gameObject.GetComponent<TMPro.TextMeshProUGUI>());
-        }
-
         //new pages system
+        bool first = true;
         foreach(Transform page in shopVisual.transform)
         {
             if (page.name.Contains("Page"))
             {
                 Debug.Log("Added" + page.name);
                 pages.Add(page.gameObject);
+                if (first) //the first page in the hierarchy will be the only one shown
+                {
+                    page.gameObject.SetActive(true);
+                    activePage = page.gameObject; //used by the next and back buttons
+                }
+                else
+                    page.gameObject.SetActive(false);
             }
         }
 
@@ -165,15 +158,37 @@ public class UIStore : PopUpMenu
 
     public void NextPage()
     {
-        if (!weaponsPage.activeInHierarchy && pickupsPage.activeInHierarchy)
+        //get the index of the element
+        for (int i = 0; i < pages.Count; i++)
         {
-            weaponsPage.SetActive(true);
-            pickupsPage.SetActive(false);
+            if(pages[i].activeInHierarchy)
+            {
+                //deactivate current page
+                pages[i].SetActive(false);
+                if (pages[i + 1] != null)//set the next page as active.
+                    pages[i + 1].SetActive(true);
+                else //if the next is out of bounds, go to the first page
+                    pages[0].SetActive(true);
+                break;
+            }
         }
-        else
+
+    }
+
+    public void PreviousPage()
+    {
+        for (int i = 0; i < pages.Count; i++)
         {
-            pickupsPage.SetActive(true);
-            weaponsPage.SetActive(false);
+            if (pages[i].activeInHierarchy)
+            {
+                //deactivate current page
+                pages[i].SetActive(false);
+                if (pages[i - 1] != null)//set the next page as active.
+                    pages[i - 1].SetActive(true);
+                else //if the next is out of bounds, go to the first page
+                    pages[pages.Count].SetActive(true);
+                break;
+            }
         }
     }
 
