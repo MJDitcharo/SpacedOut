@@ -181,12 +181,10 @@ public class UIStore : PopUpMenu
             {
                 //deactivate current page
                 pages[i].SetActive(false);//set the next page as active.
-
-                if (i - 1 > 0)
+                if (i - 1 < 0)
+                    pages[pages.Count - 1].SetActive(true);
+                else
                     pages[i - 1].SetActive(true);
-                else//if the next is out of bounds, go to the first page
-                    pages[pages.Count].SetActive(true);
-                break;
             }
         }
     }
