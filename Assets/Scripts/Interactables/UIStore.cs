@@ -7,16 +7,10 @@ using UnityEngine.UI;
 public class UIStore : PopUpMenu
 {
     [SerializeField]
-    public GameObject pickupsPage;
-    [SerializeField]
-    public GameObject weaponsPage;
-    [SerializeField]
     private GameObject shopVisual;
     [SerializeField]
     private TMPro.TextMeshProUGUI purchaseMessage;
-    [SerializeField]
-    private List<GameObject> pages;
-    private GameObject activePage;
+    private List<GameObject> pages = new();
 
 
     //pickup page
@@ -45,14 +39,14 @@ public class UIStore : PopUpMenu
         bool first = true;
         foreach(Transform page in shopVisual.transform)
         {
-            if (page.name.Contains("Page"))
+            if (page.name.Contains("Page")) 
             {
                 Debug.Log("Added" + page.name);
                 pages.Add(page.gameObject);
                 if (first) //the first page in the hierarchy will be the only one shown
                 {
                     page.gameObject.SetActive(true);
-                    activePage = page.gameObject; //used by the next and back buttons
+                    first = false;
                 }
                 else
                     page.gameObject.SetActive(false);
