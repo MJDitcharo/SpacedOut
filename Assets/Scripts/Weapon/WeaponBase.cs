@@ -61,6 +61,7 @@ public class WeaponBase : MonoBehaviour
         rb.AddForce(firePoint[firePointIndex].forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
 
         //deplete ammo
+        ammoCount = GameManager.instance.ammoCount.GetQuantity(); 
         ammoCount--;
         GameManager.instance.ammoCount.Subtract();
     }

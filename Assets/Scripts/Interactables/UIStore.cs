@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class UIStore : PopUpMenu
 {
     [SerializeField]
-    private GameObject shopVisual;
+    private GameObject OneShopVisual;
+    static private GameObject shopVisual;
     [SerializeField]
     private TMPro.TextMeshProUGUI purchaseMessage;
     private List<GameObject> pages = new();
@@ -33,8 +34,11 @@ public class UIStore : PopUpMenu
 
     private void Start()
     {
+        if (shopVisual == null)
+            shopVisual = OneShopVisual;
         if (purchaseMessage != null)
             purchaseMessage.text = string.Empty;
+
         //new pages system
         bool first = true;
         foreach(Transform page in shopVisual.transform)
@@ -159,7 +163,7 @@ public class UIStore : PopUpMenu
             {
                 //deactivate current page
                 pages[i].SetActive(false);
-                if (pages[i + 1] != null)//set the next page as active.
+                if (i + 1 < pages.Count)//set the next page as active.
                     pages[i + 1].SetActive(true);
                 else //if the next is out of bounds, go to the first page
                     pages[0].SetActive(true);
@@ -176,12 +180,11 @@ public class UIStore : PopUpMenu
             if (pages[i].activeInHierarchy)
             {
                 //deactivate current page
-                pages[i].SetActive(false);
-                if (pages[i - 1] != null)//set the next page as active.
+                pages[i].SetActive(false);//set the next page as active.
+                if (i - 1 < 0)
+                    pages[pages.Count - 1].SetActive(true);
+                else
                     pages[i - 1].SetActive(true);
-                else //if the next is out of bounds, go to the first page
-                    pages[pages.Count].SetActive(true);
-                break;
             }
         }
     }
