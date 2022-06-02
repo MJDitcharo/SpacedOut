@@ -7,38 +7,39 @@ public class StorePage : MonoBehaviour
     [SerializeField]
     protected GameObject gridFormat;
     protected List<int> pricesInt;
-    protected List<TMPro.TextMeshProUGUI> priceText;
-    void Start()
-    {   
+    protected List<TMPro.TextMeshProUGUI> priceText = new();
+
+    protected virtual void Start()
+    {
         SetDefaultStatus();
     }
 
-   
 
-    protected void GetTextMeshes()
+    protected void AssignTextMeshes()
     {
         foreach (Transform level1 in gridFormat.transform)
         {
-            foreach (Transform level2 in level1)
-                priceText.Add(level2.Find("Price").GetComponent<TMPro.TextMeshProUGUI>());
+            priceText.Add(level1.Find("Price").GetComponent<TMPro.TextMeshProUGUI>());
+        }
+        for (int i = 0; i < priceText.Count; i++)
+        {
+            priceText[i].text = pricesInt[i].ToString();
         }
     }
 
     protected void SetDefaultStatus()
     {
         //assign grid format
-        GetTextMeshes();
+        AssignTextMeshes();
         SetInitialPrices();
         //set the correct buttons to be active in hierarchy
     }
 
+
+    /// <summary>
+    /// Pure Virtual.
+    /// </summary>
     protected virtual void SetInitialPrices()
-    {
-        //needs to change the number variable AND the textmeshpro
-
-    }
-
-    protected void AssignTextMeshes()
     {
 
     }

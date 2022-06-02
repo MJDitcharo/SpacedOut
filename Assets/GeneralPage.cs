@@ -6,12 +6,12 @@ public class GeneralPage : StorePage
 {
     [SerializeField]
     int health, maxHealth, grenade, boardWipe;
-    
-
 
     protected override void SetInitialPrices()
     {
-        //the button's name and the price
-        //prices.Add<>
+        pricesInt.Add(health);
+        pricesInt.Add(maxHealth);
+        pricesInt.Add(grenade);
+        pricesInt.Add(boardWipe);
     }
 }

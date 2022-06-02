@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class UIStore : PopUpMenu
 {
     [SerializeField]
-    private GameObject OneShopVisual;
+    private GameObject oneShopVisual = null;
+    [SerializeField]
+    private bool isButton = false;
     static private GameObject shopVisual;
     [SerializeField]
     private TMPro.TextMeshProUGUI purchaseMessage;
@@ -34,39 +36,37 @@ public class UIStore : PopUpMenu
 
     private void Start()
     {
-        if (shopVisual == null)
-            shopVisual = OneShopVisual;
         if (purchaseMessage != null)
             purchaseMessage.text = string.Empty;
 
         //new pages system
         bool first = true;
-        foreach(Transform page in shopVisual.transform)
+            Debug.Log("children" + shopVisual.transform.childCount);
+        if(!isButton)
         {
-            if (page.name.Contains("Page")) 
+            foreach (Transform page in shopVisual.transform)
             {
-                Debug.Log("Added" + page.name);
-                pages.Add(page.gameObject);
-                if (first) //the first page in the hierarchy will be the only one shown
+                if (page.name.Contains("Page"))
                 {
-                    page.gameObject.SetActive(true);
-                    first = false;
+
+                    Debug.Log("Added" + page.name);
+                    //pages.Add(page.gameObject);
+                    if (first) //the first page in the hierarchy will be the only one shown
+                    {
+                        page.gameObject.SetActive(true);
+                        first = false;
+                    }
+                    else
+                        page.gameObject.SetActive(false);
                 }
-                else
-                    page.gameObject.SetActive(false);
             }
         }
-
-    }
-
-    private void Update()
-    {
-        //check to see if the player has enough money
-        //if not, make the text red
     }
 
     public void Activate()
     {
+        if (isButton)
+            return;
         shopVisual.SetActive(true);
         tempCurrentSkrap = GameManager.instance.skrapCount.GetQuantity();
         //GameObject.Find("Weapon Upgrades Page").gameObject.SetActive(false);
@@ -74,6 +74,8 @@ public class UIStore : PopUpMenu
     }
     public void Deactivate()
     {
+        if (isButton)
+            return;
         shopVisual.SetActive(false);
         UnfreezeWorld();
     }
