@@ -25,12 +25,12 @@ public class Shotgun : WeaponBase
     {
         for (float angle = -shotgunSpread; angle <= shotgunSpread; angle += shotgunAngleChange)
         {
-            GameObject bulletInstance = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); //spawn the bullet and reference the bullet to modify 
+            GameObject bulletInstance = Instantiate(bulletPrefab, firePoint[firePointIndex].position, firePoint[firePointIndex].rotation); //spawn the bullet and reference the bullet to modify 
             Rigidbody rigidbody = bulletInstance.GetComponent<Rigidbody>(); //acess the rigidbody of the game object
             bullet bulletScript = bulletInstance.GetComponent<bullet>();
             bulletScript.damage = (int)(damage * damageMultiplier);
-            firePoint.localEulerAngles = new Vector3(0, angle, 0);
-            rigidbody.AddForce(firePoint.forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
+            firePoint[firePointIndex].localEulerAngles = new Vector3(0, angle, 0);
+            rigidbody.AddForce(firePoint[firePointIndex].forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
             GameManager.instance.bullets.Add(bulletInstance);
         }
 

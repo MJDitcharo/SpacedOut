@@ -143,16 +143,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 037e688efbeb48445be8a5309d63b5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 3784773297445493842}
+  firePoint:
+  - {fileID: 3784773297445493842}
+  firePointIndex: 0
   bulletPrefab: {fileID: 3743390652330680519, guid: ac0d6938d6ec6a64e82dadac4285cf64, type: 3}
   fireRate: 7
   bulletForce: 20
   ammoCount: 0
   maxAmmo: 0
-  damage: 10
+  damage: 20
   damageMultiplier: 1
   fireRateMultiplier: 1
-  shotgunSpread: 30
+  shotgunSpread: 5
   shotgunAngleChange: 5
 --- !u!1 &3784773297445493843
 GameObject:
