@@ -70,6 +70,34 @@ public class GameManager : MonoBehaviour
         checkpointIndex = PlayerPrefs.GetInt("Checkpoint Index");
         skrapCount.SetQuantity(PlayerPrefs.GetInt("Skrap Count"));
         player.GetComponent<PlayerMovement>().WarpToPosition(checkpoints[checkpointIndex].GetComponent<RoomManager>().spawnPoint.position);
+        
+        //NOTE
+        //THIS IS A TEMPERARY FIX
+        if (checkpointIndex == 0)
+        {
+            PlayerPrefs.SetInt("Pistol Ammo", 45);
+            PlayerPrefs.SetInt("Shotgun Ammo", 15);
+            PlayerPrefs.SetInt("Rifle Ammo", 100);
+            PlayerPrefs.SetInt("Heavy Ammo", 7);
+        }
+    }
+
+    private void Start()
+    {
+        for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
+        {
+            if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Pistol>() != null && PlayerPrefs.HasKey("Pistol Ammo"))
+            {
+                //Debug.Log("loaded the pistol");
+                WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount = PlayerPrefs.GetInt("Pistol Ammo");
+            }
+            if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Shotgun>() != null && PlayerPrefs.HasKey("Shotgun Ammo"))
+                WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount = PlayerPrefs.GetInt("Shotgun Ammo");
+            if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Rifle>() != null && PlayerPrefs.HasKey("Rifle Ammo"))
+                WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount = PlayerPrefs.GetInt("Rifle Ammo");
+            if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Heavy>() != null && PlayerPrefs.HasKey("Heavy Ammo"))
+                WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount = PlayerPrefs.GetInt("Heavy Ammo");
+        }
     }
 
     private void LateUpdate()
@@ -114,5 +142,20 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Scene Index", SceneManager.GetActiveScene().buildIndex);
         PlayerPrefs.SetInt("Checkpoint Index", checkpointIndex);
         PlayerPrefs.SetInt("Skrap Count", skrapCount.GetQuantity());
+
+        for(int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
+        {
+            if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Pistol>() != null)
+            {
+                PlayerPrefs.SetInt("Pistol Ammo", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount);
+                Debug.Log("saved the pistol");
+            }
+            if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Shotgun>() != null)
+                PlayerPrefs.SetInt("Shotgun Ammo", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount);
+            if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Rifle>() != null)
+                PlayerPrefs.SetInt("Rifle Ammo", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount);
+            if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Heavy>() != null)
+                PlayerPrefs.SetInt("Heavy Ammo", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount);
+        }
     }
 }

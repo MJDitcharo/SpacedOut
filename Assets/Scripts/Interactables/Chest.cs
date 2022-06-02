@@ -22,8 +22,8 @@ public class Chest : MonoBehaviour
     Vector3 defaultVec;
     [SerializeField] Vector3 offset;
     [SerializeField] float time = 0.01f;
-    [SerializeField]
-    int health, ammo, skrap, grenade, boardWipe;
+    public int associatedCheckpoint = 0;
+    public int health, ammo, skrap, grenade, boardWipe;
 
     List<Drop> playerRewards = new();
 
@@ -50,6 +50,13 @@ public class Chest : MonoBehaviour
         skrapCountInst = GameManager.instance.skrapCount;
         healthBarInst = GameManager.instance.healthBar;
         playerHealthInst = GameManager.instance.playerHealth;
+
+        defaultVec = crateTop.position;
+
+        if (associatedCheckpoint == PlayerPrefs.GetInt("Checkpoint Index") && PlayerPrefs.GetInt("Chest Opened") == 1)
+        {
+            playAni = true;
+        }
     }
 
     // Update is called once per frame
@@ -61,7 +68,7 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player")) //only move if colliding eith the player and do it once 
+        if (other.gameObject.CompareTag("Player") && !playAni) //only move if colliding eith the player and do it once 
             GameManager.instance.prompt.ShowPrompt("Press F to Enter");
     }
 
@@ -91,7 +98,7 @@ public class Chest : MonoBehaviour
 
         //turn off prompt and start animation
         GameManager.instance.prompt.HidePrompt();
-        defaultVec = crateTop.position;
+        //defaultVec = crateTop.position;
         playAni = true;
         chestOpened = true;
 
@@ -146,6 +153,8 @@ public class Chest : MonoBehaviour
         boardWipeInst.Add(boardWipe);
         healthBarInst.AddHealth((float)(health * .01f));
         ShowQuantityChange();
+        GameManager.instance.SaveGame();
+        PlayerPrefs.SetInt("Chest Opened", 1);
     }
 
     private void ShowQuantityChange()
