@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 327039788181842413}
   - component: {fileID: 2997382028500934871}
   - component: {fileID: 3726149788737947367}
-  - component: {fileID: 5102636109676888596}
   m_Layer: 10
   m_Name: Player Spawn
   m_TagString: Untagged
@@ -84,20 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5102636109676888596
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5116640982625989421}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5866764893354712173
 GameObject:
   m_ObjectHideFlags: 0
