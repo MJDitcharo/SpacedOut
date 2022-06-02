@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 141830494273814483}
-  - component: {fileID: 141830494273814482}
+  - component: {fileID: 246538795581246780}
   m_Layer: 0
   m_Name: ShotgunSawedOff
   m_TagString: Untagged
@@ -65,7 +65,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &141830494273814482
+--- !u!114 &246538795581246780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,20 +74,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 141830494273814481}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47126a12c6336c749b315f8f39245303, type: 3}
+  m_Script: {fileID: 11500000, guid: 037e688efbeb48445be8a5309d63b5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 141830493614453116}
-  bulletPrefab: {fileID: 1741370603354546957, guid: 47e47985b0a939242a1b3b5780bdf394, type: 3}
-  fireRate: 10
-  bulletForce: 25
+  bulletPrefab: {fileID: 3743390652330680519, guid: ac0d6938d6ec6a64e82dadac4285cf64, type: 3}
+  fireRate: 7
+  bulletForce: 20
   ammoCount: 0
   maxAmmo: 0
-  damage: 7
+  damage: 10
   damageMultiplier: 1
   fireRateMultiplier: 1
-  shotgunSpread: 46
-  shotgunAngleChange: 2
+  shotgunSpread: 30
+  shotgunAngleChange: 5
 --- !u!1 &141830494280789696
 GameObject:
   m_ObjectHideFlags: 0
