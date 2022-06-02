@@ -5701,7 +5701,7 @@ GameObject:
   - component: {fileID: 2290470447030532489}
   - component: {fileID: 7543962715461686472}
   - component: {fileID: 7596127035124774239}
-  - component: {fileID: 75443625945321429}
+  - component: {fileID: 8681111992655517425}
   m_Layer: 5
   m_Name: Next Button
   m_TagString: Untagged
@@ -5812,7 +5812,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 75443625945321429}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
         m_MethodName: NextPage
         m_Mode: 1
@@ -5824,7 +5824,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &75443625945321429
+--- !u!114 &8681111992655517425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5833,9 +5833,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1294608023121313081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopVisual: {fileID: 7050469253697097897}
+  pages:
+  - {fileID: 4296432192043298961}
+  - {fileID: 5277847811584126734}
+  - {fileID: 2825558028319424353}
+  - {fileID: 162523578768586680}
+  - {fileID: 480322092280791116}
+  purchaseMessage: {fileID: 0}
+  defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &1300516476638152843
 GameObject:
   m_ObjectHideFlags: 0
@@ -30729,8 +30738,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopVisual: {fileID: 7050469253697097897}
+  pages:
+  - {fileID: 4296432192043298961}
+  - {fileID: 5277847811584126734}
+  - {fileID: 2825558028319424353}
+  - {fileID: 162523578768586680}
+  - {fileID: 480322092280791116}
   purchaseMessage: {fileID: 0}
-  pages: []
   defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &8817245340156838889
 GameObject:
