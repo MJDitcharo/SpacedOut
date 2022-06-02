@@ -40,10 +40,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Rolling());
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            WipeBoard();
-        }
+      
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //gets mouse position relative to camera
         mousePosition.y = transform.position.y; //prevent player from looking up
         Debug.DrawLine(transform.position, mousePosition, Color.red, 2f);
@@ -78,13 +75,5 @@ public class PlayerMovement : MonoBehaviour
         warpedPositon = position;
     }
 
-    public void WipeBoard()
-    {
-
-        for (int i = 0; i < GameManager.instance.bullets.Count; i++)
-        {
-            Destroy(GameManager.instance.bullets[i]);
-        }
-        GameManager.instance.bullets.Clear();
-    }
+    
 }
