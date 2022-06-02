@@ -45,7 +45,13 @@ public class ItemCount : MonoBehaviour
         if (ammo == System.Int32.MaxValue)
             quantity++;
         else if (ammo + quantity > max)
+        {
+            Debug.Log(quantity);
+            Debug.Log(max);
             quantity = max;
+            Debug.Log("new quant: " + quantity);
+            Debug.Log("new max: " + max);
+        }
         else
             quantity += ammo;
         UpdateVisual();
