@@ -5,9 +5,9 @@ using UnityEngine;
 public class StorePage : MonoBehaviour
 {
     [SerializeField]
+    protected GameObject gridFormat;
     protected List<int> pricesInt;
     protected List<TMPro.TextMeshProUGUI> priceText;
-    protected GameObject gridFormat;
     void Start()
     {   
         SetDefaultStatus();
@@ -22,7 +22,6 @@ public class StorePage : MonoBehaviour
         {
             foreach (Transform level2 in level1)
             {
-                Debug.Log(level2.name);
             }
         }
         SetInitialPrices();

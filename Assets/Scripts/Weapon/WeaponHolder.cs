@@ -56,8 +56,9 @@ public class WeaponHolder : MonoBehaviour
         int prevWeapon = selectedWeapon;
 
         int maxChild = transform.childCount - 1;
-        //if (Time.timeScale > 0)
-        //{
+        if (Time.timeScale > 0)
+        {
+            Debug.Log(Time.timeScale);
             if (Input.GetAxis("Mouse ScrollWheel") > 0f)
             {
                 if (selectedWeapon >= maxChild)
@@ -80,8 +81,8 @@ public class WeaponHolder : MonoBehaviour
             }
 
             SelectWeapon();
-        //}
     }
+}
 
     public void UpgradeFireRate(int weapon, float multiplier)
     {
