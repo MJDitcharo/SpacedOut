@@ -6,7 +6,7 @@ public class StorePage : MonoBehaviour
 {
     [SerializeField]
     protected GameObject gridFormat;
-    protected List<int> pricesInt;
+    protected List<int> pricesInt = new();
     protected List<TMPro.TextMeshProUGUI> priceText = new();
 
     protected virtual void Start()
@@ -17,10 +17,14 @@ public class StorePage : MonoBehaviour
 
     protected void AssignTextMeshes()
     {
+
         foreach (Transform level1 in gridFormat.transform)
         {
-            priceText.Add(level1.Find("Price").GetComponent<TMPro.TextMeshProUGUI>());
+            Debug.Log(level1.name);
+            priceText.Add(level1.Find("Price Icon").transform.Find("Price").GetComponent<TMPro.TextMeshProUGUI>());
         }
+        Debug.Log(priceText.Count);
+
         for (int i = 0; i < priceText.Count; i++)
         {
             priceText[i].text = pricesInt[i].ToString();
@@ -30,8 +34,8 @@ public class StorePage : MonoBehaviour
     protected void SetDefaultStatus()
     {
         //assign grid format
-        AssignTextMeshes();
         SetInitialPrices();
+        AssignTextMeshes();
         //set the correct buttons to be active in hierarchy
     }
 

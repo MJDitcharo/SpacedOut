@@ -1694,7 +1694,7 @@ GameObject:
   - component: {fileID: 1317535057781728080}
   - component: {fileID: 4823967563089043563}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1707,7 +1707,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20278216486114856}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1717,7 +1717,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -27}
+  m_AnchoredPosition: {x: 0.00012207031, y: -27}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1317535057781728080
@@ -3091,7 +3091,6 @@ GameObject:
   - component: {fileID: 3532734714238357320}
   - component: {fileID: 3561817289497568634}
   - component: {fileID: 1154468327365334932}
-  - component: {fileID: 8668065970523051670}
   m_Layer: 5
   m_Name: Previous Button
   m_TagString: Untagged
@@ -3202,8 +3201,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8668065970523051670}
-        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
         m_MethodName: PreviousPage
         m_Mode: 1
         m_Arguments:
@@ -3214,22 +3213,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &8668065970523051670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 641038183656643805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  oneShopVisual: {fileID: 0}
-  isButton: 1
-  purchaseMessage: {fileID: 0}
-  defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &648222294236529971
 GameObject:
   m_ObjectHideFlags: 0
@@ -5718,7 +5701,7 @@ GameObject:
   - component: {fileID: 2290470447030532489}
   - component: {fileID: 7543962715461686472}
   - component: {fileID: 7596127035124774239}
-  - component: {fileID: 4801516109718666048}
+  - component: {fileID: 75443625945321429}
   m_Layer: 5
   m_Name: Next Button
   m_TagString: Untagged
@@ -5829,8 +5812,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4801516109718666048}
-        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
+      - m_Target: {fileID: 75443625945321429}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
         m_MethodName: NextPage
         m_Mode: 1
         m_Arguments:
@@ -5841,7 +5824,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &4801516109718666048
+--- !u!114 &75443625945321429
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5850,13 +5833,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1294608023121313081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oneShopVisual: {fileID: 0}
-  isButton: 1
-  purchaseMessage: {fileID: 0}
-  defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &1300516476638152843
 GameObject:
   m_ObjectHideFlags: 0
@@ -8698,12 +8677,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5479757565175212371}
-  m_RootOrder: 2
+  m_Father: {fileID: 5180142827994542791}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 416.00012, y: -27}
+  m_AnchoredPosition: {x: 0.00012207031, y: -27}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3631094707535923959
@@ -13101,7 +13080,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2297122961115820746}
   m_Father: {fileID: 5479757565175212371}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15151,7 +15131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1235046186671179673
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23072,7 +23052,6 @@ RectTransform:
   m_Children:
   - {fileID: 1029535978760535113}
   - {fileID: 5180142827994542791}
-  - {fileID: 2297122961115820746}
   m_Father: {fileID: 652302518699970336}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26745,7 +26724,7 @@ GameObject:
   - component: {fileID: 330057556789462092}
   - component: {fileID: 2451290116729415688}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26758,7 +26737,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7349751539770759399}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -26768,7 +26747,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -27}
+  m_AnchoredPosition: {x: 0.00012207031, y: -27}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &330057556789462092
@@ -29636,7 +29615,7 @@ GameObject:
   - component: {fileID: 2433704998033606739}
   - component: {fileID: 6789045456364364456}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29649,7 +29628,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8384340073031329545}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -29659,7 +29638,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -27}
+  m_AnchoredPosition: {x: 0.00012207031, y: -27}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2433704998033606739
@@ -30749,9 +30728,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oneShopVisual: {fileID: 0}
-  isButton: 0
+  shopVisual: {fileID: 7050469253697097897}
   purchaseMessage: {fileID: 0}
+  pages: []
   defaultPickupCosts: c8000000c80000002c010000dc05000064000000
 --- !u!1 &8817245340156838889
 GameObject:

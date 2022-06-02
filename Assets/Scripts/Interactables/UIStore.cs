@@ -7,15 +7,14 @@ using UnityEngine.UI;
 public class UIStore : PopUpMenu
 {
     [SerializeField]
-    private GameObject oneShopVisual = null;
-    [SerializeField]
-    private bool isButton = false;
-    static private GameObject shopVisual;
+    public GameObject shopVisual;
     [SerializeField]
     private TMPro.TextMeshProUGUI purchaseMessage;
-    private List<GameObject> pages = new();
+    public List<GameObject> pages = new();
 
-
+    //singleton 
+    static public UIStore instance;
+    static public bool isInstantiated = false;
     //pickup page
     public enum PickupCosts { Health, Ammo, Grenade, BoardWipe, Armor };
     public int[] defaultPickupCosts = { 200, 200, 300, 1500, 100 };
@@ -33,40 +32,35 @@ public class UIStore : PopUpMenu
     protected List<int> weaponCost = new List<int>();
     int tempCurrentSkrap;
 
-
-    private void Start()
+    private void Awake()
     {
+        instance = this;
         if (purchaseMessage != null)
             purchaseMessage.text = string.Empty;
 
         //new pages system
         bool first = true;
-            Debug.Log("children" + shopVisual.transform.childCount);
-        if(!isButton)
+        //Debug.Log("children" + shopVisual.transform.childCount);
+        foreach (Transform page in shopVisual.transform)
         {
-            foreach (Transform page in shopVisual.transform)
+            if (page.name.Contains("Page"))
             {
-                if (page.name.Contains("Page"))
-                {
 
-                    Debug.Log("Added" + page.name);
-                    //pages.Add(page.gameObject);
-                    if (first) //the first page in the hierarchy will be the only one shown
-                    {
-                        page.gameObject.SetActive(true);
-                        first = false;
-                    }
-                    else
-                        page.gameObject.SetActive(false);
+                Debug.Log("Added" + page.name);
+                //pages.Add(page.gameObject);
+                if (first) //the first page in the hierarchy will be the only one shown
+                {
+                    page.gameObject.SetActive(true);
+                    first = false;
                 }
+                else
+                    page.gameObject.SetActive(false);
             }
         }
     }
 
     public void Activate()
     {
-        if (isButton)
-            return;
         shopVisual.SetActive(true);
         tempCurrentSkrap = GameManager.instance.skrapCount.GetQuantity();
         //GameObject.Find("Weapon Upgrades Page").gameObject.SetActive(false);
@@ -74,8 +68,6 @@ public class UIStore : PopUpMenu
     }
     public void Deactivate()
     {
-        if (isButton)
-            return;
         shopVisual.SetActive(false);
         UnfreezeWorld();
     }
@@ -143,7 +135,7 @@ public class UIStore : PopUpMenu
             //purchaseMessage.color = Color.green;
             //purchaseMessage.text = "Thank You!";
         }
-        else 
+        else
         {
             //purchaseMessage.color = Color.red;
             //purchaseMessage.text = "Transaction Failed!";
@@ -151,45 +143,38 @@ public class UIStore : PopUpMenu
     }
 
     #region Shop Buttons
-    public void ExitShop()
-    {
-        GameManager.instance.shopUI.Deactivate();
-    }
-
-    public void NextPage()
-    {
-        //get the index of the element
-        for (int i = 0; i < pages.Count; i++)
-        {
-            if(pages[i].activeInHierarchy)
-            {
-                //deactivate current page
-                pages[i].SetActive(false);
-                if (i + 1 < pages.Count)//set the next page as active.
-                    pages[i + 1].SetActive(true);
-                else //if the next is out of bounds, go to the first page
-                    pages[0].SetActive(true);
-                break;
-            }
-        }
-
-    }
-
-    public void PreviousPage()
-    {
-        for (int i = 0; i < pages.Count; i++)
-        {
-            if (pages[i].activeInHierarchy)
-            {
-                //deactivate current page
-                pages[i].SetActive(false);//set the next page as active.
-                if (i - 1 < 0)
-                    pages[pages.Count - 1].SetActive(true);
-                else
-                    pages[i - 1].SetActive(true);
-            }
-        }
-    }
+    //public void PreviousPage()
+    //{
+    //    for (int i = 0; i < pages.Count; i++)
+    //    {
+    //        if (pages[i].activeInHierarchy)
+    //        {
+    //            //deactivate current page
+    //            pages[i].SetActive(false);//set the next page as active.
+    //            if (i - 1 < 0)
+    //                pages[pages.Count - 1].SetActive(true);
+    //            else
+    //                pages[i - 1].SetActive(true);
+    //        }
+    //    }
+    //}
+    //public void NextPage()
+    //{
+    //    Debug.Log(pages.Count);
+    //    for (int i = 0; i < pages.Count; i++)
+    //    {
+    //        if (pages[i].activeInHierarchy)
+    //        {
+    //            //deactivate current page
+    //            pages[i].SetActive(false);
+    //            if (i + 1 < pages.Count)//set the next page as active.
+    //                pages[i + 1].SetActive(true);
+    //            else //if the next is out of bounds, go to the first page
+    //                pages[0].SetActive(true);
+    //            break;
+    //        }
+    //    }
+    //}
 
     #region PickupButtons
     // Allows you to buy anything in the shop taking away the proper amount of skrap while adding the item

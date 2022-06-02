@@ -14,4 +14,6 @@ public class GeneralPage : StorePage
         pricesInt.Add(grenade);
         pricesInt.Add(boardWipe);
     }
+
+
 }
