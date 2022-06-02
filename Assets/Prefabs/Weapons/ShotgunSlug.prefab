@@ -106,7 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3784773296243239391}
-  - component: {fileID: 3784773296243239390}
+  - component: {fileID: 3274009981602253223}
   m_Layer: 0
   m_Name: ShotgunSlug
   m_TagString: Untagged
@@ -131,7 +131,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3784773296243239390
+--- !u!114 &3274009981602253223
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,16 +140,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 3784773296243239376}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf0e234aedb76344188c86466a9128eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 037e688efbeb48445be8a5309d63b5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 3784773297445493842}
-  bulletPrefab: {fileID: 1741370603354546957, guid: 47e47985b0a939242a1b3b5780bdf394, type: 3}
-  fireRate: 6
+  bulletPrefab: {fileID: 3743390652330680519, guid: ac0d6938d6ec6a64e82dadac4285cf64, type: 3}
+  fireRate: 7
   bulletForce: 20
   ammoCount: 0
   maxAmmo: 0
-  damage: 25
+  damage: 10
   damageMultiplier: 1
   fireRateMultiplier: 1
   shotgunSpread: 30
