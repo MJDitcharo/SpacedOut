@@ -58,7 +58,6 @@ public class WeaponHolder : MonoBehaviour
         int maxChild = transform.childCount - 1;
         if (Time.timeScale > 0)
         {
-            Debug.Log(Time.timeScale);
             if (Input.GetAxis("Mouse ScrollWheel") > 0f)
             {
                 if (selectedWeapon >= maxChild)
