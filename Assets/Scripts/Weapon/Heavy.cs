@@ -14,12 +14,12 @@ public class Heavy : WeaponBase
 
     public override void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); //spawn the bullet and reference the bullet to modify 
+        GameObject bullet = Instantiate(bulletPrefab, firePoint[firePointIndex].position, firePoint[firePointIndex].rotation); //spawn the bullet and reference the bullet to modify 
         Rigidbody rb = bullet.GetComponent<Rigidbody>(); //acess the rigidbody of the game object
         bullet bulletScript = bullet.GetComponent<bullet>();
         bulletScript.damage = (int)(damage * damageMultiplier);
         bulletScript.explosiveRadius = explosiveRadius;
-        rb.AddForce(firePoint.forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
+        rb.AddForce(firePoint[firePointIndex].forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
 
         //deplete ammo
         ammoCount--;

@@ -193,18 +193,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62682a2f24ac2e64eb2f68466943f33c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 0}
+  firePoint:
+  - {fileID: 7289913101391167292}
+  - {fileID: 1898637928}
+  firePointIndex: 0
   bulletPrefab: {fileID: 1912156957500200442}
   fireRate: 7
   bulletForce: 20
-  ammoCount: 0
-  maxAmmo: 0
+  ammoCount: 20
+  maxAmmo: 40
   damage: 10
   damageMultiplier: 1
   fireRateMultiplier: 1
-  firePoints:
-  - {fileID: 7289913101391167292}
-  - {fileID: 1898637928}
 --- !u!1 &6451241999871974807
 GameObject:
   m_ObjectHideFlags: 0
