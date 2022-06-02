@@ -20,6 +20,7 @@ public class EnemyHealth : health
             GameManager.instance.checkpointIndex++;
             GameManager.instance.checkpoints[GameManager.instance.checkpointIndex].GetComponent<RoomManager>().EndLockDown();
             GameManager.instance.SaveGame();
+            PlayerPrefs.SetInt("Chest Opened", 0);
         }
         GameObject drop = Instantiate(drops, gameObject.transform.position, Quaternion.identity);
         drop.GetComponent<SkrapPickup>().quantity = dropQuantity;
