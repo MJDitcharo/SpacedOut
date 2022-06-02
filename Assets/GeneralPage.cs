@@ -6,8 +6,6 @@ public class GeneralPage : StorePage
 {
     [SerializeField]
     int health, maxHealth, grenade, boardWipe;
-    [SerializeField]
-    GameObject gridFormat;
     
 
 
