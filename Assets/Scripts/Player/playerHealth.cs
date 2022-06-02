@@ -26,7 +26,6 @@ public class playerHealth : health
     {
         if (!isDamageable)
             return;
-
         delayDamge = Time.time + 1f / delayRate;
         currHealth -= dmg;
         StartCoroutine(GetComponent<EnemyFlashRed>().FlashRed());
