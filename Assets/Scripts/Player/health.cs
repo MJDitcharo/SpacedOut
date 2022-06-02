@@ -6,8 +6,6 @@ public class health : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currHealth;
-    
-    
 
     // Start is called before the first frame update
     void Start()
@@ -30,14 +28,8 @@ public class health : MonoBehaviour
         }
     }
 
-    virtual public void Death()
+    protected virtual void Death()
     {
-        GameManager.instance.enemyCount--;
-        if (GameManager.instance.enemyCount <= 0)
-        {
-            GameManager.instance.checkpointIndex++;
-            GameManager.instance.checkpoints[GameManager.instance.checkpointIndex].GetComponent<RoomManager>().EndLockDown();
-        }
         Destroy(gameObject);
     }
 }
