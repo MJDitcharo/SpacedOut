@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -65,6 +66,10 @@ public class GameManager : MonoBehaviour
         prompt = GameObject.Find("UIPrompt").GetComponent<UIPrompt>();
         chestUI = GameObject.Find("Chest UI").GetComponent<UIChest>();
         shopUI = GameObject.Find("Shop UI").GetComponent<UIStore>();
+
+        checkpointIndex = PlayerPrefs.GetInt("Checkpoint Index");
+        skrapCount.SetQuantity(PlayerPrefs.GetInt("Skrap Count"));
+        player.GetComponent<PlayerMovement>().WarpToPosition(checkpoints[checkpointIndex].GetComponent<RoomManager>().spawnPoint.position);
     }
 
     private void LateUpdate()
@@ -86,8 +91,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(bullets[i]);
         }
-
-        player.GetComponent<PlayerMovement>().WarpToPosition(checkpoints[checkpointIndex].transform.position);
+        skrapCount.SetQuantity(PlayerPrefs.GetInt("Skrap Count"));
+        player.GetComponent<PlayerMovement>().WarpToPosition(checkpoints[checkpointIndex].GetComponent<RoomManager>().spawnPoint.position);
         player.GetComponent<playerHealth>().currHealth = player.GetComponent<playerHealth>().maxHealth;
         healthBar.SetHealth(1);
 
@@ -106,6 +111,8 @@ public class GameManager : MonoBehaviour
     
     public void SaveGame()
     {
-
+        PlayerPrefs.SetInt("Scene Index", SceneManager.GetActiveScene().buildIndex);
+        PlayerPrefs.SetInt("Checkpoint Index", checkpointIndex);
+        PlayerPrefs.SetInt("Skrap Count", skrapCount.GetQuantity());
     }
 }

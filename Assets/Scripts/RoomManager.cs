@@ -8,12 +8,15 @@ public class RoomManager : MonoBehaviour
     public GameObject doorEnter;
     [SerializeField] GameObject doorExit;
     public Collider collider;
+    public Transform spawnPoint;
 
     [SerializeField] EnemySpawner enemySpawner;
     [SerializeField] float spawnTime = 1;
 
     public void LockDownRoom()
     {
+        GameManager.instance.SaveGame();
+
         Debug.Log("Locking down room!");
 
         collider.enabled = false;
