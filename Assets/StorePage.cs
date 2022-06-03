@@ -9,8 +9,7 @@ public class StorePage : MonoBehaviour
     //must assign set initial prices
     //must assign gridFormat
 
-    [SerializeField]
-    protected GameObject gridFormat;
+    
     protected List<int> pricesInt = new();
     protected List<TMPro.TextMeshProUGUI> priceText = new();
 
@@ -19,18 +18,29 @@ public class StorePage : MonoBehaviour
         SetDefaultStatus();
     }
 
-
-    protected void AssignTextMeshes()
+    /// <summary>
+    /// Pure Virtual.
+    /// </summary>
+    protected virtual void SetInitialPrices()
     {
-        foreach (Transform level1 in gridFormat.transform)
-        {
-            Debug.Log(level1.name);
-            priceText.Add(level1.Find("Price Icon").transform.Find("Price").GetComponent<TMPro.TextMeshProUGUI>());
-        }
-        Debug.Log(priceText.Count);
+        Debug.Log("Need to define function: SetInitialPrices");
+    }
 
+    /// <summary>
+    /// Pure Virtual.
+    /// </summary>
+    protected virtual void AssignTextMeshes()
+    {
+        Debug.Log("Need to define function: AssignTextMeshes");
+    }
+
+    private void SetTextMeshPrices()
+    {
         for (int i = 0; i < priceText.Count; i++)
+        {
+            Debug.Log(priceText[i].transform.parent.name + " num is :" + pricesInt[i].ToString());
             priceText[i].text = pricesInt[i].ToString();
+        }
     }
 
     protected void SetDefaultStatus()
@@ -38,15 +48,10 @@ public class StorePage : MonoBehaviour
         //assign grid format
         SetInitialPrices();
         AssignTextMeshes();
+        SetTextMeshPrices();
         //set the correct buttons to be active in hierarchy
     }
 
 
-    /// <summary>
-    /// Pure Virtual.
-    /// </summary>
-    protected virtual void SetInitialPrices()
-    {
-
-    }
+    
 }

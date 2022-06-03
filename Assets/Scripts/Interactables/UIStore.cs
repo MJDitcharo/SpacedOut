@@ -206,10 +206,10 @@ public class UIStore : PopUpMenu
     public void BuyHealth()
     {
         bool purchaseFailed;
-        if (GameManager.instance.skrapCount.GetQuantity() >= GeneralPage.instance.health)
+        if (GameManager.instance.skrapCount.GetQuantity() >= GeneralPage.instance.healthCost)
         {
             GameManager.instance.playerHealth.AddHealth((float)(GeneralPage.instance.healthQuantity * .01f));
-            GameManager.instance.skrapCount.Subtract(GeneralPage.instance.health);
+            GameManager.instance.skrapCount.Subtract(GeneralPage.instance.healthCost);
             purchaseFailed = false;
         }
         else
