@@ -5,5 +5,9 @@ using UnityEngine;
 public class UIStoreButtons : MonoBehaviour
 {
 
+    private void Start()
+    {
+        
+    }
 
 }

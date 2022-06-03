@@ -7,11 +7,12 @@ using UnityEngine.UI;
 public class UIStore : PopUpMenu
 {
     [SerializeField]
-    public GameObject shopVisual;
-    [SerializeField]
-    public List<GameObject> pages;
+    private GameObject OneShopVisual;
+    static private GameObject shopVisual;
     [SerializeField]
     private TMPro.TextMeshProUGUI purchaseMessage;
+    private List<GameObject> pages = new();
+
 
     //pickup page
     public enum PickupCosts { Health, Ammo, Grenade, BoardWipe, Armor };
@@ -30,15 +31,38 @@ public class UIStore : PopUpMenu
     protected List<int> weaponCost = new List<int>();
     int tempCurrentSkrap;
 
-    private void Awake()
+
+    private void Start()
     {
+        if (shopVisual == null)
+            shopVisual = OneShopVisual;
         if (purchaseMessage != null)
             purchaseMessage.text = string.Empty;
 
         //new pages system
-        //Debug.Log("children" + shopVisual.transform.childCount);
+        bool first = true;
+        foreach (Transform page in shopVisual.transform)
+        {
+            if (page.name.Contains("Page"))
+            {
+                Debug.Log("Added" + page.name);
+                pages.Add(page.gameObject);
+                if (first) //the first page in the hierarchy will be the only one shown
+                {
+                    page.gameObject.SetActive(true);
+                    first = false;
+                }
+                else
+                    page.gameObject.SetActive(false);
+            }
+        }
 
-        
+    }
+
+    private void Update()
+    {
+        //check to see if the player has enough money
+        //if not, make the text red
     }
 
     public void Activate()
@@ -125,32 +149,42 @@ public class UIStore : PopUpMenu
     }
 
     #region Shop Buttons
-    public void PreviousPage()
+    public void ExitShop()
     {
-        for (int i = 0; i < pages.Count; i++)
-        {
-            if(pages[i].activeInHierarchy)
-            {
-                pages[i].SetActive(false);
-                if (i - 1 < 0)
-                    pages[pages.Count - 1].SetActive(true);
-                else
-                    pages[i - 1].SetActive(true);
-                break;
-            }
-        }
+        GameManager.instance.shopUI.Deactivate();
     }
+
     public void NextPage()
     {
+        //get the index of the element
         for (int i = 0; i < pages.Count; i++)
         {
             if (pages[i].activeInHierarchy)
             {
+                //deactivate current page
+                pages[i].SetActive(false);
                 if (i + 1 < pages.Count)//set the next page as active.
                     pages[i + 1].SetActive(true);
                 else //if the next is out of bounds, go to the first page
                     pages[0].SetActive(true);
                 break;
+            }
+        }
+
+    }
+
+    public void PreviousPage()
+    {
+        for (int i = 0; i < pages.Count; i++)
+        {
+            if (pages[i].activeInHierarchy)
+            {
+                //deactivate current page
+                pages[i].SetActive(false);//set the next page as active.
+                if (i - 1 < 0)
+                    pages[pages.Count - 1].SetActive(true);
+                else
+                    pages[i - 1].SetActive(true);
             }
         }
     }
