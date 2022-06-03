@@ -5,8 +5,8 @@ using UnityEngine;
 public class health : MonoBehaviour
 {
     // Core Health Fields
-    public float maxHealth = 100;
-    public float currHealth;
+    public int maxHealth = 100; 
+    public int currHealth;
 
 
     // Vulnerable Debuff Fields
@@ -25,15 +25,15 @@ public class health : MonoBehaviour
     
 
     // Health takes damage
-    public virtual void DoDamage(float _dmg)
+    public virtual void DoDamage(int _dmg)
     {
         StartCoroutine(GetComponent<EnemyFlashRed>().FlashRed());
 
         // Do more damage to people with vulnerable debuff
         if (vulnerable)
-            currHealth = _dmg * 1.5f;
+            currHealth = (int)(_dmg * 1.5f);
         else
-            currHealth -= _dmg;
+            currHealth -= (int)_dmg;
 
         if (currHealth <= 0)
         {
