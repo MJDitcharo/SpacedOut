@@ -51,7 +51,6 @@ public class UIStore : PopUpMenu
         {
             if (page.name.Contains("Page"))
             {
-                Debug.Log("Added" + page.name);
                 pages.Add(page.gameObject);
                 if (first) //the first page in the hierarchy will be the only one shown
                 {
@@ -66,15 +65,23 @@ public class UIStore : PopUpMenu
     }
     public void Activate()
     {
-        shopVisual.SetActive(true);
-        tempCurrentSkrap = GameManager.instance.skrapCount.GetQuantity();
-        //GameObject.Find("Weapon Upgrades Page").gameObject.SetActive(false);
-        FreezeWorld();
+        if (!GameManager.instance.pmenu.gameIsPaused)
+        {
+            shopVisual.SetActive(true);
+            tempCurrentSkrap = GameManager.instance.skrapCount.GetQuantity();
+            GameManager.instance.menuIsActive = true;
+            //GameObject.Find("Weapon Upgrades Page").gameObject.SetActive(false);
+            FreezeWorld();
+            Debug.Log("menu is active");
+        }
     }
     public void Deactivate()
     {
         shopVisual.SetActive(false);
+        GameManager.instance.menuIsActive = false;
         UnfreezeWorld();
+        Debug.Log("menu is deactive");
+
     }
 
     private void CheckPurchaseItem(ItemCount itemCount, int cost, int quantity = 0)
@@ -199,7 +206,7 @@ public class UIStore : PopUpMenu
         bool purchaseFailed;
         if (GameManager.instance.skrapCount.GetQuantity() >= GeneralPage.instance.health)
         {
-            GameManager.instance.playerHealth.AddHealth((float)(GeneralPage.instance.healthQuantity* .01f));
+            GameManager.instance.playerHealth.AddHealth((float)(GeneralPage.instance.healthQuantity * .01f));
             GameManager.instance.skrapCount.Subtract(GeneralPage.instance.health);
             purchaseFailed = false;
         }
@@ -221,7 +228,7 @@ public class UIStore : PopUpMenu
             purchaseFailed = true;
         StartCoroutine(HandlePurchaseMessage(purchaseFailed));
     }
-  
+
     #endregion
 
     #region WeaponButtons

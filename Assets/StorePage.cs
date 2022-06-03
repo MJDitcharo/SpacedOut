@@ -30,9 +30,7 @@ public class StorePage : MonoBehaviour
         Debug.Log(priceText.Count);
 
         for (int i = 0; i < priceText.Count; i++)
-        {
             priceText[i].text = pricesInt[i].ToString();
-        }
     }
 
     protected void SetDefaultStatus()

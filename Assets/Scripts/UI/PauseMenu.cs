@@ -24,7 +24,6 @@ public class PauseMenu : PopUpMenu
     {
         if(Input.GetButtonUp("Cancel") && !GameManager.instance.menuIsActive)
         {
-
             if (gameIsPaused)
                 UnpauseGame();
             else
@@ -37,7 +36,7 @@ public class PauseMenu : PopUpMenu
         gameIsPaused = true;
         FreezeWorld();
         pauseMenuVisual.SetActive(gameIsPaused);
-        Debug.Log("Paused: " + gameIsPaused);
+        Debug.Log("menu is active");
     }
 
     public void UnpauseGame()
@@ -45,7 +44,7 @@ public class PauseMenu : PopUpMenu
         gameIsPaused = false;
         UnfreezeWorld(pauseMenuVisual);
         pauseMenuVisual.SetActive(gameIsPaused);
-        Debug.Log("Paused: " + gameIsPaused);
+        Debug.Log("menu is deactive");
     }
 
     override public bool IsActive()
