@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PistolPage : WeaponUpgradePage
+public class ShotgunPage : WeaponUpgradePage
 {
-    
+
 }

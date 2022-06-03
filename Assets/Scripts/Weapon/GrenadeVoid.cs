@@ -1,21 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-public class Grenade : MonoBehaviour
-{
-    public GameObject hitEffect;
-    protected float detonateTime = 1f;
-    protected float explosiveRadius = 5;
-    protected float pushbackMultiplier = 5;
-    protected int damage = 50;
 
-    //when the grenade is instantiated
-    private void Awake()
-    { 
-       StartCoroutine(Detonate());
-    }
-    public virtual IEnumerator Detonate()
+public class GrenadeVoid : Grenade
+{
+
+    [SerializeField] GameObject childGrenade;
+    [SerializeField] int clusterAmount = 3;
+    [SerializeField] int force = 20;
+
+    public override IEnumerator Detonate()
     {
         yield return new WaitForSeconds(detonateTime);
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosiveRadius);
@@ -23,9 +17,9 @@ public class Grenade : MonoBehaviour
         {
             health healthScript = colliders[i].GetComponent<health>();
             //RaycastHit hit;
-            if (healthScript != null /*&& Physics.Raycast(transform.position, colliders[i].transform.position - transform.position, out hit, Mathf.Infinity) && hit.collider.gameObject == colliders[i].gameObject*/)
+            if (healthScript != null)
             {
-                if(colliders[i].GetComponent<EnemyMovement>() != null)
+                if (colliders[i].GetComponent<EnemyMovement>() != null)
                 {
                     colliders[i].GetComponent<EnemyMovement>().pushback += (-pushbackMultiplier * (transform.position - colliders[i].transform.position).normalized);
                 }
@@ -34,5 +28,12 @@ public class Grenade : MonoBehaviour
         }
         Instantiate(hitEffect, transform.position, Quaternion.identity); //create a bullet with no rotation at the postion 
         Destroy(gameObject);     //destroy game object and effect upon detonation
+        for (int i = 0; i < clusterAmount; i++)
+        {
+            GameObject item = Instantiate(childGrenade, transform.position, Quaternion.identity);
+            Rigidbody body = item.GetComponent<Rigidbody>(); //acess the rigidbody of the game object
+            item.transform.rotation = Quaternion.Euler(0, Random.Range(-180, 180), 0);
+            body.AddForce(item.transform.forward * force, ForceMode.Impulse);
+        }
     }
 }

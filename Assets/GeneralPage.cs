@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GeneralPage : StorePage
 {
-    public int health, maxHealth, grenade, boardWipe;
+    [SerializeField]
+    protected GameObject gridFormat;
+    public int healthCost, maxHealth, grenade, boardWipe;
     public int healthQuantity;
     public static GeneralPage instance;
 
@@ -13,9 +15,16 @@ public class GeneralPage : StorePage
         instance = this;
         healthQuantity = 25;
     }
+
+    protected override void AssignTextMeshes()
+    {
+        foreach (Transform level1 in gridFormat.transform)
+            priceText.Add(level1.Find("Price Icon").transform.Find("Price").GetComponent<TMPro.TextMeshProUGUI>());
+    }
+
     protected override void SetInitialPrices()
     {
-        pricesInt.Add(health);
+        pricesInt.Add(healthCost);
         pricesInt.Add(maxHealth);
         pricesInt.Add(grenade);
         pricesInt.Add(boardWipe);

@@ -134,7 +134,7 @@ public class GameManager : MonoBehaviour
     {
         checkpointIndex = PlayerPrefs.GetInt("Checkpoint Index");
         skrapCount.SetQuantity(PlayerPrefs.GetInt("Skrap Count"));
-        player.GetComponent<PlayerMovement>().WarpToPosition(checkpoints[checkpointIndex].GetComponent<RoomManager>().spawnPoint.position);
+        movement.WarpToPosition(checkpoints[checkpointIndex].GetComponent<RoomManager>().spawnPoint.position);
         playerHealth.currHealth = PlayerPrefs.GetInt("Player Health");
         playerHealth.maxHealth = PlayerPrefs.GetInt("Max Player Health");
         healthBar.SetHealth(playerHealth.currHealth / playerHealth.maxHealth);
