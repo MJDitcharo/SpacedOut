@@ -84,11 +84,13 @@ public class UIStore : PopUpMenu
 
     }
 
-    private void CheckPurchaseItem(ItemCount itemCount, int cost, int quantity = 0)
+    private void CheckPurchaseItem(ItemCount itemCount, int cost, int quantity = 1)
     {
         bool purchaseFailed;
         if (GameManager.instance.skrapCount.GetQuantity() >= cost)
         {
+            Debug.Log("quantity: " + quantity);
+
             itemCount.Add(quantity);
             GameManager.instance.skrapCount.Subtract(cost);
             purchaseFailed = false;
