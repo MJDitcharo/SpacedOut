@@ -203,7 +203,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 2
   m_Speed: 10
-  m_Acceleration: 8
+  m_Acceleration: 60
   avoidancePriority: 50
   m_AngularSpeed: 600
   m_StoppingDistance: 5
@@ -347,9 +347,9 @@ MonoBehaviour:
   bulletForce: 20
   Damage: 10
   enemyMovement: {fileID: 1210459101014310155}
-  dashSpeed: 15
-  dashTime: 0.5
-  burstSpacing: 0.2
+  dashSpeed: 20
+  dashTime: 0.3
+  burstSpacing: 0.15
   burstBulletCount: 3
 --- !u!1 &6362822712387605206
 GameObject:
