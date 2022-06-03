@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class health : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currHealth;
+    // Core Health Fields
+    public float maxHealth = 100;
+    public float currHealth;
+
+
+    // Vulnerable Debuff Fields
+    private Coroutine vulnCoroutine;
+    public bool vulnerable = false;
+    [SerializeField] float vulnAmount = 1.5f;
+    [SerializeField] int vulnTime = 5;
+
 
     // Start is called before the first frame update
     void Start()
@@ -16,12 +25,17 @@ public class health : MonoBehaviour
     
 
     // Health takes damage
-    public virtual void DoDamage(int _dmg)
+    public virtual void DoDamage(float _dmg)
     {
         StartCoroutine(GetComponent<EnemyFlashRed>().FlashRed());
 
-        currHealth -= _dmg;
-        if(currHealth <= 0)
+        // Do more damage to people with vulnerable debuff
+        if (vulnerable)
+            currHealth = _dmg * 1.5f;
+        else
+            currHealth -= _dmg;
+
+        if (currHealth <= 0)
         {
             GetComponent<Collider>().enabled = false;
             Death();
@@ -31,5 +45,30 @@ public class health : MonoBehaviour
     protected virtual void Death()
     {
         Destroy(gameObject);
+    }
+
+
+    protected void WeakenedDebuff()
+    {
+
+        // This is to prevent starting multiple coroutines at once
+        if (!vulnerable)
+        {
+            vulnerable = true;
+            vulnCoroutine = StartCoroutine(WeakenedState());
+        }
+        else
+        {
+            StopCoroutine(WeakenedState());
+            vulnCoroutine = null;
+            vulnCoroutine = StartCoroutine(WeakenedState());
+        }
+    }
+
+    protected IEnumerator WeakenedState()
+    {
+        // After a set time, the debuff wears off
+        yield return new WaitForSeconds(vulnTime);
+        vulnerable = false;
     }
 }

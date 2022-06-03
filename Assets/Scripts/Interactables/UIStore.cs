@@ -84,11 +84,13 @@ public class UIStore : PopUpMenu
 
     }
 
-    private void CheckPurchaseItem(ItemCount itemCount, int cost, int quantity = 0)
+    private void CheckPurchaseItem(ItemCount itemCount, int cost, int quantity = 1)
     {
         bool purchaseFailed;
         if (GameManager.instance.skrapCount.GetQuantity() >= cost)
         {
+            Debug.Log("quantity: " + quantity);
+
             itemCount.Add(quantity);
             GameManager.instance.skrapCount.Subtract(cost);
             purchaseFailed = false;
@@ -204,10 +206,10 @@ public class UIStore : PopUpMenu
     public void BuyHealth()
     {
         bool purchaseFailed;
-        if (GameManager.instance.skrapCount.GetQuantity() >= GeneralPage.instance.health)
+        if (GameManager.instance.skrapCount.GetQuantity() >= GeneralPage.instance.healthCost)
         {
             GameManager.instance.playerHealth.AddHealth((float)(GeneralPage.instance.healthQuantity * .01f));
-            GameManager.instance.skrapCount.Subtract(GeneralPage.instance.health);
+            GameManager.instance.skrapCount.Subtract(GeneralPage.instance.healthCost);
             purchaseFailed = false;
         }
         else
@@ -232,36 +234,10 @@ public class UIStore : PopUpMenu
     #endregion
 
     #region WeaponButtons
-    public void UpgradePistol()
-    {
-    }
-
     public void BuyPistolAmmo()
     {
-    }
-
-    public void UpgradeShotgun()
-    {
 
     }
-
-    public void BuyShotgunAmmo()
-    {
-    }
-
-    public void UpgradeHeavy()
-    {
-    }
-    public void BuyHeavyAmmo()
-    {
-    }
-    public void UpgradeRifle()
-    {
-    }
-    public void BuyRifleAmmo()
-    {
-    }
-
     #endregion
 
     #endregion
