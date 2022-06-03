@@ -234,36 +234,10 @@ public class UIStore : PopUpMenu
     #endregion
 
     #region WeaponButtons
-    public void UpgradePistol()
-    {
-    }
-
     public void BuyPistolAmmo()
     {
-    }
-
-    public void UpgradeShotgun()
-    {
 
     }
-
-    public void BuyShotgunAmmo()
-    {
-    }
-
-    public void UpgradeHeavy()
-    {
-    }
-    public void BuyHeavyAmmo()
-    {
-    }
-    public void UpgradeRifle()
-    {
-    }
-    public void BuyRifleAmmo()
-    {
-    }
-
     #endregion
 
     #endregion

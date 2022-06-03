@@ -15968,7 +15968,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 121379789211176157}
-  - component: {fileID: 1695018441826468530}
+  - component: {fileID: 2924827587733780016}
   m_Layer: 5
   m_Name: Pistol Page
   m_TagString: Untagged
@@ -16001,7 +16001,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000022888, y: 79}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1695018441826468530
+--- !u!114 &2924827587733780016
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16010,19 +16010,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 5277847811584126734}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59afae8cdce8f1a42a60c34903dad977, type: 3}
+  m_Script: {fileID: 11500000, guid: 3012aadf3f4e1444e98c9f6e1d533725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ammoCost: 200
   ammoQuantity: 20
-  fireRateCost: 100
+  fireRateCost: 400
   fireRateQuantity: 2
-  damageCost: 20
-  damageQuantity: 10
-  tier2Upgrade1: 500
-  tier2Upgrade2: 600
-  voidUpgrade: 5000
-  plasma: 5000
+  damageCost: 500
+  damageQuantity: 2
+  tier2Upgrade1: 3000
+  tier2Upgrade2: 3000
+  voidUpgrade: 1300
+  plasma: 1300
   buyAmmo: {fileID: 6637777843450128317}
   upgrade1: {fileID: 4347798564243652887}
   upgrade2: {fileID: 3096490277784629089}
