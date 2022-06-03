@@ -70,7 +70,11 @@ public class GameManager : MonoBehaviour
         checkpointIndex = PlayerPrefs.GetInt("Checkpoint Index");
         skrapCount.SetQuantity(PlayerPrefs.GetInt("Skrap Count"));
         player.GetComponent<PlayerMovement>().WarpToPosition(checkpoints[checkpointIndex].GetComponent<RoomManager>().spawnPoint.position);
-        
+        playerHealth.currHealth = PlayerPrefs.GetInt("Player Health");
+        playerHealth.maxHealth = PlayerPrefs.GetInt("Max Player Health");
+        healthBar.SetHealth(playerHealth.currHealth / playerHealth.maxHealth);
+        boardWipeCount.SetQuantity(PlayerPrefs.GetInt("Board Wipes"));
+
         //NOTE
         //THIS IS A TEMPERARY FIX
         if (checkpointIndex == 0)
@@ -121,8 +125,8 @@ public class GameManager : MonoBehaviour
         }
         skrapCount.SetQuantity(PlayerPrefs.GetInt("Skrap Count"));
         player.GetComponent<PlayerMovement>().WarpToPosition(checkpoints[checkpointIndex].GetComponent<RoomManager>().spawnPoint.position);
-        player.GetComponent<playerHealth>().currHealth = player.GetComponent<playerHealth>().maxHealth;
-        healthBar.SetHealth(1);
+        player.GetComponent<playerHealth>().currHealth = PlayerPrefs.GetInt("Player Health");
+        healthBar.SetHealth(playerHealth.currHealth / playerHealth.maxHealth);
 
         for(int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
         {
@@ -142,8 +146,11 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Scene Index", SceneManager.GetActiveScene().buildIndex);
         PlayerPrefs.SetInt("Checkpoint Index", checkpointIndex);
         PlayerPrefs.SetInt("Skrap Count", skrapCount.GetQuantity());
+        PlayerPrefs.SetInt("Player Health", playerHealth.currHealth);
+        PlayerPrefs.SetInt("Max Player Health", playerHealth.maxHealth);
+        PlayerPrefs.SetInt("Board Wipes", boardWipeCount.GetQuantity());
 
-        for(int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
+        for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
         {
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Pistol>() != null)
             {
