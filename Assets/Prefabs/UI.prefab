@@ -2084,6 +2084,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4759234697348464897}
+  - component: {fileID: 8822660461359010900}
   m_Layer: 5
   m_Name: Rifle Page
   m_TagString: Untagged
@@ -2117,6 +2118,32 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000022888, y: 57.000042}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8822660461359010900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162523578768586680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c095f7acce29e46bc26f51f4253248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoCost: 0
+  ammoQuantity: 0
+  fireRateCost: 0
+  damageCost: 0
+  tier2Upgrade1: 0
+  tier2Upgrade2: 0
+  voidUpgrade: 0
+  plasma: 0
+  fireRateQuantity: 0
+  damageQuantity: 0
+  buyAmmo: {fileID: 0}
+  upgrade1: {fileID: 0}
+  upgrade2: {fileID: 0}
+  upgrade3: {fileID: 0}
 --- !u!1 &167572324506024805
 GameObject:
   m_ObjectHideFlags: 0
@@ -2711,6 +2738,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1256457199782818864}
+  - component: {fileID: 4809008680110927341}
   m_Layer: 5
   m_Name: Heavy Page
   m_TagString: Untagged
@@ -2744,6 +2772,32 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000022888, y: 57.000042}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4809008680110927341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480322092280791116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 391486dd9b09dba4492ebfbcff4a991e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoCost: 0
+  ammoQuantity: 0
+  fireRateCost: 0
+  damageCost: 0
+  tier2Upgrade1: 0
+  tier2Upgrade2: 0
+  voidUpgrade: 0
+  plasma: 0
+  fireRateQuantity: 0
+  damageQuantity: 0
+  buyAmmo: {fileID: 0}
+  upgrade1: {fileID: 0}
+  upgrade2: {fileID: 0}
+  upgrade3: {fileID: 0}
 --- !u!1 &641038183656643805
 GameObject:
   m_ObjectHideFlags: 0
@@ -9430,13 +9484,13 @@ MonoBehaviour:
   ammoCost: 0
   ammoQuantity: 0
   fireRateCost: 0
-  fireRateQuantity: 0
   damageCost: 0
-  damageQuantity: 0
   tier2Upgrade1: 0
   tier2Upgrade2: 0
   voidUpgrade: 0
   plasma: 0
+  fireRateQuantity: 0
+  damageQuantity: 0
   buyAmmo: {fileID: 0}
   upgrade1: {fileID: 0}
   upgrade2: {fileID: 0}
@@ -15968,14 +16022,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 121379789211176157}
-  - component: {fileID: 2924827587733780016}
+  - component: {fileID: 3022406984328215754}
   m_Layer: 5
   m_Name: Pistol Page
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &121379789211176157
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16001,7 +16055,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000022888, y: 79}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2924827587733780016
+--- !u!114 &3022406984328215754
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16010,19 +16064,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 5277847811584126734}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3012aadf3f4e1444e98c9f6e1d533725, type: 3}
+  m_Script: {fileID: 11500000, guid: 59afae8cdce8f1a42a60c34903dad977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ammoCost: 200
   ammoQuantity: 20
-  fireRateCost: 400
+  fireRateCost: 200
+  damageCost: 200
+  tier2Upgrade1: 1000
+  tier2Upgrade2: 1000
+  voidUpgrade: 3000
+  plasma: 3000
   fireRateQuantity: 2
-  damageCost: 500
   damageQuantity: 2
-  tier2Upgrade1: 3000
-  tier2Upgrade2: 3000
-  voidUpgrade: 1300
-  plasma: 1300
   buyAmmo: {fileID: 6637777843450128317}
   upgrade1: {fileID: 4347798564243652887}
   upgrade2: {fileID: 3096490277784629089}
@@ -20485,13 +20539,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 9040428462261589676}
+        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
+        m_MethodName: PistolAmmo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -22227,6 +22281,7 @@ GameObject:
   - component: {fileID: 5233357010831831502}
   - component: {fileID: 241632461134865114}
   - component: {fileID: 4087765916843270057}
+  - component: {fileID: 5811401096803331534}
   m_Layer: 5
   m_Name: Damage
   m_TagString: Untagged
@@ -22337,7 +22392,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 241632461134865114}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5811401096803331534}
+        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
+        m_MethodName: PistolUpgradeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5811401096803331534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7272027582154099998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OneShopVisual: {fileID: 0}
+  purchaseMessageObj: {fileID: 0}
 --- !u!1 &7316310180489670810
 GameObject:
   m_ObjectHideFlags: 0
@@ -22647,6 +22728,7 @@ GameObject:
   - component: {fileID: 3757534164612117636}
   - component: {fileID: 3837568818931553764}
   - component: {fileID: 3618183941151371401}
+  - component: {fileID: 8124988578455957422}
   m_Layer: 5
   m_Name: Fire Rate
   m_TagString: Untagged
@@ -22757,7 +22839,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3837568818931553764}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8124988578455957422}
+        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
+        m_MethodName: PistolUpgradeFireRate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8124988578455957422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7376855049139573368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OneShopVisual: {fileID: 0}
+  purchaseMessageObj: {fileID: 0}
 --- !u!1 &7390265225493920944
 GameObject:
   m_ObjectHideFlags: 0

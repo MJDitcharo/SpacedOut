@@ -99,18 +99,20 @@ public class UIStore : PopUpMenu
             purchaseFailed = true;
         StartCoroutine(HandlePurchaseMessage(purchaseFailed));
     }
-    private void PurchaseAmmo(ItemCount itemCount, string weaponName, int cost, int quantity = 0)
+    private void PurchaseAmmo(string weaponName, int cost, int quantity = 0)
     {
         bool purchaseFailed;
         if (GameManager.instance.skrapCount.GetQuantity() >= cost)
         {
+            Debug.Log("You got the cash");
             WeaponBase currentWeapon = WeaponHolder.instance.transform.Find(weaponName).GetComponent<WeaponBase>();
+            GameManager.instance.ammoCount.SetQuantity(quantity);
             currentWeapon.AddAmmo(quantity);
             GameManager.instance.skrapCount.Subtract(cost);
-            purchaseFailed = true;
+            purchaseFailed = false;
         }
         else
-            purchaseFailed = false;
+            purchaseFailed = true;
         StartCoroutine(HandlePurchaseMessage(purchaseFailed));
     }
     private void CheckPurchaseItem(int weaponIndex, float multiplier, int cost)
@@ -127,10 +129,41 @@ public class UIStore : PopUpMenu
         //else
         //    purchaseFailed = true;
         //StartCoroutine(HandlePurchaseMessage(purchaseFailed));
-
     }
+
+    private void UpgradeFireRate(string weaponName, int cost, float fireRate)
+    {
+        bool purchaseFailed;
+        if (GameManager.instance.skrapCount.GetQuantity() >= cost)
+        {
+            WeaponHolder.instance.UpgradeFireRate(weaponName, fireRate);
+            GameManager.instance.skrapCount.Subtract(cost);
+            purchaseFailed = false;
+            Debug.Log("Fire rate upgraded");
+        }
+        else
+            purchaseFailed = true;
+        StartCoroutine(HandlePurchaseMessage(purchaseFailed));
+    }
+
+    private void UpgradeDamage(string weaponName, int cost, float damage)
+    {
+        bool purchaseFailed;
+        if (GameManager.instance.skrapCount.GetQuantity() >= cost)
+        {
+            WeaponHolder.instance.UpgradeDamage(weaponName, damage);
+            GameManager.instance.skrapCount.Subtract(cost);
+            Debug.Log("Damage upgraded");
+            purchaseFailed = false;
+        }
+        else
+            purchaseFailed = true;
+        StartCoroutine(HandlePurchaseMessage(purchaseFailed));
+    }
+
     private IEnumerator HandlePurchaseMessage(bool purchaseFailed, string message = "")
     {
+        Debug.Log(purchaseFailed);
         if (!purchaseFailed)
         {
             purchaseMessage.color = Color.green;
@@ -161,6 +194,7 @@ public class UIStore : PopUpMenu
         {
             if (pages[i].activeInHierarchy)
             {
+                Debug.Log("index: " + i);
                 //deactivate current page
                 pages[i].SetActive(false);
                 if (i + 1 < pages.Count)//set the next page as active.
@@ -234,9 +268,44 @@ public class UIStore : PopUpMenu
     #endregion
 
     #region WeaponButtons
-    public void BuyPistolAmmo()
-    {
 
+    #region Pistol Page
+    public void PistolAmmo()
+    {
+        PurchaseAmmo("Pistol", PistolPage.instance.ammoCost, PistolPage.instance.ammoQuantity);
+    }
+
+    public void PistolUpgradeFireRate()
+    {
+        UpgradeFireRate("Pistol", PistolPage.instance.fireRateCost, PistolPage.instance.fireRateQuantity);
+    }
+
+    public void PistolUpgradeDamage()
+    {
+        UpgradeDamage("Pistol", PistolPage.instance.damageCost, PistolPage.instance.damageQuantity);
+    }
+    #endregion
+
+    #region Shotgun Page
+    public void ShotgunAmmo()
+    {
+        PurchaseAmmo("Shotgun", ShotgunPage.instance.ammoCost, ShotgunPage.instance.ammoQuantity);
+    }
+
+    public void ShotgunUpgradeFireRate()
+    {
+        UpgradeFireRate("Shotgun", ShotgunPage.instance.fireRateCost, ShotgunPage.instance.fireRateQuantity);
+
+    }
+    #endregion
+    public void RifleAmmo()
+    {
+        PurchaseAmmo("Rifle", RiflePage.instance.ammoCost, RiflePage.instance.ammoQuantity);
+    }
+
+    public void HeavyAmmo()
+    {
+        PurchaseAmmo("Heavy", HeavyPage.instance.ammoCost, HeavyPage.instance.ammoQuantity);
     }
     #endregion
 

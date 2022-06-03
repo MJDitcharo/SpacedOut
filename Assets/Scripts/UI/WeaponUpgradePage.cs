@@ -5,7 +5,9 @@ public class WeaponUpgradePage : StorePage
     // Start is called before the first frame update
     bool weaponOwned; //see if player has bought the weapon
     [SerializeField]
-    public int ammoCost, ammoQuantity, fireRateCost, fireRateQuantity, damageCost, damageQuantity, tier2Upgrade1, tier2Upgrade2, voidUpgrade, plasma;
+    public int ammoCost, ammoQuantity, fireRateCost, damageCost, tier2Upgrade1, tier2Upgrade2, voidUpgrade, plasma;
+    [SerializeField]
+    public float fireRateQuantity, damageQuantity;
     [SerializeField]
     protected GameObject buyAmmo, upgrade1, upgrade2, upgrade3;
 
