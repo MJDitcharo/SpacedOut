@@ -4,15 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Grenade : MonoBehaviour
 {
-    private float detonateTime = 3f;
-    private float explosiveRadius = 10;
-    private float pushbackMultiplier = 1;
-    private int damage = 10;
+    public GameObject hitEffect;
+    private float detonateTime = 1f;
+    private float explosiveRadius = 5;
+    private float pushbackMultiplier = 5;
+    private int damage = 50;
 
     //when the grenade is instantiated
     private void Awake()
-    {
-        Detonate();
+    { 
+       StartCoroutine(Detonate());
     }
     public IEnumerator Detonate()
     {
@@ -21,12 +22,17 @@ public class Grenade : MonoBehaviour
         for (int i = 0; i < colliders.Length; i++)
         {
             health healthScript = colliders[i].GetComponent<health>();
-            if (healthScript != null)
+            //RaycastHit hit;
+            if (healthScript != null /*&& Physics.Raycast(transform.position, colliders[i].transform.position - transform.position, out hit, Mathf.Infinity) && hit.collider.gameObject == colliders[i].gameObject*/)
             {
-                colliders[i].GetComponent<EnemyMovement>().pushback += (-pushbackMultiplier * (transform.position - colliders[i].transform.position).normalized);
+                if(colliders[i].GetComponent<EnemyMovement>() != null)
+                {
+                    colliders[i].GetComponent<EnemyMovement>().pushback += (-pushbackMultiplier * (transform.position - colliders[i].transform.position).normalized);
+                }
                 healthScript.DoDamage(damage);
             }
         }
-        Destroy(gameObject);
+        Instantiate(hitEffect, transform.position, Quaternion.identity); //create a bullet with no rotation at the postion 
+        Destroy(gameObject);     //destroy game object and effect upon detonation
     }
 }

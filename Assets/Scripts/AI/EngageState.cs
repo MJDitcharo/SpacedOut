@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EngageState : State
 {
-    [SerializeField] AttackState attackState;
+    [SerializeField] State attackState;
     [SerializeField] SuicideAttackState suicideAttackState;
 
     [SerializeField] float attackDistance;
