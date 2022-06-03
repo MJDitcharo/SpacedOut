@@ -91,7 +91,5 @@ public class AttackState : State
             yield return null;
         }
         lookCoroutine = null;
-
-        
     }
 }
