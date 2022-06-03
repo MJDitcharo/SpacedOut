@@ -15,7 +15,6 @@ public class playerHealth : health
     public void AddHealth(float percentage)
     {
         currHealth += (int)(maxHealth * percentage);
-
         if (currHealth > maxHealth)
             currHealth = maxHealth;
 
@@ -34,5 +33,11 @@ public class playerHealth : health
         {
             GameManager.instance.Respawn();
         }
+    }
+
+    public void AddMaxHealth(int value)
+    {
+        maxHealth += value;
+        //change the ui max value
     }
 }

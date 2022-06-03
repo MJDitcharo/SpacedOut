@@ -5,13 +5,30 @@ using UnityEngine;
 public class GeneralPage : StorePage
 {
     [SerializeField]
-    int health, maxHealth, grenade, boardWipe;
-    
+    protected GameObject gridFormat;
+    public int healthCost, maxHealth, grenade, boardWipe;
+    public int healthQuantity;
+    public static GeneralPage instance;
 
+    private void Awake()
+    {
+        instance = this;
+        healthQuantity = 25;
+    }
+
+    protected override void AssignTextMeshes()
+    {
+        foreach (Transform level1 in gridFormat.transform)
+            priceText.Add(level1.Find("Price Icon").transform.Find("Price").GetComponent<TMPro.TextMeshProUGUI>());
+    }
 
     protected override void SetInitialPrices()
     {
-        //the button's name and the price
-        //prices.Add<>
+        pricesInt.Add(healthCost);
+        pricesInt.Add(maxHealth);
+        pricesInt.Add(grenade);
+        pricesInt.Add(boardWipe);
     }
+
+
 }

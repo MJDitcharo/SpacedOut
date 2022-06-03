@@ -4,42 +4,54 @@ using UnityEngine;
 
 public class StorePage : MonoBehaviour
 {
-    [SerializeField]
-    protected GameObject gridFormat;
-    protected List<int> pricesInt;
-    protected List<TMPro.TextMeshProUGUI> priceText;
-    void Start()
-    {   
+
+    //class prerequisites
+    //must assign set initial prices
+    //must assign gridFormat
+
+    
+    protected List<int> pricesInt = new();
+    protected List<TMPro.TextMeshProUGUI> priceText = new();
+
+    protected void Start()
+    {
         SetDefaultStatus();
     }
 
-   
-
-    protected void GetTextMeshes()
+    /// <summary>
+    /// Pure Virtual.
+    /// </summary>
+    protected virtual void SetInitialPrices()
     {
-        foreach (Transform level1 in gridFormat.transform)
+        Debug.Log("Need to define function: SetInitialPrices");
+    }
+
+    /// <summary>
+    /// Pure Virtual.
+    /// </summary>
+    protected virtual void AssignTextMeshes()
+    {
+        Debug.Log("Need to define function: AssignTextMeshes");
+    }
+
+    private void SetTextMeshPrices()
+    {
+        for (int i = 0; i < priceText.Count; i++)
         {
-            foreach (Transform level2 in level1)
-                priceText.Add(level2.Find("Price").GetComponent<TMPro.TextMeshProUGUI>());
+            Debug.Log(priceText[i].transform.parent.name + " num is :" + pricesInt[i].ToString());
+            priceText[i].text = pricesInt[i].ToString();
         }
     }
 
     protected void SetDefaultStatus()
     {
         //assign grid format
-        GetTextMeshes();
         SetInitialPrices();
+        AssignTextMeshes();
+        SetTextMeshPrices();
         //set the correct buttons to be active in hierarchy
     }
 
-    protected virtual void SetInitialPrices()
-    {
-        //needs to change the number variable AND the textmeshpro
 
-    }
-
-    protected void AssignTextMeshes()
-    {
-
-    }
+    
 }

@@ -17,7 +17,6 @@ public abstract class Pickups : MonoBehaviour
     {
         if (other.gameObject == GameManager.instance.player)
         {
-            Debug.Log("hit");
             //give the player bullets
             Increment();
             Destroy(gameObject);

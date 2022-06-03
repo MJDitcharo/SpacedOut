@@ -6,8 +6,7 @@ public class SkrapPickup : Pickups
 {
     protected override void Increment()
     {
-        Debug.Log("Max: " + quantity);
-        GameManager.instance.skrapCount.Add(quantity);
+        GameManager.instance.skrapCount.Add(quantity); 
     }
     protected override void InitialValues()
     {

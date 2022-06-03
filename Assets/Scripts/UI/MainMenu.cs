@@ -24,7 +24,21 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
+        PlayerPrefs.SetInt("Scene Index", 1);
+        PlayerPrefs.SetInt("Checkpoint Index", 0);
+        PlayerPrefs.SetInt("Skrap Count", 0);
+        PlayerPrefs.SetInt("Player Health", 100);
+        PlayerPrefs.SetInt("Max Player Health", 100);
+        PlayerPrefs.SetInt("Board Wipes", 0);
+        PlayerPrefs.SetInt("Chest Opened", 0);
 
+        PlayerPrefs.SetInt("Pistol Ammo", 45);
+
+        SceneManager.LoadScene(1);
+    }
+    public void Continue()
+    {
+        SceneManager.LoadScene(PlayerPrefs.GetInt("Scene Index"));
     }
 
     public void LoadGame()
