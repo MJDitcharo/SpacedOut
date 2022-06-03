@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class GeneralPage : StorePage
 {
-    [SerializeField]
-    int health, maxHealth, grenade, boardWipe;
+    public int health, maxHealth, grenade, boardWipe;
+    public int healthQuantity;
+    public static GeneralPage instance;
 
+    private void Awake()
+    {
+        instance = this;
+        healthQuantity = 25;
+    }
     protected override void SetInitialPrices()
     {
         pricesInt.Add(health);

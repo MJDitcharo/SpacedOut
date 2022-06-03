@@ -5,7 +5,7 @@ using UnityEngine;
 public class PistolPage : StorePage
 {
     [SerializeField]
-    int ammo, deagle, dualWeild, voidUpgrade, plasma, damage, fireRate;
+    int ammo, damage, fireRate, deagle, dualWeild, voidUpgrade, plasma;
     protected override void SetInitialPrices()
     {
 

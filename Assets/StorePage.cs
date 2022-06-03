@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class StorePage : MonoBehaviour
 {
+
+    //class prerequisites
+    //must assign set initial prices
+    //must assign gridFormat
+
     [SerializeField]
     protected GameObject gridFormat;
     protected List<int> pricesInt = new();
     protected List<TMPro.TextMeshProUGUI> priceText = new();
 
-    protected virtual void Start()
+    protected void Start()
     {
         SetDefaultStatus();
     }
@@ -17,7 +22,6 @@ public class StorePage : MonoBehaviour
 
     protected void AssignTextMeshes()
     {
-
         foreach (Transform level1 in gridFormat.transform)
         {
             Debug.Log(level1.name);
