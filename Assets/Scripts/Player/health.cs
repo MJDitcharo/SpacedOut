@@ -12,6 +12,8 @@ public class health : MonoBehaviour
     // Vulnerable Debuff Fields
     private Coroutine vulnCoroutine;
     public bool vulnerable = false;
+    [SerializeField] float fireTickTime = 1;
+    float fireTick = 0;
     [SerializeField] float vulnAmount = 1.5f;
     [SerializeField] int vulnTime = 5;
 
@@ -22,7 +24,10 @@ public class health : MonoBehaviour
         currHealth = maxHealth;
     }
 
-    
+    private void Update()
+    {
+        fireTick += Time.deltaTime;
+    }
 
     // Health takes damage
     public virtual void DoDamage(int _dmg)
@@ -62,6 +67,18 @@ public class health : MonoBehaviour
             StopCoroutine(WeakenedState());
             vulnCoroutine = null;
             vulnCoroutine = StartCoroutine(WeakenedState());
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "Fire")
+        {
+            if(fireTick >= fireTickTime)
+            {
+                DoDamage(10);
+                fireTick = 0;
+            }
         }
     }
 
