@@ -31,24 +31,28 @@ public class MainMenu : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("SavedGame") <= 0)
         {
-            overrideSave.SetActive(true);
             PlayerPrefs.SetInt("SavedGame", 1);
+            DefaultPrefs();
         }
-        else
+        else if(PlayerPrefs.GetInt("SavedGame") >= 0)
         {
-            PlayerPrefs.SetInt("SavedGame", 1);
-            PlayerPrefs.SetInt("Scene Index", 1);
-            PlayerPrefs.SetInt("Checkpoint Index", 0);
-            PlayerPrefs.SetInt("Skrap Count", 0);
-            PlayerPrefs.SetInt("Player Health", 100);
-            PlayerPrefs.SetInt("Max Player Health", 100);
-            PlayerPrefs.SetInt("Board Wipes", 0);
-            PlayerPrefs.SetInt("Chest Opened", 0);
-
-            PlayerPrefs.SetInt("Pistol Ammo", 45);
-
-            SceneManager.LoadScene(1);
+            overrideSave.SetActive(true);
         }
+    }
+    public void DefaultPrefs()
+    {
+        PlayerPrefs.SetInt("SavedGame", 1);
+        PlayerPrefs.SetInt("Scene Index", 1);
+        PlayerPrefs.SetInt("Checkpoint Index", 0);
+        PlayerPrefs.SetInt("Skrap Count", 0);
+        PlayerPrefs.SetInt("Player Health", 100);
+        PlayerPrefs.SetInt("Max Player Health", 100);
+        PlayerPrefs.SetInt("Board Wipes", 0);
+        PlayerPrefs.SetInt("Chest Opened", 0);
+
+        PlayerPrefs.SetInt("Pistol Ammo", 45);
+
+        SceneManager.LoadScene(1);
     }
     public void Continue()
     {
@@ -106,18 +110,10 @@ public class MainMenu : MonoBehaviour
         {
             PlayerPrefs.SetFloat("MusicVolume", AudioListener.volume);
             PlayerPrefs.SetFloat("SFXVolume", LoadPrefs.Instance.sfxVolume);
-            StartCoroutine(Confirm());
         }
         audioSaved = false;
     }
 
-    public IEnumerator Confirm()
-    {
-        cPrompt.SetActive(true);
-        yield return new WaitForSeconds(2);
-        cPrompt.SetActive(false);
-
-    }
 
 }
 
