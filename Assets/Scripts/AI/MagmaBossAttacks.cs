@@ -80,6 +80,7 @@ public class MagmaBossAttacks : State
 
         attackCoroutine = null;
         attacking = false;
+        currentAttack = (Attacks)((int)Mathf.Round(Random.Range(0, 2)));
     }
     IEnumerator BlastAttack()
     {
@@ -94,6 +95,7 @@ public class MagmaBossAttacks : State
 
         attackCoroutine = null;
         attacking = false;
+        currentAttack = (Attacks)((int)Mathf.Round(Random.Range(0, 2)));
     }
 
     IEnumerator TurnToPlayer()
