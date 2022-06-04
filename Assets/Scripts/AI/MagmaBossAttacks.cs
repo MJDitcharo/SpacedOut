@@ -13,6 +13,8 @@ public class MagmaBossAttacks : State
     [SerializeField] float mollyTossDelay = 1;
     [SerializeField] int numberOfMollies = 5;
 
+    Coroutine coroutine;
+
     Attacks currentAttack = Attacks.mollies;
     bool attacking = false;
 
@@ -34,7 +36,9 @@ public class MagmaBossAttacks : State
         switch(currentAttack)
         {
             case Attacks.mollies:
-                MollyAttack();
+                Debug.Log("Molly attack");
+                if(coroutine == null)
+                    coroutine = StartCoroutine(MollyAttack());
                 break;
             case Attacks.blast:
                 BlastAttack();
@@ -48,9 +52,10 @@ public class MagmaBossAttacks : State
         {
             yield return new WaitForSeconds(mollyTossDelay);
 
-
+            Debug.Log("Throwing Molly");
         }
-        
+
+        coroutine = null;
         attacking = false;
     }
     void BlastAttack()

@@ -11,6 +11,10 @@ public class playerHealth : health
     [SerializeField] float delayRate = 1f;
     private float delayDamge = 0f;
 
+    private void Start()
+    {
+        currHealth = PlayerPrefs.GetInt("Player Health");
+    }
 
     public void AddHealth(float percentage)
     {
