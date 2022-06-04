@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
         movement.WarpToPosition(checkpoints[checkpointIndex].GetComponent<RoomManager>().spawnPoint.position);
         playerHealth.currHealth = PlayerPrefs.GetInt("Player Health");
         playerHealth.maxHealth = PlayerPrefs.GetInt("Max Player Health");
-        healthBar.SetHealth(playerHealth.currHealth / playerHealth.maxHealth);
+        healthBar.SetHealth((float)playerHealth.currHealth / playerHealth.maxHealth);
         boardWipeCount.SetQuantity(PlayerPrefs.GetInt("Board Wipes"));
 
         //NOTE
