@@ -11,6 +11,9 @@ public class UIStore : PopUpMenu
     static private GameObject shopVisual;
     [SerializeField]
     private GameObject purchaseMessageObj;
+    [SerializeField]
+    private GameObject firstPage;
+    static bool first = true;
     static private GameObject statPurchaseMessage;
     private TMPro.TextMeshProUGUI purchaseMessage;
     private List<GameObject> pages = new();
@@ -46,20 +49,24 @@ public class UIStore : PopUpMenu
         purchaseMessage = purchaseMessageObj.GetComponent<TMPro.TextMeshProUGUI>();
 
         //new pages system
-        bool first = true;
-        foreach (Transform page in shopVisual.transform)
+        //foreach (Transform page in shopVisual.transform)
+        //{
+        //    if (page.name.Contains("Page"))
+        //    {
+        //        pages.Add(page.gameObject);
+        //        if (first) //the first page in the hierarchy will be the only one shown
+        //        {
+        //            page.gameObject.SetActive(true);
+        //            first = false;
+        //        }
+        //        else
+        //            page.gameObject.SetActive(false);
+        //    }
+        //}
+        if (first)
         {
-            if (page.name.Contains("Page"))
-            {
-                pages.Add(page.gameObject);
-                if (first) //the first page in the hierarchy will be the only one shown
-                {
-                    page.gameObject.SetActive(true);
-                    first = false;
-                }
-                else
-                    page.gameObject.SetActive(false);
-            }
+            firstPage.SetActive(true);
+            first = false;
         }
 
     }
@@ -189,13 +196,12 @@ public class UIStore : PopUpMenu
 
     public void NextPage()
     {
-      
-
+        Debug.Log("buttonpressed");
     }
 
     public void PreviousPage()
     {
-        
+
     }
 
     #region PickupButtons
