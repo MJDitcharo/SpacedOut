@@ -24,43 +24,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2184481799803058489}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 0, z: 0.61}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6256050975848470245}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5267543162090608897
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5267543162090608926}
-  m_Layer: 8
-  m_Name: Firepoint (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5267543162090608926
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5267543162090608897}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 0, z: 0.61}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6256050975848470245}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5415835157521604109
 GameObject:
@@ -186,7 +155,6 @@ Transform:
   m_Children:
   - {fileID: 7395252346881396176}
   - {fileID: 2232887566322358986}
-  - {fileID: 5267543162090608926}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -303,14 +271,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 6256050975848470244}
-  engageState: {fileID: 0}
-  attackState: {fileID: 0}
+  attackState: {fileID: 6119080226200538546}
   noticeDistance: 9
   movementSpeed: 3
   walkTime: 5
-  obsticleAvoidanceDistance: 6
+  obsticleAvoidanceDistance: 8
   fire: {fileID: 0}
-  turnSpeed: 90
+  turnSpeed: 180
+  minimunTurnTime: 0.5
   layerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -376,6 +344,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currHealth: 100
+  vulnerable: 0
+  vulnAmount: 1.5
+  vulnTime: 5
   drops: {fileID: 6076811627386069490, guid: d0306af4078577240a9a23e69fb7f953, type: 3}
   dropQuantity: 200
 --- !u!114 &6119080226200538546
@@ -391,3 +362,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 6256050975848470244}
+  wanderState: {fileID: 6256050975848470271}
+  firePointMolly: {fileID: 0}
+  mollyForceRange: {x: 20, y: 30}
+  mollyPrefab: {fileID: 0}
+  fireBall: {fileID: 0}
+  mollyTossDelay: 1
+  numberOfMollies: 5
+  turnSpeed: 45
