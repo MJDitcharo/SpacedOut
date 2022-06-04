@@ -11,17 +11,19 @@ public class MagmaBossAttacks : State
 
     [SerializeField] GameObject mollyPrefab;
     [SerializeField] GameObject fireBall;
+    [SerializeField] GameObject blastAttackBullet;
 
     enum Attacks { mollies, blast }
 
     [SerializeField] float mollyTossDelay = 1;
     [SerializeField] int numberOfMollies = 5;
     [SerializeField] float turnSpeed = 45;
+    [SerializeField] float blastSpeed = 20;
 
     Coroutine attackCoroutine;
     Coroutine lookCoroutine;
 
-    Attacks currentAttack = Attacks.mollies;
+    Attacks currentAttack = Attacks.blast;
     bool attacking = false;
 
     public override State RunCurrentState()
@@ -47,7 +49,10 @@ public class MagmaBossAttacks : State
                     attackCoroutine = StartCoroutine(MollyAttack());
                 break;
             case Attacks.blast:
-                BlastAttack();
+                if(lookCoroutine == null)
+                    lookCoroutine = StartCoroutine(TurnToPlayer());
+                if (attackCoroutine == null)
+                    attackCoroutine = StartCoroutine(BlastAttack());
                 break;
         }
     }
@@ -55,12 +60,15 @@ public class MagmaBossAttacks : State
     IEnumerator MollyAttack()
     {
         //Transform player = GameManager.instance.player.transform;
-        
-        for(int mollyCount = 0; mollyCount < numberOfMollies; mollyCount++)
+
+        Quaternion lookRoation = Quaternion.LookRotation(GameManager.instance.player.transform.position - new Vector3(transform.position.x, GameManager.instance.player.transform.position.y, transform.position.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRoation, 1);
+
+        for (int mollyCount = 0; mollyCount < numberOfMollies; mollyCount++)
         {
             yield return new WaitForSeconds(mollyTossDelay);
 
-            Quaternion lookRoation = Quaternion.LookRotation(GameManager.instance.player.transform.position - new Vector3(transform.position.x, GameManager.instance.player.transform.position.y, transform.position.z));
+            lookRoation = Quaternion.LookRotation(GameManager.instance.player.transform.position - new Vector3(transform.position.x, GameManager.instance.player.transform.position.y, transform.position.z));
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRoation, 1);
 
             GameObject bullet = Instantiate(fireBall, firePointMolly.position, Quaternion.identity);
@@ -73,9 +81,19 @@ public class MagmaBossAttacks : State
         attackCoroutine = null;
         attacking = false;
     }
-    void BlastAttack()
+    IEnumerator BlastAttack()
     {
+        yield return new WaitForSeconds(1);
 
+        GameObject blast = Instantiate(blastAttackBullet, transform.position, Quaternion.identity);
+        blast.transform.rotation = transform.rotation;
+        Rigidbody blastRB = blast.GetComponent<Rigidbody>();
+        blastRB.velocity = transform.forward * blastSpeed;
+
+        yield return new WaitForSeconds(1);
+
+        attackCoroutine = null;
+        attacking = false;
     }
 
     IEnumerator TurnToPlayer()
