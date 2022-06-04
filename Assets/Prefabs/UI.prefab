@@ -2132,20 +2132,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c095f7acce29e46bc26f51f4253248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoCost: 0
-  ammoQuantity: 0
-  fireRateCost: 0
-  damageCost: 0
-  tier2Upgrade1: 0
-  tier2Upgrade2: 0
-  voidUpgrade: 0
-  plasma: 0
-  fireRateQuantity: 0
-  damageQuantity: 0
-  buyAmmo: {fileID: 0}
-  upgrade1: {fileID: 0}
-  upgrade2: {fileID: 0}
-  upgrade3: {fileID: 0}
+  ammoCost: 100
+  weaponCost: 200
+  ammoQuantity: 50
+  tier1Upgrade: 300
+  tier2Upgrade: 400
+  tier3Upgrade: 500
+  fireRateQuantity: 1.5
+  damageQuantity: 1.5
+  buyAmmo: {fileID: 1135435420480574307}
+  buyWeapon: {fileID: 8287137221163729360}
+  upgrade1: {fileID: 7158229059461056498}
+  upgrade2: {fileID: 700103807002559939}
+  upgrade3: {fileID: 3875440300617220686}
 --- !u!1 &167572324506024805
 GameObject:
   m_ObjectHideFlags: 0
@@ -2925,20 +2924,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391486dd9b09dba4492ebfbcff4a991e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoCost: 0
-  ammoQuantity: 0
-  fireRateCost: 0
-  damageCost: 0
-  tier2Upgrade1: 0
-  tier2Upgrade2: 0
-  voidUpgrade: 0
-  plasma: 0
-  fireRateQuantity: 0
-  damageQuantity: 0
-  buyAmmo: {fileID: 0}
-  upgrade1: {fileID: 0}
-  upgrade2: {fileID: 0}
-  upgrade3: {fileID: 0}
+  ammoCost: 200
+  weaponCost: 600
+  ammoQuantity: 3
+  tier1Upgrade: 100
+  tier2Upgrade: 200
+  tier3Upgrade: 300
+  fireRateQuantity: 1.5
+  damageQuantity: 2
+  buyAmmo: {fileID: 4289220928224761050}
+  buyWeapon: {fileID: 5536449404290365197}
+  upgrade1: {fileID: 5904475237396797638}
+  upgrade2: {fileID: 981601789747321252}
+  upgrade3: {fileID: 3410512532619394619}
 --- !u!1 &641038183656643805
 GameObject:
   m_ObjectHideFlags: 0
@@ -10062,20 +10060,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0626d3e83c397744d891ea9dfe277572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoCost: 0
-  ammoQuantity: 0
-  fireRateCost: 0
-  damageCost: 0
-  tier2Upgrade1: 0
-  tier2Upgrade2: 0
-  voidUpgrade: 0
-  plasma: 0
-  fireRateQuantity: 0
-  damageQuantity: 0
-  buyAmmo: {fileID: 0}
-  upgrade1: {fileID: 0}
-  upgrade2: {fileID: 0}
-  upgrade3: {fileID: 0}
+  ammoCost: 10
+  weaponCost: 50
+  ammoQuantity: 20
+  tier1Upgrade: 100
+  tier2Upgrade: 200
+  tier3Upgrade: 300
+  fireRateQuantity: 1.5
+  damageQuantity: 1.5
+  buyAmmo: {fileID: 82289033073261206}
+  buyWeapon: {fileID: 1514356318537605104}
+  upgrade1: {fileID: 1629493073616756176}
+  upgrade2: {fileID: 2283923266803786423}
+  upgrade3: {fileID: 1183982784521451785}
 --- !u!1 &2849927648566859818
 GameObject:
   m_ObjectHideFlags: 0
@@ -17838,16 +17835,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoCost: 1
+  weaponCost: 0
   ammoQuantity: 20
-  fireRateCost: 2
-  damageCost: 3
-  tier2Upgrade1: 4
-  tier2Upgrade2: 5
-  voidUpgrade: 6
-  plasma: 7
+  tier1Upgrade: 100
+  tier2Upgrade: 200
+  tier3Upgrade: 300
   fireRateQuantity: 1.5
   damageQuantity: 1.5
   buyAmmo: {fileID: 6637777843450128317}
+  buyWeapon: {fileID: 0}
   upgrade1: {fileID: 4347798564243652887}
   upgrade2: {fileID: 3096490277784629089}
   upgrade3: {fileID: 8939557400414164648}

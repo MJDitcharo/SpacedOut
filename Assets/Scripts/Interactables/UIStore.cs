@@ -196,7 +196,7 @@ public class UIStore : PopUpMenu
 
     public void NextPage()
     {
-        Debug.Log("buttonpressed");
+
     }
 
     public void PreviousPage()

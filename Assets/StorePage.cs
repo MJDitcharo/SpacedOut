@@ -38,7 +38,7 @@ public class StorePage : MonoBehaviour
     {
         for (int i = 0; i < pricesText.Count; i++)
         {
-            Debug.Log(pricesText[i].transform.parent.name + " num is :" + pricesInt[i].ToString());
+            //Debug.Log(pricesText[i].transform.parent.name + " num is :" + pricesInt[i].ToString());
             pricesText[i].text = pricesInt[i].ToString();
         }
     }
