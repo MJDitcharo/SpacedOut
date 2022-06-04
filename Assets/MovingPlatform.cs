@@ -93,14 +93,16 @@ public class MovingPlatform : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.transform.name);
-        other.transform.parent = transform;
+        Debug.Log("enter");
+        if (other.gameObject == GameManager.instance.player)
+            other.transform.parent = transform;
     }
 
     void OnTriggerExit(Collider other)
     {
-        Debug.Log(other.transform.name);
-        other.transform.parent = null;
+        Debug.Log("exit");
+        if (other.gameObject == GameManager.instance.player)
+            other.transform.parent = null;
     }
 
 
