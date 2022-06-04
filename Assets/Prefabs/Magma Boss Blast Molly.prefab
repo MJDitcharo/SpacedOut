@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5831100543119849128}
   - component: {fileID: 636578315901451934}
   - component: {fileID: 3927368853039282919}
+  - component: {fileID: 7673289058941994708}
   m_Layer: 9
   m_Name: Magma Boss Blast Molly
-  m_TagString: Untagged
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,3 +98,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7673289058941994708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8092194958604652486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7fb309acae932d4c835f0e457c2902a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 5
