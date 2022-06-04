@@ -7,14 +7,15 @@ using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
-    bool savedGame = true;
+    int savedGame;
+    [SerializeField] bool audioSaved;
     [SerializeField] GameObject noDataPopUp = null;
     [SerializeField] GameObject savedDataPopUp = null;
     [SerializeField] private TMP_Text volumeValueText;
-    //[SerializeField] private TMP_Text SFXValueText;
     [SerializeField] private Slider volumeSlider;
-    //[SerializeField] private Slider SFXSlider;
     [SerializeField] GameObject cPrompt;
+    [SerializeField] int defaultVolume = 50;
+
 
 
     public void QuitGame()
@@ -24,6 +25,7 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
+        PlayerPrefs.SetInt("SavedGame",1);
         PlayerPrefs.SetInt("Scene Index", 1);
         PlayerPrefs.SetInt("Checkpoint Index", 0);
         PlayerPrefs.SetInt("Skrap Count", 0);
@@ -43,9 +45,9 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGame()
     {
-        if (savedGame == false)
+        if (PlayerPrefs.GetInt("SavedGame") > 0)
         {
-
+            Continue();
         }
         else
         {
@@ -58,13 +60,30 @@ public class MainMenu : MonoBehaviour
     public void SetVolume(float volume)
     {
         AudioListener.volume = volume;
-        volumeValueText.text = volume.ToString("0.0");
+        volumeValueText.text = volume.ToString("0");
+    }
+
+    public void ResetAudio(string MenuType)
+    {
+        if (MenuType == "Audio")
+        {
+            AudioListener.volume = defaultVolume;
+            volumeSlider.value = defaultVolume;
+            volumeValueText.text = defaultVolume.ToString("0");
+            ApplyAudioSetting();
+        }
     }
 
     public void ApplyAudioSetting()
     {
-        PlayerPrefs.SetFloat("Volume", AudioListener.volume);
-        StartCoroutine(Confirm());
+        audioSaved = true;
+        if (audioSaved == true)
+        {
+            PlayerPrefs.SetFloat("Volume", AudioListener.volume);
+            PlayerPrefs.SetFloat("SFX", AudioListener.volume);
+            StartCoroutine(Confirm());
+        }
+        audioSaved = false;
     }
 
     public IEnumerator Confirm()
@@ -74,9 +93,16 @@ public class MainMenu : MonoBehaviour
         cPrompt.SetActive(false);
 
     }
-    //public void SetSFX(float volume)
-    //{
-    //    AudioListener.volume = volume;
-    //    volumeValueText.text = volume.ToString();
-    //}
+
+    public void CancelChange()
+    {
+        if(audioSaved == false)
+        {
+            SetVolume(PlayerPrefs.GetFloat("Volume"));
+            volumeSlider.value = PlayerPrefs.GetFloat("Volume");
+        }
+
+    }
+
+
 }
