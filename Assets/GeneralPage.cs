@@ -19,7 +19,7 @@ public class GeneralPage : StorePage
     protected override void AssignTextMeshes()
     {
         foreach (Transform level1 in gridFormat.transform)
-            priceText.Add(level1.Find("Price Icon").transform.Find("Price").GetComponent<TMPro.TextMeshProUGUI>());
+            pricesText.Add(level1.Find("Price Icon").transform.Find("Price").GetComponent<TMPro.TextMeshProUGUI>());
     }
 
     protected override void SetInitialPrices()

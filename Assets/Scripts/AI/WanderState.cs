@@ -14,37 +14,40 @@ public class WanderState : State
     [SerializeField] float obsticleAvoidanceDistance = 6;
     [SerializeField] GameObject fire;
     [SerializeField] float turnSpeed = 90;
-    Coroutine lookCoroutine;
+    [SerializeField] float minimunTurnTime = .5f;
+    Coroutine lookCoroutine = null;
     [SerializeField] LayerMask layerMask;
 
     public override State RunCurrentState()
     {
-        if(walkTimer >= walkTime)
+        
+
+        if (lookCoroutine == null && Physics.Raycast(transform.position, transform.forward, obsticleAvoidanceDistance, layerMask))
+            lookCoroutine = StartCoroutine(Turn());
+        else if(walkTimer >= walkTime)
         {
             walkTimer = 0;
             return attackState;
         }
-
-        movement.GetAgent().Move(transform.forward * movementSpeed * Time.deltaTime);
+        else
+            movement.GetAgent().Move(transform.forward * movementSpeed * Time.deltaTime);
         walkTimer += Time.deltaTime;
-
-        if (lookCoroutine == null && Physics.Raycast(transform.position, transform.forward, obsticleAvoidanceDistance, layerMask))
-            lookCoroutine = StartCoroutine(Turn());
 
         return this;
     }
 
     IEnumerator Turn()
     {
-        Quaternion lookRoation = Quaternion.Euler(0, transform.rotation.y + 15, 0);
+        Quaternion lookRoation = Quaternion.Euler(0, transform.rotation.y , 0);
 
         float time = 0;
 
-        while (time < 1)
+        while (time < minimunTurnTime)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRoation, time);
+            Debug.Log("turning");
+            transform.Rotate(0, turnSpeed * Time.deltaTime, 0);
 
-            time += Time.deltaTime * turnSpeed;
+            time += Time.deltaTime;
 
             yield return null;
         }
