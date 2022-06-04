@@ -11,7 +11,7 @@ public class StorePage : MonoBehaviour
 
     
     protected List<int> pricesInt = new();
-    protected List<TMPro.TextMeshProUGUI> priceText = new();
+    protected List<TMPro.TextMeshProUGUI> pricesText = new();
 
     protected virtual void Start()
     {
@@ -34,12 +34,12 @@ public class StorePage : MonoBehaviour
         Debug.Log("Need to define function: AssignTextMeshes");
     }
 
-    private void SetTextMeshPrices()
+    protected virtual void SetTextMeshPrices()
     {
-        for (int i = 0; i < priceText.Count; i++)
+        for (int i = 0; i < pricesText.Count; i++)
         {
-            Debug.Log(priceText[i].transform.parent.name + " num is :" + pricesInt[i].ToString());
-            priceText[i].text = pricesInt[i].ToString();
+            //Debug.Log(pricesText[i].transform.parent.name + " num is :" + pricesInt[i].ToString());
+            pricesText[i].text = pricesInt[i].ToString();
         }
     }
 
