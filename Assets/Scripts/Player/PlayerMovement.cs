@@ -39,7 +39,10 @@ public class PlayerMovement : MonoBehaviour
             playerAnimation.SetTrigger("Roll");
             StartCoroutine(Rolling());
         }
-
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            AudioManager.Instance.PlaySFX("sfx");
+        }
       
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //gets mouse position relative to camera
         mousePosition.y = transform.position.y; //prevent player from looking up
