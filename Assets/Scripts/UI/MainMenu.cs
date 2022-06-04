@@ -11,11 +11,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField] bool audioSaved;
     [SerializeField] GameObject noDataPopUp = null;
     [SerializeField] GameObject savedDataPopUp = null;
+    [SerializeField] GameObject overrideSave = null;
     [SerializeField] private TMP_Text volumeValueText;
     [SerializeField] private Slider volumeSlider;
     [SerializeField] GameObject cPrompt;
-    [SerializeField] int defaultVolume = 50;
-
+    [SerializeField] int defaultVolume = 50/100;
 
 
     public void QuitGame()
@@ -25,18 +25,26 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
-        PlayerPrefs.SetInt("SavedGame",1);
-        PlayerPrefs.SetInt("Scene Index", 1);
-        PlayerPrefs.SetInt("Checkpoint Index", 0);
-        PlayerPrefs.SetInt("Skrap Count", 0);
-        PlayerPrefs.SetInt("Player Health", 100);
-        PlayerPrefs.SetInt("Max Player Health", 100);
-        PlayerPrefs.SetInt("Board Wipes", 0);
-        PlayerPrefs.SetInt("Chest Opened", 0);
+        if (PlayerPrefs.GetInt("SavedGame") <= 0)
+        {
+            overrideSave.SetActive(true);
+            PlayerPrefs.SetInt("SavedGame", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("SavedGame", 1);
+            PlayerPrefs.SetInt("Scene Index", 1);
+            PlayerPrefs.SetInt("Checkpoint Index", 0);
+            PlayerPrefs.SetInt("Skrap Count", 0);
+            PlayerPrefs.SetInt("Player Health", 100);
+            PlayerPrefs.SetInt("Max Player Health", 100);
+            PlayerPrefs.SetInt("Board Wipes", 0);
+            PlayerPrefs.SetInt("Chest Opened", 0);
 
-        PlayerPrefs.SetInt("Pistol Ammo", 45);
+            PlayerPrefs.SetInt("Pistol Ammo", 45);
 
-        SceneManager.LoadScene(1);
+            SceneManager.LoadScene(1);
+        }
     }
     public void Continue()
     {
@@ -59,7 +67,8 @@ public class MainMenu : MonoBehaviour
 
     public void SetVolume(float volume)
     {
-        AudioListener.volume = volume;
+        AudioListener.volume = volume/100;
+        PlayerPrefs.SetFloat("MasterVolume", AudioListener.volume * 100);
         volumeValueText.text = volume.ToString("0");
     }
 
@@ -70,8 +79,9 @@ public class MainMenu : MonoBehaviour
             AudioListener.volume = defaultVolume;
             volumeSlider.value = defaultVolume;
             volumeValueText.text = defaultVolume.ToString("0");
-            ApplyAudioSetting();
+            ApplyAudioSetting(); 
         }
+        
     }
 
     public void ApplyAudioSetting()
@@ -79,8 +89,8 @@ public class MainMenu : MonoBehaviour
         audioSaved = true;
         if (audioSaved == true)
         {
-            PlayerPrefs.SetFloat("Volume", AudioListener.volume);
-            PlayerPrefs.SetFloat("SFX", AudioListener.volume);
+            PlayerPrefs.SetFloat("MasterVolume", AudioListener.volume);
+            //PlayerPrefs.SetFloat("SFX", AudioListener.volume);
             StartCoroutine(Confirm());
         }
         audioSaved = false;
@@ -93,16 +103,5 @@ public class MainMenu : MonoBehaviour
         cPrompt.SetActive(false);
 
     }
-
-    public void CancelChange()
-    {
-        if(audioSaved == false)
-        {
-            SetVolume(PlayerPrefs.GetFloat("Volume"));
-            volumeSlider.value = PlayerPrefs.GetFloat("Volume");
-        }
-
-    }
-
 
 }
