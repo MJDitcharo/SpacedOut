@@ -189,38 +189,13 @@ public class UIStore : PopUpMenu
 
     public void NextPage()
     {
-        //get the index of the element
-        for (int i = 0; i < pages.Count; i++)
-        {
-            if (pages[i].activeInHierarchy)
-            {
-                Debug.Log("index: " + i);
-                //deactivate current page
-                pages[i].SetActive(false);
-                if (i + 1 < pages.Count)//set the next page as active.
-                    pages[i + 1].SetActive(true);
-                else //if the next is out of bounds, go to the first page
-                    pages[0].SetActive(true);
-                break;
-            }
-        }
+      
 
     }
 
     public void PreviousPage()
     {
-        for (int i = 0; i < pages.Count; i++)
-        {
-            if (pages[i].activeInHierarchy)
-            {
-                //deactivate current page
-                pages[i].SetActive(false);//set the next page as active.
-                if (i - 1 < 0)
-                    pages[pages.Count - 1].SetActive(true);
-                else
-                    pages[i - 1].SetActive(true);
-            }
-        }
+        
     }
 
     #region PickupButtons
