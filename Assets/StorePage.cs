@@ -13,7 +13,7 @@ public class StorePage : MonoBehaviour
     protected List<int> pricesInt = new();
     protected List<TMPro.TextMeshProUGUI> priceText = new();
 
-    protected void Start()
+    protected virtual void Start()
     {
         SetDefaultStatus();
     }

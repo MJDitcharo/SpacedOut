@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShotgunPage : WeaponUpgradePage
+public class RiflePage : WeaponUpgradePage
 {
-    static public ShotgunPage instance;
+    static public RiflePage instance;
     protected override void Start()
     {
         instance = this;
