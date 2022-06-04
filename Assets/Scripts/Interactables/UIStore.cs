@@ -258,12 +258,12 @@ public class UIStore : PopUpMenu
 
     public void PistolUpgradeFireRate()
     {
-        UpgradeFireRate("Pistol", PistolPage.instance.fireRateCost, PistolPage.instance.fireRateQuantity);
+        UpgradeFireRate("Pistol", PistolPage.instance.tier1Upgrade, PistolPage.instance.fireRateQuantity);
     }
 
     public void PistolUpgradeDamage()
     {
-        UpgradeDamage("Pistol", PistolPage.instance.damageCost, PistolPage.instance.damageQuantity);
+        UpgradeDamage("Pistol", PistolPage.instance.tier1Upgrade, PistolPage.instance.damageQuantity);
     }
     #endregion
 
@@ -275,7 +275,7 @@ public class UIStore : PopUpMenu
 
     public void ShotgunUpgradeFireRate()
     {
-        UpgradeFireRate("Shotgun", ShotgunPage.instance.fireRateCost, ShotgunPage.instance.fireRateQuantity);
+        UpgradeFireRate("Shotgun", ShotgunPage.instance.tier1Upgrade, ShotgunPage.instance.fireRateQuantity);
 
     }
     #endregion
