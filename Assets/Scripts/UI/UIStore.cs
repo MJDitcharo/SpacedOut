@@ -23,7 +23,6 @@ public class UIStore : PopUpMenu
     {
         if (instance == null)
             instance = this;
-        Debug.Log(transform.name);
         purchaseMessageObj = purchaseMessage.gameObject;
         if (first)
         {
@@ -39,7 +38,6 @@ public class UIStore : PopUpMenu
             GameManager.instance.menuIsActive = true;
             //GameObject.Find("Weapon Upgrades Page").gameObject.SetActive(false);
             FreezeWorld();
-            Debug.Log("menu is active");
         }
     }
     public void Deactivate()
@@ -47,9 +45,7 @@ public class UIStore : PopUpMenu
         shopVisual.SetActive(false);
         GameManager.instance.menuIsActive = false;
         UnfreezeWorld();
-        Debug.Log("menu is deactive");
-
     }
 
-   
+
 }

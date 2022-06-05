@@ -104,7 +104,7 @@ public class UIStoreButtons : MonoBehaviour
     #region Shop Buttons
     public void ExitShop()
     {
-        GameManager.instance.shopUI.Deactivate();
+        UIStore.instance.Deactivate();
     }
 
     public void NextPage()
