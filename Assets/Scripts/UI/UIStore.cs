@@ -265,9 +265,32 @@ public class UIStore : PopUpMenu
     {
         UpgradeDamage("Pistol", PistolPage.instance.tier1Upgrade, PistolPage.instance.damageQuantity);
     }
+
+    public void PistolDeagleUpgrade()
+    {
+
+    }
+
+    public void PistolDualWeildUpgrade()
+    {
+
+    }
+    public void PistolVoidUpgrade()
+    {
+
+    }
+    public void PistolPlasmaUpgrade()
+    {
+
+    }
     #endregion
 
     #region Shotgun Page
+    public void ShotgunBuyWeapon()
+    {
+
+    }
+
     public void ShotgunAmmo()
     {
         PurchaseAmmo("Shotgun", ShotgunPage.instance.ammoCost, ShotgunPage.instance.ammoQuantity);
@@ -278,6 +301,27 @@ public class UIStore : PopUpMenu
         UpgradeFireRate("Shotgun", ShotgunPage.instance.tier1Upgrade, ShotgunPage.instance.fireRateQuantity);
 
     }
+
+    public void ShotgunUpgradeSlug()
+    {
+
+    }
+    public void ShotgunUpgradeSawedOff()
+    {
+
+    }
+    public void ShotgunPlasmaUpgrade()
+    {
+
+    }
+
+    public void ShotgunVoidUpgrade()
+    {
+
+    }
+
+
+
     #endregion
     public void RifleAmmo()
     {
