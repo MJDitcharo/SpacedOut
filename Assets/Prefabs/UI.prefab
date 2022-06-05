@@ -3430,7 +3430,6 @@ GameObject:
   - component: {fileID: 8764128122546325313}
   - component: {fileID: 3622059915581643384}
   - component: {fileID: 411583805181983282}
-  - component: {fileID: 7671070672602130155}
   m_Layer: 5
   m_Name: Board Wipe
   m_TagString: Untagged
@@ -3542,7 +3541,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7671070672602130155}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
         m_MethodName: BuyBoardWipe
         m_Mode: 1
@@ -3554,21 +3553,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7671070672602130155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 679257264573791591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OneShopVisual: {fileID: 0}
-  purchaseMessageObj: {fileID: 0}
-  firstPage: {fileID: 0}
 --- !u!1 &700103807002559939
 GameObject:
   m_ObjectHideFlags: 0
@@ -9370,7 +9354,6 @@ GameObject:
   - component: {fileID: 4067059387045140597}
   - component: {fileID: 2065971246845263954}
   - component: {fileID: 2045790370317862281}
-  - component: {fileID: 2214923166389685000}
   m_Layer: 5
   m_Name: Dual Weild
   m_TagString: Untagged
@@ -9482,7 +9465,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2214923166389685000}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
         m_MethodName: PistolDualWeildUpgrade
         m_Mode: 1
@@ -9494,21 +9477,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2214923166389685000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2491840888347684192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OneShopVisual: {fileID: 0}
-  purchaseMessageObj: {fileID: 0}
-  firstPage: {fileID: 0}
 --- !u!1 &2533600343764284575
 GameObject:
   m_ObjectHideFlags: 0
@@ -19264,7 +19232,6 @@ GameObject:
   - component: {fileID: 3402803912024697463}
   - component: {fileID: 7917719742562407410}
   - component: {fileID: 637556470111913029}
-  - component: {fileID: 8484120089150267250}
   m_Layer: 5
   m_Name: Deagle
   m_TagString: Untagged
@@ -19376,7 +19343,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2214923166389685000}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1
@@ -19388,21 +19355,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8484120089150267250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5782964882057003938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OneShopVisual: {fileID: 0}
-  purchaseMessageObj: {fileID: 0}
-  firstPage: {fileID: 0}
 --- !u!1 &5794438218185974484
 GameObject:
   m_ObjectHideFlags: 0
@@ -21469,7 +21421,6 @@ GameObject:
   - component: {fileID: 4242531604401943112}
   - component: {fileID: 3705789286860422}
   - component: {fileID: 8092985998749175571}
-  - component: {fileID: 6469418375380101630}
   m_Layer: 5
   m_Name: Heal
   m_TagString: Untagged
@@ -21581,7 +21532,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6469418375380101630}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
         m_MethodName: BuyHealth
         m_Mode: 1
@@ -21593,21 +21544,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6469418375380101630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6287954419411928509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OneShopVisual: {fileID: 0}
-  purchaseMessageObj: {fileID: 0}
-  firstPage: {fileID: 0}
 --- !u!1 &6363935772031463175
 GameObject:
   m_ObjectHideFlags: 0
@@ -22549,7 +22485,6 @@ GameObject:
   - component: {fileID: 8371844573546902847}
   - component: {fileID: 5829408572668755382}
   - component: {fileID: 1911556403804183177}
-  - component: {fileID: 9040428462261589676}
   m_Layer: 5
   m_Name: Buy Ammo
   m_TagString: Untagged
@@ -22661,7 +22596,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9040428462261589676}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
         m_MethodName: PistolAmmo
         m_Mode: 1
@@ -22673,21 +22608,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &9040428462261589676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6637777843450128317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OneShopVisual: {fileID: 0}
-  purchaseMessageObj: {fileID: 0}
-  firstPage: {fileID: 0}
 --- !u!1 &6689749948070500582
 GameObject:
   m_ObjectHideFlags: 0
@@ -24006,7 +23926,6 @@ GameObject:
   - component: {fileID: 9199859786615221109}
   - component: {fileID: 1034984310357949337}
   - component: {fileID: 4211218950531897130}
-  - component: {fileID: 6700818488391622150}
   m_Layer: 5
   m_Name: Increase Health
   m_TagString: Untagged
@@ -24118,7 +24037,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6700818488391622150}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
         m_MethodName: BuyMaxHealth
         m_Mode: 1
@@ -24130,21 +24049,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6700818488391622150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7176220067636469206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OneShopVisual: {fileID: 0}
-  purchaseMessageObj: {fileID: 0}
-  firstPage: {fileID: 0}
 --- !u!1 &7189140525319194654
 GameObject:
   m_ObjectHideFlags: 0
@@ -24540,7 +24444,6 @@ GameObject:
   - component: {fileID: 5233357010831831502}
   - component: {fileID: 241632461134865114}
   - component: {fileID: 4087765916843270057}
-  - component: {fileID: 5811401096803331534}
   m_Layer: 5
   m_Name: Damage
   m_TagString: Untagged
@@ -24652,7 +24555,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5811401096803331534}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
         m_MethodName: PistolUpgradeDamage
         m_Mode: 1
@@ -24664,21 +24567,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5811401096803331534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7272027582154099998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OneShopVisual: {fileID: 0}
-  purchaseMessageObj: {fileID: 0}
-  firstPage: {fileID: 0}
 --- !u!1 &7316310180489670810
 GameObject:
   m_ObjectHideFlags: 0
@@ -24988,7 +24876,6 @@ GameObject:
   - component: {fileID: 3757534164612117636}
   - component: {fileID: 3837568818931553764}
   - component: {fileID: 3618183941151371401}
-  - component: {fileID: 8124988578455957422}
   m_Layer: 5
   m_Name: Fire Rate
   m_TagString: Untagged
@@ -25100,7 +24987,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8124988578455957422}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
         m_MethodName: PistolUpgradeFireRate
         m_Mode: 1
@@ -25112,21 +24999,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8124988578455957422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7376855049139573368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OneShopVisual: {fileID: 0}
-  purchaseMessageObj: {fileID: 0}
-  firstPage: {fileID: 0}
 --- !u!1 &7390265225493920944
 GameObject:
   m_ObjectHideFlags: 0
@@ -27873,7 +27745,6 @@ GameObject:
   - component: {fileID: 5488833521783632684}
   - component: {fileID: 6148757687898415889}
   - component: {fileID: 7037835378646479733}
-  - component: {fileID: 5774289325764898768}
   m_Layer: 5
   m_Name: Exit Button
   m_TagString: Untagged
@@ -27984,7 +27855,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5774289325764898768}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
         m_MethodName: ExitShop
         m_Mode: 1
@@ -27996,21 +27867,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5774289325764898768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8650753246413857153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OneShopVisual: {fileID: 0}
-  purchaseMessageObj: {fileID: 0}
-  firstPage: {fileID: 0}
 --- !u!1 &8653972922772527027
 GameObject:
   m_ObjectHideFlags: 0
@@ -28158,7 +28014,6 @@ GameObject:
   - component: {fileID: 8982499029968735850}
   - component: {fileID: 2167601392467359786}
   - component: {fileID: 6469396632570797114}
-  - component: {fileID: 8932459939634802676}
   m_Layer: 5
   m_Name: Grenade
   m_TagString: Untagged
@@ -28270,7 +28125,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8932459939634802676}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
         m_MethodName: BuyGrenade
         m_Mode: 1
@@ -28282,21 +28137,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8932459939634802676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8748469990273670596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OneShopVisual: {fileID: 0}
-  purchaseMessageObj: {fileID: 0}
-  firstPage: {fileID: 0}
 --- !u!1 &8761092311167338721
 GameObject:
   m_ObjectHideFlags: 0
