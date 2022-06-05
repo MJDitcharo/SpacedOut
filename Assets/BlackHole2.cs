@@ -21,28 +21,26 @@ public class BlackHole2 : MonoBehaviour
         if (Vector3.Distance(player.position, transform.position) < attractRange) //check to see if player is in range
         {
             player.parent = transform;
-
-
-
-            Vector3 localPos = player.InverseTransformPoint(transform.position);
+            Vector3 localPos = player.localPosition;
             Debug.Log(localPos);
 
             //determine which way to attract to 
-            //if (player.position.z > 0)
-            //    moveZ = attractForce;
-            //else
-            //    moveZ = -attractForce;
+            if (player.localPosition.z > 0)
+                moveZ = 1;
+            else
+                moveZ = -1;
 
-            //if (player.position.x > 0)
-            //    moveX = attractForce;
-            //else
-            //    moveX = -attractForce;
+            if (player.localPosition.x > 0)
+                moveX = 1;
+            else
+                moveX = -1;
 
-            //moveDirection = new Vector3(moveX, 0, moveZ);
+            moveDirection = new Vector3(moveX, 0, moveZ);
 
-            //player.Translate(((moveDirection * Time.deltaTime)));
-            //Vector3.MoveTowards(player.position, transform.position, attractForce * Time.deltaTime);
+            player.Translate(((moveDirection * attractForce * Time.deltaTime)));
         }
+        else
+            player.parent = null;
     }
 
 
