@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public class MainMenu : MonoBehaviour
@@ -21,6 +22,8 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] GameObject cPrompt;
     [SerializeField] float defaultVolume = 0.5f;
+
+
 
     public void QuitGame()
     {
@@ -114,6 +117,6 @@ public class MainMenu : MonoBehaviour
         audioSaved = false;
     }
 
-
+    
 }
 
