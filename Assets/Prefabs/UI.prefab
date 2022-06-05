@@ -1964,6 +1964,7 @@ GameObject:
   - component: {fileID: 4795062826010204081}
   - component: {fileID: 8212703852710866952}
   - component: {fileID: 3685004296381277032}
+  - component: {fileID: 9124141277869120221}
   m_Layer: 5
   m_Name: Buy Ammo
   m_TagString: Untagged
@@ -2074,7 +2075,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8212703852710866952}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9124141277869120221}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: ShotgunAmmo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &9124141277869120221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82289033073261206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &162523578768586680
 GameObject:
   m_ObjectHideFlags: 0
@@ -2429,6 +2454,7 @@ GameObject:
   - component: {fileID: 8382527283591407009}
   - component: {fileID: 579492223412755410}
   - component: {fileID: 1142310871897890968}
+  - component: {fileID: 4763965635995417503}
   m_Layer: 5
   m_Name: Void
   m_TagString: Untagged
@@ -2539,7 +2565,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 579492223412755410}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4763965635995417503}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: HeavyVoidUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4763965635995417503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169701614965583200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &224132367871150753
 GameObject:
   m_ObjectHideFlags: 0
@@ -3307,6 +3357,7 @@ GameObject:
   - component: {fileID: 1845286278554262619}
   - component: {fileID: 1006030433572577656}
   - component: {fileID: 2720095404619381619}
+  - component: {fileID: 4249662478826161511}
   m_Layer: 5
   m_Name: Assault Rifle
   m_TagString: Untagged
@@ -3417,7 +3468,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1006030433572577656}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4249662478826161511}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: RifleAssault
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4249662478826161511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678309063602603107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &679257264573791591
 GameObject:
   m_ObjectHideFlags: 0
@@ -3430,6 +3505,7 @@ GameObject:
   - component: {fileID: 8764128122546325313}
   - component: {fileID: 3622059915581643384}
   - component: {fileID: 411583805181983282}
+  - component: {fileID: 4598426589556697874}
   m_Layer: 5
   m_Name: Board Wipe
   m_TagString: Untagged
@@ -3452,12 +3528,12 @@ RectTransform:
   - {fileID: 8761559180248799181}
   - {fileID: 936684230822334359}
   m_Father: {fileID: 652302518699970336}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -380}
-  m_SizeDelta: {x: 1000, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8764128122546325313
 CanvasRenderer:
@@ -3541,8 +3617,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
+      - m_Target: {fileID: 4598426589556697874}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
         m_MethodName: BuyBoardWipe
         m_Mode: 1
         m_Arguments:
@@ -3553,6 +3629,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4598426589556697874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679257264573791591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &700103807002559939
 GameObject:
   m_ObjectHideFlags: 0
@@ -4680,6 +4768,7 @@ GameObject:
   - component: {fileID: 1772166910352880695}
   - component: {fileID: 3115719258428589464}
   - component: {fileID: 4195387747419140305}
+  - component: {fileID: 5743840427932306954}
   m_Layer: 5
   m_Name: Fire Rate
   m_TagString: Untagged
@@ -4790,7 +4879,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3115719258428589464}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5743840427932306954}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: HeavyUpgradeFireRate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5743840427932306954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952447628059533591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &956830852525073565
 GameObject:
   m_ObjectHideFlags: 0
@@ -5285,6 +5398,7 @@ GameObject:
   - component: {fileID: 3109925742995905410}
   - component: {fileID: 3517023670648164082}
   - component: {fileID: 1566920828415773199}
+  - component: {fileID: 2878733322994205040}
   m_Layer: 5
   m_Name: Burst
   m_TagString: Untagged
@@ -5395,7 +5509,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3517023670648164082}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2878733322994205040}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: RifleBurst
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2878733322994205040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036488967478168002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1065078282575149153
 GameObject:
   m_ObjectHideFlags: 0
@@ -5408,6 +5546,7 @@ GameObject:
   - component: {fileID: 5621582975934282431}
   - component: {fileID: 3202409058106152502}
   - component: {fileID: 7873772960477129247}
+  - component: {fileID: 3152104152705995599}
   m_Layer: 5
   m_Name: Damage
   m_TagString: Untagged
@@ -5432,10 +5571,10 @@ RectTransform:
   m_Father: {fileID: 6738878341818277272}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -270}
+  m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5621582975934282431
 CanvasRenderer:
@@ -5518,7 +5657,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3202409058106152502}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3152104152705995599}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: ShotgunUpgradeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3152104152705995599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065078282575149153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1135435420480574307
 GameObject:
   m_ObjectHideFlags: 0
@@ -5531,6 +5694,7 @@ GameObject:
   - component: {fileID: 4360180343649258259}
   - component: {fileID: 8321071858865377578}
   - component: {fileID: 7296374163853156428}
+  - component: {fileID: 5316862313673735592}
   m_Layer: 5
   m_Name: Buy Ammo
   m_TagString: Untagged
@@ -5641,7 +5805,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8321071858865377578}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5316862313673735592}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: RifleAmmo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5316862313673735592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135435420480574307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1183982784521451785
 GameObject:
   m_ObjectHideFlags: 0
@@ -6354,6 +6542,7 @@ GameObject:
   - component: {fileID: 8477048447258682685}
   - component: {fileID: 5122264188290189880}
   - component: {fileID: 4430962315637875360}
+  - component: {fileID: 3659243149054116757}
   m_Layer: 5
   m_Name: Buy Weapon
   m_TagString: Untagged
@@ -6464,7 +6653,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5122264188290189880}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3659243149054116757}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: ShotgunBuyWeapon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3659243149054116757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514356318537605104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1584353558602914933
 GameObject:
   m_ObjectHideFlags: 0
@@ -8783,6 +8996,7 @@ GameObject:
   - component: {fileID: 6421382205946948319}
   - component: {fileID: 1134887645996112946}
   - component: {fileID: 2600263970162689410}
+  - component: {fileID: 8441591962393285656}
   m_Layer: 5
   m_Name: Sawed-Off
   m_TagString: Untagged
@@ -8893,7 +9107,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1134887645996112946}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8441591962393285656}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: ShotgunUpgradeSawedOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8441591962393285656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2297881001420720983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2408543461878246379
 GameObject:
   m_ObjectHideFlags: 0
@@ -9176,6 +9414,7 @@ GameObject:
   - component: {fileID: 4067059387045140597}
   - component: {fileID: 2065971246845263954}
   - component: {fileID: 2045790370317862281}
+  - component: {fileID: 2491911262941594636}
   m_Layer: 5
   m_Name: Dual Weild
   m_TagString: Untagged
@@ -9287,8 +9526,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
+      - m_Target: {fileID: 2491911262941594636}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
         m_MethodName: PistolDualWeildUpgrade
         m_Mode: 1
         m_Arguments:
@@ -9299,6 +9538,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2491911262941594636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491840888347684192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2533600343764284575
 GameObject:
   m_ObjectHideFlags: 0
@@ -9853,7 +10104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7353709293698788307
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11372,6 +11623,7 @@ GameObject:
   - component: {fileID: 4554733850541519009}
   - component: {fileID: 2020996027278325657}
   - component: {fileID: 5229753671896784010}
+  - component: {fileID: 9004607795196667963}
   m_Layer: 5
   m_Name: Plasma
   m_TagString: Untagged
@@ -11482,7 +11734,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2020996027278325657}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9004607795196667963}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: RiflePlasmaUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &9004607795196667963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3182135433906469168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3264109578975319689
 GameObject:
   m_ObjectHideFlags: 0
@@ -13178,6 +13454,7 @@ GameObject:
   - component: {fileID: 2376252088098472648}
   - component: {fileID: 8439085660546459351}
   - component: {fileID: 4636564781737974875}
+  - component: {fileID: 2548701852223416568}
   m_Layer: 5
   m_Name: Void
   m_TagString: Untagged
@@ -13288,7 +13565,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8439085660546459351}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2548701852223416568}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: PistolVoidUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2548701852223416568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4171868690486053908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4240322090276609140
 GameObject:
   m_ObjectHideFlags: 0
@@ -13377,6 +13678,7 @@ GameObject:
   - component: {fileID: 5273416097157388603}
   - component: {fileID: 5498807484461284153}
   - component: {fileID: 5837430634094317153}
+  - component: {fileID: 6562196227201325338}
   m_Layer: 5
   m_Name: Buy Ammo
   m_TagString: Untagged
@@ -13487,7 +13789,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5498807484461284153}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6562196227201325338}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: HeavyAmmo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6562196227201325338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4289220928224761050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4296432192043298961
 GameObject:
   m_ObjectHideFlags: 0
@@ -13504,7 +13830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1235046186671179673
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13694,6 +14020,7 @@ GameObject:
   - component: {fileID: 4204837421838683128}
   - component: {fileID: 9010108961949008562}
   - component: {fileID: 7932668212153143428}
+  - component: {fileID: 4199784434397175266}
   m_Layer: 5
   m_Name: Void
   m_TagString: Untagged
@@ -13804,7 +14131,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9010108961949008562}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4199784434397175266}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: RifleVoidUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4199784434397175266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4332817399886288341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4340004558524793013
 GameObject:
   m_ObjectHideFlags: 0
@@ -14677,6 +15028,7 @@ GameObject:
   - component: {fileID: 7292978271798981536}
   - component: {fileID: 2983264432902040348}
   - component: {fileID: 5852463266276830369}
+  - component: {fileID: 865027133461536717}
   m_Layer: 5
   m_Name: Fire Rate
   m_TagString: Untagged
@@ -14787,7 +15139,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2983264432902040348}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 865027133461536717}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: ShotgunUpgradeFireRate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &865027133461536717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4455077292753430520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4531022627968829446
 GameObject:
   m_ObjectHideFlags: 0
@@ -17645,6 +18021,7 @@ GameObject:
   - component: {fileID: 6009089539620186743}
   - component: {fileID: 5691906511342291017}
   - component: {fileID: 5819209141718365087}
+  - component: {fileID: 3138021790781505903}
   m_Layer: 5
   m_Name: Fire Rate
   m_TagString: Untagged
@@ -17669,10 +18046,10 @@ RectTransform:
   m_Father: {fileID: 6738878341818277272}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -160}
+  m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6009089539620186743
 CanvasRenderer:
@@ -17755,7 +18132,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5691906511342291017}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3138021790781505903}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: ShotgunUpgradeFireRate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3138021790781505903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5350232117178677213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5502008858828461494
 GameObject:
   m_ObjectHideFlags: 0
@@ -17768,6 +18169,7 @@ GameObject:
   - component: {fileID: 3565549752630127463}
   - component: {fileID: 7695164255288473922}
   - component: {fileID: 9103302041143192391}
+  - component: {fileID: 2008036792713741891}
   m_Layer: 5
   m_Name: Minigun
   m_TagString: Untagged
@@ -17878,7 +18280,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7695164255288473922}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2008036792713741891}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: HeavyMinigun
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2008036792713741891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5502008858828461494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5536449404290365197
 GameObject:
   m_ObjectHideFlags: 0
@@ -17891,6 +18317,7 @@ GameObject:
   - component: {fileID: 1572766358174012675}
   - component: {fileID: 246341373880418133}
   - component: {fileID: 3057947735348774531}
+  - component: {fileID: 2523209951554698714}
   m_Layer: 5
   m_Name: Buy Weapon
   m_TagString: Untagged
@@ -18001,7 +18428,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 246341373880418133}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2523209951554698714}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: HeavyBuyWeapon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2523209951554698714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5536449404290365197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5594331473939635340
 GameObject:
   m_ObjectHideFlags: 0
@@ -18572,6 +19023,7 @@ GameObject:
   - component: {fileID: 6571334220914140411}
   - component: {fileID: 5281296475248907593}
   - component: {fileID: 7192018427276987737}
+  - component: {fileID: 3057774286361522266}
   m_Layer: 5
   m_Name: Grenade Launcher
   m_TagString: Untagged
@@ -18682,7 +19134,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5281296475248907593}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3057774286361522266}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: HeavyGrenadeLauncher
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3057774286361522266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5743740712065583687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5753269761522348875
 GameObject:
   m_ObjectHideFlags: 0
@@ -18871,6 +19347,7 @@ GameObject:
   - component: {fileID: 3402803912024697463}
   - component: {fileID: 7917719742562407410}
   - component: {fileID: 637556470111913029}
+  - component: {fileID: 243443226067037004}
   m_Layer: 5
   m_Name: Deagle
   m_TagString: Untagged
@@ -18982,18 +19459,30 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 243443226067037004}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: PistolDeagleUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &243443226067037004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5782964882057003938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5794438218185974484
 GameObject:
   m_ObjectHideFlags: 0
@@ -19898,6 +20387,7 @@ GameObject:
   - component: {fileID: 4676248835542221575}
   - component: {fileID: 8133532051873224460}
   - component: {fileID: 4313141866069797867}
+  - component: {fileID: 5651927990532265318}
   m_Layer: 5
   m_Name: Slug
   m_TagString: Untagged
@@ -20008,7 +20498,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8133532051873224460}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5651927990532265318}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: ShotgunUpgradeSlug
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5651927990532265318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5983312478510108263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6022586925449736855
 GameObject:
   m_ObjectHideFlags: 0
@@ -20802,6 +21316,7 @@ GameObject:
   - component: {fileID: 9151115283488454840}
   - component: {fileID: 1790375187248226772}
   - component: {fileID: 4483243236701465982}
+  - component: {fileID: 3052817037545310188}
   m_Layer: 5
   m_Name: Plasma
   m_TagString: Untagged
@@ -20912,7 +21427,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1790375187248226772}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3052817037545310188}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: ShotgunPlasmaUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3052817037545310188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6220918237073554614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6230015329148288649
 GameObject:
   m_ObjectHideFlags: 0
@@ -21060,6 +21599,7 @@ GameObject:
   - component: {fileID: 4242531604401943112}
   - component: {fileID: 3705789286860422}
   - component: {fileID: 8092985998749175571}
+  - component: {fileID: 4092868426521421731}
   m_Layer: 5
   m_Name: Heal
   m_TagString: Untagged
@@ -21084,10 +21624,10 @@ RectTransform:
   m_Father: {fileID: 652302518699970336}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -50}
-  m_SizeDelta: {x: 1000, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4242531604401943112
 CanvasRenderer:
@@ -21171,8 +21711,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
+      - m_Target: {fileID: 4092868426521421731}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
         m_MethodName: BuyHealth
         m_Mode: 1
         m_Arguments:
@@ -21183,6 +21723,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4092868426521421731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6287954419411928509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6363935772031463175
 GameObject:
   m_ObjectHideFlags: 0
@@ -21272,6 +21824,7 @@ GameObject:
   - component: {fileID: 6178318094916681986}
   - component: {fileID: 7092343008266152631}
   - component: {fileID: 1997140154504396422}
+  - component: {fileID: 8975343454608937411}
   m_Layer: 5
   m_Name: Void
   m_TagString: Untagged
@@ -21382,7 +21935,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7092343008266152631}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8975343454608937411}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: ShotgunVoidUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8975343454608937411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6433985462440979667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6444448453267568741
 GameObject:
   m_ObjectHideFlags: 0
@@ -22259,6 +22836,7 @@ GameObject:
   - component: {fileID: 8371844573546902847}
   - component: {fileID: 5829408572668755382}
   - component: {fileID: 1911556403804183177}
+  - component: {fileID: 6247514482935547929}
   m_Layer: 5
   m_Name: Buy Ammo
   m_TagString: Untagged
@@ -22370,8 +22948,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
+      - m_Target: {fileID: 6247514482935547929}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
         m_MethodName: PistolAmmo
         m_Mode: 1
         m_Arguments:
@@ -22382,6 +22960,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6247514482935547929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6637777843450128317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6689749948070500582
 GameObject:
   m_ObjectHideFlags: 0
@@ -23387,10 +23977,10 @@ RectTransform:
   m_Father: {fileID: 6738878341818277272}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -50}
+  m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4150722434502868109
 CanvasRenderer:
@@ -23700,6 +24290,7 @@ GameObject:
   - component: {fileID: 9199859786615221109}
   - component: {fileID: 1034984310357949337}
   - component: {fileID: 4211218950531897130}
+  - component: {fileID: 1810163329196065719}
   m_Layer: 5
   m_Name: Increase Health
   m_TagString: Untagged
@@ -23724,10 +24315,10 @@ RectTransform:
   m_Father: {fileID: 652302518699970336}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -160}
-  m_SizeDelta: {x: 1000, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9199859786615221109
 CanvasRenderer:
@@ -23811,9 +24402,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1810163329196065719}
         m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
-        m_MethodName: BuyMaxHealth
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23823,6 +24414,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1810163329196065719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7176220067636469206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7189140525319194654
 GameObject:
   m_ObjectHideFlags: 0
@@ -23835,6 +24438,7 @@ GameObject:
   - component: {fileID: 3719368192639726399}
   - component: {fileID: 4441973011787568046}
   - component: {fileID: 3491845666679668376}
+  - component: {fileID: 7140651429041297968}
   m_Layer: 5
   m_Name: Damage
   m_TagString: Untagged
@@ -23945,7 +24549,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4441973011787568046}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7140651429041297968}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: HeavyUpgradeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7140651429041297968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189140525319194654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7233033075664633584
 GameObject:
   m_ObjectHideFlags: 0
@@ -24095,6 +24723,7 @@ GameObject:
   - component: {fileID: 1240128543839419486}
   - component: {fileID: 2125251714714371150}
   - component: {fileID: 1607745799999422162}
+  - component: {fileID: 4326874084968392437}
   m_Layer: 5
   m_Name: Plasma
   m_TagString: Untagged
@@ -24205,7 +24834,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2125251714714371150}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4326874084968392437}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: HeavyPlasmaUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4326874084968392437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254352915887162874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7272027582154099998
 GameObject:
   m_ObjectHideFlags: 0
@@ -24218,6 +24871,7 @@ GameObject:
   - component: {fileID: 5233357010831831502}
   - component: {fileID: 241632461134865114}
   - component: {fileID: 4087765916843270057}
+  - component: {fileID: 6823885088208010686}
   m_Layer: 5
   m_Name: Damage
   m_TagString: Untagged
@@ -24329,8 +24983,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
+      - m_Target: {fileID: 6823885088208010686}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
         m_MethodName: PistolUpgradeDamage
         m_Mode: 1
         m_Arguments:
@@ -24341,6 +24995,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6823885088208010686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7272027582154099998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7316310180489670810
 GameObject:
   m_ObjectHideFlags: 0
@@ -24392,6 +25058,7 @@ GameObject:
   - component: {fileID: 2504062373947422794}
   - component: {fileID: 5603617411500964070}
   - component: {fileID: 1616109062105216206}
+  - component: {fileID: 8370460625594951810}
   m_Layer: 5
   m_Name: Damage
   m_TagString: Untagged
@@ -24502,7 +25169,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5603617411500964070}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8370460625594951810}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: ShotgunUpgradeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8370460625594951810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7335666448680917333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7349751539770759399
 GameObject:
   m_ObjectHideFlags: 0
@@ -24650,6 +25341,7 @@ GameObject:
   - component: {fileID: 3757534164612117636}
   - component: {fileID: 3837568818931553764}
   - component: {fileID: 3618183941151371401}
+  - component: {fileID: 7926414538152710424}
   m_Layer: 5
   m_Name: Fire Rate
   m_TagString: Untagged
@@ -24761,8 +25453,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
+      - m_Target: {fileID: 7926414538152710424}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
         m_MethodName: PistolUpgradeFireRate
         m_Mode: 1
         m_Arguments:
@@ -24773,6 +25465,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7926414538152710424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7376855049139573368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7390265225493920944
 GameObject:
   m_ObjectHideFlags: 0
@@ -26020,6 +26724,7 @@ GameObject:
   - component: {fileID: 2373035725017629096}
   - component: {fileID: 1914525387147182878}
   - component: {fileID: 8890312745626616595}
+  - component: {fileID: 1066273913772233224}
   m_Layer: 5
   m_Name: Plasma
   m_TagString: Untagged
@@ -26130,7 +26835,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1914525387147182878}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1066273913772233224}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: PistolPlasmaUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1066273913772233224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8170209256106153178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8223310532763882735
 GameObject:
   m_ObjectHideFlags: 0
@@ -26625,6 +27354,7 @@ GameObject:
   - component: {fileID: 7927445827832955563}
   - component: {fileID: 6311171653859960198}
   - component: {fileID: 1273327129541114691}
+  - component: {fileID: 4337358312088216555}
   m_Layer: 5
   m_Name: Buy Weapon
   m_TagString: Untagged
@@ -26735,7 +27465,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6311171653859960198}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4337358312088216555}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
+        m_MethodName: RifleBuyWeapon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4337358312088216555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8287137221163729360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8318680675872204580
 GameObject:
   m_ObjectHideFlags: 0
@@ -27947,13 +28701,14 @@ GameObject:
   - component: {fileID: 8982499029968735850}
   - component: {fileID: 2167601392467359786}
   - component: {fileID: 6469396632570797114}
+  - component: {fileID: 3467462807692616369}
   m_Layer: 5
   m_Name: Grenade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &84300474601646115
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27969,7 +28724,7 @@ RectTransform:
   - {fileID: 8941957462742526234}
   - {fileID: 3821930353691261763}
   m_Father: {fileID: 652302518699970336}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -28058,8 +28813,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIStore, Assembly-CSharp
+      - m_Target: {fileID: 3467462807692616369}
+        m_TargetAssemblyTypeName: UIStoreButtons, Assembly-CSharp
         m_MethodName: BuyGrenade
         m_Mode: 1
         m_Arguments:
@@ -28070,6 +28825,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3467462807692616369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8748469990273670596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8761092311167338721
 GameObject:
   m_ObjectHideFlags: 0
@@ -28080,6 +28847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5995237673579612375}
   - component: {fileID: 1234038360386575475}
+  - component: {fileID: 2127171234824302576}
   m_Layer: 0
   m_Name: Shop UI
   m_TagString: Untagged
@@ -28124,6 +28892,18 @@ MonoBehaviour:
   purchaseMessage: {fileID: 5769765866672342516}
   purchaseMessageObj: {fileID: 707929470038776909}
   firstPage: {fileID: 4296432192043298961}
+--- !u!114 &2127171234824302576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8761092311167338721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8817245340156838889
 GameObject:
   m_ObjectHideFlags: 0
@@ -28155,8 +28935,8 @@ RectTransform:
   m_Children:
   - {fileID: 5479757565175212371}
   - {fileID: 604697620267504398}
-  - {fileID: 84300474601646115}
   - {fileID: 1864388794737401312}
+  - {fileID: 84300474601646115}
   m_Father: {fileID: 1235046186671179673}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

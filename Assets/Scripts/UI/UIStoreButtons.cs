@@ -106,17 +106,6 @@ public class UIStoreButtons : MonoBehaviour
     {
         UIStore.instance.Deactivate();
     }
-
-    public void NextPage()
-    {
-
-    }
-
-    public void PreviousPage()
-    {
-
-    }
-
     #region PickupButtons
     // Allows you to buy anything in the shop taking away the proper amount of skrap while adding the item
     public void BuyBoardWipe()
@@ -126,10 +115,6 @@ public class UIStoreButtons : MonoBehaviour
     public void BuyGrenade()
     {
         CheckPurchaseItem(GameManager.instance.grenadeCount, GeneralPage.instance.grenade);
-    }
-    public void BuyArmor()
-    {
-        //armor doesn't work
     }
     public void BuyHealth()
     {
@@ -212,8 +197,13 @@ public class UIStoreButtons : MonoBehaviour
     public void ShotgunUpgradeFireRate()
     {
         UpgradeFireRate("Shotgun", ShotgunPage.instance.tier1Upgrade, ShotgunPage.instance.fireRateQuantity);
-
     }
+
+    public void ShotgunUpgradeDamage()
+    {
+        UpgradeDamage("Shotgun", ShotgunPage.instance.tier1Upgrade, ShotgunPage.instance.damageQuantity);
+    }
+
 
     public void ShotgunUpgradeSlug()
     {
@@ -232,21 +222,98 @@ public class UIStoreButtons : MonoBehaviour
     {
 
     }
-
-
-
     #endregion
+
+    #region Rifle Page
+
+    public void RifleBuyWeapon()
+    {
+
+    }
     public void RifleAmmo()
     {
         PurchaseAmmo("Rifle", RiflePage.instance.ammoCost, RiflePage.instance.ammoQuantity);
+    }
+
+    public void RifleUpgradeDamage()
+    {
+        UpgradeDamage("Rifle", RiflePage.instance.tier1Upgrade, RiflePage.instance.damageQuantity);
+    }
+    public void RifleUpgradeFireRate()
+    {
+        UpgradeFireRate("Rifle", RiflePage.instance.tier1Upgrade, RiflePage.instance.fireRateQuantity);
+    }
+
+
+    public void RifleBurst()
+    {
+
+    }
+
+    public void RifleAssault()
+    {
+
+    }
+
+    public void RiflePlasmaUpgrade()
+    {
+
+    }
+    public void RifleVoidUpgrade()
+    {
+
+    }
+
+
+    #endregion
+
+    #region Heavy Page
+
+    public void HeavyBuyWeapon()
+    {
+
     }
 
     public void HeavyAmmo()
     {
         PurchaseAmmo("Heavy", HeavyPage.instance.ammoCost, HeavyPage.instance.ammoQuantity);
     }
+    public void HeavyUpgradeDamage()
+    {
+        UpgradeDamage("Heavy", HeavyPage.instance.tier1Upgrade, HeavyPage.instance.damageQuantity);
+    }
+
+
+    public void HeavyUpgradeFireRate()
+    {
+        UpgradeFireRate("Heavy", HeavyPage.instance.tier1Upgrade, HeavyPage.instance.fireRateQuantity);
+    }
+
+    public void HeavyGrenadeLauncher()
+    {
+
+    }
+
+    public void HeavyMinigun()
+    {
+
+    }
+
+    public void HeavyVoidUpgrade()
+    {
+
+    }
+
+    public void HeavyPlasmaUpgrade()
+    {
+
+    }
+    #endregion
     #endregion
 
     #endregion
+
+
+
 
 }
