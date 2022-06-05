@@ -14,17 +14,45 @@ public class LoadPrefs : MonoBehaviour
     [SerializeField] private TMP_Text volumeTextValue;
     [SerializeField] private Slider volumeSlider;
 
+    [SerializeField] private TMP_Text sfxTextValue;
+    [SerializeField] private Slider sfxSlider;
+    [HideInInspector] public float sfxVolume = 0.4f;
 
+    private static LoadPrefs instance;
+    public static LoadPrefs Instance
+    {
+        get
+        {
+            return instance;
+        }
+        private set
+        {
+            instance = value;
+        }
+    }
     private void Awake()
     {
+        instance = this;
         if (canUse)
         {
-            if (PlayerPrefs.HasKey("MasterVolume"))
+            if (PlayerPrefs.HasKey("MusicVolume"))
             {
-                float volume = PlayerPrefs.GetFloat("MasterVolume",100f);
+                float volume = PlayerPrefs.GetFloat("MusicVolume",100f);
                 volumeTextValue.text = volume.ToString();
                 volumeSlider.value = volume;
                 AudioListener.volume = volume/100;
+            }
+            else
+            {
+                mMenu.ResetAudio("Audio");
+            }
+
+            if (PlayerPrefs.HasKey("SFXVolume"))
+            {
+                float volume = PlayerPrefs.GetFloat("SFXVolume", 100f);
+                sfxTextValue.text = volume.ToString();
+                sfxSlider.value = volume;
+                sfxVolume = volume / 100;
             }
             else
             {

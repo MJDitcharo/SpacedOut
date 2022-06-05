@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7395252346881396176}
   m_Layer: 8
-  m_Name: Firepoint
+  m_Name: Firepoint Molly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2184481799803058489}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.38268343, y: 0, z: 0, w: 0.92387956}
   m_LocalPosition: {x: -0.01, y: 0, z: 0.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6256050975848470245}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -45, y: 0, z: 0}
 --- !u!1 &5415835157521604109
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,6 +345,7 @@ MonoBehaviour:
   maxHealth: 100
   currHealth: 100
   vulnerable: 0
+  fireTickTime: 1
   vulnAmount: 1.5
   vulnTime: 5
   drops: {fileID: 6076811627386069490, guid: d0306af4078577240a9a23e69fb7f953, type: 3}
@@ -363,10 +364,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 6256050975848470244}
   wanderState: {fileID: 6256050975848470271}
-  firePointMolly: {fileID: 0}
-  mollyForceRange: {x: 20, y: 30}
+  firePointMolly: {fileID: 7395252346881396176}
+  mollyForceRange: {x: 23, y: 46}
+  mollyAngleRange: {x: -20, y: 20}
   mollyPrefab: {fileID: 0}
-  fireBall: {fileID: 0}
-  mollyTossDelay: 1
-  numberOfMollies: 5
+  fireBall: {fileID: 2143295340395796605, guid: 3075f427f12c6a643b41532bdbdaf7f0, type: 3}
+  blastAttackBullet: {fileID: 6540911571497804018, guid: ca485116ee5739b4aa5ee36fbdb18b39, type: 3}
+  mollyTossDelay: 0.25
+  numberOfMollies: 30
   turnSpeed: 45
+  blastSpeed: 20
