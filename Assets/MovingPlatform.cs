@@ -66,7 +66,6 @@ public class MovingPlatform : MonoBehaviour
 
     void ChangeDestination()
     {
-
         if (departTarget == endPoint && destinationTarget == startPoint)
         {
             departTarget = startPoint;
