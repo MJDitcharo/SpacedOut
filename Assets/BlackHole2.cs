@@ -8,23 +8,25 @@ public class BlackHole2 : MonoBehaviour
     [SerializeField]
     float attractForce, attractRange = 10;
     Transform objectToMove;
-    PlayerMovement controller;
-
+    Transform player;
 
     private void Start()
     {
-        controller = GameManager.instance.player.GetComponent<PlayerMovement>();
+        player = GameManager.instance.player.transform;
     }
-    // Update is called once per frame
 
-    private void OnTriggerEnter(Collider other)
+
+    private void FixedUpdate()
     {
-        //if(Vector3.Distance(other.transform.position, transform.position) < attractRange)
-        if (other.gameObject == GameManager.instance.player)
+        if(Vector3.Distance(player.position, transform.position) < attractRange) //check to see if player is in range
         {
-            Debug.Log("enter. old pos" + other.transform.position);
-            //other.transform.position = Vector3.MoveTowards(other.transform.position, transform.position, attractForce * Time.deltaTime);
-            Debug.Log("new pos" + other.transform.position);
+            Debug.Log("sees player");
+            Debug.Log(transform.position);
+            player.Translate(((transform.position * Time.deltaTime)));
+            //Vector3.MoveTowards(player.position, transform.position, attractForce * Time.deltaTime);
         }
     }
+
+
+    
 }
