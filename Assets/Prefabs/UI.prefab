@@ -5286,7 +5286,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OneShopVisual: {fileID: 0}
+  shopVisual: {fileID: 0}
+  purchaseMessage: {fileID: 0}
   purchaseMessageObj: {fileID: 0}
   firstPage: {fileID: 0}
 --- !u!1 &1036488967478168002
@@ -6640,7 +6641,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OneShopVisual: {fileID: 0}
+  shopVisual: {fileID: 0}
+  purchaseMessage: {fileID: 0}
   purchaseMessageObj: {fileID: 0}
   firstPage: {fileID: 0}
 --- !u!1 &1584353558602914933
@@ -9378,10 +9380,10 @@ RectTransform:
   m_Father: {fileID: 2679163329370067233}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -160}
+  m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4067059387045140597
 CanvasRenderer:
@@ -11414,7 +11416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OneShopVisual: {fileID: 0}
+  shopVisual: {fileID: 0}
+  purchaseMessage: {fileID: 0}
   purchaseMessageObj: {fileID: 0}
   firstPage: {fileID: 0}
 --- !u!1 &3162461072211398427
@@ -12056,7 +12059,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OneShopVisual: {fileID: 0}
+  shopVisual: {fileID: 0}
+  purchaseMessage: {fileID: 0}
   purchaseMessageObj: {fileID: 0}
   firstPage: {fileID: 0}
 --- !u!1 &3685753925255876966
@@ -16039,7 +16043,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OneShopVisual: {fileID: 0}
+  shopVisual: {fileID: 0}
+  purchaseMessage: {fileID: 0}
   purchaseMessageObj: {fileID: 0}
   firstPage: {fileID: 0}
 --- !u!1 &4678385142624102463
@@ -17553,10 +17558,10 @@ RectTransform:
   m_Father: {fileID: 2679163329370067233}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -50}
+  m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4612086217618313231
 CanvasRenderer:
@@ -17806,7 +17811,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &121379789211176157
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19256,10 +19261,10 @@ RectTransform:
   m_Father: {fileID: 2679163329370067233}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -270}
+  m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3402803912024697463
 CanvasRenderer:
@@ -28187,7 +28192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787e2d25e747f604d82c6448769c6aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OneShopVisual: {fileID: 7050469253697097897}
+  shopVisual: {fileID: 7050469253697097897}
+  purchaseMessage: {fileID: 5769765866672342516}
   purchaseMessageObj: {fileID: 707929470038776909}
   firstPage: {fileID: 4296432192043298961}
 --- !u!1 &8817245340156838889

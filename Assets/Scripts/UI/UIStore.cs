@@ -8,12 +8,12 @@ public class UIStore : PopUpMenu
 {
     [SerializeField]
     private GameObject shopVisual;
-    [SerializeField]
+    public TMPro.TextMeshProUGUI purchaseMessage;
+    [HideInInspector]
     public GameObject purchaseMessageObj;
     [SerializeField]
     private GameObject firstPage;
     bool first = true;
-    public TMPro.TextMeshProUGUI purchaseMessage;
     //singleton
     public static UIStore instance;
 
@@ -24,37 +24,12 @@ public class UIStore : PopUpMenu
         if (instance == null)
             instance = this;
         Debug.Log(transform.name);
-        //if (shopVisual == null)
-        //    shopVisual = OneShopVisual;
-        //if (purchaseMessageObj == null)
-        //    purchaseMessageObj = statPurchaseMessage;
-        //else
-        //    statPurchaseMessage = purchaseMessageObj;
-
-        //grab textmesh component for purchase message
-        purchaseMessage = purchaseMessageObj.GetComponent<TMPro.TextMeshProUGUI>();
-
-        //new pages system
-        //foreach (Transform page in shopVisual.transform)
-        //{
-        //    if (page.name.Contains("Page"))
-        //    {
-        //        pages.Add(page.gameObject);
-        //        if (first) //the first page in the hierarchy will be the only one shown
-        //        {
-        //            page.gameObject.SetActive(true);
-        //            first = false;
-        //        }
-        //        else
-        //            page.gameObject.SetActive(false);
-        //    }
-        //}
+        purchaseMessageObj = purchaseMessage.gameObject;
         if (first)
         {
             firstPage.SetActive(true);
             first = false;
         }
-
     }
     public void Activate()
     {
