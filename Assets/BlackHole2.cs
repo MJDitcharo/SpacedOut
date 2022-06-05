@@ -23,7 +23,7 @@ public class BlackHole2 : MonoBehaviour
         if (other.gameObject == GameManager.instance.player)
         {
             Debug.Log("enter. old pos" + other.transform.position);
-            other.transform.position = Vector3.MoveTowards(other.transform.position, transform.position, attractForce * Time.deltaTime);
+            //other.transform.position = Vector3.MoveTowards(other.transform.position, transform.position, attractForce * Time.deltaTime);
             Debug.Log("new pos" + other.transform.position);
         }
     }
