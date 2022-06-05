@@ -7,7 +7,7 @@ public class LavaPit : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField]
     int damage, delaySeconds;
-    bool keepDamaging ;
+    bool keepDamaging;
 
     private void OnTriggerEnter(Collider other)
     {
