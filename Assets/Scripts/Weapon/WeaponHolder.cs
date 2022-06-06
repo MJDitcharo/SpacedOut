@@ -76,15 +76,12 @@ public class WeaponHolder : MonoBehaviour
                     selectedWeapon = currentChildCount;
                 else
                     selectedWeapon--;
-
             }
-
             for (int i = 0; i < keys.Count; i++)
             {
                 if (Input.GetKey(keys[i]))
                     selectedWeapon = i;
             }
-
             SelectWeapon();
         }
     }
@@ -121,14 +118,6 @@ public class WeaponHolder : MonoBehaviour
             return false;
     }
 
-    private bool EquipWeapon(string weaponName)
-    {
-        bool success;
-        //find the weaponName in the gameobject
-        //set and return the success bool 
-        return true;
-    }
-
     public bool AddToUnlockedItems(string weaponName)
     {
         if (gameObject.transform.Find(weaponName) != null)
@@ -140,8 +129,15 @@ public class WeaponHolder : MonoBehaviour
             return false;
     }
 
-
-
-
-
+    public void ArrangeHierarchy(string weaponName, int index)
+    {
+        //check if the weapon is unlocked
+        if(IsWeaponUnlocked(weaponName))
+        {
+            //hierarachy for weaponholder
+            transform.Find(weaponName).SetSiblingIndex(index);
+            //hierarchy for gunImages
+            //gunImages.transform.Find(weaponName).SetSiblingIndex(index);
+        }
+    }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIStoreButtons : MonoBehaviour
 {
-
+    static private int purchaseIndex = 1;
     private void CheckPurchaseItem(ItemCount itemCount, int cost, int quantity = 1)
     {
         bool purchaseFailed;
@@ -153,6 +153,8 @@ public class UIStoreButtons : MonoBehaviour
             Debug.Log("Weapon Added");
         else
             Debug.Log("Weapon NOT Added");
+        Debug.Log(purchaseIndex);
+        WeaponHolder.instance.ArrangeHierarchy(weaponName, purchaseIndex++);
         WeaponHolder.instance.currentChildCount++;
     }
 
