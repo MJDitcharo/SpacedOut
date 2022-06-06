@@ -8,41 +8,52 @@ public class BlackHole2 : MonoBehaviour
     [SerializeField]
     float attractForce, attractRange, moveX, moveZ;
     Vector3 moveDirection;
-    Transform objectToMove;
     Transform player;
+    PlayerMovement pMove;
+    State[] enemies;
+     public bool isPullable;
     private void Start()
     {
         player = GameManager.instance.player.transform;
+        pMove = GameManager.instance.player.GetComponent<PlayerMovement>();
+        enemies = FindObjectsOfType<State>();
     }
 
 
     private void FixedUpdate()
     {
-        if (Vector3.Distance(player.position, transform.position) < attractRange) //check to see if player is in range
+        if (player.CompareTag(tag) && isPullable == true)
         {
-            player.parent = transform;
-            Vector3 localPos = player.localPosition;
-            Debug.Log(localPos);
+            if (Vector3.Distance(player.position, transform.position) < attractRange) //check to see if player is in range
+            {
 
-            //determine which way to attract to 
-            if (player.localPosition.z > 0)
-                moveZ = 1;
+                moveDirection = gameObject.transform.position;
+
+                pMove.pushback = moveDirection - player.position;
+                player.Translate(attractForce * Time.deltaTime * pMove.pushback);
+
+            }
             else
-                moveZ = -1;
-
-            if (player.localPosition.x > 0)
-                moveX = 1;
-            else
-                moveX = -1;
-
-            moveDirection = new Vector3(moveX, 0, moveZ);
-
-            player.Translate((attractForce * Time.deltaTime * moveDirection));
+                player.parent = null;
         }
         else
-            player.parent = null;
+        {
+            foreach (State enemy in enemies)
+            {
+                if (Vector3.Distance(enemy.transform.position, transform.position) < attractRange) //check to see if player is in range
+                {
+
+                    moveDirection = gameObject.transform.position;
+
+                    enemy.movement.pushback = moveDirection - enemy.transform.position;
+                    enemy.transform.Translate(attractForce* Time.deltaTime * enemy.movement.pushback);
+
+                }
+                else
+                    player.parent = null;
+            }
+        }
+        
     }
-
-
 
 }
