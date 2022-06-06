@@ -25,7 +25,7 @@ public class WeaponBase : MonoBehaviour
     [SerializeField] protected float fireRateMultiplier = 1;
     protected float nextShotFired = 0f; //counter for next bullet that is fired
 
-    private void Awake()
+    private void Start()
     {
         //grab ammo for UI.Only do this one time
         if (!weaponOnStart && gameObject.name == "Pistol")
@@ -66,7 +66,7 @@ public class WeaponBase : MonoBehaviour
     public void AddAmmo(int ammo = System.Int32.MaxValue)
     {
         if (ammo == System.Int32.MaxValue)
-            ammoCount++;
+            ammoCount++; 
         else if (ammo + ammoCount > maxAmmo)
             ammoCount = maxAmmo;
         else
@@ -81,10 +81,7 @@ public class WeaponBase : MonoBehaviour
 
     public void UpdateVisual()
     {
-        if(GameManager.instance.ammoCount == null)
-        {
-            Debug.Log("ammo is null");
-        }
+
         GameManager.instance.ammoCount.SetQuantity(ammoCount);
         GameManager.instance.ammoCount.SetMaximumQuatnity(maxAmmo);
 
