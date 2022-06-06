@@ -46,6 +46,14 @@ public class bullet : MonoBehaviour
             HP.DoDamage(damage);
             Debug.Log("Damage Dealt");
         }
+
+        AttackState AS = other.gameObject.GetComponent<AttackState>();
+        EnemyMovement EM = other.gameObject.GetComponent<EnemyMovement>();
+        if(HP.isStunned == true)
+        {
+            AS.firerate *=  0.75f;
+            EM.movementSpeed *= 0.75f;
+        }
         Instantiate(hitEffect, transform.position, Quaternion.identity); //create a bullet with no rotation at the postion 
         Destroy(gameObject);     //destroy game object and effect upon collisons
     }

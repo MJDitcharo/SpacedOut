@@ -5,8 +5,6 @@ using UnityEngine;
 public class PistolDualWield : Pistol
 {
 
-    
-
     public override void Shoot()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint[firePointIndex].position, firePoint[firePointIndex].rotation); //spawn the bullet and reference the bullet to modify 

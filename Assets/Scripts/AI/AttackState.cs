@@ -16,7 +16,7 @@ public class AttackState : State
     public int firepointIndex = 0;
     public GameObject bulletPrefab; //instance of bullet prefab
 
-    [SerializeField] float firerate = 1;
+    public float firerate = 1;
     float nextShot;
     public float bulletForce = 20f;
     public float Damage; //damage
