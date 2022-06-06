@@ -10,7 +10,11 @@ public class WeaponHolder : MonoBehaviour
     public int selectedWeapon = 0;
     static public WeaponHolder instance;
     [SerializeField] GameObject gunImages;
+
+    [SerializeField]
+    public List<GameObject> unlockedWeapons; //add the pistol by default
     List<KeyCode> keys = new List<KeyCode> { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, };
+    int maxChild = 4; //only switch between the first 5, follows the weaponbase Weapon enum
 
     private void Awake()
     {
@@ -21,11 +25,6 @@ public class WeaponHolder : MonoBehaviour
     private void Start()
     {
         gunImages = GameObject.FindGameObjectWithTag("Gun Images");
-    }
-
-    private void FixedUpdate()
-    {
-
     }
     private void Update()
     {
@@ -48,6 +47,8 @@ public class WeaponHolder : MonoBehaviour
                 gunImages.transform.GetChild(i).gameObject.SetActive(false);
             }
             i++;
+            if (i == maxChild - 1)
+                break;
         }
     }
 
@@ -55,7 +56,6 @@ public class WeaponHolder : MonoBehaviour
     {
         int prevWeapon = selectedWeapon;
 
-        int maxChild = transform.childCount - 1;
         if (Time.timeScale > 0)
         {
             if (Input.GetAxis("Mouse ScrollWheel") > 0f)
