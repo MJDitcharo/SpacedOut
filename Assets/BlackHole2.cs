@@ -4,56 +4,31 @@ using UnityEngine;
 
 public class BlackHole2 : MonoBehaviour
 {
+    public float pullStrength = 0.5f;
+    public float pullRange = 1f;
 
-    [SerializeField]
-    float attractForce, attractRange, moveX, moveZ;
-    Vector3 moveDirection;
-    Transform player;
-    PlayerMovement pMove;
-    State[] enemies;
-     public bool isPullable;
+    [SerializeField] GameObject BlackHoleCenter;
+
+
     private void Start()
     {
-        player = GameManager.instance.player.transform;
-        pMove = GameManager.instance.player.GetComponent<PlayerMovement>();
-        enemies = FindObjectsOfType<State>();
+        Vector3 size = new Vector3(pullRange, 0, pullRange);
     }
 
-
-    private void FixedUpdate()
+    private void OnTriggerStay(Collider other)
     {
-        if (player.CompareTag(tag) && isPullable == true)
+        if (other.tag == "Player")
         {
-            if (Vector3.Distance(player.position, transform.position) < attractRange) //check to see if player is in range
-            {
-
-                moveDirection = gameObject.transform.position;
-
-                pMove.pushback = moveDirection - player.position;
-                player.Translate(attractForce * Time.deltaTime * pMove.pushback);
-
-            }
-            else
-                player.parent = null;
-        }
-        else
-        {
-            foreach (State enemy in enemies)
-            {
-                if (Vector3.Distance(enemy.transform.position, transform.position) < attractRange) //check to see if player is in range
-                {
-
-                    moveDirection = gameObject.transform.position;
-
-                    enemy.movement.pushback = moveDirection - enemy.transform.position;
-                    enemy.transform.Translate(attractForce* Time.deltaTime * enemy.movement.pushback);
-
-                }
-                else
-                    player.parent = null;
-            }
+            Debug.Log("Contact with player");
+            GameManager.instance.movement.pushback += (-pullStrength * (GameManager.instance.player.transform.position - BlackHoleCenter.transform.position).normalized);
         }
         
-    }
+        if (other.tag == "Enemy")
+        {
+            Debug.Log("Contact with Enemy");
 
+            EnemyMovement movement = other.GetComponent<EnemyMovement>();
+            movement.pushback += (-pullStrength * (other.transform.position - BlackHoleCenter.transform.position).normalized);
+        }
+    }
 }
