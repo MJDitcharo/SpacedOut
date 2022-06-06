@@ -24,7 +24,7 @@ public class health : MonoBehaviour
         currHealth = maxHealth;
     }
 
-    private void Update()
+    protected void Update()
     {
         fireTick += Time.deltaTime;
     }
@@ -72,10 +72,13 @@ public class health : MonoBehaviour
 
     protected void OnTriggerStay(Collider other)
     {
+        Debug.Log(other.name);
         if(other.tag == "Fire")
         {
+            Debug.Log("Touching Fire");
             if(fireTick >= fireTickTime)
             {
+                Debug.Log("Burning");
                 DoDamage(10);
                 fireTick = 0;
             }
