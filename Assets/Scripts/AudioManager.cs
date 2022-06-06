@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class AudioManager : MonoBehaviour
 {
@@ -50,7 +51,6 @@ public class AudioManager : MonoBehaviour
 
         
     }
-   
 }
 
 [System.Serializable]
@@ -71,4 +71,5 @@ public enum AudioStyle
     sfx,
     music
 }
+
 

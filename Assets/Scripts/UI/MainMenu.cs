@@ -24,9 +24,18 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] GameObject cPrompt;
     [SerializeField] float defaultVolume = 0.5f;
+    private AsyncOperation operation;
 
-
-
+    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            StopAllCoroutines();
+            operation.allowSceneActivation = true;
+        }
+    }
+   
     public void QuitGame()
     {
         Application.Quit();
@@ -126,10 +135,11 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator LoadSceneAsync(int levelIndex)
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(levelIndex);
+         operation = SceneManager.LoadSceneAsync(levelIndex);
         loadingScreen.SetActive(true);
         operation.allowSceneActivation = false;
-        yield return new  WaitForSeconds(3);
+        
+         yield return new WaitForSeconds(3);
         
         while (!operation.isDone)
         {
