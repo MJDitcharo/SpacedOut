@@ -29,6 +29,7 @@ public class UIStore : PopUpMenu
             firstPage.SetActive(true);
             first = false;
         }
+        Deactivate(); //should be off by default
     }
     public void Activate()
     {

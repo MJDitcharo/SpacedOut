@@ -37,7 +37,7 @@ public class BlackHole2 : MonoBehaviour
 
             moveDirection = new Vector3(moveX, 0, moveZ);
 
-            player.Translate(((moveDirection * attractForce * Time.deltaTime)));
+            player.Translate((attractForce * Time.deltaTime * moveDirection));
         }
         else
             player.parent = null;
