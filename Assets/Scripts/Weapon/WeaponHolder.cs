@@ -149,16 +149,47 @@ public class WeaponHolder : MonoBehaviour
             return false;
     }
 
-    public void ArrangeHierarchy(string weaponName, int index)
+    public void ArrangeHierarchy(string weaponName, int index, string tier2Upgrade = "")
     {
         //check if the weapon is unlocked
         if(IsWeaponUnlocked(weaponName))
         {
             //hierarachy for weaponholder
-            transform.Find(weaponName).SetSiblingIndex(index);
+            Transform old = transform.GetChild(index);
+             transform.Find(weaponName).SetSiblingIndex(index);
             //hierarchy for gunImages
+            Transform oldImage = gunImages.transform.Find(weaponName);
             gunImages.transform.Find(weaponName).SetSiblingIndex(index);
+            //if (tier2Upgrade != "")
+            //{
+            //    //swap the guns
+            //    SwapToBottom(old, transform.Find(weaponName), transform.childCount);
+            //    //swap the gun images
+            //    SwapToBottom(oldImage, gunImages.transform.Find(weaponName), gunImages.transform.childCount);
+            //}
+        }
+    }
 
+    /// <summary>
+    /// puts a in b's place, moves b to bottom
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    public void Tier2Upgrade(string tier2Weapon, string baseWeapon, int index)
+    {
+        int max = transform.childCount - 1;
+        int maxImage = gunImages.transform.childCount - 1;
+        if (IsWeaponUnlocked(tier2Weapon))
+        {
+            //hierarachy for weaponholder
+            Transform old = transform.GetChild(index);
+            int a = transform.GetChild(index).GetSiblingIndex();
+            transform.Find(tier2Weapon).SetSiblingIndex(index);
+            old.SetSiblingIndex(max);
+            //hierarchy for gunImages
+            Transform oldImage = gunImages.transform.Find(baseWeapon);
+            gunImages.transform.Find(tier2Weapon).SetSiblingIndex(a);
+            oldImage.SetSiblingIndex(maxImage);
         }
     }
 }
