@@ -4,45 +4,32 @@ using UnityEngine;
 
 public class BlackHole2 : MonoBehaviour
 {
+    public float pullStrength = 0.5f;
+    public float pullRange = 1f;
 
-    [SerializeField]
-    float attractForce, attractRange, moveX, moveZ;
-    Vector3 moveDirection;
-    Transform objectToMove;
-    Transform player;
+    [SerializeField] GameObject BlackHoleCenter;
+
+
     private void Start()
     {
-        player = GameManager.instance.player.transform;
+        Vector3 size = new Vector3(pullRange, 0, pullRange);
+        transform.localScale = size;
     }
 
-
-    private void FixedUpdate()
+    private void OnTriggerStay(Collider other)
     {
-        if (Vector3.Distance(player.position, transform.position) < attractRange) //check to see if player is in range
+        if (other.tag == "Player")
         {
-            player.parent = transform;
-            Vector3 localPos = player.localPosition;
-            Debug.Log(localPos);
-
-            //determine which way to attract to 
-            if (player.localPosition.z > 0)
-                moveZ = 1;
-            else
-                moveZ = -1;
-
-            if (player.localPosition.x > 0)
-                moveX = 1;
-            else
-                moveX = -1;
-
-            moveDirection = new Vector3(moveX, 0, moveZ);
-
-            player.Translate((attractForce * Time.deltaTime * moveDirection));
+            Debug.Log("Contact with player");
+            GameManager.instance.movement.pushback += (-pullStrength * (GameManager.instance.player.transform.position - BlackHoleCenter.transform.position).normalized);
         }
-        else
-            player.parent = null;
+        
+        if (other.tag == "Enemy")
+        {
+            Debug.Log("Contact with Enemy");
+
+            EnemyMovement movement = other.GetComponent<EnemyMovement>();
+            movement.pushback += (-pullStrength * (other.transform.position - BlackHoleCenter.transform.position).normalized);
+        }
     }
-
-
-
 }
