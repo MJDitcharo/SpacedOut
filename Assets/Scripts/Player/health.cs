@@ -53,7 +53,7 @@ public class health : MonoBehaviour
     }
 
 
-    protected void WeakenedDebuff()
+    public void WeakenedDebuff()
     {
 
         // This is to prevent starting multiple coroutines at once
@@ -70,7 +70,7 @@ public class health : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    protected void OnTriggerStay(Collider other)
     {
         if(other.tag == "Fire")
         {
