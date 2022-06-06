@@ -121,7 +121,7 @@ public class WeaponHolder : MonoBehaviour
             return false;
     }
 
-    public bool EquipWeapon(string weaponName)
+    private bool EquipWeapon(string weaponName)
     {
         bool success;
         //find the weaponName in the gameobject
@@ -139,6 +139,8 @@ public class WeaponHolder : MonoBehaviour
         else
             return false;
     }
+
+
 
 
 

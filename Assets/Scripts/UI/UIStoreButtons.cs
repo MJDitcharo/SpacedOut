@@ -147,9 +147,9 @@ public class UIStoreButtons : MonoBehaviour
         StartCoroutine(HandlePurchaseMessage(purchaseFailed));
     }
 
-    private void UnlockWeapon()
+    private void UnlockWeapon(string weaponName)
     {
-        if (WeaponHolder.instance.AddToUnlockedItems("Shotgun"))
+        if (WeaponHolder.instance.AddToUnlockedItems(weaponName))
             Debug.Log("Weapon Added");
         else
             Debug.Log("Weapon NOT Added");
@@ -199,7 +199,7 @@ public class UIStoreButtons : MonoBehaviour
     #region Shotgun Page
     public void ShotgunBuyWeapon()
     {
-        UnlockWeapon();
+        UnlockWeapon("Shotgun");
         ShotgunPage.instance.FirstTier();
     }
 
@@ -242,7 +242,8 @@ public class UIStoreButtons : MonoBehaviour
 
     public void RifleBuyWeapon()
     {
-
+        UnlockWeapon("Rifle");
+        RiflePage.instance.FirstTier();
     }
     public void RifleAmmo()
     {
@@ -278,14 +279,14 @@ public class UIStoreButtons : MonoBehaviour
 
     }
 
-
     #endregion
 
     #region Heavy Page
 
     public void HeavyBuyWeapon()
     {
-
+        UnlockWeapon("Heavy");
+        HeavyPage.instance.FirstTier();
     }
 
     public void HeavyAmmo()
