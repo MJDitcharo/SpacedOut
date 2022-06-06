@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7475352714956614141}
-  - component: {fileID: 2601078326800580354}
+  - component: {fileID: 2034082779831576936}
   m_Layer: 0
   m_Name: Heavy
   m_TagString: Untagged
@@ -117,7 +117,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2601078326800580354
+--- !u!114 &2034082779831576936
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,21 +126,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 8830912256881924189}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419ef85d4a82be04698d51e34c43b8ae, type: 3}
+  m_Script: {fileID: 11500000, guid: cddfbe9ba073501428a20f58cd7e44d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: []
+  firePoint:
+  - {fileID: 150271276195679488}
   firePointIndex: 0
-  bulletPrefab: {fileID: 3743390652330680519, guid: ac0d6938d6ec6a64e82dadac4285cf64, type: 3}
+  bulletPrefab: {fileID: 6024700549338742923, guid: 10f771a86bb21ac45a3014e4f29e983e, type: 3}
   fireRate: 7
   bulletForce: 20
-  ammoCount: 0
-  maxAmmo: 0
-  damage: 10
+  ammoCount: 10
+  maxAmmo: 10
+  damage: 40
   damageMultiplier: 1
   fireRateMultiplier: 1
-  explosiveRadius: 2
-  knockback: 1
+  explosiveRadius: 3
+  knockback: 3
 --- !u!1 &9058567498615695302
 GameObject:
   m_ObjectHideFlags: 0
