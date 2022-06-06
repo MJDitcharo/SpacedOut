@@ -13,17 +13,25 @@ public class MagmaBossAttacks : State
     [SerializeField] GameObject fireBall;
     [SerializeField] GameObject blastAttackBullet;
 
-    enum Attacks { mollies, blast }
+    enum Attacks { mollies, blast, spray }
 
     [SerializeField] float mollyTossDelay = 1;
     [SerializeField] int numberOfMollies = 5;
     [SerializeField] float turnSpeed = 45;
     [SerializeField] float blastSpeed = 20;
 
+    [SerializeField] float sprayWaitTime = .5f;
+    [SerializeField] int sprayMollyCount = 40;
+    [SerializeField] float delayBetweenSpray = .05f;
+    [SerializeField] Vector2 sprayForceRange;
+    [SerializeField] Transform sprayFirePoint;
+
+    public float bossIntensityMultiplier = 1f;
+
     Coroutine attackCoroutine;
     Coroutine lookCoroutine;
 
-    Attacks currentAttack = Attacks.blast;
+    Attacks currentAttack = Attacks.spray;
     bool attacking = false;
 
     public override State RunCurrentState()
@@ -54,6 +62,10 @@ public class MagmaBossAttacks : State
                 if (attackCoroutine == null)
                     attackCoroutine = StartCoroutine(BlastAttack());
                 break;
+            case Attacks.spray:
+                if (attackCoroutine == null)
+                    attackCoroutine = StartCoroutine(SprayAttack());
+                break;
         }
     }
 
@@ -64,9 +76,9 @@ public class MagmaBossAttacks : State
         Quaternion lookRoation = Quaternion.LookRotation(GameManager.instance.player.transform.position - new Vector3(transform.position.x, GameManager.instance.player.transform.position.y, transform.position.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRoation, 1);
 
-        for (int mollyCount = 0; mollyCount < numberOfMollies; mollyCount++)
+        for (int mollyCount = 0; mollyCount < numberOfMollies * bossIntensityMultiplier; mollyCount++)
         {
-            yield return new WaitForSeconds(mollyTossDelay);
+            yield return new WaitForSeconds(mollyTossDelay / bossIntensityMultiplier);
 
             lookRoation = Quaternion.LookRotation(GameManager.instance.player.transform.position - new Vector3(transform.position.x, GameManager.instance.player.transform.position.y, transform.position.z));
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRoation, 1);
@@ -80,22 +92,50 @@ public class MagmaBossAttacks : State
 
         attackCoroutine = null;
         attacking = false;
-        currentAttack = (Attacks)((int)Mathf.Round(Random.Range(0, 2)));
+        if(bossIntensityMultiplier == 1)
+            currentAttack = (Attacks)((int)Mathf.Round(Random.Range(0, 2)));
+        else
+            currentAttack = (Attacks)((int)Mathf.Round(Random.Range(0, 3)));
     }
     IEnumerator BlastAttack()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1 / bossIntensityMultiplier);
 
         GameObject blast = Instantiate(blastAttackBullet, transform.position, Quaternion.identity);
         blast.transform.rotation = transform.rotation;
         Rigidbody blastRB = blast.GetComponent<Rigidbody>();
         blastRB.velocity = transform.forward * blastSpeed;
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1 / bossIntensityMultiplier);
 
         attackCoroutine = null;
         attacking = false;
-        currentAttack = (Attacks)((int)Mathf.Round(Random.Range(0, 2)));
+        if (bossIntensityMultiplier == 1)
+            currentAttack = (Attacks)((int)Mathf.Round(Random.Range(0, 2)));
+        else
+            currentAttack = (Attacks)((int)Mathf.Round(Random.Range(0, 3)));
+    }
+    IEnumerator SprayAttack()
+    {
+        yield return new WaitForSeconds(sprayWaitTime / bossIntensityMultiplier);
+
+        for(int i = 0; i < sprayMollyCount * bossIntensityMultiplier; i++)
+        {
+            GameObject bullet = Instantiate(fireBall, sprayFirePoint.position, Quaternion.identity);
+            Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
+
+            sprayFirePoint.localRotation = Quaternion.Euler(-45, Random.Range(-179, 180), 0);
+            bulletRB.AddForce(sprayFirePoint.forward * Random.Range(sprayForceRange.x, sprayForceRange.y));
+                
+            yield return new WaitForSeconds(delayBetweenSpray / bossIntensityMultiplier);
+
+        }
+        attackCoroutine = null;
+        attacking = false;
+        if (bossIntensityMultiplier == 1)
+            currentAttack = (Attacks)((int)Mathf.Round(Random.Range(0, 2)));
+        else
+            currentAttack = (Attacks)((int)Mathf.Round(Random.Range(0, 3)));
     }
 
     IEnumerator TurnToPlayer()
