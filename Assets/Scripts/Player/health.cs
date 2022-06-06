@@ -73,7 +73,6 @@ public class health : MonoBehaviour
 
     protected void OnTriggerStay(Collider other)
     {
-        Debug.Log(other.name);
         if(other.tag == "Fire")
         {
             Debug.Log("Touching Fire");

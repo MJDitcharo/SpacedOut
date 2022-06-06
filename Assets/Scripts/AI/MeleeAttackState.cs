@@ -55,8 +55,6 @@ public class MeleeAttackState : State
                     damageDealt = true;
                     Debug.Log("Damage Done");
                 }
-                    
-
             }
         }
 

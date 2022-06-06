@@ -99,12 +99,13 @@ public class VoidBossAttacks : State
 
         movement.GetAgent().isStopped = false;
 
-        //currentAttack = (Attacks)Random.Range(0, 1 + bossIntensityMultiplier);
+        currentAttack = (Attacks)Random.Range(0, 1 + bossIntensityMultiplier);
         attackCoroutine = null;
         attacking = false;
     }
     IEnumerator WaveAttack()
     {
+        movement.GetAgent().isStopped = true;
         for(int i = 0; i < waveNumber; i++)
         {
             yield return new WaitForSeconds(waveInterval);
@@ -120,6 +121,16 @@ public class VoidBossAttacks : State
             if (firepointIndex >= firePoints.Length)
                 firepointIndex = 0;
         }
+        
+        currentAttack = (Attacks)Random.Range(0, 1 + bossIntensityMultiplier);
+        attackCoroutine = null;
+        attacking = false;
+        movement.GetAgent().isStopped = false;
+    }
+
+    IEnumerator CloneAttack()
+    {
+        yield return new WaitForSeconds(.5f);
     }
 
     IEnumerator TurnToPlayer()
