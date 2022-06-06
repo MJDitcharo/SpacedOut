@@ -11,7 +11,7 @@ public class ItemCount : MonoBehaviour
     [SerializeField]
     TMPro.TextMeshProUGUI textMeshPro;
 
-    private void Awake()
+    private void Start()
     {
         UpdateVisual();
     }

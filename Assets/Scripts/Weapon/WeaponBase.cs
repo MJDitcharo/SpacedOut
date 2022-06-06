@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WeaponBase : MonoBehaviour
 {
-    public enum WeaponID { Pistol, Shotgun, Heavy, Rifle };
+    public enum WeaponID { Pistol, Shotgun, Heavy, Rifle, Melee };
     [SerializeField]
     private static bool weaponOnStart = false;
     protected WeaponID weaponID;
@@ -25,7 +25,7 @@ public class WeaponBase : MonoBehaviour
     [SerializeField] protected float fireRateMultiplier = 1;
     protected float nextShotFired = 0f; //counter for next bullet that is fired
 
-    private void Start()
+    private void Awake()
     {
         //grab ammo for UI.Only do this one time
         if (!weaponOnStart && gameObject.name == "Pistol")
@@ -81,6 +81,10 @@ public class WeaponBase : MonoBehaviour
 
     public void UpdateVisual()
     {
+        if(GameManager.instance.ammoCount == null)
+        {
+            Debug.Log("ammo is null");
+        }
         GameManager.instance.ammoCount.SetQuantity(ammoCount);
         GameManager.instance.ammoCount.SetMaximumQuatnity(maxAmmo);
 
