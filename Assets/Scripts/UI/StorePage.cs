@@ -43,7 +43,7 @@ public class StorePage : MonoBehaviour
         }
     }
 
-    protected void SetDefaultStatus()
+    protected virtual void SetDefaultStatus()
     {
         //assign grid format
         SetInitialPrices();

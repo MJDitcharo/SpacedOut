@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WeaponBase : MonoBehaviour
 {
-    public enum WeaponID { Pistol, Shotgun, Heavy, Rifle, Melee };
+    public enum WeaponID { Pistol, Shotgun, Heavy, Rifle };
     [SerializeField]
     private static bool weaponOnStart = false;
     protected WeaponID weaponID;
@@ -24,12 +24,11 @@ public class WeaponBase : MonoBehaviour
     [SerializeField] protected float damageMultiplier = 1;
     [SerializeField] protected float fireRateMultiplier = 1;
     protected float nextShotFired = 0f; //counter for next bullet that is fired
-                                        // Update is called once per frame
 
     private void Start()
     {
-        //grab ammo for UI. Only do this one time
-        if (!weaponOnStart)
+        //grab ammo for UI.Only do this one time
+        if (!weaponOnStart && gameObject.name == "Pistol")
         {
             UpdateVisual();
             weaponOnStart = true;
@@ -38,9 +37,7 @@ public class WeaponBase : MonoBehaviour
     private void OnEnable()
     {
         if (weaponOnStart)
-        {
             UpdateVisual();
-        }
     }
 
     public virtual void Update()
