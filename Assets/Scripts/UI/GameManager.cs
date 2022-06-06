@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     //UI
     public HealthBar healthBar;
+    public GameObject bossHealthBar;
     public GameObject pauseMenu;
     public ItemCount ammoCount;
     public ItemCount boardWipeCount;
@@ -41,6 +42,8 @@ public class GameManager : MonoBehaviour
         movement = player.GetComponent<PlayerMovement>();
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
+        bossHealthBar = GameObject.FindGameObjectWithTag("Boss Health Bar");
+        bossHealthBar.SetActive(false);
         checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
 
         //sort the array of checkpoints by name
