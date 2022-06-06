@@ -7,7 +7,7 @@ public class WeaponHolder : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField]
-    public int selectedWeapon = 0;
+    private int selectedWeapon = 0;
     static public WeaponHolder instance;
     [SerializeField] GameObject gunImages;
     [SerializeField]
@@ -37,22 +37,42 @@ public class WeaponHolder : MonoBehaviour
     private void SelectWeapon()
     {
         int i = 0;
+        //actually equip the weapon
         foreach (Transform t in this.gameObject.transform)
         {
             if (selectedWeapon == i)
             {
                 t.gameObject.SetActive(true);
-                gunImages.transform.GetChild(i).gameObject.SetActive(true);
             }
             else
             {
                 t.gameObject.SetActive(false);
-                gunImages.transform.GetChild(i).gameObject.SetActive(false);
             }
             if (i == currentChildCount)
                 break;
             i++;
         }
+
+        i = 0;
+        //change the gun images
+        foreach (Transform t in gunImages.transform)
+        {
+            if(selectedWeapon == i)
+            {
+                if (gunImages.transform.Find(t.name) == null)
+                    Debug.Log("Not Found: " + t.name);
+                gunImages.transform.Find(t.name).gameObject.SetActive(true);
+            }
+            else
+            {   
+                if (gunImages.transform.Find(t.name) == null)
+                    Debug.Log("Not Found: " + t.name);
+                gunImages.transform.Find(t.name).gameObject.SetActive(false);
+            }
+            i++;
+        }
+
+
     }
 
     private void SwitchWeapons()
@@ -137,7 +157,8 @@ public class WeaponHolder : MonoBehaviour
             //hierarachy for weaponholder
             transform.Find(weaponName).SetSiblingIndex(index);
             //hierarchy for gunImages
-            //gunImages.transform.Find(weaponName).SetSiblingIndex(index);
+            gunImages.transform.Find(weaponName).SetSiblingIndex(index);
+
         }
     }
 }
