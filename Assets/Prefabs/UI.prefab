@@ -2167,9 +2167,9 @@ MonoBehaviour:
   damageQuantity: 1.5
   buyAmmo: {fileID: 1135435420480574307}
   buyWeapon: {fileID: 8287137221163729360}
-  upgrade1: {fileID: 7158229059461056498}
-  upgrade2: {fileID: 700103807002559939}
-  upgrade3: {fileID: 3875440300617220686}
+  upgradeTiers:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &167572324506024805
 GameObject:
   m_ObjectHideFlags: 0
@@ -2984,9 +2984,9 @@ MonoBehaviour:
   damageQuantity: 2
   buyAmmo: {fileID: 4289220928224761050}
   buyWeapon: {fileID: 5536449404290365197}
-  upgrade1: {fileID: 5904475237396797638}
-  upgrade2: {fileID: 981601789747321252}
-  upgrade3: {fileID: 3410512532619394619}
+  upgradeTiers:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &641038183656643805
 GameObject:
   m_ObjectHideFlags: 0
@@ -5571,10 +5571,10 @@ RectTransform:
   m_Father: {fileID: 6738878341818277272}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -270}
-  m_SizeDelta: {x: 1000, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5621582975934282431
 CanvasRenderer:
@@ -10104,7 +10104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7353709293698788307
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10155,9 +10155,9 @@ MonoBehaviour:
   damageQuantity: 1.5
   buyAmmo: {fileID: 82289033073261206}
   buyWeapon: {fileID: 1514356318537605104}
-  upgrade1: {fileID: 1629493073616756176}
-  upgrade2: {fileID: 2283923266803786423}
-  upgrade3: {fileID: 1183982784521451785}
+  upgradeTiers:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2849927648566859818
 GameObject:
   m_ObjectHideFlags: 0
@@ -14248,7 +14248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1514455188307733629
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17871,9 +17871,10 @@ MonoBehaviour:
   damageQuantity: 1.5
   buyAmmo: {fileID: 6637777843450128317}
   buyWeapon: {fileID: 0}
-  upgrade1: {fileID: 4347798564243652887}
-  upgrade2: {fileID: 3096490277784629089}
-  upgrade3: {fileID: 8939557400414164648}
+  upgradeTiers:
+  - {fileID: 4347798564243652887}
+  - {fileID: 3096490277784629089}
+  - {fileID: 8939557400414164648}
 --- !u!1 &5286232823216459935
 GameObject:
   m_ObjectHideFlags: 0
@@ -18046,10 +18047,10 @@ RectTransform:
   m_Father: {fileID: 6738878341818277272}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -160}
-  m_SizeDelta: {x: 1000, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6009089539620186743
 CanvasRenderer:
@@ -23878,7 +23879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &554152749975098788
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23977,10 +23978,10 @@ RectTransform:
   m_Father: {fileID: 6738878341818277272}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -50}
-  m_SizeDelta: {x: 1000, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4150722434502868109
 CanvasRenderer:

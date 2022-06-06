@@ -157,6 +157,7 @@ public class UIStoreButtons : MonoBehaviour
     public void PistolUpgradeFireRate()
     {
         UpgradeFireRate("Pistol", PistolPage.instance.tier1Upgrade, PistolPage.instance.fireRateQuantity);
+        PistolPage.instance.NextTier();
     }
 
     public void PistolUpgradeDamage()
@@ -186,7 +187,8 @@ public class UIStoreButtons : MonoBehaviour
     #region Shotgun Page
     public void ShotgunBuyWeapon()
     {
-
+        WeaponHolder.instance.unlockedWeapons.Add("Shotgun");
+        WeaponHolder.instance.currentChildCount++;
     }
 
     public void ShotgunAmmo()

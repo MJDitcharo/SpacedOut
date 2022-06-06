@@ -9,5 +9,10 @@ public class ShotgunPage : WeaponUpgradePage
     {
         instance = this;
         base.Start();
+        //check if the weapon is unlocked
+        CheckUnlock("Shotgun");
     }
+
+    
+
 }

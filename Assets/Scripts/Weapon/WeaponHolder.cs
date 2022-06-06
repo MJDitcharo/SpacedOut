@@ -10,11 +10,11 @@ public class WeaponHolder : MonoBehaviour
     public int selectedWeapon = 0;
     static public WeaponHolder instance;
     [SerializeField] GameObject gunImages;
-
     [SerializeField]
-    public List<GameObject> unlockedWeapons; //add the pistol by default
+    public List<string> unlockedWeapons; //add the pistol by default
     List<KeyCode> keys = new List<KeyCode> { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, };
-    int maxChild = 4; //only switch between the first 5, follows the weaponbase Weapon enum
+    public int currentChildCount = 0;
+    const int maxChildCount = 4; //only switch between unlocked weapons, 4 being the maximum
 
     private void Awake()
     {
@@ -25,15 +25,18 @@ public class WeaponHolder : MonoBehaviour
     private void Start()
     {
         gunImages = GameObject.FindGameObjectWithTag("Gun Images");
+        if (unlockedWeapons.Count == 0)
+            unlockedWeapons.Add(gameObject.transform.Find("Pistol").name);
     }
     private void Update()
     {
         SwitchWeapons();
+        UnequippedWeapons();
     }
 
     private void SelectWeapon()
     {
-        int i = 0;
+        int i = currentChildCount;
         foreach (Transform t in this.gameObject.transform)
         {
             if (selectedWeapon == i)
@@ -46,9 +49,9 @@ public class WeaponHolder : MonoBehaviour
                 t.gameObject.SetActive(false);
                 gunImages.transform.GetChild(i).gameObject.SetActive(false);
             }
-            i++;
-            if (i == maxChild - 1)
+            if (i == currentChildCount)
                 break;
+            i++;
         }
     }
 
@@ -60,15 +63,16 @@ public class WeaponHolder : MonoBehaviour
         {
             if (Input.GetAxis("Mouse ScrollWheel") > 0f)
             {
-                if (selectedWeapon >= maxChild)
-                    selectedWeapon = 0;
+                Debug.Log("Check: " + (selectedWeapon >= currentChildCount));
+                if (selectedWeapon >= currentChildCount)
+                    selectedWeapon = currentChildCount;
                 else
                     selectedWeapon++;
             }
             else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
             {
                 if (selectedWeapon <= 0)
-                    selectedWeapon = maxChild;
+                    selectedWeapon = currentChildCount;
                 else
                     selectedWeapon--;
             }
@@ -80,8 +84,21 @@ public class WeaponHolder : MonoBehaviour
             }
 
             SelectWeapon();
+        }
     }
-}
+
+    public void UnequippedWeapons()
+    {
+        int i = currentChildCount;
+        foreach (Transform t in transform)
+        {
+            if (t.GetSiblingIndex() <= i)
+                continue;
+            else
+                t.gameObject.SetActive(false);
+            i++;
+        }
+    }
 
     public void UpgradeFireRate(string weapon, float multiplier)
     {
@@ -93,4 +110,23 @@ public class WeaponHolder : MonoBehaviour
         //Debug.Log(transform.Find(weapon).GetComponent<WeaponBase>());
         transform.Find(weapon).GetComponent<WeaponBase>().SetDamageMultiplier(multiplier);
     }
+
+    public bool IsWeaponUnlocked(string weaponName)
+    {
+        if (weaponName.Contains(weaponName))
+            return true;
+        else
+            return false;
+    }
+
+    public bool EquipWeapon(string weaponName)
+    {
+        bool success;
+        //find the weaponName in the gameobject
+        //set and return the success bool 
+        return true;
+    }
+
+
+
 }
