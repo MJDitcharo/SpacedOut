@@ -26,7 +26,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField] float defaultVolume = 0.5f;
     private AsyncOperation operation;
 
-    
+    private void Awake()
+    {
+        AudioManager.Instance.PlaySFX("MenuMusic");
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
