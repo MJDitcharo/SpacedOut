@@ -123,6 +123,17 @@ public class UIStoreButtons : MonoBehaviour
         WeaponHolder.instance.currentChildCount++;
     }
 
+    private void UnlockWeapon(string weaponName)
+    {
+        if (WeaponHolder.instance.AddToUnlockedItems(weaponName))
+            Debug.Log("Weapon Unlocked");
+        else
+            Debug.Log("Weapon NOT Unlocked");
+        Debug.Log(purchaseIndex);
+        WeaponHolder.instance.ArrangeHierarchy(weaponName, purchaseIndex++);
+        WeaponHolder.instance.currentChildCount++;
+    }
+
     #region Shop Buttons
     public void ExitShop()
     {
@@ -166,16 +177,7 @@ public class UIStoreButtons : MonoBehaviour
         StartCoroutine(HandlePurchaseMessage(purchaseFailed));
     }
 
-    private void UnlockWeapon(string weaponName)
-    {
-        if (WeaponHolder.instance.AddToUnlockedItems(weaponName))
-            Debug.Log("Weapon Unlocked");
-        else
-            Debug.Log("Weapon NOT Unlocked");
-        Debug.Log(purchaseIndex);
-        WeaponHolder.instance.ArrangeHierarchy(weaponName, purchaseIndex++);
-        WeaponHolder.instance.currentChildCount++;
-    }
+  
 
     #endregion
 
@@ -201,8 +203,8 @@ public class UIStoreButtons : MonoBehaviour
 
     public void PistolDeagleUpgrade()
     {
-        //Tier2Upgrade("Pistol", "Deagle", PistolPage.instance.tier2Upgrade);
-        //PistolPage.instance.NextTier();
+        Tier2Upgrade("Pistol", "Deagle", PistolPage.instance.tier2Upgrade);
+        PistolPage.instance.NextTier();
     }
 
     public void PistolDualWeildUpgrade()
@@ -255,13 +257,14 @@ public class UIStoreButtons : MonoBehaviour
         ShotgunPage.instance.NextTier();
     }
 
-
     public void ShotgunUpgradeSlug()
     {
+        Tier2Upgrade("Shotgun", "Slug", ShotgunPage.instance.tier2Upgrade);
         ShotgunPage.instance.NextTier();
     }
     public void ShotgunUpgradeSawedOff()
     {
+        Tier2Upgrade("Shotgun", "Sawed-Off", ShotgunPage.instance.tier2Upgrade);
         ShotgunPage.instance.NextTier();
     }
     public void ShotgunPlasmaUpgrade()
@@ -300,7 +303,7 @@ public class UIStoreButtons : MonoBehaviour
     public void RifleUpgradeDamage()
     {
         UpgradeDamage("Rifle", RiflePage.instance.tier1Upgrade, RiflePage.instance.damageQuantity);
-        RiflePage.instance.NextTier();
+        //RiflePage.instance.NextTier();
     }
     public void RifleUpgradeFireRate()
     {
@@ -311,11 +314,13 @@ public class UIStoreButtons : MonoBehaviour
 
     public void RifleBurst()
     {
+        Tier2Upgrade("Rifle", "Burst", RiflePage.instance.tier2Upgrade);
         RiflePage.instance.NextTier();
     }
 
     public void RifleAssault()
     {
+        Tier2Upgrade("Rifle", "Assault", RiflePage.instance.tier2Upgrade);
         RiflePage.instance.NextTier();
     }
 
