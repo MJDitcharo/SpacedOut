@@ -129,7 +129,6 @@ public class UIStoreButtons : MonoBehaviour
             Debug.Log("Weapon Unlocked");
         else
             Debug.Log("Weapon NOT Unlocked");
-        Debug.Log(purchaseIndex);
         WeaponHolder.instance.ArrangeHierarchy(weaponName, purchaseIndex++);
         WeaponHolder.instance.currentChildCount++;
     }
