@@ -118,7 +118,7 @@ public class WeaponUpgradePage : StorePage
 
     protected void CheckUnlock(string weaponName)
     {
-        if (WeaponHolder.instance.unlockedWeapons.Contains(weaponName))
+        if (WeaponHolder.instance.IsWeaponUnlocked(weaponName))
         {
             //set tier 1 upgrade and ammo true, buy weapon to false
             upgradeTiers[0].SetActive(true);
@@ -133,10 +133,11 @@ public class WeaponUpgradePage : StorePage
             buyWeapon.SetActive(true);
         }
     }
-    public void SetFirstTier()
+    public void FirstTier()
     {
         buyWeapon.SetActive(false);
-        buyAmmo.SetActive(false);
+        buyAmmo.SetActive(true);
+        upgradeTiers[0].SetActive(true);
     }
 
     public void NextTier()

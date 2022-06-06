@@ -25,7 +25,6 @@ public class UIStoreButtons : MonoBehaviour
         bool purchaseFailed;
         if (GameManager.instance.skrapCount.GetQuantity() >= cost)
         {
-            Debug.Log("You got the cash");
             WeaponBase currentWeapon = WeaponHolder.instance.transform.Find(weaponName).GetComponent<WeaponBase>();
             GameManager.instance.ammoCount.SetQuantity(quantity);
             currentWeapon.AddAmmo(quantity);
@@ -84,7 +83,6 @@ public class UIStoreButtons : MonoBehaviour
 
     private IEnumerator HandlePurchaseMessage(bool purchaseFailed, string message = "")
     {
-        Debug.Log(purchaseFailed);
         if (!purchaseFailed)
         {
             UIStore.instance.purchaseMessage.color = Color.green;
@@ -99,6 +97,11 @@ public class UIStoreButtons : MonoBehaviour
         UIStore.instance.purchaseMessageObj.SetActive(true);
         yield return new WaitForSecondsRealtime(2);
         UIStore.instance.purchaseMessageObj.SetActive(false);
+    }
+
+    public void BuyWeapons()
+    {
+        
     }
 
     #region Shop Buttons
@@ -144,6 +147,15 @@ public class UIStoreButtons : MonoBehaviour
         StartCoroutine(HandlePurchaseMessage(purchaseFailed));
     }
 
+    private void UnlockWeapon()
+    {
+        if (WeaponHolder.instance.AddToUnlockedItems("Shotgun"))
+            Debug.Log("Weapon Added");
+        else
+            Debug.Log("Weapon NOT Added");
+        WeaponHolder.instance.currentChildCount++;
+    }
+
     #endregion
 
     #region WeaponButtons
@@ -187,8 +199,8 @@ public class UIStoreButtons : MonoBehaviour
     #region Shotgun Page
     public void ShotgunBuyWeapon()
     {
-        WeaponHolder.instance.unlockedWeapons.Add("Shotgun");
-        WeaponHolder.instance.currentChildCount++;
+        UnlockWeapon();
+        ShotgunPage.instance.FirstTier();
     }
 
     public void ShotgunAmmo()

@@ -11,7 +11,7 @@ public class WeaponHolder : MonoBehaviour
     static public WeaponHolder instance;
     [SerializeField] GameObject gunImages;
     [SerializeField]
-    public List<string> unlockedWeapons; //add the pistol by default
+    private List<string> unlockedWeapons; //add the pistol by default
     List<KeyCode> keys = new List<KeyCode> { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, };
     public int currentChildCount = 0;
     const int maxChildCount = 4; //only switch between unlocked weapons, 4 being the maximum
@@ -36,7 +36,7 @@ public class WeaponHolder : MonoBehaviour
 
     private void SelectWeapon()
     {
-        int i = currentChildCount;
+        int i = 0;
         foreach (Transform t in this.gameObject.transform)
         {
             if (selectedWeapon == i)
@@ -63,18 +63,20 @@ public class WeaponHolder : MonoBehaviour
         {
             if (Input.GetAxis("Mouse ScrollWheel") > 0f)
             {
-                Debug.Log("Check: " + (selectedWeapon >= currentChildCount));
-                if (selectedWeapon >= currentChildCount)
-                    selectedWeapon = currentChildCount;
+                Debug.Log("Check Child: " + currentChildCount + "  Selected: " + selectedWeapon);
+                if (selectedWeapon == currentChildCount)
+                    selectedWeapon = 0;
                 else
                     selectedWeapon++;
             }
             else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
             {
+                Debug.Log("Check Child: " + currentChildCount + "  Selected: " + selectedWeapon);
                 if (selectedWeapon <= 0)
                     selectedWeapon = currentChildCount;
                 else
                     selectedWeapon--;
+
             }
 
             for (int i = 0; i < keys.Count; i++)
@@ -113,7 +115,7 @@ public class WeaponHolder : MonoBehaviour
 
     public bool IsWeaponUnlocked(string weaponName)
     {
-        if (weaponName.Contains(weaponName))
+        if (unlockedWeapons.Contains(weaponName))
             return true;
         else
             return false;
@@ -125,6 +127,17 @@ public class WeaponHolder : MonoBehaviour
         //find the weaponName in the gameobject
         //set and return the success bool 
         return true;
+    }
+
+    public bool AddToUnlockedItems(string weaponName)
+    {
+        if (gameObject.transform.Find(weaponName) != null)
+        {
+            unlockedWeapons.Add(weaponName);
+            return true;
+        }
+        else
+            return false;
     }
 
 

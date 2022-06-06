@@ -2170,6 +2170,7 @@ MonoBehaviour:
   upgradeTiers:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &167572324506024805
 GameObject:
   m_ObjectHideFlags: 0
@@ -2985,6 +2986,7 @@ MonoBehaviour:
   buyAmmo: {fileID: 4289220928224761050}
   buyWeapon: {fileID: 5536449404290365197}
   upgradeTiers:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!1 &641038183656643805
@@ -7844,7 +7846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quantity: 0
-  max: 2500
+  max: 100000
   textMeshPro: {fileID: 46246517885721478}
 --- !u!1 &2038635383002040851
 GameObject:
@@ -10156,8 +10158,9 @@ MonoBehaviour:
   buyAmmo: {fileID: 82289033073261206}
   buyWeapon: {fileID: 1514356318537605104}
   upgradeTiers:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1629493073616756176}
+  - {fileID: 2283923266803786423}
+  - {fileID: 1183982784521451785}
 --- !u!1 &2849927648566859818
 GameObject:
   m_ObjectHideFlags: 0

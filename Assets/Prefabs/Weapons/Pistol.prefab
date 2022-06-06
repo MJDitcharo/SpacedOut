@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 0.3974563, y: 0.3974563, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 7475352714956614141}
+  m_Father: {fileID: 6932568379877353760}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7341541376245835228
@@ -91,7 +91,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7475352714956614141}
+  - component: {fileID: 6932568379877353760}
   - component: {fileID: 7340519207896918276}
   m_Layer: 0
   m_Name: Pistol
@@ -100,23 +100,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7475352714956614141
-Transform:
+--- !u!224 &6932568379877353760
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8830912256881924189}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.06639, y: 1.4177629, z: 8.076488}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.07, y: 0.07, z: 0.07}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6773093686693094609}
   - {fileID: 150271276195679488}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7340519207896918276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +145,7 @@ MonoBehaviour:
   damage: 10
   damageMultiplier: 1
   fireRateMultiplier: 1
+  isUnlocked: 0
 --- !u!1 &9058567498615695302
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +174,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7475352714956614141}
+  m_Father: {fileID: 6932568379877353760}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
