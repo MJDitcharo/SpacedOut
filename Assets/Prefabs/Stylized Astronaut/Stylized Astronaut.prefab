@@ -335,7 +335,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currHealth: 0
+  currHealth: 100
+  vulnerable: 0
+  fireTickTime: 1
+  vulnAmount: 1.5
+  vulnTime: 5
   isDamageable: 1
   delayRate: 1
 --- !u!114 &1938996591304382425
