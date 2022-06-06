@@ -12,7 +12,7 @@ public class UIStore : PopUpMenu
     [HideInInspector]
     public GameObject purchaseMessageObj;
     [SerializeField]
-    private GameObject firstPage;
+    private GameObject[] pages;
     bool first = true;
     //singleton
     public static UIStore instance;
@@ -24,10 +24,16 @@ public class UIStore : PopUpMenu
         if (instance == null)
             instance = this;
         purchaseMessageObj = purchaseMessage.gameObject;
-        if (first)
+
+        foreach(GameObject game in pages)
         {
-            firstPage.SetActive(true);
-            first = false;
+            if (first)
+            {
+                game.SetActive(true);
+                first = false;
+            }
+            else
+                game.SetActive(false);
         }
         Deactivate(); //should be off by default
     }
