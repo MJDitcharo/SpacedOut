@@ -2602,11 +2602,11 @@ GameObject:
   - component: {fileID: 975963619896476582}
   m_Layer: 5
   m_Name: Boss Health Bar
-  m_TagString: Untagged
+  m_TagString: Boss Health Bar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &975963619896476582
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7576,6 +7576,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   healthBar: {fileID: 0}
+  bossHealthBar: {fileID: 0}
   pauseMenu: {fileID: 0}
   ammoCount: {fileID: 0}
   boardWipeCount: {fileID: 0}

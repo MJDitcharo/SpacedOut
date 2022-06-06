@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     public UIChest chestUI;
     public UIStore shopUI;
     public bool menuIsActive = false;
-    
+
     public bool Lockdown { get; set; } = false;
 
     // Start is called before the first frame update
@@ -47,11 +47,11 @@ public class GameManager : MonoBehaviour
         checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
 
         //sort the array of checkpoints by name
-        for(int i = 0; i < checkpoints.Length; i++)
+        for (int i = 0; i < checkpoints.Length; i++)
         {
-            for(int j = i; j < checkpoints.Length; j++)
+            for (int j = i; j < checkpoints.Length; j++)
             {
-                if(checkpoints[i].name.CompareTo(checkpoints[j].name) > 0)
+                if (checkpoints[i].name.CompareTo(checkpoints[j].name) > 0)
                 {
                     GameObject temp = checkpoints[i];
                     checkpoints[i] = checkpoints[j];
@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
 
         //ui stuff
         pmenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
+        Debug.Log("thing");
         ammoCount = GameObject.FindGameObjectWithTag("AmmoCount").GetComponent<ItemCount>();
         boardWipeCount = GameObject.FindGameObjectWithTag("BoardWipeCount").GetComponent<ItemCount>();
         grenadeCount = GameObject.FindGameObjectWithTag("GrenadeCount").GetComponent<ItemCount>();
@@ -73,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        if(PlayerPrefs.GetInt("Max Player Health") == 0)
+        if (PlayerPrefs.GetInt("Max Player Health") == 0)
         {
             PlayerPrefs.SetInt("Max Player Health", 100);
         }
@@ -88,7 +89,7 @@ public class GameManager : MonoBehaviour
     public void Respawn()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        for(int i = 0; i < enemies.Length; i++)
+        for (int i = 0; i < enemies.Length; i++)
         {
             Destroy(enemies[i]);
         }
@@ -99,7 +100,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(bullets[i]);
         }
-        
+
         LoadGame();
 
         Debug.Log("End lockdown");
@@ -107,7 +108,7 @@ public class GameManager : MonoBehaviour
         checkpoints[checkpointIndex + 1].GetComponent<RoomManager>().collider.enabled = true;
         checkpoints[checkpointIndex + 1].GetComponent<RoomManager>().doorEnter.SetActive(false);
     }
-    
+
     public void SaveGame()
     {
         PlayerPrefs.SetInt("Scene Index", SceneManager.GetActiveScene().buildIndex);
