@@ -13,6 +13,7 @@ public class BlackHole2 : MonoBehaviour
     private void Start()
     {
         Vector3 size = new Vector3(pullRange, 0, pullRange);
+        transform.localScale = size;
     }
 
     private void OnTriggerStay(Collider other)
