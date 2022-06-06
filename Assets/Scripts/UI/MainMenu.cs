@@ -16,7 +16,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private TMP_Text volumeValueText;
     [SerializeField] private Slider volumeSlider;
 
-    
+    [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private Image loadingBar;
+
     [SerializeField] public TMP_Text sfxVolumeText;
     [SerializeField] public Slider sfxVolueSlider;
 
@@ -55,11 +57,11 @@ public class MainMenu : MonoBehaviour
 
         PlayerPrefs.SetInt("Pistol Ammo", 45);
 
-        SceneManager.LoadScene(1);
+        LoadingScene(1);
     }
     public void Continue()
     {
-        SceneManager.LoadScene(PlayerPrefs.GetInt("Scene Index"));
+        LoadingScene(PlayerPrefs.GetInt("Scene Index"));
     }
 
     public void LoadGame()
@@ -117,6 +119,27 @@ public class MainMenu : MonoBehaviour
         audioSaved = false;
     }
 
-    
+    void LoadingScene(int levelIndex)
+    {
+        StartCoroutine(LoadSceneAsync(levelIndex));
+    }
+
+    IEnumerator LoadSceneAsync(int levelIndex)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(levelIndex);
+        loadingScreen.SetActive(true);
+        operation.allowSceneActivation = false;
+        yield return new  WaitForSeconds(3);
+        
+        while (!operation.isDone)
+        {
+
+            float loadProgess = Mathf.Clamp01(operation.progress/0.9f);
+            loadingBar.fillAmount = loadProgess;
+            yield return null;
+            operation.allowSceneActivation = true;
+        }
+        
+    }
 }
 
