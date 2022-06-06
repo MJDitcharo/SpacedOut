@@ -14,7 +14,7 @@ public class bullet : MonoBehaviour
         Destroy(gameObject, 2);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
         playerHealth playerHP = other.gameObject.GetComponent<playerHealth>();
         if (playerHP != null && !playerHP.isDamageable)
@@ -34,7 +34,9 @@ public class bullet : MonoBehaviour
                 }
             }
             Instantiate(hitEffect, transform.position, Quaternion.identity); //create a bullet with no rotation at the postion 
-            Destroy(gameObject);     //destroy game object and effect upon collisons
+            Destroy(gameObject);
+            
+            //destroy game object and effect upon collisons
             return;
         }
 
