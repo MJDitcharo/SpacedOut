@@ -1,5 +1,8 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponUpgradePage : StorePage
 {
@@ -10,7 +13,12 @@ public class WeaponUpgradePage : StorePage
     [SerializeField]
     public float fireRateQuantity, damageQuantity;
     [SerializeField]
-    protected GameObject buyAmmo, buyWeapon, upgrade1, upgrade2, upgrade3;
+    protected GameObject buyAmmo, buyWeapon;
+    [SerializeField]
+    protected List<GameObject> upgradeTiers = new();
+    protected int currentTier = 0;
+    private const int maxTier = 2;
+    protected string weaponName; //MUST be set in the start function for each child. This is an abstract field
 
 
     protected override void SetInitialPrices()
@@ -21,6 +29,7 @@ public class WeaponUpgradePage : StorePage
         pricesInt.Add(tier1Upgrade);
         pricesInt.Add(tier2Upgrade);
         pricesInt.Add(tier3Upgrade);
+        
     }
 
     protected void UpgradeMeshes(GameObject upgrade)
@@ -39,7 +48,7 @@ public class WeaponUpgradePage : StorePage
 
     protected override void SetTextMeshPrices()
     {
-        if(buyWeapon != null)
+        if (buyWeapon != null)
         {
             SetTextMeshPricesWithWeapon();
         }
@@ -101,10 +110,43 @@ public class WeaponUpgradePage : StorePage
         pricesText.Add(buyAmmo.transform.Find("Price Icon").transform.Find("Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>());
         if (buyWeapon != null)
             pricesText.Add(buyWeapon.transform.Find("Price Icon").transform.Find("Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>());
-        UpgradeMeshes(upgrade1);
-        UpgradeMeshes(upgrade2);
-        UpgradeMeshes(upgrade3);
+        UpgradeMeshes(upgradeTiers[0]);
+        UpgradeMeshes(upgradeTiers[1]);
+        UpgradeMeshes(upgradeTiers[2]);
 
     }
 
+    protected void CheckUnlock(string weaponName)
+    {
+        if (WeaponHolder.instance.IsWeaponUnlocked(weaponName))
+        {
+            //set tier 1 upgrade and ammo true, buy weapon to false
+            upgradeTiers[0].SetActive(true);
+            buyAmmo.SetActive(true);
+            if (buyWeapon != null)
+                buyWeapon.SetActive(false);
+        }
+        else
+        {
+            upgradeTiers[0].SetActive(false);
+            buyAmmo.SetActive(false);
+            buyWeapon.SetActive(true);
+        }
+    }
+    public void FirstTier()
+    {
+        buyWeapon.SetActive(false);
+        buyAmmo.SetActive(true);
+        upgradeTiers[0].SetActive(true);
+    }
+
+    public void NextTier()
+    {
+        if(currentTier + 1 <= maxTier)
+        {
+            upgradeTiers[currentTier].SetActive(false);
+            currentTier++;
+            upgradeTiers[currentTier].SetActive(true);
+        }
+    }
 }

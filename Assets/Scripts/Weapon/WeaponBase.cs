@@ -24,12 +24,11 @@ public class WeaponBase : MonoBehaviour
     [SerializeField] protected float damageMultiplier = 1;
     [SerializeField] protected float fireRateMultiplier = 1;
     protected float nextShotFired = 0f; //counter for next bullet that is fired
-                                        // Update is called once per frame
 
     private void Start()
     {
-        //grab ammo for UI. Only do this one time
-        if (!weaponOnStart)
+        //grab ammo for UI.Only do this one time
+        if (!weaponOnStart && gameObject.name == "Pistol")
         {
             UpdateVisual();
             weaponOnStart = true;
@@ -38,9 +37,7 @@ public class WeaponBase : MonoBehaviour
     private void OnEnable()
     {
         if (weaponOnStart)
-        {
             UpdateVisual();
-        }
     }
 
     public virtual void Update()
@@ -69,7 +66,7 @@ public class WeaponBase : MonoBehaviour
     public void AddAmmo(int ammo = System.Int32.MaxValue)
     {
         if (ammo == System.Int32.MaxValue)
-            ammoCount++;
+            ammoCount++; 
         else if (ammo + ammoCount > maxAmmo)
             ammoCount = maxAmmo;
         else
@@ -84,6 +81,7 @@ public class WeaponBase : MonoBehaviour
 
     public void UpdateVisual()
     {
+
         GameManager.instance.ammoCount.SetQuantity(ammoCount);
         GameManager.instance.ammoCount.SetMaximumQuatnity(maxAmmo);
 

@@ -9,6 +9,7 @@ public class PistolPage : WeaponUpgradePage
     {
         instance = this;
         base.Start();
+        CheckUnlock("Pistol");
     }
 
 }
