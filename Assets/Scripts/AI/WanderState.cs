@@ -10,6 +10,7 @@ public class WanderState : State
     [SerializeField] float noticeDistance;
     [SerializeField] float movementSpeed = 3;
     [SerializeField] float walkTime = 5;
+    public float walkTimeMultiplier = 1;
     float walkTimer = 0;
     [SerializeField] float obsticleAvoidanceDistance = 6;
     [SerializeField] GameObject fire;
@@ -24,7 +25,7 @@ public class WanderState : State
 
         if (lookCoroutine == null && Physics.Raycast(transform.position, transform.forward, obsticleAvoidanceDistance, layerMask))
             lookCoroutine = StartCoroutine(Turn());
-        else if(walkTimer >= walkTime)
+        else if(walkTimer >= walkTime / walkTimeMultiplier)
         {
             walkTimer = 0;
             return attackState;

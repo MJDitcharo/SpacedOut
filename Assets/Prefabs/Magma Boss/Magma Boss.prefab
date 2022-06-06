@@ -31,6 +31,37 @@ Transform:
   m_Father: {fileID: 6256050975848470245}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -45, y: 0, z: 0}
+--- !u!1 &4768376266189227242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2128076497185733163}
+  m_Layer: 8
+  m_Name: Firepoint spray
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2128076497185733163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4768376266189227242}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6256050975848470245}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5415835157521604109
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,8 +163,8 @@ GameObject:
   - component: {fileID: 6256050975848470266}
   - component: {fileID: 6256050975848470244}
   - component: {fileID: 1748863437773936188}
-  - component: {fileID: 2257177485801162721}
   - component: {fileID: 6119080226200538546}
+  - component: {fileID: 2487659662433320655}
   m_Layer: 8
   m_Name: Magma Boss
   m_TagString: Enemy
@@ -155,6 +186,7 @@ Transform:
   m_Children:
   - {fileID: 7395252346881396176}
   - {fileID: 2232887566322358986}
+  - {fileID: 2128076497185733163}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -275,6 +307,7 @@ MonoBehaviour:
   noticeDistance: 9
   movementSpeed: 3
   walkTime: 5
+  walkTimeMultiplier: 1
   obsticleAvoidanceDistance: 8
   fire: {fileID: 0}
   turnSpeed: 180
@@ -330,26 +363,6 @@ MonoBehaviour:
   normalColor: []
   rend: {fileID: 6256050975848470243}
   flashTime: 0.1
---- !u!114 &2257177485801162721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6256050975848470267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5b63156061008a41a13ee90db58dfd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currHealth: 100
-  vulnerable: 0
-  fireTickTime: 1
-  vulnAmount: 1.5
-  vulnTime: 5
-  drops: {fileID: 6076811627386069490, guid: d0306af4078577240a9a23e69fb7f953, type: 3}
-  dropQuantity: 200
 --- !u!114 &6119080226200538546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,3 +387,31 @@ MonoBehaviour:
   numberOfMollies: 30
   turnSpeed: 45
   blastSpeed: 20
+  sprayWaitTime: 0.5
+  sprayMollyCount: 40
+  delayBetweenSpray: 0.05
+  sprayForceRange: {x: 100, y: 1000}
+  sprayFirePoint: {fileID: 2128076497185733163}
+  bossIntensityMultiplier: 1
+--- !u!114 &2487659662433320655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6256050975848470267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4dad5a713cb364886fceace318be02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 500
+  currHealth: 500
+  vulnerable: 0
+  fireTickTime: 1
+  vulnAmount: 1.5
+  vulnTime: 5
+  drops: {fileID: 6076811627386069490, guid: d0306af4078577240a9a23e69fb7f953, type: 3}
+  dropQuantity: 5
+  bossAttacks: {fileID: 6119080226200538546}
+  wanderState: {fileID: 6256050975848470271}
