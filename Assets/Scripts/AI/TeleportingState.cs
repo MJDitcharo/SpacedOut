@@ -7,7 +7,6 @@ public class TeleportingState : State
     [SerializeField] State engageState;
     [SerializeField] GameObject[] tpLocations;
     [SerializeField] float timeBetweenTeleports = 2;
-    [SerializeField] int damage = 20;
     Coroutine teleportCoroutine;
     bool done = false;
 
