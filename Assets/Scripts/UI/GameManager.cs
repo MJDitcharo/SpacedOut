@@ -165,8 +165,8 @@ public class GameManager : MonoBehaviour
                 string name = PlayerPrefs.GetString("Weapon " + i);
                 Debug.Log(name);
                 WeaponHolder.instance.AddToUnlockedItems(name);
-                WeaponHolder.instance.ArrangeHierarchy(name, UIStoreButtons.purchaseIndex++);
-                WeaponHolder.instance.currentChildCount++;
+                //WeaponHolder.instance.ArrangeHierarchy(name, UIStoreButtons.purchaseIndex++);
+                //WeaponHolder.instance.currentChildCount++;
             }
         }
 
