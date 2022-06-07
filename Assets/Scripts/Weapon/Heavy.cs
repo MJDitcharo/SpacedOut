@@ -12,6 +12,15 @@ public class Heavy : WeaponBase
         weaponID = WeaponID.Heavy;
     }
 
+    public override void Update()
+    {
+        if (Input.GetButtonDown("Fire1") && Time.time >= nextShotFired && ammoCount != 0 && Time.timeScale > 0) //if the first mouse button is down
+        {
+            nextShotFired = Time.time + 1f / fireRate / fireRateMultiplier; //delay for the next bullet fired
+            Shoot(); //shoot method
+        }
+    }
+
     public override void Shoot()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint[firePointIndex].position, firePoint[firePointIndex].rotation); //spawn the bullet and reference the bullet to modify 
