@@ -2,28 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-public class HomingBullet : bullet
+public class FriendlyShadowClone : MonoBehaviour
 {
-    public float speed = 20f;
-    public float yOffset = 1;
-    private Coroutine homingCoroutine;
-    private Transform target;
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] float bulletSpeed = 20;
+    [SerializeField] float shootDelay = .5f;
 
-    private void Update()
+    private void Start()
     {
-        FindTarget();
+        StartCoroutine(Shoot());
     }
 
-    private void FindTarget()
+    private void Update()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, 20);
         if (colliders.Length != 0)
         {
             GameObject closest = null;
-            for (int i = 0; i < colliders.Length; i++)
+            for(int i = 0; i < colliders.Length; i++)
             {
-                if (colliders[i].gameObject.tag == "Enemy")
+                if(colliders[i].gameObject.tag == "Enemy")
                 {
                     if (closest == null)
                         closest = colliders[i].gameObject;
@@ -37,6 +35,18 @@ public class HomingBullet : bullet
             Debug.Log(closest);
             transform.LookAt(closest.transform.position);
         }
-        GetComponent<Rigidbody>().velocity = transform.forward * speed;
     }
+
+    IEnumerator Shoot()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(shootDelay);
+
+            GameObject bul = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            bul.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
+        }
+    }
+
+
 }
