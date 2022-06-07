@@ -58,6 +58,10 @@ MonoBehaviour:
       audioType: 0
       audio: {fileID: 8300000, guid: e87fb2e782bcac14d82191fa02c2c841, type: 3}
     audioTyping: Shotgun
+  - sound:
+      audioType: 1
+      audio: {fileID: 8300000, guid: 9920c9772304d6043bbc97736e160b4d, type: 3}
+    audioTyping: GameMusic
   aSource: {fileID: 4285230814966846849}
 --- !u!82 &4285230814966846849
 AudioSource:
@@ -73,7 +77,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
