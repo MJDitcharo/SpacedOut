@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class VoidBossAttacks : State
 {
@@ -8,8 +9,8 @@ public class VoidBossAttacks : State
     [SerializeField] float attackDistance = 15;
     [SerializeField] State engageState;
     [SerializeField] float rotationSpeed = 45;
-    [SerializeField] State teleportingState;
-    enum Attacks { dash, wave, clone }
+    [SerializeField] TeleportingState teleportingState;
+    enum Attacks { dash, wave, clone, pull }
     [SerializeField] Attacks currentAttack = Attacks.dash;
     Coroutine attackCoroutine;
     Coroutine turnCoroutine;
@@ -29,6 +30,11 @@ public class VoidBossAttacks : State
     int firepointIndex = 0;
     [SerializeField] GameObject wavePrefab;
     [SerializeField] float waveForce = 20;
+
+    [SerializeField] GameObject shadowClone;
+    [SerializeField] int cloneCount = 3;
+    [SerializeField] float cloneAttackChaseSpeed = 8;
+    [SerializeField] float pullStrength = 10;
 
     public override State RunCurrentState()
     {
@@ -82,6 +88,13 @@ public class VoidBossAttacks : State
                 if (turnCoroutine == null)
                     turnCoroutine = StartCoroutine(TurnToPlayer());
                 break;
+            case Attacks.clone:
+                if (attackCoroutine == null)
+                    attackCoroutine = StartCoroutine(CloneAttack());
+                break;
+            case Attacks.pull:
+                PullAttack();
+                break;
         }
     }
 
@@ -99,12 +112,13 @@ public class VoidBossAttacks : State
 
         movement.GetAgent().isStopped = false;
 
-        //currentAttack = (Attacks)Random.Range(0, 1 + bossIntensityMultiplier);
+        currentAttack = (Attacks)Random.Range(0, 1 + bossIntensityMultiplier);
         attackCoroutine = null;
         attacking = false;
     }
     IEnumerator WaveAttack()
     {
+        movement.GetAgent().isStopped = true;
         for(int i = 0; i < waveNumber; i++)
         {
             yield return new WaitForSeconds(waveInterval);
@@ -120,6 +134,136 @@ public class VoidBossAttacks : State
             if (firepointIndex >= firePoints.Length)
                 firepointIndex = 0;
         }
+        
+        currentAttack = (Attacks)Random.Range(0, 1 + bossIntensityMultiplier);
+        attackCoroutine = null;
+        attacking = false;
+        movement.GetAgent().isStopped = false;
+    }
+
+    IEnumerator CloneAttack()
+    {
+        damageDealt = false;
+        bool done = false;
+        while (!done) 
+        {
+            int spot = Random.Range(0, teleportingState.tpLocations.Length);
+            if(Vector3.Distance(teleportingState.tpLocations[spot].transform.position, GameManager.instance.player.transform.position) >= 15)
+            {
+                movement.GetAgent().Warp(teleportingState.tpLocations[spot].transform.position);
+                done = true;
+            }
+            
+        }
+
+        List<NavMeshAgent> clones = new List<NavMeshAgent>();
+
+        for(int i = 0; i < cloneCount; i++)
+        {
+            done = false;
+            Vector3 spawnPosition = Vector3.zero;
+            while(!done)
+            {
+                int spot = Random.Range(0, teleportingState.tpLocations.Length);
+                if(Vector3.Distance(teleportingState.tpLocations[spot].transform.position, GameManager.instance.player.transform.position) >= 15)
+                {
+                    spawnPosition = teleportingState.tpLocations[spot].transform.position;
+                    done = true;
+                }
+            }
+            clones.Add(Instantiate(shadowClone, spawnPosition, Quaternion.identity).GetComponent<NavMeshAgent>());
+        }
+
+        int startingHP = GetComponent<health>().currHealth;
+        bool gotHit = false;
+        while(!gotHit)
+        {
+            movement.MoveToLocation(GameManager.instance.player.transform.position);
+            Collider[] colArr = Physics.OverlapSphere(transform.position, 2);
+            for (int i = 0; i < colArr.Length; i++)
+            {
+                if (colArr[i].tag == "Player")
+                {
+                    Debug.Log("touching player");
+                    playerHealth playerHP = colArr[i].GetComponent<playerHealth>();
+                    if (playerHP != null && playerHP.isDamageable && !damageDealt)
+                    {
+                        GameManager.instance.movement.pushback += (-pushbackMultiplier * (transform.right - GameManager.instance.player.transform.position).normalized);
+                        playerHP.DoDamage(damage);
+                        damageDealt = true;
+                        gotHit = true;
+                        //Debug.Log("Damage Done");
+                    }
+                }
+            }
+            
+            for(int i = 0; i < clones.Count; i++)
+            {
+                clones[i].SetDestination(GameManager.instance.player.transform.position);
+                Collider[] colliders = Physics.OverlapSphere(clones[i].transform.position, 2);
+                for (int j = 0; j < colliders.Length; j++)
+                {
+                    if (colliders[j].tag == "Player")
+                    {
+                        Debug.Log("touching player");
+                        playerHealth playerHP = colliders[j].GetComponent<playerHealth>();
+                        if (playerHP != null && playerHP.isDamageable && !damageDealt)
+                        {
+                            GameManager.instance.movement.pushback += (-pushbackMultiplier * (transform.right - GameManager.instance.player.transform.position).normalized);
+                            playerHP.DoDamage(damage);
+                            damageDealt = true;
+                            gotHit = true;
+                            //Debug.Log("Damage Done");
+                        }
+                    }
+                }
+            }
+
+            if(GetComponent<health>().currHealth < startingHP)
+            {
+                for (int i = 0; i < clones.Count; i++)
+                {
+                    Destroy(clones[i].gameObject);
+                }
+
+                yield return new WaitForSeconds(.5f);
+                gotHit = true;
+
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        for (int i = 0; i < clones.Count; i++)
+        {
+            if (clones[i] == null)
+                break;
+            Destroy(clones[i].gameObject);
+        }
+
+        while (!done)
+        {
+            int spot = Random.Range(0, teleportingState.tpLocations.Length);
+            if (Vector3.Distance(teleportingState.tpLocations[spot].transform.position, GameManager.instance.player.transform.position) >= 15)
+            {
+                movement.GetAgent().Warp(teleportingState.tpLocations[spot].transform.position);
+                done = true;
+            }
+        }
+
+        currentAttack = (Attacks)Random.Range(0, 1 + bossIntensityMultiplier);
+        attackCoroutine = null;
+        attacking = false;
+    }
+
+    void PullAttack()
+    {
+        damageDealt = false;
+
+        Vector3 direction = (pullStrength * (transform.position - GameManager.instance.player.transform.position).normalized);
+        GameManager.instance.movement.pushback += direction;
+
+        currentAttack = (Attacks)Random.Range(0, 2);
     }
 
     IEnumerator TurnToPlayer()

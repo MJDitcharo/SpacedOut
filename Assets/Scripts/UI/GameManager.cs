@@ -62,7 +62,6 @@ public class GameManager : MonoBehaviour
 
         //ui stuff
         pmenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
-        Debug.Log("thing");
         ammoCount = GameObject.FindGameObjectWithTag("AmmoCount").GetComponent<ItemCount>();
         boardWipeCount = GameObject.FindGameObjectWithTag("BoardWipeCount").GetComponent<ItemCount>();
         grenadeCount = GameObject.FindGameObjectWithTag("GrenadeCount").GetComponent<ItemCount>();

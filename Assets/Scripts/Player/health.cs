@@ -12,6 +12,7 @@ public class health : MonoBehaviour
     // Vulnerable Debuff Fields
     private Coroutine vulnCoroutine;
     public bool vulnerable = false;
+    public bool isStunned = false;
     [SerializeField] float fireTickTime = 1;
     float fireTick = 0;
     [SerializeField] float vulnAmount = 1.5f;
@@ -72,7 +73,6 @@ public class health : MonoBehaviour
 
     protected void OnTriggerStay(Collider other)
     {
-        Debug.Log(other.name);
         if(other.tag == "Fire")
         {
             Debug.Log("Touching Fire");

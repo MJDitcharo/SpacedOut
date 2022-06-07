@@ -216,7 +216,7 @@ MonoBehaviour:
   engageState: {fileID: 2175127431587173250}
   rotationSpeed: 45
   teleportingState: {fileID: 1298989237}
-  currentAttack: 0
+  currentAttack: 1
   damage: 20
   pushbackMultiplier: 4
   dashAttackTime: 1
@@ -227,7 +227,7 @@ MonoBehaviour:
   waveInterval: 1
   firePoints:
   - {fileID: 2484063400749668797}
-  wavePrefab: {fileID: 0}
+  wavePrefab: {fileID: 1270988924065143847, guid: 497677093d16a404da3ca379a70d18cd, type: 3}
   waveForce: 20
 --- !u!114 &1298989236
 MonoBehaviour:
