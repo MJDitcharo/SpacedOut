@@ -132,7 +132,7 @@ MonoBehaviour:
   firePoint:
   - {fileID: 682270440017334473}
   firePointIndex: 0
-  bulletPrefab: {fileID: 8209926178916140436}
+  bulletPrefab: {fileID: 3743390652330680519, guid: df7ccf7d26b650f49b0ae7e541bc38ef, type: 3}
   fireRate: 100
   bulletForce: 20
   ammoCount: 300
@@ -142,7 +142,7 @@ MonoBehaviour:
   fireRateMultiplier: 1
   explosiveRadius: 2
   knockback: 1
-  fireSpread: 180
+  fireSpread: 10
 --- !u!1 &8562548579356260879
 GameObject:
   m_ObjectHideFlags: 0
