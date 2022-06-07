@@ -16,7 +16,7 @@ public class WeaponUpgradePage : StorePage
     protected GameObject buyAmmo, buyWeapon;
     [SerializeField]
     protected List<GameObject> upgradeTiers = new();
-    protected bool option1;
+    protected string tier2Choice;
 
     protected int currentTier = 0;
     private int maxTier;
@@ -154,5 +154,16 @@ public class WeaponUpgradePage : StorePage
         currentTier++;
         if (currentTier < maxTier)
             upgradeTiers[currentTier].SetActive(true);
+    }
+
+
+    public void SetTier2Choice(string _tier2Choice)
+    {
+        tier2Choice = _tier2Choice;
+    }
+
+    public string GetTeir2Choice()
+    {
+        return tier2Choice;
     }
 }

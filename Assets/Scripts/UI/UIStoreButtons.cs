@@ -5,6 +5,8 @@ using UnityEngine;
 public class UIStoreButtons : MonoBehaviour
 {
     static public int purchaseIndex = 1;
+    private string plasma = " Plasma";
+    private string voidUpgrade = " Void";
     private void CheckPurchaseItem(ItemCount itemCount, int cost, int quantity = 1)
     {
         bool purchaseFailed;
@@ -85,7 +87,7 @@ public class UIStoreButtons : MonoBehaviour
 
 
 
-    public bool Tier2Upgrade(string baseWeapon, string tier2Weapon, int cost, bool tier3 = false)
+    public bool Tier2Upgrade(string baseWeapon, string tier2Weapon, int cost)
     {
         bool purchaseFailed;
         if (GameManager.instance.skrapCount.GetQuantity() >= cost)
@@ -112,20 +114,6 @@ public class UIStoreButtons : MonoBehaviour
 
     public bool Tier3Upgrade(string baseWeapon, string tier3Weapon, int cost, bool tier3 = false)
     {
-        int i = 0;
-        foreach (Transform item in WeaponHolder.instance.transform)
-        {
-            if (i < WeaponHolder.instance.currentChildCount)
-            {
-                if (item.name == baseWeapon)
-                {
-                    baseWeapon = item.name;
-                    break;
-                }
-            }
-            else
-                break;
-        }
         return Tier2Upgrade(baseWeapon, tier3Weapon, ShotgunPage.instance.tier3Upgrade);
     }
     private void UnlockWeapon(string weaponName)
@@ -212,21 +200,29 @@ public class UIStoreButtons : MonoBehaviour
         bool purchaseFailed = Tier2Upgrade("Pistol", "Deagle", PistolPage.instance.tier2Upgrade);
         if (!purchaseFailed)
             PistolPage.instance.NextTier();
+        PistolPage.instance.SetTier2Choice("Deagle");
     }
 
     public void PistolDualWieldUpgrade()
     {
         bool purchaseFailed = Tier2Upgrade("Pistol", "Dual Wield", PistolPage.instance.tier2Upgrade);
         if (!purchaseFailed)
+        {
             PistolPage.instance.NextTier();
+            PistolPage.instance.SetTier2Choice("Dual Wield");
+        }
     }
     public void PistolVoidUpgrade()
     {
-
+        bool purchaseFailed = Tier2Upgrade(PistolPage.instance.GetTeir2Choice(), PistolPage.instance.GetTeir2Choice() + voidUpgrade, PistolPage.instance.tier3Upgrade);
+        if (!purchaseFailed)
+            PistolPage.instance.NextTier();
     }
     public void PistolPlasmaUpgrade()
     {
-        bool purchaseFailed = Tier3Upgrade("Pistol", "Plasma", PistolPage.instance.tier3Upgrade);
+        bool purchaseFailed = Tier2Upgrade(PistolPage.instance.GetTeir2Choice(), PistolPage.instance.GetTeir2Choice() + plasma, PistolPage.instance.tier3Upgrade);
+        if (!purchaseFailed)
+            PistolPage.instance.NextTier();
     }
     #endregion
 
@@ -271,22 +267,32 @@ public class UIStoreButtons : MonoBehaviour
     {
         bool purchaseFailed = Tier2Upgrade("Shotgun", "Slug", ShotgunPage.instance.tier2Upgrade);
         if (!purchaseFailed)
+        {
             ShotgunPage.instance.NextTier();
+            ShotgunPage.instance.SetTier2Choice("Slug");
+        }
     }
     public void ShotgunUpgradeSawedOff()
     {
         bool purchaseFailed = Tier2Upgrade("Shotgun", "Sawed-Off", ShotgunPage.instance.tier2Upgrade);
         if (!purchaseFailed)
+        {
             ShotgunPage.instance.NextTier();
+            ShotgunPage.instance.SetTier2Choice("Sawed-Off");
+        }
     }
     public void ShotgunPlasmaUpgrade()
     {
-        
+        bool purchaseFailed = Tier2Upgrade(ShotgunPage.instance.GetTeir2Choice(), ShotgunPage.instance.GetTeir2Choice() + plasma, ShotgunPage.instance.tier3Upgrade);
+        if (!purchaseFailed)
+            PistolPage.instance.NextTier();
     }
 
     public void ShotgunVoidUpgrade()
     {
-
+        bool purchaseFailed = Tier2Upgrade(ShotgunPage.instance.GetTeir2Choice(), ShotgunPage.instance.GetTeir2Choice() + voidUpgrade, ShotgunPage.instance.tier3Upgrade);
+        if (!purchaseFailed)
+            PistolPage.instance.NextTier();
     }
     #endregion
 
@@ -392,24 +398,34 @@ public class UIStoreButtons : MonoBehaviour
     {
         bool purchaseFailed = Tier2Upgrade("Heavy", "Grenade Launcher", HeavyPage.instance.tier2Upgrade);
         if (!purchaseFailed)
+        {
             HeavyPage.instance.NextTier();
+            HeavyPage.instance.SetTier2Choice("Grenade Launcher");
+        }
     }
 
     public void HeavyMinigun()
     {
         bool purchaseFailed = Tier2Upgrade("Heavy", "Minigun", HeavyPage.instance.tier2Upgrade);
         if (!purchaseFailed)
+        {
             HeavyPage.instance.NextTier();
+            HeavyPage.instance.SetTier2Choice("Minigun");
+        }
     }
 
     public void HeavyVoidUpgrade()
     {
-
+        bool purchaseFailed = Tier2Upgrade(HeavyPage.instance.GetTeir2Choice(), HeavyPage.instance.GetTeir2Choice() + voidUpgrade, HeavyPage.instance.tier3Upgrade);
+        if (!purchaseFailed)
+            HeavyPage.instance.NextTier();
     }
 
     public void HeavyPlasmaUpgrade()
     {
-
+        bool purchaseFailed = Tier2Upgrade(HeavyPage.instance.GetTeir2Choice(), HeavyPage.instance.GetTeir2Choice() + plasma, HeavyPage.instance.tier3Upgrade); ;
+        if (!purchaseFailed)
+            HeavyPage.instance.NextTier();
     }
     #endregion
     #endregion
