@@ -18,7 +18,7 @@ public class UIStoreButtons : MonoBehaviour
         }
         else
             purchaseFailed = true;
-        StartCoroutine(HandlePurchaseMessage(purchaseFailed));
+        StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
     }
     private void PurchaseAmmo(string weaponName, int cost, int quantity = 0)
     {
@@ -33,7 +33,7 @@ public class UIStoreButtons : MonoBehaviour
         }
         else
             purchaseFailed = true;
-        StartCoroutine(HandlePurchaseMessage(purchaseFailed));
+        StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
     }
     private void CheckPurchaseItem(int weaponIndex, float multiplier, int cost)
     {
@@ -63,7 +63,7 @@ public class UIStoreButtons : MonoBehaviour
         }
         else
             purchaseFailed = true;
-        StartCoroutine(HandlePurchaseMessage(purchaseFailed));
+        StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
     }
 
     private void UpgradeDamage(string weaponName, int cost, float damage)
@@ -78,26 +78,10 @@ public class UIStoreButtons : MonoBehaviour
         }
         else
             purchaseFailed = true;
-        StartCoroutine(HandlePurchaseMessage(purchaseFailed));
+        StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
     }
 
-    private IEnumerator HandlePurchaseMessage(bool purchaseFailed, string message = "")
-    {
-        if (!purchaseFailed)
-        {
-            UIStore.instance.purchaseMessage.color = Color.green;
-            message = "Transaction Success!";
-        }
-        else
-        {
-            UIStore.instance.purchaseMessage.color = Color.red;
-            message = "Transaction Failed!";
-        }
-        UIStore.instance.purchaseMessage.text = message;
-        UIStore.instance.purchaseMessageObj.SetActive(true);
-        yield return new WaitForSecondsRealtime(2);
-        UIStore.instance.purchaseMessageObj.SetActive(false);
-    }
+    
 
     public void Tier2Upgrade(string baseWeapon, string tier2Weapon, int cost)
     {
@@ -116,7 +100,7 @@ public class UIStoreButtons : MonoBehaviour
         else
             purchaseFailed = true;
         
-        StartCoroutine(HandlePurchaseMessage(purchaseFailed));
+        StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
 
         
         Debug.Log(purchaseIndex);
@@ -159,7 +143,7 @@ public class UIStoreButtons : MonoBehaviour
         }
         else
             purchaseFailed = true;
-        StartCoroutine(HandlePurchaseMessage(purchaseFailed));
+        StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
     }
 
     public void BuyMaxHealth()
@@ -173,7 +157,7 @@ public class UIStoreButtons : MonoBehaviour
         }
         else
             purchaseFailed = true;
-        StartCoroutine(HandlePurchaseMessage(purchaseFailed));
+        StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
     }
 
   
@@ -233,7 +217,7 @@ public class UIStoreButtons : MonoBehaviour
         }
         else
             purchaseFailed = true;
-        StartCoroutine(HandlePurchaseMessage(purchaseFailed));
+        StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
         if(!purchaseFailed)
             ShotgunPage.instance.FirstTier();
 
@@ -290,7 +274,7 @@ public class UIStoreButtons : MonoBehaviour
         }
         else
             purchaseFailed = true;
-        StartCoroutine(HandlePurchaseMessage(purchaseFailed));
+        StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
         if (!purchaseFailed)
             RiflePage.instance.FirstTier();
     }
@@ -347,7 +331,7 @@ public class UIStoreButtons : MonoBehaviour
         }
         else
             purchaseFailed = true;
-        StartCoroutine(HandlePurchaseMessage(purchaseFailed));
+        StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
         if (!purchaseFailed)
             HeavyPage.instance.FirstTier();
     }
