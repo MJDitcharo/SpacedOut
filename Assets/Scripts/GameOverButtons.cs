@@ -3,13 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOverButtons : MonoBehaviour
+public class GameOverButtons : PopUpMenu
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        Time.timeScale = 0;
-    }
     public void Quit()
     {
         Application.Quit();
@@ -23,5 +19,17 @@ public class GameOverButtons : MonoBehaviour
     public void LastCheckpoint()
     {
         GameManager.instance.Respawn();
+    }
+
+    public void Active()
+    {
+        if (gameObject.activeInHierarchy)
+        {
+            FreezeWorld();
+        }
+        else
+        {
+            UnfreezeWorld();
+        }
     }
 }
