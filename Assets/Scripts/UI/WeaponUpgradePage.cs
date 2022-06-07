@@ -16,7 +16,7 @@ public class WeaponUpgradePage : StorePage
     protected GameObject buyAmmo, buyWeapon;
     [SerializeField]
     protected List<GameObject> upgradeTiers = new();
-    
+
     protected int currentTier = 0;
     [SerializeField]
     private int maxTier = 4;
@@ -135,12 +135,14 @@ public class WeaponUpgradePage : StorePage
         {
             upgradeTiers[0].SetActive(false);
             buyAmmo.SetActive(false);
-            buyWeapon.SetActive(true);
+            if (buyWeapon != null)
+                buyWeapon.SetActive(true);
         }
     }
     public void FirstTier()
     {
-        buyWeapon.transform.position += new Vector3(30, 0, 0);
+        if (buyWeapon != null)
+            buyWeapon.transform.position += new Vector3(30, 0, 0);
         buyAmmo.SetActive(true);
         upgradeTiers[0].SetActive(true);
     }
@@ -150,7 +152,7 @@ public class WeaponUpgradePage : StorePage
         if (currentTier + 1 <= maxTier)
         {
             //upgradeTiers[currentTier].SetActive(false);
-            upgradeTiers[currentTier].transform.position += new Vector3(30, 0, 0); 
+            upgradeTiers[currentTier].transform.position += new Vector3(30, 0, 0);
             currentTier++;
             upgradeTiers[currentTier].SetActive(true);
         }
