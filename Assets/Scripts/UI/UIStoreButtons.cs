@@ -285,14 +285,14 @@ public class UIStoreButtons : MonoBehaviour
     {
         bool purchaseFailed = Tier2Upgrade(ShotgunPage.instance.GetTeir2Choice(), ShotgunPage.instance.GetTeir2Choice() + plasma, ShotgunPage.instance.tier3Upgrade);
         if (!purchaseFailed)
-            PistolPage.instance.NextTier();
+            ShotgunPage.instance.NextTier();
     }
 
     public void ShotgunVoidUpgrade()
     {
         bool purchaseFailed = Tier2Upgrade(ShotgunPage.instance.GetTeir2Choice(), ShotgunPage.instance.GetTeir2Choice() + voidUpgrade, ShotgunPage.instance.tier3Upgrade);
         if (!purchaseFailed)
-            PistolPage.instance.NextTier();
+            ShotgunPage.instance.NextTier();
     }
     #endregion
 
@@ -336,23 +336,33 @@ public class UIStoreButtons : MonoBehaviour
     {
         bool purchaseFailed = Tier2Upgrade("Rifle", "Burst", RiflePage.instance.tier2Upgrade);
         if (!purchaseFailed)
+        {
             RiflePage.instance.NextTier();
+            RiflePage.instance.SetTier2Choice("Burst");
+        }
     }
 
     public void RifleAssault()
     {
         bool purchaseFailed = Tier2Upgrade("Rifle", "Assault", RiflePage.instance.tier2Upgrade);
         if (!purchaseFailed)
+        {
             RiflePage.instance.NextTier();
+            RiflePage.instance.SetTier2Choice("Assault");
+        }
     }
 
     public void RiflePlasmaUpgrade()
     {
-
+        bool purchaseFailed = Tier2Upgrade(RiflePage.instance.GetTeir2Choice(), RiflePage.instance.GetTeir2Choice() + plasma, RiflePage.instance.tier3Upgrade);
+        if (!purchaseFailed)
+            RiflePage.instance.NextTier();
     }
     public void RifleVoidUpgrade()
     {
-
+        bool purchaseFailed = Tier2Upgrade(RiflePage.instance.GetTeir2Choice(), RiflePage.instance.GetTeir2Choice() + voidUpgrade, RiflePage.instance.tier3Upgrade);
+        if (!purchaseFailed)
+            RiflePage.instance.NextTier();
     }
 
     #endregion
