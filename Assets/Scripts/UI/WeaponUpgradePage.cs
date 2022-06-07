@@ -20,7 +20,10 @@ public class WeaponUpgradePage : StorePage
     private const int maxTier = 2;
     protected string weaponName; //MUST be set in the start function for each child. This is an abstract field
 
-
+    protected override void Start()
+    {
+        base.Start();
+    }
     protected override void SetInitialPrices()
     {
         pricesInt.Add(ammoCost);
@@ -29,7 +32,7 @@ public class WeaponUpgradePage : StorePage
         pricesInt.Add(tier1Upgrade);
         pricesInt.Add(tier2Upgrade);
         pricesInt.Add(tier3Upgrade);
-        
+
     }
 
     protected void UpgradeMeshes(GameObject upgrade)
@@ -135,16 +138,17 @@ public class WeaponUpgradePage : StorePage
     }
     public void FirstTier()
     {
-        buyWeapon.SetActive(false);
+        buyWeapon.transform.position += new Vector3(30, 0, 0);
         buyAmmo.SetActive(true);
         upgradeTiers[0].SetActive(true);
     }
 
     public void NextTier()
     {
-        if(currentTier + 1 <= maxTier)
+        if (currentTier + 1 <= maxTier)
         {
-            upgradeTiers[currentTier].SetActive(false);
+            //upgradeTiers[currentTier].SetActive(false);
+            upgradeTiers[currentTier].transform.position += new Vector3(30, 0, 0); 
             currentTier++;
             upgradeTiers[currentTier].SetActive(true);
         }
