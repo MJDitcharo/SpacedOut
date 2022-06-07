@@ -85,7 +85,7 @@ public class UIStoreButtons : MonoBehaviour
 
 
 
-    public bool Tier2Upgrade(string baseWeapon, string tier2Weapon, int cost)
+    public bool Tier2Upgrade(string baseWeapon, string tier2Weapon, int cost, bool tier3 = false)
     {
         bool purchaseFailed;
         if (GameManager.instance.skrapCount.GetQuantity() >= cost)
@@ -110,6 +110,24 @@ public class UIStoreButtons : MonoBehaviour
         return purchaseFailed;
     }
 
+    public bool Tier3Upgrade(string baseWeapon, string tier3Weapon, int cost, bool tier3 = false)
+    {
+        int i = 0;
+        foreach (Transform item in WeaponHolder.instance.transform)
+        {
+            if (i < WeaponHolder.instance.currentChildCount)
+            {
+                if (item.name == baseWeapon)
+                {
+                    baseWeapon = item.name;
+                    break;
+                }
+            }
+            else
+                break;
+        }
+        return Tier2Upgrade(baseWeapon, tier3Weapon, ShotgunPage.instance.tier3Upgrade);
+    }
     private void UnlockWeapon(string weaponName)
     {
         if (WeaponHolder.instance.AddToUnlockedItems(weaponName))
@@ -196,9 +214,9 @@ public class UIStoreButtons : MonoBehaviour
             PistolPage.instance.NextTier();
     }
 
-    public void PistolDualWeildUpgrade()
+    public void PistolDualWieldUpgrade()
     {
-        bool purchaseFailed = Tier2Upgrade("Pistol", "Dual Weild", PistolPage.instance.tier2Upgrade);
+        bool purchaseFailed = Tier2Upgrade("Pistol", "Dual Wield", PistolPage.instance.tier2Upgrade);
         if (!purchaseFailed)
             PistolPage.instance.NextTier();
     }
@@ -208,7 +226,7 @@ public class UIStoreButtons : MonoBehaviour
     }
     public void PistolPlasmaUpgrade()
     {
-
+        bool purchaseFailed = Tier3Upgrade("Pistol", "Plasma", PistolPage.instance.tier3Upgrade);
     }
     #endregion
 
@@ -263,7 +281,7 @@ public class UIStoreButtons : MonoBehaviour
     }
     public void ShotgunPlasmaUpgrade()
     {
-
+        
     }
 
     public void ShotgunVoidUpgrade()

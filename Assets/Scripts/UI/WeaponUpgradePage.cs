@@ -16,16 +16,16 @@ public class WeaponUpgradePage : StorePage
     protected GameObject buyAmmo, buyWeapon;
     [SerializeField]
     protected List<GameObject> upgradeTiers = new();
+    protected bool option1;
 
     protected int currentTier = 0;
-    [SerializeField]
-    private int maxTier = 4;
+    private int maxTier;
     protected string weaponName; //MUST be set in the start function for each child. This is an abstract field
 
     protected override void Start()
     {
         base.Start();
-        
+        maxTier = upgradeTiers.Count;
     }
     protected override void SetInitialPrices()
     {
@@ -150,12 +150,9 @@ public class WeaponUpgradePage : StorePage
 
     public void NextTier()
     {
-        if (currentTier + 1 <= maxTier)
-        {
-            //upgradeTiers[currentTier].SetActive(false);
-            upgradeTiers[currentTier].transform.position += new Vector3(2500, 0, 0);
-            currentTier++;
+        upgradeTiers[currentTier].transform.position += new Vector3(2500, 0, 0);
+        currentTier++;
+        if (currentTier < maxTier)
             upgradeTiers[currentTier].SetActive(true);
-        }
     }
 }
