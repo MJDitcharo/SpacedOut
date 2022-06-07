@@ -5,7 +5,7 @@ using UnityEngine;
 public class bullet : MonoBehaviour
 {
     public float explosiveRadius = 0;
-    [SerializeField] float pushbackMultiplier = 1;
+    public float pushbackMultiplier = 1;
     public GameObject hitEffect;
     public int damage = 10;
 

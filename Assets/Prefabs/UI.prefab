@@ -1101,6 +1101,7 @@ MonoBehaviour:
   - {fileID: 7158229059461056498}
   - {fileID: 700103807002559939}
   - {fileID: 3875440300617220686}
+  maxTier: 4
 --- !u!1 &167572324506024805
 GameObject:
   m_ObjectHideFlags: 0
@@ -2071,6 +2072,7 @@ MonoBehaviour:
   - {fileID: 5904475237396797638}
   - {fileID: 981601789747321252}
   - {fileID: 3410512532619394619}
+  maxTier: 4
 --- !u!1 &572738163315230305
 GameObject:
   m_ObjectHideFlags: 0
@@ -6633,7 +6635,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 948585044482378376}
-  - component: {fileID: 8679909735756870786}
   m_Layer: 5
   m_Name: Grenade Slot
   m_TagString: Untagged
@@ -6664,19 +6665,6 @@ RectTransform:
   m_AnchoredPosition: {x: 536.02344, y: -334.18146}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8679909735756870786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743845787107066919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08f09bd4c410d7542963590b0b96a7a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitEffect: {fileID: 0}
 --- !u!1 &1825736943056189673
 GameObject:
   m_ObjectHideFlags: 0
@@ -9942,6 +9930,7 @@ MonoBehaviour:
   - {fileID: 1629493073616756176}
   - {fileID: 2283923266803786423}
   - {fileID: 1183982784521451785}
+  maxTier: 4
 --- !u!1 &2849927648566859818
 GameObject:
   m_ObjectHideFlags: 0
@@ -10298,7 +10287,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2003348524003972140}
-  - component: {fileID: 6291318146250569001}
   m_Layer: 5
   m_Name: Board Wipe
   m_TagString: Untagged
@@ -10329,18 +10317,6 @@ RectTransform:
   m_AnchoredPosition: {x: 388.02344, y: -335.18152}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6291318146250569001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2884682052843727557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee25e3fa0003f88489f54104ee9e10b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2901292472405124860
 GameObject:
   m_ObjectHideFlags: 0
@@ -19267,6 +19243,7 @@ MonoBehaviour:
   - {fileID: 4347798564243652887}
   - {fileID: 3096490277784629089}
   - {fileID: 8939557400414164648}
+  maxTier: 4
 --- !u!1 &5286232823216459935
 GameObject:
   m_ObjectHideFlags: 0
@@ -19935,7 +19912,7 @@ GameObject:
   - component: {fileID: 7345352019223599079}
   m_Layer: 5
   m_Name: Pause Menu
-  m_TagString: Untagged
+  m_TagString: PauseMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
