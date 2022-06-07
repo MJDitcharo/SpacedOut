@@ -74,6 +74,4 @@ public class PlayerMovement : MonoBehaviour
     {
         warpedPositon = position;
     }
-
-    
 }

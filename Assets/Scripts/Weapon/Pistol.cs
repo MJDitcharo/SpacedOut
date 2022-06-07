@@ -16,6 +16,7 @@ public class Pistol : WeaponBase
         {
             nextShotFired = Time.time + 1f / fireRate / fireRateMultiplier; //delay for the next bullet fired
             Shoot(); //shoot method
+            AudioManager.Instance.PlaySFX("Pistol");
         }
     }
 }
