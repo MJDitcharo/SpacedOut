@@ -19,6 +19,7 @@ public class GameOverButtons : PopUpMenu
     public void LastCheckpoint()
     {
         GameManager.instance.Respawn();
+        Time.timeScale = 1;
     }
 
     private void Update()
