@@ -21,15 +21,11 @@ public class GameOverButtons : PopUpMenu
         GameManager.instance.Respawn();
     }
 
-    public void Active()
+    private void Update()
     {
-        if (gameObject.activeInHierarchy)
+        if(gameObject.activeInHierarchy == false)
         {
-            FreezeWorld();
-        }
-        else
-        {
-            UnfreezeWorld();
+            Time.timeScale = 1;
         }
     }
 }
