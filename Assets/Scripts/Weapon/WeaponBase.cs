@@ -61,7 +61,6 @@ public class WeaponBase : MonoBehaviour
         ammoCount = GameManager.instance.ammoCount.GetQuantity(); 
         ammoCount--;
         GameManager.instance.ammoCount.Subtract();
-        AudioManager.Instance.PlaySFX("baseGun");
     }
 
     public void AddAmmo(int ammo = System.Int32.MaxValue)

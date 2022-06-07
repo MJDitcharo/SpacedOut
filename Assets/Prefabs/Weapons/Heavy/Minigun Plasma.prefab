@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1584802735812964015
+--- !u!1 &3880548603418800738
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8554808162358519253}
-  - component: {fileID: 5666778047894955224}
-  - component: {fileID: 721249374679983885}
+  - component: {fileID: 6241122010666465560}
+  - component: {fileID: 7962455711212517397}
+  - component: {fileID: 3037193786646952896}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -18,36 +18,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8554808162358519253
+--- !u!4 &6241122010666465560
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584802735812964015}
+  m_GameObject: {fileID: 3880548603418800738}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3974563, y: 0.3974563, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 5547271253448468729}
+  m_Father: {fileID: 7845268370878411828}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5666778047894955224
+--- !u!33 &7962455711212517397
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584802735812964015}
+  m_GameObject: {fileID: 3880548603418800738}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &721249374679983885
+--- !u!23 &3037193786646952896
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584802735812964015}
+  m_GameObject: {fileID: 3880548603418800738}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -83,7 +83,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &5893988742269671769
+--- !u!1 &8209926178916140436
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,56 +91,59 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5547271253448468729}
-  - component: {fileID: 3769023593618704603}
+  - component: {fileID: 7845268370878411828}
+  - component: {fileID: 3421281343190295243}
   m_Layer: 0
-  m_Name: RifleAssault
+  m_Name: Minigun Plasma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5547271253448468729
+--- !u!4 &7845268370878411828
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5893988742269671769}
+  m_GameObject: {fileID: 8209926178916140436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.06639, y: 1.4177629, z: 8.076488}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.07, y: 0.07, z: 0.07}
+  m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8554808162358519253}
-  - {fileID: 2977946488424041476}
+  - {fileID: 6241122010666465560}
+  - {fileID: 682270440017334473}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3769023593618704603
+--- !u!114 &3421281343190295243
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5893988742269671769}
+  m_GameObject: {fileID: 8209926178916140436}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43458d99afd65d2469aa34599022ff68, type: 3}
+  m_Script: {fileID: 11500000, guid: 419ef85d4a82be04698d51e34c43b8ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint:
-  - {fileID: 2977946488424041476}
+  - {fileID: 682270440017334473}
   firePointIndex: 0
-  bulletPrefab: {fileID: 0}
-  fireRate: 7
+  bulletPrefab: {fileID: 3743390652330680519, guid: df7ccf7d26b650f49b0ae7e541bc38ef, type: 3}
+  fireRate: 100
   bulletForce: 20
-  ammoCount: 0
-  maxAmmo: 0
+  ammoCount: 300
+  maxAmmo: 300
   damage: 10
   damageMultiplier: 1
   fireRateMultiplier: 1
---- !u!1 &6264625026169218754
+  explosiveRadius: 2
+  knockback: 1
+  fireSpread: 10
+--- !u!1 &8562548579356260879
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,7 +151,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2977946488424041476}
+  - component: {fileID: 682270440017334473}
   m_Layer: 0
   m_Name: Fire Point
   m_TagString: Untagged
@@ -156,18 +159,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2977946488424041476
+--- !u!4 &682270440017334473
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6264625026169218754}
+  m_GameObject: {fileID: 8562548579356260879}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.579, y: 0, z: 0.92}
+  m_LocalPosition: {x: -0.84, y: 0, z: 0.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5547271253448468729}
+  m_Father: {fileID: 7845268370878411828}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

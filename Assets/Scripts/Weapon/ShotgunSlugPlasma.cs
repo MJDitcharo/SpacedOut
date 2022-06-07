@@ -13,6 +13,6 @@ public class ShotgunSlugPlasma : Shotgun
         blast.transform.rotation = transform.rotation;
         Rigidbody blastRB = blast.GetComponent<Rigidbody>();
         blastRB.velocity = transform.forward * projectileSpeed;
-        AudioManager.Instance.PlaySFX("baseGun");
+        AudioManager.Instance.PlaySFX("Shotgun");
     }
 }

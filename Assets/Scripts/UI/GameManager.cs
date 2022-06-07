@@ -69,6 +69,8 @@ public class GameManager : MonoBehaviour
         prompt = GameObject.Find("UIPrompt").GetComponent<UIPrompt>();
         chestUI = GameObject.Find("Chest UI").GetComponent<UIChest>();
         shopUI = GameObject.Find("Shop UI").GetComponent<UIStore>();
+
+        AudioManager.Instance.PlaySFX("GameMusic");
     }
 
     private void Start()

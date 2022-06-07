@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1898637927}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25.58, y: -0.362, z: -9.67}
+  m_LocalPosition: {x: -0.441, y: 0, z: 0.629}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -57,7 +57,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912359191}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25.382, y: -0.271, z: -10.065}
+  m_LocalPosition: {x: -1.397, y: 0, z: 0}
   m_LocalScale: {x: 0.25406566, y: 0.25406566, z: 0.6392292}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -138,7 +138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912156957500200442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.466, y: -0.336, z: -9.614}
+  m_LocalPosition: {x: -1.098, y: 0, z: 0.577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 36853475028097985}
   - component: {fileID: 1898625812266393881}
   m_Layer: 0
-  m_Name: PistolDualWield
+  m_Name: Dual Weild Void
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   - {fileID: 7289913101391167292}
   - {fileID: 1898637928}
   firePointIndex: 0
-  bulletPrefab: {fileID: 3743390652330680519, guid: ac0d6938d6ec6a64e82dadac4285cf64, type: 3}
+  bulletPrefab: {fileID: 8561360944684799367, guid: 1e43369b0c74cc3458a3aa6527ab348e, type: 3}
   fireRate: 7
   bulletForce: 20
   ammoCount: 20
@@ -231,7 +231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6451241999871974807}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.65, y: -0.286, z: -10.069}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25406566, y: 0.25406566, z: 0.6392292}
   m_ConstrainProportionsScale: 1
   m_Children: []
