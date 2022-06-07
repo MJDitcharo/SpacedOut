@@ -19,17 +19,14 @@ public class GameOverButtons : PopUpMenu
     public void LastCheckpoint()
     {
         GameManager.instance.Respawn();
+        Time.timeScale = 1;
     }
 
-    public void Active()
+    private void Update()
     {
-        if (gameObject.activeInHierarchy)
+        if(gameObject.activeInHierarchy == false)
         {
-            FreezeWorld();
-        }
-        else
-        {
-            UnfreezeWorld();
+            Time.timeScale = 1;
         }
     }
 }

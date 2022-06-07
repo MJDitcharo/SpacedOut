@@ -38,6 +38,7 @@ public class playerHealth : health
         {
             //GameManager.instance.Respawn();
             gameOverScreen.SetActive(true);
+            Time.timeScale = 0;
             
         }
     }

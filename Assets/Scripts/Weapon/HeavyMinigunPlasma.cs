@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HeavyMinigunPlasma : bullet
 {
-    Coroutine explosion;
 
     public override void OnTriggerEnter(Collider other)
     {
@@ -32,8 +31,9 @@ public class HeavyMinigunPlasma : bullet
         Debug.Log("Exploding");
         health HP = other.gameObject.GetComponent<health>();
         EnemyMovement MV = other.gameObject.GetComponent<EnemyMovement>();
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2f);
         Debug.Log("past coroutine");
+        Debug.Log("Boom");
         if (HP != null)
         {
 
