@@ -47,6 +47,10 @@ public class bullet : MonoBehaviour
             Debug.Log("Damage Dealt");
             AttackState AS = other.gameObject.GetComponent<AttackState>();
             EnemyMovement EM = other.gameObject.GetComponent<EnemyMovement>();
+            if (other.tag != "Player")
+            {
+                EM.pushback = -pushbackMultiplier * (other.transform.position - transform.position).normalized; 
+            }
             if(HP.isStunned == true)
             {
                 AS.firerate *=  0.75f;

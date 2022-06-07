@@ -28,8 +28,9 @@ public class HeavyMinigunPlasma : bullet
     {
         health HP = other.gameObject.GetComponent<health>();
         EnemyMovement MV = other.gameObject.GetComponent<EnemyMovement>();
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2f);
 
+        Debug.Log("Boom");
         if (HP != null)
         {
             HP.DoDamage(damage * 2);
