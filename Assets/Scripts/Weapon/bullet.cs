@@ -11,7 +11,7 @@ public class bullet : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, 2);
+        Destroy(gameObject, 10);
     }
 
     public virtual void OnTriggerEnter(Collider other)
