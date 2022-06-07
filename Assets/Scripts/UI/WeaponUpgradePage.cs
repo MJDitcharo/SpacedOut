@@ -25,6 +25,7 @@ public class WeaponUpgradePage : StorePage
     protected override void Start()
     {
         base.Start();
+        
     }
     protected override void SetInitialPrices()
     {
