@@ -42,6 +42,7 @@ public class RifleBurstVoid : RifleBurst
             ammoCount--;
             GameManager.instance.ammoCount.Subtract();
         }
+        AudioManager.Instance.PlaySFX("baseGun");
         seconds = 0;
     }
 

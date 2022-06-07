@@ -36,6 +36,7 @@ public class RifleBurst : Rifle
             ammoCount = GameManager.instance.ammoCount.GetQuantity();
             ammoCount--;
             GameManager.instance.ammoCount.Subtract();
+            AudioManager.Instance.PlaySFX("baseGun");
 
             yield return new WaitForSeconds(burstFireRate); // wait till the next round
         }
