@@ -141,13 +141,9 @@ public class WeaponHolder : MonoBehaviour
 
     public bool AddToUnlockedItems(string weaponName)
     {
-        if (gameObject.transform.Find(weaponName) != null)
-        {
-            unlockedWeapons.Add(weaponName);
-            return true;
-        }
-        else
-            return false;
+        //if (gameObject.transform.Find(weaponName) != null)
+        unlockedWeapons.Add(weaponName);
+        return true;
     }
 
     public void ArrangeHierarchy(string weaponName, int index, string tier2Upgrade = "")

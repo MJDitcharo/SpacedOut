@@ -15,8 +15,9 @@ public class ChildSplitBullet : bullet
 
     public override void OnTriggerEnter(Collider other)
     {
-        if (other == ignore && done)
+        if (other == ignore && !done)
             return;
+        Debug.Log("there");
         base.OnTriggerEnter(other);
     }
 

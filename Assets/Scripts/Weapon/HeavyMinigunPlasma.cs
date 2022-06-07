@@ -20,18 +20,21 @@ public class HeavyMinigunPlasma : bullet
         }
 
         rb.velocity = new Vector3(0, 0, 0);
-        StartCoroutine(BulletExplosion(other));
+        GetComponent<Collider>().enabled = false;
 
     }
 
     IEnumerator BulletExplosion(Collider other)
     {
+        Debug.Log("Exploding");
         health HP = other.gameObject.GetComponent<health>();
         EnemyMovement MV = other.gameObject.GetComponent<EnemyMovement>();
-        yield return new WaitForSeconds(2);
-
+        yield return new WaitForSeconds(2f);
+        Debug.Log("past coroutine");
+        Debug.Log("Boom");
         if (HP != null)
         {
+
             HP.DoDamage(damage * 2);
             MV.pushback = -pushbackMultiplier * (other.transform.position - new Vector3(Random.Range(0, 10), 0 , Random.Range(0, 10))).normalized;
         }

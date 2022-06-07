@@ -41,7 +41,7 @@ public class AudioManager : MonoBehaviour
 
         if (soundEffect.audioType == AudioStyle.sfx)
         {
-            aSource.volume = LoadPrefs.Instance.sfxVolume;
+            //aSource.volume = LoadPrefs.Instance.sfxVolume;
         }
         else if(soundEffect.audioType == AudioStyle.music)
         {
