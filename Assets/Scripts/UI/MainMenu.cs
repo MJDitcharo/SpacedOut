@@ -59,7 +59,10 @@ public class MainMenu : MonoBehaviour
     }
     public void DefaultPrefs()
     {
-        PlayerPrefs.DeleteAll();
+        for(int i = 0; i < 4; i++)
+        {
+            PlayerPrefs.DeleteKey("Weapon " + i);
+        }
 
         PlayerPrefs.SetInt("SavedGame", 1);
         PlayerPrefs.SetInt("Scene Index", 1);

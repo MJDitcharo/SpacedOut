@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIStoreButtons : MonoBehaviour
 {
-    static private int purchaseIndex = 1;
+    static public int purchaseIndex = 1;
     private void CheckPurchaseItem(ItemCount itemCount, int cost, int quantity = 1)
     {
         bool purchaseFailed;
