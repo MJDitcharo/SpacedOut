@@ -45,6 +45,13 @@ public class bullet : MonoBehaviour
         {
             HP.DoDamage(damage);
             Debug.Log("Damage Dealt");
+            AttackState AS = other.gameObject.GetComponent<AttackState>();
+            EnemyMovement EM = other.gameObject.GetComponent<EnemyMovement>();
+            if(HP.isStunned == true)
+            {
+                AS.firerate *=  0.75f;
+                EM.movementSpeed *= 0.75f;
+            }
         }
 
         
