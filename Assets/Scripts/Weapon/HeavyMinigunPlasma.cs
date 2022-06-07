@@ -21,8 +21,6 @@ public class HeavyMinigunPlasma : bullet
 
         rb.velocity = new Vector3(0, 0, 0);
         GetComponent<Collider>().enabled = false;
-        if(explosion == null)
-            explosion = StartCoroutine(BulletExplosion(other));
 
     }
 
