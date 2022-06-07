@@ -16,8 +16,10 @@ public class WeaponUpgradePage : StorePage
     protected GameObject buyAmmo, buyWeapon;
     [SerializeField]
     protected List<GameObject> upgradeTiers = new();
+    
     protected int currentTier = 0;
-    private const int maxTier = 2;
+    [SerializeField]
+    private int maxTier = 4;
     protected string weaponName; //MUST be set in the start function for each child. This is an abstract field
 
     protected override void Start()

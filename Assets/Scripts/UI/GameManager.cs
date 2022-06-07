@@ -61,8 +61,8 @@ public class GameManager : MonoBehaviour
         }
 
         //ui stuff
-        pmenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
         ammoCount = GameObject.FindGameObjectWithTag("AmmoCount").GetComponent<ItemCount>();
+        pmenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
         boardWipeCount = GameObject.FindGameObjectWithTag("BoardWipeCount").GetComponent<ItemCount>();
         grenadeCount = GameObject.FindGameObjectWithTag("GrenadeCount").GetComponent<ItemCount>();
         skrapCount = GameObject.Find("Skrap Count").GetComponent<ItemCount>();
@@ -122,7 +122,6 @@ public class GameManager : MonoBehaviour
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Pistol>() != null)
             {
                 PlayerPrefs.SetInt("Pistol Ammo", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount);
-                Debug.Log("saved the pistol");
             }
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Shotgun>() != null)
                 PlayerPrefs.SetInt("Shotgun Ammo", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount);
@@ -130,6 +129,11 @@ public class GameManager : MonoBehaviour
                 PlayerPrefs.SetInt("Rifle Ammo", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount);
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Heavy>() != null)
                 PlayerPrefs.SetInt("Heavy Ammo", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount);
+        }
+
+        for(int i = 0; i < WeaponHolder.instance.unlockedWeapons.Count; i++)
+        {
+            PlayerPrefs.SetString("Weapon " + i, WeaponHolder.instance.unlockedWeapons[i]);
         }
     }
 
@@ -153,12 +157,21 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("Heavy Ammo", 7);
         }
 
+        WeaponHolder.instance.unlockedWeapons.Clear();
+        for (int i = 0; i < 4; i++)
+        {
+            if (PlayerPrefs.HasKey("Weapon " + i))
+            {
+                WeaponHolder.instance.unlockedWeapons.Add(PlayerPrefs.GetString("Weapon" + i));
+            }
+        }
+
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
         {
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Pistol>() != null && PlayerPrefs.HasKey("Pistol Ammo"))
             {
-                //Debug.Log("loaded the pistol");
                 WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount = PlayerPrefs.GetInt("Pistol Ammo");
+
             }
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Shotgun>() != null && PlayerPrefs.HasKey("Shotgun Ammo"))
                 WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount = PlayerPrefs.GetInt("Shotgun Ammo");
