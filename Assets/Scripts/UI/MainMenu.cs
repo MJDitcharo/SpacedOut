@@ -59,6 +59,8 @@ public class MainMenu : MonoBehaviour
     }
     public void DefaultPrefs()
     {
+        PlayerPrefs.DeleteAll();
+
         PlayerPrefs.SetInt("SavedGame", 1);
         PlayerPrefs.SetInt("Scene Index", 1);
         PlayerPrefs.SetInt("Checkpoint Index", 0);
