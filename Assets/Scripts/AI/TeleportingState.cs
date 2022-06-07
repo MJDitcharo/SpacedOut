@@ -5,7 +5,7 @@ using UnityEngine;
 public class TeleportingState : State
 {
     [SerializeField] State engageState;
-    [SerializeField] GameObject[] tpLocations;
+    public GameObject[] tpLocations;
     [SerializeField] float timeBetweenTeleports = 2;
     Coroutine teleportCoroutine;
     bool done = false;
@@ -31,7 +31,7 @@ public class TeleportingState : State
         return this;  
     }
 
-    IEnumerator Teleport()
+    public IEnumerator Teleport()
     {
         int numberOfTeleports = Random.Range(1, 4);
         
@@ -52,7 +52,9 @@ public class TeleportingState : State
                 }
             }
         }
+        
+        if(teleportCoroutine != null)
+            done = true;
         teleportCoroutine = null;
-        done = true;
     }
 }

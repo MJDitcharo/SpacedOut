@@ -23,6 +23,10 @@ public class VoidBossHealth : EnemyHealth
         {
             bossAttacks.bossIntensityMultiplier = 3;
         }
+        else if(currHealth <= 2 * maxHealth / 3)
+        {
+            bossAttacks.bossIntensityMultiplier = 2;
+        }
 
         base.DoDamage(_dmg);
     }
