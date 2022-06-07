@@ -10,6 +10,7 @@ public class playerHealth : health
 
     [SerializeField] float delayRate = 1f;
     private float delayDamge = 0f;
+    [SerializeField]GameObject gameOverScreen;
 
     private void Start()
     {
@@ -35,7 +36,9 @@ public class playerHealth : health
         GameManager.instance.healthBar.SetHealth((float)currHealth / maxHealth);
         if (currHealth <= 0)
         {
-            GameManager.instance.Respawn();
+            //GameManager.instance.Respawn();
+            gameOverScreen.SetActive(true);
+            
         }
     }
 
