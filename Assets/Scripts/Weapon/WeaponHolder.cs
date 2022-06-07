@@ -14,14 +14,13 @@ public class WeaponHolder : MonoBehaviour
     List<KeyCode> keys = new List<KeyCode> { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, };
     public int currentChildCount = 0;
     public bool allUnlocked;
-    int maxChildCount = 4; //only switch between unlocked weapons, 4 being the maximum
 
     private void Awake()
     {
         instance = this;
         SelectWeapon();
         if (allUnlocked)
-            maxChildCount = gameObject.transform.childCount - 1;
+            currentChildCount = transform.childCount - 1;
     }
 
     private void Start()
@@ -59,14 +58,14 @@ public class WeaponHolder : MonoBehaviour
         //change the gun images
         foreach (Transform t in gunImages.transform)
         {
-            if(selectedWeapon == i)
+            if (selectedWeapon == i)
             {
                 if (gunImages.transform.Find(t.name) == null)
                     Debug.Log("Not Found: " + t.name);
                 gunImages.transform.Find(t.name).gameObject.SetActive(true);
             }
             else
-            {   
+            {
                 if (gunImages.transform.Find(t.name) == null)
                     Debug.Log("Not Found: " + t.name);
                 gunImages.transform.Find(t.name).gameObject.SetActive(false);
@@ -154,11 +153,11 @@ public class WeaponHolder : MonoBehaviour
     public void ArrangeHierarchy(string weaponName, int index, string tier2Upgrade = "")
     {
         //check if the weapon is unlocked
-        if(IsWeaponUnlocked(weaponName))
+        if (IsWeaponUnlocked(weaponName))
         {
             //hierarachy for weaponholder
             Transform old = transform.GetChild(index);
-             transform.Find(weaponName).SetSiblingIndex(index);
+            transform.Find(weaponName).SetSiblingIndex(index);
             //hierarchy for gunImages
             Transform oldImage = gunImages.transform.Find(weaponName);
             gunImages.transform.Find(weaponName).SetSiblingIndex(index);
