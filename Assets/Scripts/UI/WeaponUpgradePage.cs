@@ -142,7 +142,7 @@ public class WeaponUpgradePage : StorePage
     public void FirstTier()
     {
         if (buyWeapon != null)
-            buyWeapon.transform.position += new Vector3(30, 0, 0);
+            buyWeapon.transform.position += new Vector3(2500, 0, 0); //move it out of the way of the screen
         buyAmmo.SetActive(true);
         upgradeTiers[0].SetActive(true);
     }
@@ -152,7 +152,7 @@ public class WeaponUpgradePage : StorePage
         if (currentTier + 1 <= maxTier)
         {
             //upgradeTiers[currentTier].SetActive(false);
-            upgradeTiers[currentTier].transform.position += new Vector3(30, 0, 0);
+            upgradeTiers[currentTier].transform.position += new Vector3(2500, 0, 0);
             currentTier++;
             upgradeTiers[currentTier].SetActive(true);
         }
