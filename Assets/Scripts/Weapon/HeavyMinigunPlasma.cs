@@ -33,7 +33,7 @@ public class HeavyMinigunPlasma : bullet
         if (HP != null)
         {
             HP.DoDamage(damage * 2);
-            MV.pushback = -pushbackMultiplier * (other.transform.position - new Vector3(Random.Range(0, 100), 0 , Random.Range(0,100))).normalized;
+            MV.pushback = -pushbackMultiplier * (other.transform.position - new Vector3(Random.Range(0, 10), 0 , Random.Range(0,10))).normalized;
         }
 
 
