@@ -12,6 +12,7 @@ public class PistolDualWield : Pistol
         rb.AddForce(firePoint[firePointIndex].forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
         GameManager.instance.bullets.Add(bullet);
         firePointIndex++;
+        AudioManager.Instance.PlaySFX("baseGun");
         if (firePointIndex >= firePoint.Length)
             firePointIndex = 0;
     }

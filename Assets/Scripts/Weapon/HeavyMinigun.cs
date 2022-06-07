@@ -21,5 +21,6 @@ public class HeavyMinigun : Heavy
         ammoCount = GameManager.instance.ammoCount.GetQuantity();
         ammoCount--;
         GameManager.instance.ammoCount.Subtract();
+        AudioManager.Instance.PlaySFX("baseGun");
     }
 }

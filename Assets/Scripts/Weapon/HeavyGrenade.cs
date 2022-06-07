@@ -13,5 +13,6 @@ public class HeavyGrenade : Heavy
         //deplete ammo
         ammoCount--;
         GameManager.instance.ammoCount.Subtract();
+        AudioManager.Instance.PlaySFX("baseGun");
     }
 }
