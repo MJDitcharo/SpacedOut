@@ -68,6 +68,7 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("Board Wipes", 0);
         PlayerPrefs.SetInt("Chest Opened", 0);
 
+        PlayerPrefs.SetString("Weapon 0", "Pistol");
         PlayerPrefs.SetInt("Pistol Ammo", 45);
 
         LoadingScene(1);

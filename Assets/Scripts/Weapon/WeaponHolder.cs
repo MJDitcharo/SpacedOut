@@ -9,9 +9,8 @@ public class WeaponHolder : MonoBehaviour
     [SerializeField]
     private int selectedWeapon = 0;
     static public WeaponHolder instance;
-    [SerializeField] GameObject gunImages;
-    [SerializeField]
-    private List<string> unlockedWeapons; //add the pistol by default
+    public GameObject gunImages;
+    public List<string> unlockedWeapons; //add the pistol by default
     List<KeyCode> keys = new List<KeyCode> { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, };
     public int currentChildCount = 0;
     const int maxChildCount = 4; //only switch between unlocked weapons, 4 being the maximum
