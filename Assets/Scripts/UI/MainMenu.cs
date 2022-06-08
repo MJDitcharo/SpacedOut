@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] float defaultVolume = 0.2f;
     private AsyncOperation operation;
 
-    private void Awake()
+    private void Start()
     {
         AudioManager.Instance.PlaySFX("MenuMusic");
     }
@@ -72,7 +72,7 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("Max Player Health", 100);
         PlayerPrefs.SetInt("Board Wipes", 0);
         PlayerPrefs.SetInt("Chest Opened", 0);
-
+        PlayerPrefs.SetInt("Child Count", 0);
         PlayerPrefs.SetString("Weapon 0", "Pistol");
         PlayerPrefs.SetInt("Pistol Ammo", 45);
 
@@ -151,15 +151,15 @@ public class MainMenu : MonoBehaviour
         
          yield return new WaitForSeconds(3);
         
-        while (!operation.isDone)
-        {
+        //while (!operation.isDone)
+        //{
 
-            float loadProgess = Mathf.Clamp01(operation.progress/0.9f);
-            loadingBar.fillAmount = loadProgess;
-            yield return null;
-            operation.allowSceneActivation = true;
-        }
+        //    float loadProgess = Mathf.Clamp01(operation.progress/0.9f);
+        //    loadingBar.fillAmount = loadProgess;
+        //    yield return null;
+        //}
         
+            operation.allowSceneActivation = true;
     }
 }
 

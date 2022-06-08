@@ -72,8 +72,6 @@ public class WeaponHolder : MonoBehaviour
             }
             i++;
         }
-
-
     }
 
     private void SwitchWeapons()
@@ -188,5 +186,13 @@ public class WeaponHolder : MonoBehaviour
             gunImages.transform.Find(tier2Weapon).SetSiblingIndex(a);
             oldImage.SetSiblingIndex(maxImage);
         }
+    }
+
+    public void SaveLoadout()
+    {
+        //clear the old loadout
+        unlockedWeapons.Clear();
+        for (int i = 0; i <= currentChildCount; i++)
+            unlockedWeapons.Add(transform.GetChild(i).name);
     }
 }
