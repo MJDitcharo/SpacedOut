@@ -33,6 +33,8 @@ public class WeaponHolder : MonoBehaviour
     {
         SwitchWeapons();
         UnequippedWeapons();
+        if (allUnlocked)
+            currentChildCount = transform.childCount - 1;
     }
 
     private void SelectWeapon()

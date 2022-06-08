@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeavyMinigun : Heavy
+public class HeavyMinigun : WeaponBase
 {
     [SerializeField] int fireSpread = 2;
 
