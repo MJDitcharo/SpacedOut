@@ -184,6 +184,7 @@ public class UIStoreButtons : MonoBehaviour
         bool purchaseFailed = UpgradeFireRate("Pistol", PistolPage.instance.tier1Upgrade, PistolPage.instance.fireRateQuantity);
         if (!purchaseFailed)
             PistolPage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
 
     public void PistolUpgradeDamage()
@@ -191,6 +192,7 @@ public class UIStoreButtons : MonoBehaviour
         bool purchaseFailed = UpgradeDamage("Pistol", PistolPage.instance.tier1Upgrade, PistolPage.instance.damageQuantity);
         if (!purchaseFailed)
             PistolPage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
 
     public void PistolDeagleUpgrade()
@@ -199,6 +201,7 @@ public class UIStoreButtons : MonoBehaviour
         if (!purchaseFailed)
             PistolPage.instance.NextTier();
         PistolPage.instance.SetTier2Choice("Deagle");
+        GameManager.instance.SaveGame();
     }
 
     public void PistolDualWieldUpgrade()
@@ -209,18 +212,21 @@ public class UIStoreButtons : MonoBehaviour
             PistolPage.instance.NextTier();
             PistolPage.instance.SetTier2Choice("Dual Wield");
         }
+        GameManager.instance.SaveGame();
     }
     public void PistolVoidUpgrade()
     {
         bool purchaseFailed = Tier2Upgrade(PistolPage.instance.GetTeir2Choice(), PistolPage.instance.GetTeir2Choice() + voidUpgrade, PistolPage.instance.tier3Upgrade);
         if (!purchaseFailed)
             PistolPage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
     public void PistolPlasmaUpgrade()
     {
         bool purchaseFailed = Tier2Upgrade(PistolPage.instance.GetTeir2Choice(), PistolPage.instance.GetTeir2Choice() + plasma, PistolPage.instance.tier3Upgrade);
         if (!purchaseFailed)
             PistolPage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
     #endregion
 
@@ -240,7 +246,7 @@ public class UIStoreButtons : MonoBehaviour
         StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
         if (!purchaseFailed)
             ShotgunPage.instance.FirstTier();
-
+        GameManager.instance.SaveGame();
     }
 
     public void ShotgunAmmo()

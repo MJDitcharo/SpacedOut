@@ -11,8 +11,9 @@ public class ShotgunPage : WeaponUpgradePage
         base.Start();
         //check if the weapon is unlocked
         CheckUnlock("Shotgun");
+        TiersFromPlayerPrefs("Pistol Page");
     }
 
-    
+
 
 }

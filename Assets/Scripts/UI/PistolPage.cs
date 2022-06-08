@@ -11,6 +11,7 @@ public class PistolPage : WeaponUpgradePage
         base.Start();
         CheckUnlock("Pistol");
         FirstTier(); //since the pistol is unlocked by default
+        TiersFromPlayerPrefs("Pistol Page");
     }
 
 }
