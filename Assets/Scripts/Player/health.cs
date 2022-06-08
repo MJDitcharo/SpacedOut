@@ -13,6 +13,8 @@ public class health : MonoBehaviour
     private Coroutine vulnCoroutine;
     public bool vulnerable = false;
     public bool isStunned = false;
+
+    public float burnTimer = 0;
     [SerializeField] float fireTickTime = 1;
     float fireTick = 0;
     [SerializeField] float vulnAmount = 1.5f;
@@ -22,12 +24,24 @@ public class health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        burnTimer = 0;
         currHealth = maxHealth;
     }
 
     protected void Update()
     {
         fireTick += Time.deltaTime;
+        burnTimer -= Time.deltaTime;
+        if(burnTimer > 0)
+        {
+            if (fireTick >= fireTickTime)
+            {
+                Debug.Log("Burning");
+                DoDamage(10);
+                fireTick = 0;
+                //Debug.Break();
+            }
+        }
     }
 
     // Health takes damage
@@ -91,4 +105,6 @@ public class health : MonoBehaviour
         yield return new WaitForSeconds(vulnTime);
         vulnerable = false;
     }
+
+    
 }
