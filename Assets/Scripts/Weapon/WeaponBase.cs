@@ -5,7 +5,7 @@ public class WeaponBase : MonoBehaviour
     public enum WeaponID { Pistol, Shotgun, Heavy, Rifle, Melee };
     [SerializeField]
     private static bool weaponOnStart = false;
-    protected WeaponID weaponID;
+    public WeaponID  weaponID{ get; protected set; }
     [SerializeField]
     public Transform[] firePoint;
     public int firePointIndex = 0;
@@ -92,9 +92,19 @@ public class WeaponBase : MonoBehaviour
         damageMultiplier = multiplier;
     }
 
+    public float GetDamageMultiplier()
+    {
+        return damageMultiplier;
+    }
+
     public void SetFireRateMultiplier(float multiplier)
     {
         fireRateMultiplier = multiplier;
+    }
+
+    public float GetFireRateMultiplier()
+    {
+        return fireRateMultiplier;
     }
 
 }

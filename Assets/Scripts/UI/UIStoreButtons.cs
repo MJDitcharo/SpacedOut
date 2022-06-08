@@ -111,10 +111,6 @@ public class UIStoreButtons : MonoBehaviour
         return purchaseFailed;
     }
 
-    public bool Tier3Upgrade(string baseWeapon, string tier3Weapon, int cost, bool tier3 = false)
-    {
-        return Tier2Upgrade(baseWeapon, tier3Weapon, ShotgunPage.instance.tier3Upgrade);
-    }
     private void UnlockWeapon(string weaponName)
     {
         if (WeaponHolder.instance.AddToUnlockedItems(weaponName))
@@ -134,6 +130,7 @@ public class UIStoreButtons : MonoBehaviour
     public void BuyBoardWipe()
     {
         CheckPurchaseItem(GameManager.instance.boardWipeCount, GeneralPage.instance.boardWipe);
+        GameManager.instance.SaveGame();
     }
     public void BuyGrenade()
     {
@@ -151,6 +148,7 @@ public class UIStoreButtons : MonoBehaviour
         else
             purchaseFailed = true;
         StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
+        GameManager.instance.SaveGame();
     }
 
     public void BuyMaxHealth()
@@ -165,6 +163,7 @@ public class UIStoreButtons : MonoBehaviour
         else
             purchaseFailed = true;
         StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
+        GameManager.instance.SaveGame();
     }
 
 
@@ -177,6 +176,7 @@ public class UIStoreButtons : MonoBehaviour
     public void PistolAmmo()
     {
         PurchaseAmmo("Pistol", PistolPage.instance.ammoCost, PistolPage.instance.ammoQuantity);
+        GameManager.instance.SaveGame();
     }
 
     public void PistolUpgradeFireRate()
@@ -245,13 +245,14 @@ public class UIStoreButtons : MonoBehaviour
             purchaseFailed = true;
         StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
         if (!purchaseFailed)
-            ShotgunPage.instance.FirstTier();
+            ShotgunPage.instance.NextTier();
         GameManager.instance.SaveGame();
     }
 
     public void ShotgunAmmo()
     {
         PurchaseAmmo("Shotgun", ShotgunPage.instance.ammoCost, ShotgunPage.instance.ammoQuantity);
+        GameManager.instance.SaveGame();
     }
 
     public void ShotgunUpgradeFireRate()
@@ -259,6 +260,7 @@ public class UIStoreButtons : MonoBehaviour
         bool purchaseFailed = UpgradeFireRate("Shotgun", ShotgunPage.instance.tier1Upgrade, ShotgunPage.instance.fireRateQuantity);
         if (!purchaseFailed)
             ShotgunPage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
 
     public void ShotgunUpgradeDamage()
@@ -266,6 +268,7 @@ public class UIStoreButtons : MonoBehaviour
         bool purchaseFailed = UpgradeDamage("Shotgun", ShotgunPage.instance.tier1Upgrade, ShotgunPage.instance.damageQuantity);
         if (!purchaseFailed)
             ShotgunPage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
 
     public void ShotgunUpgradeSlug()
@@ -276,6 +279,7 @@ public class UIStoreButtons : MonoBehaviour
             ShotgunPage.instance.NextTier();
             ShotgunPage.instance.SetTier2Choice("Slug");
         }
+        GameManager.instance.SaveGame();
     }
     public void ShotgunUpgradeSawedOff()
     {
@@ -285,12 +289,14 @@ public class UIStoreButtons : MonoBehaviour
             ShotgunPage.instance.NextTier();
             ShotgunPage.instance.SetTier2Choice("Sawed-Off");
         }
+        GameManager.instance.SaveGame();
     }
     public void ShotgunPlasmaUpgrade()
     {
         bool purchaseFailed = Tier2Upgrade(ShotgunPage.instance.GetTeir2Choice(), ShotgunPage.instance.GetTeir2Choice() + plasma, ShotgunPage.instance.tier3Upgrade);
         if (!purchaseFailed)
             ShotgunPage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
 
     public void ShotgunVoidUpgrade()
@@ -298,6 +304,7 @@ public class UIStoreButtons : MonoBehaviour
         bool purchaseFailed = Tier2Upgrade(ShotgunPage.instance.GetTeir2Choice(), ShotgunPage.instance.GetTeir2Choice() + voidUpgrade, ShotgunPage.instance.tier3Upgrade);
         if (!purchaseFailed)
             ShotgunPage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
     #endregion
 
@@ -317,11 +324,13 @@ public class UIStoreButtons : MonoBehaviour
             purchaseFailed = true;
         StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
         if (!purchaseFailed)
-            RiflePage.instance.FirstTier();
+            RiflePage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
     public void RifleAmmo()
     {
         PurchaseAmmo("Rifle", RiflePage.instance.ammoCost, RiflePage.instance.ammoQuantity);
+        GameManager.instance.SaveGame();
     }
 
     public void RifleUpgradeDamage()
@@ -329,12 +338,14 @@ public class UIStoreButtons : MonoBehaviour
         bool purchaseFailed = UpgradeDamage("Rifle", RiflePage.instance.tier1Upgrade, RiflePage.instance.damageQuantity);
         if (!purchaseFailed)
             RiflePage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
     public void RifleUpgradeFireRate()
     {
         bool purchaseFailed = UpgradeFireRate("Rifle", RiflePage.instance.tier1Upgrade, RiflePage.instance.fireRateQuantity);
         if (!purchaseFailed)
             RiflePage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
 
 
@@ -346,6 +357,7 @@ public class UIStoreButtons : MonoBehaviour
             RiflePage.instance.NextTier();
             RiflePage.instance.SetTier2Choice("Burst");
         }
+        GameManager.instance.SaveGame();
     }
 
     public void RifleAssault()
@@ -356,6 +368,7 @@ public class UIStoreButtons : MonoBehaviour
             RiflePage.instance.NextTier();
             RiflePage.instance.SetTier2Choice("Assault");
         }
+        GameManager.instance.SaveGame();
     }
 
     public void RiflePlasmaUpgrade()
@@ -363,12 +376,14 @@ public class UIStoreButtons : MonoBehaviour
         bool purchaseFailed = Tier2Upgrade(RiflePage.instance.GetTeir2Choice(), RiflePage.instance.GetTeir2Choice() + plasma, RiflePage.instance.tier3Upgrade);
         if (!purchaseFailed)
             RiflePage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
     public void RifleVoidUpgrade()
     {
         bool purchaseFailed = Tier2Upgrade(RiflePage.instance.GetTeir2Choice(), RiflePage.instance.GetTeir2Choice() + voidUpgrade, RiflePage.instance.tier3Upgrade);
         if (!purchaseFailed)
             RiflePage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
 
     #endregion
@@ -389,18 +404,21 @@ public class UIStoreButtons : MonoBehaviour
             purchaseFailed = true;
         StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
         if (!purchaseFailed)
-            HeavyPage.instance.FirstTier();
+            HeavyPage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
 
     public void HeavyAmmo()
     {
         PurchaseAmmo("Heavy", HeavyPage.instance.ammoCost, HeavyPage.instance.ammoQuantity);
+        GameManager.instance.SaveGame();
     }
     public void HeavyUpgradeDamage()
     {
         bool purchaseFailed = UpgradeDamage("Heavy", HeavyPage.instance.tier1Upgrade, HeavyPage.instance.damageQuantity);
         if (!purchaseFailed)
             HeavyPage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
 
 
@@ -409,6 +427,7 @@ public class UIStoreButtons : MonoBehaviour
         bool purchaseFailed = UpgradeFireRate("Heavy", HeavyPage.instance.tier1Upgrade, HeavyPage.instance.fireRateQuantity);
         if (!purchaseFailed)
             HeavyPage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
 
     public void HeavyGrenadeLauncher()
@@ -419,6 +438,7 @@ public class UIStoreButtons : MonoBehaviour
             HeavyPage.instance.NextTier();
             HeavyPage.instance.SetTier2Choice("Grenade Launcher");
         }
+        GameManager.instance.SaveGame();
     }
 
     public void HeavyMinigun()
@@ -429,6 +449,7 @@ public class UIStoreButtons : MonoBehaviour
             HeavyPage.instance.NextTier();
             HeavyPage.instance.SetTier2Choice("Minigun");
         }
+        GameManager.instance.SaveGame();
     }
 
     public void HeavyVoidUpgrade()
@@ -436,6 +457,7 @@ public class UIStoreButtons : MonoBehaviour
         bool purchaseFailed = Tier2Upgrade(HeavyPage.instance.GetTeir2Choice(), HeavyPage.instance.GetTeir2Choice() + voidUpgrade, HeavyPage.instance.tier3Upgrade);
         if (!purchaseFailed)
             HeavyPage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
 
     public void HeavyPlasmaUpgrade()
@@ -443,6 +465,7 @@ public class UIStoreButtons : MonoBehaviour
         bool purchaseFailed = Tier2Upgrade(HeavyPage.instance.GetTeir2Choice(), HeavyPage.instance.GetTeir2Choice() + plasma, HeavyPage.instance.tier3Upgrade); ;
         if (!purchaseFailed)
             HeavyPage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
     #endregion
     #endregion

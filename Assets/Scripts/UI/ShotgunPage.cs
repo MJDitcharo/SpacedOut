@@ -8,8 +8,8 @@ public class ShotgunPage : WeaponUpgradePage
     protected override void Start()
     {
         instance = this;
+        pageName = "ShotgunPage";
         base.Start();
-        //check if the weapon is unlocked
         CheckUnlock("Shotgun");
     }
 

@@ -30,8 +30,6 @@ public class GameManager : MonoBehaviour
     public UIStore shopUI;
     public bool menuIsActive = false;
 
-    private bool firstSave = true;
-    private bool firstLoad = true;
     public bool Lockdown { get; set; } = false;
 
     // Start is called before the first frame update
@@ -72,7 +70,7 @@ public class GameManager : MonoBehaviour
         chestUI = GameObject.Find("Chest UI").GetComponent<UIChest>();
         shopUI = GameObject.Find("Shop UI").GetComponent<UIStore>();
 
-        AudioManager.Instance.PlaySFX("GameMusic");
+        //AudioManager.Instance.PlaySFX("GameMusic");
     }
 
     private void Start()
@@ -153,7 +151,30 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetString("Weapon " + i, WeaponHolder.instance.unlockedWeapons[i]);
         }
         PlayerPrefs.SetInt("Child Count", WeaponHolder.instance.currentChildCount);
-        firstSave = false;
+
+        //save the store datat
+        if (PistolPage.instance != null)
+            PlayerPrefs.SetInt("PistolPage", PistolPage.instance.GetCurrentTier());
+        if (ShotgunPage.instance != null)
+            PlayerPrefs.SetInt("ShotgunPage", ShotgunPage.instance.GetCurrentTier());
+        if (RiflePage.instance != null)
+            PlayerPrefs.SetInt("RiflePage", RiflePage.instance.GetCurrentTier());
+        if (HeavyPage.instance != null)
+            PlayerPrefs.SetInt("HeavyPage", HeavyPage.instance.GetCurrentTier());
+
+        //firerate and damage for each weapon
+        PlayerPrefs.SetFloat("Pistol Damage", WeaponHolder.instance.GetWeaponDamage(WeaponBase.WeaponID.Pistol));
+        PlayerPrefs.SetFloat("Pistol Fire Rate", WeaponHolder.instance.GetWeaponFireRate(WeaponBase.WeaponID.Pistol));
+
+        PlayerPrefs.SetFloat("Shotgun Damage", WeaponHolder.instance.GetWeaponDamage(WeaponBase.WeaponID.Shotgun));
+        PlayerPrefs.SetFloat("Shotgun Fire Rate", WeaponHolder.instance.GetWeaponFireRate(WeaponBase.WeaponID.Shotgun));
+
+        PlayerPrefs.SetFloat("Rifle Damage", WeaponHolder.instance.GetWeaponDamage(WeaponBase.WeaponID.Rifle));
+        PlayerPrefs.SetFloat("Rifle Fire Rate", WeaponHolder.instance.GetWeaponFireRate(WeaponBase.WeaponID.Rifle));
+
+        PlayerPrefs.SetFloat("Heavy Damage", WeaponHolder.instance.GetWeaponDamage(WeaponBase.WeaponID.Heavy));
+        PlayerPrefs.SetFloat("Heavy Fire Rate", WeaponHolder.instance.GetWeaponFireRate(WeaponBase.WeaponID.Heavy));
+
     }
 
     public void LoadGame()
@@ -184,7 +205,6 @@ public class GameManager : MonoBehaviour
             if (PlayerPrefs.HasKey("Weapon " + i))
             {
                 string name = PlayerPrefs.GetString("Weapon " + i);
-                Debug.Log(name);
                 WeaponHolder.instance.AddToUnlockedItems(name);
                 //WeaponHolder.instance.ArrangeHierarchy(name, UIStoreButtons.purchaseIndex++);
                 //WeaponHolder.instance.currentChildCount++;
@@ -206,6 +226,5 @@ public class GameManager : MonoBehaviour
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Heavy>() != null && PlayerPrefs.HasKey("Heavy Ammo"))
                 WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount = PlayerPrefs.GetInt("Heavy Ammo");
         }
-        firstLoad = false;
     }
 }
