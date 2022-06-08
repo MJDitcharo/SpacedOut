@@ -94,7 +94,6 @@ public class WeaponUpgradePage : StorePage
                 {
                     j++;
                 }
-                //Debug.Log(pricesText[i].transform.parent.transform.parent.name);
             }
         }
     }
@@ -157,7 +156,6 @@ public class WeaponUpgradePage : StorePage
             upgradeTiers[currentTier].SetActive(true);
     }
 
-
     public void SetTier2Choice(string _tier2Choice)
     {
         tier2Choice = _tier2Choice;
@@ -176,7 +174,6 @@ public class WeaponUpgradePage : StorePage
     public void SetCurrentTier(int tier)
     {
         currentTier = tier;
-        ApplyTier();
     }
 
     private void ApplyTier()
@@ -198,10 +195,8 @@ public class WeaponUpgradePage : StorePage
     {
         if (firstLoad)
         {
-            for (int i = 0; i <= PlayerPrefs.GetInt(name); i++)
-            {
-                NextTier();
-            }
+            
         }
+        firstLoad = false;
     }
 }
