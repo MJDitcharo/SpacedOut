@@ -28,6 +28,7 @@ public class WeaponHolder : MonoBehaviour
         gunImages = GameObject.FindGameObjectWithTag("Gun Images");
         if (unlockedWeapons.Count == 0)
             unlockedWeapons.Add(gameObject.transform.Find("Pistol").name);
+        ReadPlayerPrefs();
     }
     private void Update()
     {
@@ -125,10 +126,31 @@ public class WeaponHolder : MonoBehaviour
         //Debug.Log(transform.Find(weapon).GetComponent<WeaponBase>());
         transform.Find(weapon).GetComponent<WeaponBase>().SetFireRateMultiplier(multiplier);
     }
+
+    public float GetWeaponFireRate(WeaponBase.WeaponID weaponID)
+    {
+        for (int i = 0; i <= currentChildCount; i++)
+        {
+            if (transform.Find(transform.GetChild(i).name).GetComponent<WeaponBase>().weaponID == weaponID)
+                return transform.Find(transform.GetChild(i).name).GetComponent<WeaponBase>().GetFireRateMultiplier();
+        }
+        return -1f;
+    }
+
     public void UpgradeDamage(string weapon, float multiplier)
     {
         //Debug.Log(transform.Find(weapon).GetComponent<WeaponBase>());
         transform.Find(weapon).GetComponent<WeaponBase>().SetDamageMultiplier(multiplier);
+    }
+
+    public float GetWeaponDamage(WeaponBase.WeaponID weaponID)
+    {
+        for (int i = 0; i <= currentChildCount; i++)
+        {
+            if (transform.Find(transform.GetChild(i).name).GetComponent<WeaponBase>().weaponID == weaponID)
+                return transform.Find(transform.GetChild(i).name).GetComponent<WeaponBase>().GetDamageMultiplier();
+        }
+        return -1f;
     }
 
     public bool IsWeaponUnlocked(string weaponName)
@@ -187,6 +209,34 @@ public class WeaponHolder : MonoBehaviour
             Transform oldImage = gunImages.transform.Find(baseWeapon);
             gunImages.transform.Find(tier2Weapon).SetSiblingIndex(a);
             oldImage.SetSiblingIndex(maxImage);
+        }
+    }
+
+    private void ReadPlayerPrefs()
+    {
+        for (int i = 0; i <= currentChildCount; i++)
+        {
+            WeaponBase id = transform.Find(transform.GetChild(i).name).GetComponent<WeaponBase>();
+            switch (id.weaponID)
+            {
+                case WeaponBase.WeaponID.Pistol:
+                    id.SetDamageMultiplier(PlayerPrefs.GetFloat("Pistol Damage"));
+                    id.SetFireRateMultiplier(PlayerPrefs.GetFloat("Pistol Fire Rate"));
+                    break;
+                case WeaponBase.WeaponID.Shotgun:
+                    id.SetDamageMultiplier(PlayerPrefs.GetFloat("Shotgun Damage"));
+                    id.SetFireRateMultiplier(PlayerPrefs.GetFloat("Shotgun Fire Rate"));
+                    break;
+                case WeaponBase.WeaponID.Heavy:
+                    id.SetDamageMultiplier(PlayerPrefs.GetFloat("Heavy Damage"));
+                    id.SetFireRateMultiplier(PlayerPrefs.GetFloat("Heavy Fire Rate"));
+                    break;
+                case WeaponBase.WeaponID.Rifle:
+                    id.SetDamageMultiplier(PlayerPrefs.GetFloat("Rifle  Damage"));
+                    id.SetFireRateMultiplier(PlayerPrefs.GetFloat("Rifle Fire Rate"));
+                    break;
+            }
+            Debug.Log(id.gameObject.name + "D: " + id.GetDamageMultiplier() + "FR: " + id.GetFireRateMultiplier());
         }
     }
 

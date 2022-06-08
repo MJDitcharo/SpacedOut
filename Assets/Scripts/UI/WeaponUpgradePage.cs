@@ -101,8 +101,6 @@ public class WeaponUpgradePage : StorePage
 
     private void SetTextMeshPricesWithWeapon()
     {
-        foreach (TMPro.TextMeshProUGUI a in pricesText)
-            Debug.Log(a.gameObject.name);
 
         pricesText[0].text = pricesInt[0].ToString();
         pricesText[1].text = pricesInt[1].ToString();

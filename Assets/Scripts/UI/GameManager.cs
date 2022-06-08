@@ -161,8 +161,21 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("RiflePage", RiflePage.instance.GetCurrentTier());
         if (HeavyPage.instance != null)
             PlayerPrefs.SetInt("HeavyPage", HeavyPage.instance.GetCurrentTier());
-    }
 
+        //firerate and damage for each weapon
+        PlayerPrefs.SetFloat("Pistol Damage", WeaponHolder.instance.GetWeaponDamage(WeaponBase.WeaponID.Pistol));
+        PlayerPrefs.SetFloat("Pistol Fire Rate", WeaponHolder.instance.GetWeaponFireRate(WeaponBase.WeaponID.Pistol));
+
+        PlayerPrefs.SetFloat("Shotgun Damage", WeaponHolder.instance.GetWeaponDamage(WeaponBase.WeaponID.Shotgun));
+        PlayerPrefs.SetFloat("Shotgun Fire Rate", WeaponHolder.instance.GetWeaponFireRate(WeaponBase.WeaponID.Shotgun));
+
+        PlayerPrefs.SetFloat("Rifle Damage", WeaponHolder.instance.GetWeaponDamage(WeaponBase.WeaponID.Rifle));
+        PlayerPrefs.SetFloat("Rifle Fire Rate", WeaponHolder.instance.GetWeaponFireRate(WeaponBase.WeaponID.Rifle));
+
+        PlayerPrefs.SetFloat("Heavy Damage", WeaponHolder.instance.GetWeaponDamage(WeaponBase.WeaponID.Heavy));
+        PlayerPrefs.SetFloat("Heavy Fire Rate", WeaponHolder.instance.GetWeaponFireRate(WeaponBase.WeaponID.Heavy));
+
+    }
 
     public void LoadGame()
     {
@@ -192,7 +205,6 @@ public class GameManager : MonoBehaviour
             if (PlayerPrefs.HasKey("Weapon " + i))
             {
                 string name = PlayerPrefs.GetString("Weapon " + i);
-                Debug.Log(name);
                 WeaponHolder.instance.AddToUnlockedItems(name);
                 //WeaponHolder.instance.ArrangeHierarchy(name, UIStoreButtons.purchaseIndex++);
                 //WeaponHolder.instance.currentChildCount++;
