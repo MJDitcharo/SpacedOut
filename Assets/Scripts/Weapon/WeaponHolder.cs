@@ -98,7 +98,7 @@ public class WeaponHolder : MonoBehaviour
                 else
                     selectedWeapon--;
             }
-            for (int i = 0; i < currentChildCount; i++)
+            for (int i = 0; i < keys.Count; i++)
             {
                 if (Input.GetKey(keys[i]))
                     selectedWeapon = i;
