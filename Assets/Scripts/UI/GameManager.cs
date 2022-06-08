@@ -133,11 +133,12 @@ public class GameManager : MonoBehaviour
                 PlayerPrefs.SetInt("Heavy Ammo", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount);
         }
 
+        WeaponHolder.instance.SaveLoadout();
         for(int i = 0; i < WeaponHolder.instance.unlockedWeapons.Count; i++)
         {
             PlayerPrefs.SetString("Weapon " + i, WeaponHolder.instance.unlockedWeapons[i]);
-
         }
+        PlayerPrefs.SetInt("Child Count", WeaponHolder.instance.currentChildCount);
     }
 
     public void LoadGame()
@@ -159,6 +160,8 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("Rifle Ammo", 100);
             PlayerPrefs.SetInt("Heavy Ammo", 7);
         }
+
+        WeaponHolder.instance.currentChildCount = PlayerPrefs.GetInt("Child Count");
 
         WeaponHolder.instance.unlockedWeapons.Clear();
         for (int i = 0; i < 4; i++)

@@ -31,7 +31,7 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-
+        DontDestroyOnLoad(this.gameObject);
         for (int i = 0; i < sfx.Count; i++)
         {
             soundStorage.Add(sfx[i].audioTyping,sfx[i].sound);
