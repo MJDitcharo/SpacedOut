@@ -116,12 +116,12 @@ public class MainMenu : MonoBehaviour
     {
         if (MenuType == "Audio")
         {
-            LoadPrefs.Instance.musicVolume = defaultVolume;
-            volumeSlider.value = defaultVolume;
-            volumeValueText.text = defaultVolume.ToString("0");
-            LoadPrefs.Instance.sfxVolume = defaultVolume;
-            sfxVolueSlider.value = defaultVolume;
-            sfxVolumeText.text = defaultVolume.ToString("0");
+            LoadPrefs.Instance.musicVolume = 10f;
+            volumeSlider.value = 10f;
+            volumeValueText.text = "10";
+            LoadPrefs.Instance.sfxVolume = 100f;
+            sfxVolueSlider.value = 1000f;
+            sfxVolumeText.text = "10";
             ApplyAudioSetting(); 
         }
         

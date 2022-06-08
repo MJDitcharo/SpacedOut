@@ -13,11 +13,11 @@ public class LoadPrefs : MonoBehaviour
     [Header("Sound")]
     [SerializeField] private TMP_Text volumeTextValue;
     [SerializeField] private Slider volumeSlider;
-    [HideInInspector] public float musicVolume = 0.1f;
+    [HideInInspector] public float musicVolume;
 
     [SerializeField] private TMP_Text sfxTextValue;
     [SerializeField] private Slider sfxSlider;
-    [HideInInspector] public float sfxVolume = 0.4f;
+    [HideInInspector] public float sfxVolume;
     private static LoadPrefs instance;
     public static LoadPrefs Instance
     {
@@ -52,7 +52,7 @@ public class LoadPrefs : MonoBehaviour
                 float volume = PlayerPrefs.GetFloat("SFXVolume", 100f);
                 sfxTextValue.text = volume.ToString();
                 sfxSlider.value = volume;
-                sfxVolume = volume / 100;
+                sfxVolume = volume/100;
             }
             else
             {
