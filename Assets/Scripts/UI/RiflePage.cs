@@ -10,6 +10,5 @@ public class RiflePage : WeaponUpgradePage
         instance = this;
         base.Start();
         CheckUnlock("Rifle");
-        TiersFromPlayerPrefs("Rifle Page");
     }
 }

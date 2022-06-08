@@ -25,10 +25,13 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject cPrompt;
     [SerializeField] float defaultVolume = 0.2f;
     private AsyncOperation operation;
+    public static MainMenu instance;
 
     private void Start()
     {
         AudioManager.Instance.PlaySFX("MenuMusic");
+        //instance = this;
+        //DontDestroyOnLoad(this.gameObject);
     }
 
     private void Update()
@@ -75,6 +78,10 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("Child Count", 0);
         PlayerPrefs.SetString("Weapon 0", "Pistol");
         PlayerPrefs.SetInt("Pistol Ammo", 45);
+        PlayerPrefs.SetInt("Pistol Page", 0);
+        PlayerPrefs.SetInt("Shotgun Page", 0);
+        PlayerPrefs.SetInt("Rifle Page", 0);
+        PlayerPrefs.SetInt("Heavy Page", 0);
 
         LoadingScene(1);
     }
@@ -149,17 +156,17 @@ public class MainMenu : MonoBehaviour
         loadingScreen.SetActive(true);
         operation.allowSceneActivation = false;
         
-         yield return new WaitForSeconds(3);
-        
+        yield return new WaitForSeconds(3);
+        operation.allowSceneActivation = true;
         //while (!operation.isDone)
         //{
-
+            Debug.Log("Loading");
         //    float loadProgess = Mathf.Clamp01(operation.progress/0.9f);
         //    loadingBar.fillAmount = loadProgess;
         //    yield return null;
         //}
         
-            operation.allowSceneActivation = true;
+            
     }
 }
 
