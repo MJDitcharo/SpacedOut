@@ -11,6 +11,7 @@ public class health : MonoBehaviour
 
     // Vulnerable Debuff Fields
     private Coroutine vulnCoroutine;
+    public Coroutine stun;
     public bool vulnerable = false;
     public bool isStunned = false;
 
@@ -106,5 +107,28 @@ public class health : MonoBehaviour
         vulnerable = false;
     }
 
-    
+    public void StunMethod()
+    {
+        stun = StartCoroutine(Stun());
+    }
+    public IEnumerator Stun()
+    {
+        Debug.Log("stunning");
+        AttackState AS = gameObject.GetComponent<AttackState>();
+        EnemyMovement EM = gameObject.GetComponent<EnemyMovement>();
+        if(AS != null)
+            AS.firerate *= 2f;
+        if(EM != null)
+            EM.GetAgent().speed *= .5f;
+
+        yield return new WaitForSeconds(4);
+
+        Debug.Log("stunning done");
+        if (AS != null)
+            AS.firerate *= .5f;
+        if (EM != null)
+            EM.GetAgent().speed *= 2f;
+
+        stun = null;
+    }
 }
