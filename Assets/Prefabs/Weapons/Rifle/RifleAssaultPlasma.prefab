@@ -133,7 +133,7 @@ MonoBehaviour:
   - {fileID: 2977946488424041476}
   firePointIndex: 0
   bulletPrefab: {fileID: 3743390652330680519, guid: a117930d0aa2b0f4080b7a8319eec2ad, type: 3}
-  fireRate: 20
+  fireRate: 2
   bulletForce: 20
   ammoCount: 1000
   maxAmmo: 1000
@@ -143,7 +143,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1281
-  bulletTrail: {fileID: 0}
+  bulletTrail: {fileID: 2416924581901372333, guid: a117930d0aa2b0f4080b7a8319eec2ad, type: 3}
   tracerTime: 0.1
 --- !u!1 &6264625026169218754
 GameObject:
