@@ -198,8 +198,10 @@ public class WeaponUpgradePage : StorePage
     {
         if (firstLoad)
         {
-            SetCurrentTier(PlayerPrefs.GetInt(name));
-            firstLoad = false;
+            for (int i = 0; i <= PlayerPrefs.GetInt(name); i++)
+            {
+                NextTier();
+            }
         }
     }
 }

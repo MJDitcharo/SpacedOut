@@ -137,17 +137,17 @@ public class GameManager : MonoBehaviour
 
         WeaponHolder.instance.SaveLoadout();
         //save the tier index of each page for the store
-        if (!firstSave)
-        {
-            if (PistolPage.instance != null)
-                PlayerPrefs.SetInt("Pistol Page", PistolPage.instance.GetCurrentTier());
-            if (ShotgunPage.instance != null)
-                PlayerPrefs.SetInt("Shogun Page", ShotgunPage.instance.GetCurrentTier());
-            if (RiflePage.instance!= null)
-                PlayerPrefs.SetInt("Rifle Page", RiflePage.instance.GetCurrentTier());
-            if (HeavyPage.instance != null)
-                PlayerPrefs.SetInt("Heavy Page", HeavyPage.instance.GetCurrentTier());
-        }
+        //if (!firstSave)
+        //{
+        //    if (PistolPage.instance != null)
+        //        PlayerPrefs.SetInt("Pistol Page", PistolPage.instance.GetCurrentTier());
+        //    if (ShotgunPage.instance != null)
+        //        PlayerPrefs.SetInt("Shogun Page", ShotgunPage.instance.GetCurrentTier());
+        //    if (RiflePage.instance!= null)
+        //        PlayerPrefs.SetInt("Rifle Page", RiflePage.instance.GetCurrentTier());
+        //    if (HeavyPage.instance != null)
+        //        PlayerPrefs.SetInt("Heavy Page", HeavyPage.instance.GetCurrentTier());
+        //}
         for (int i = 0; i < WeaponHolder.instance.unlockedWeapons.Count; i++)
         {
             PlayerPrefs.SetString("Weapon " + i, WeaponHolder.instance.unlockedWeapons[i]);
