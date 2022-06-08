@@ -21,6 +21,7 @@ public class HeavyMinigunPlasma : bullet
 
         rb.velocity = new Vector3(0, 0, 0);
         GetComponent<Collider>().enabled = false;
+        StartCoroutine(BulletExplosion(other));
 
     }
 
@@ -29,7 +30,7 @@ public class HeavyMinigunPlasma : bullet
         Debug.Log("Exploding");
         health HP = other.gameObject.GetComponent<health>();
         EnemyMovement MV = other.gameObject.GetComponent<EnemyMovement>();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2);
         Debug.Log("past coroutine");
         Debug.Log("Boom");
         if (HP != null)

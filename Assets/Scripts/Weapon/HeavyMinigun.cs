@@ -6,6 +6,14 @@ public class HeavyMinigun : Heavy
 {
     [SerializeField] int fireSpread = 2;
 
+    public override void Update()
+    {
+        if (Input.GetButton("Fire1") && Time.time >= nextShotFired && ammoCount != 0 && Time.timeScale > 0) //if the first mouse button is down
+        {
+            nextShotFired = Time.time + 1f / fireRate / fireRateMultiplier; //delay for the next bullet fired
+            Shoot(); //shoot method
+        }
+    }
     public override void Shoot()
     {
         firePoint[firePointIndex].transform.localRotation = Quaternion.Euler(0, firePoint[firePointIndex].transform.localRotation.y + Random.Range(-fireSpread, fireSpread), 0);
