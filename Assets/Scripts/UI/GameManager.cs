@@ -136,6 +136,7 @@ public class GameManager : MonoBehaviour
         for(int i = 0; i < WeaponHolder.instance.unlockedWeapons.Count; i++)
         {
             PlayerPrefs.SetString("Weapon " + i, WeaponHolder.instance.unlockedWeapons[i]);
+
         }
     }
 
