@@ -108,7 +108,6 @@ public class UIStoreButtons : MonoBehaviour
 
 
         Debug.Log(purchaseIndex);
-        WeaponHolder.instance.currentChildCount++;
         return purchaseFailed;
     }
 
@@ -123,7 +122,6 @@ public class UIStoreButtons : MonoBehaviour
         else
             Debug.Log("Weapon NOT Unlocked");
         WeaponHolder.instance.ArrangeHierarchy(weaponName, purchaseIndex++);
-        WeaponHolder.instance.currentChildCount++;
     }
 
     #region Shop Buttons
@@ -235,6 +233,7 @@ public class UIStoreButtons : MonoBehaviour
             UnlockWeapon("Shotgun");
             GameManager.instance.skrapCount.Subtract(ShotgunPage.instance.weaponCost);
             purchaseFailed = false;
+            WeaponHolder.instance.currentChildCount++;
         }
         else
             purchaseFailed = true;
@@ -306,6 +305,7 @@ public class UIStoreButtons : MonoBehaviour
             UnlockWeapon("Rifle");
             GameManager.instance.skrapCount.Subtract(RiflePage.instance.weaponCost);
             purchaseFailed = false;
+            WeaponHolder.instance.currentChildCount++;
         }
         else
             purchaseFailed = true;
@@ -377,6 +377,7 @@ public class UIStoreButtons : MonoBehaviour
             UnlockWeapon("Heavy");
             GameManager.instance.skrapCount.Subtract(HeavyPage.instance.weaponCost);
             purchaseFailed = false;
+            WeaponHolder.instance.currentChildCount++;
         }
         else
             purchaseFailed = true;
