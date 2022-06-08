@@ -245,7 +245,7 @@ public class UIStoreButtons : MonoBehaviour
             purchaseFailed = true;
         StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
         if (!purchaseFailed)
-            ShotgunPage.instance.FirstTier();
+            ShotgunPage.instance.NextTier();
         GameManager.instance.SaveGame();
     }
 
@@ -276,6 +276,7 @@ public class UIStoreButtons : MonoBehaviour
             ShotgunPage.instance.NextTier();
             ShotgunPage.instance.SetTier2Choice("Slug");
         }
+        GameManager.instance.SaveGame();
     }
     public void ShotgunUpgradeSawedOff()
     {
@@ -285,12 +286,14 @@ public class UIStoreButtons : MonoBehaviour
             ShotgunPage.instance.NextTier();
             ShotgunPage.instance.SetTier2Choice("Sawed-Off");
         }
+        GameManager.instance.SaveGame();
     }
     public void ShotgunPlasmaUpgrade()
     {
         bool purchaseFailed = Tier2Upgrade(ShotgunPage.instance.GetTeir2Choice(), ShotgunPage.instance.GetTeir2Choice() + plasma, ShotgunPage.instance.tier3Upgrade);
         if (!purchaseFailed)
             ShotgunPage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
 
     public void ShotgunVoidUpgrade()
@@ -298,6 +301,7 @@ public class UIStoreButtons : MonoBehaviour
         bool purchaseFailed = Tier2Upgrade(ShotgunPage.instance.GetTeir2Choice(), ShotgunPage.instance.GetTeir2Choice() + voidUpgrade, ShotgunPage.instance.tier3Upgrade);
         if (!purchaseFailed)
             ShotgunPage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
     #endregion
 
@@ -317,7 +321,7 @@ public class UIStoreButtons : MonoBehaviour
             purchaseFailed = true;
         StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
         if (!purchaseFailed)
-            RiflePage.instance.FirstTier();
+            RiflePage.instance.NextTier();
     }
     public void RifleAmmo()
     {
@@ -346,6 +350,7 @@ public class UIStoreButtons : MonoBehaviour
             RiflePage.instance.NextTier();
             RiflePage.instance.SetTier2Choice("Burst");
         }
+        GameManager.instance.SaveGame();
     }
 
     public void RifleAssault()
@@ -356,6 +361,7 @@ public class UIStoreButtons : MonoBehaviour
             RiflePage.instance.NextTier();
             RiflePage.instance.SetTier2Choice("Assault");
         }
+        GameManager.instance.SaveGame();
     }
 
     public void RiflePlasmaUpgrade()
@@ -363,12 +369,14 @@ public class UIStoreButtons : MonoBehaviour
         bool purchaseFailed = Tier2Upgrade(RiflePage.instance.GetTeir2Choice(), RiflePage.instance.GetTeir2Choice() + plasma, RiflePage.instance.tier3Upgrade);
         if (!purchaseFailed)
             RiflePage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
     public void RifleVoidUpgrade()
     {
         bool purchaseFailed = Tier2Upgrade(RiflePage.instance.GetTeir2Choice(), RiflePage.instance.GetTeir2Choice() + voidUpgrade, RiflePage.instance.tier3Upgrade);
         if (!purchaseFailed)
             RiflePage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
 
     #endregion
@@ -389,7 +397,7 @@ public class UIStoreButtons : MonoBehaviour
             purchaseFailed = true;
         StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
         if (!purchaseFailed)
-            HeavyPage.instance.FirstTier();
+            HeavyPage.instance.NextTier();
     }
 
     public void HeavyAmmo()
@@ -419,6 +427,7 @@ public class UIStoreButtons : MonoBehaviour
             HeavyPage.instance.NextTier();
             HeavyPage.instance.SetTier2Choice("Grenade Launcher");
         }
+        GameManager.instance.SaveGame();
     }
 
     public void HeavyMinigun()
@@ -429,6 +438,7 @@ public class UIStoreButtons : MonoBehaviour
             HeavyPage.instance.NextTier();
             HeavyPage.instance.SetTier2Choice("Minigun");
         }
+        GameManager.instance.SaveGame();
     }
 
     public void HeavyVoidUpgrade()
@@ -436,6 +446,7 @@ public class UIStoreButtons : MonoBehaviour
         bool purchaseFailed = Tier2Upgrade(HeavyPage.instance.GetTeir2Choice(), HeavyPage.instance.GetTeir2Choice() + voidUpgrade, HeavyPage.instance.tier3Upgrade);
         if (!purchaseFailed)
             HeavyPage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
 
     public void HeavyPlasmaUpgrade()
@@ -443,6 +454,7 @@ public class UIStoreButtons : MonoBehaviour
         bool purchaseFailed = Tier2Upgrade(HeavyPage.instance.GetTeir2Choice(), HeavyPage.instance.GetTeir2Choice() + plasma, HeavyPage.instance.tier3Upgrade); ;
         if (!purchaseFailed)
             HeavyPage.instance.NextTier();
+        GameManager.instance.SaveGame();
     }
     #endregion
     #endregion

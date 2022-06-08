@@ -10,7 +10,7 @@ public class PistolPage : WeaponUpgradePage
         instance = this;
         base.Start();
         CheckUnlock("Pistol");
-        //FirstTier(); //since the pistol is unlocked by default
+        FirstTier(); //since the pistol is unlocked by default
     }
 
 }
