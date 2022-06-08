@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
         chestUI = GameObject.Find("Chest UI").GetComponent<UIChest>();
         shopUI = GameObject.Find("Shop UI").GetComponent<UIStore>();
 
-        AudioManager.Instance.PlaySFX("GameMusic");
+        //AudioManager.Instance.PlaySFX("GameMusic");
     }
 
     private void Start()
