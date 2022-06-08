@@ -131,14 +131,10 @@ public class WeaponUpgradePage : StorePage
         if (WeaponHolder.instance.IsWeaponUnlocked(weaponName))
         {
             //set tier 1 upgrade and ammo true, buy weapon to false
-            upgradeTiers[currentTier].SetActive(false);
+            upgradeTiers[0].SetActive(false);
             buyAmmo.SetActive(true);
         }
-        else
-        {
-            upgradeTiers[currentTier].SetActive(true);
-            buyAmmo.SetActive(false);
-        }
+        
     }
     /// <summary>
     ///  ONLY call this on the default unlock weapon's start method: PistolPage
