@@ -18,7 +18,7 @@ public class WeaponUpgradePage : StorePage
     protected List<GameObject> upgradeTiers = new();
     protected string tier2Choice = "";
 
-    protected int currentTier = 0;
+    protected int currentTier = -1;
     private int maxTier;
     protected string weaponName; //MUST be set in the start function for each child. This is an abstract field
     bool firstLoad = true;
@@ -157,6 +157,15 @@ public class WeaponUpgradePage : StorePage
             upgradeTiers[currentTier].SetActive(true);
     }
 
+    /// <summary>
+    /// Only used to load player prefs
+    /// </summary>
+    /// <param name="index"></param>
+    private void NextTier(int index)
+    {
+        
+    }
+
 
     public void SetTier2Choice(string _tier2Choice)
     {
@@ -198,10 +207,13 @@ public class WeaponUpgradePage : StorePage
     {
         if (firstLoad)
         {
-            for (int i = 0; i <= PlayerPrefs.GetInt(name); i++)
+            if (PlayerPrefs.GetInt(name) == 0 && name != "Pistol")
             {
-                NextTier();
+                NextTier(PlayerPrefs.GetInt(name));
             }
+            else
+                NextTier();
         }
+        firstLoad = false;
     }
 }
