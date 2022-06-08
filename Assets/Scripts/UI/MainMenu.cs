@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] public Slider sfxVolueSlider;
 
     [SerializeField] GameObject cPrompt;
-    [SerializeField] float defaultVolume = 0.5f;
+    [SerializeField] float defaultVolume = 0.2f;
     private AsyncOperation operation;
 
     private void Awake()
@@ -99,8 +99,8 @@ public class MainMenu : MonoBehaviour
 
     public void SetVolume(float volume)
     {
-        AudioListener.volume = volume/100;
-        PlayerPrefs.SetFloat("MusicVolume", AudioListener.volume * 100);
+        LoadPrefs.Instance.musicVolume = volume/100;
+        PlayerPrefs.SetFloat("MusicVolume", LoadPrefs.Instance.musicVolume * 100);
         volumeValueText.text = volume.ToString("0");
     }
      public void SetSFX(float volume)
@@ -116,7 +116,7 @@ public class MainMenu : MonoBehaviour
     {
         if (MenuType == "Audio")
         {
-            AudioListener.volume = defaultVolume;
+            LoadPrefs.Instance.musicVolume = defaultVolume;
             volumeSlider.value = defaultVolume;
             volumeValueText.text = defaultVolume.ToString("0");
             LoadPrefs.Instance.sfxVolume = defaultVolume;
@@ -132,7 +132,7 @@ public class MainMenu : MonoBehaviour
         audioSaved = true;
         if (audioSaved == true)
         {
-            PlayerPrefs.SetFloat("MusicVolume", AudioListener.volume);
+            PlayerPrefs.SetFloat("MusicVolume", LoadPrefs.Instance.musicVolume);
             PlayerPrefs.SetFloat("SFXVolume", LoadPrefs.Instance.sfxVolume);
         }
         audioSaved = false;
