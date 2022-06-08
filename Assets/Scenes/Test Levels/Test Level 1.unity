@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: ee10b3a4e0589144ba6c5fd16ad1d8aa, type: 2}
+--- !u!1 &147454652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8203205514243188933, guid: d1374b55cc43aef4c977df52daea22e9, type: 3}
+  m_PrefabInstance: {fileID: 7905651311882299742}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7905651311882299742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -190,6 +195,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1785135001986793190, guid: d1374b55cc43aef4c977df52daea22e9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785135001986793190, guid: d1374b55cc43aef4c977df52daea22e9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 140.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786020951963271431, guid: d1374b55cc43aef4c977df52daea22e9, type: 3}
+      propertyPath: gunImages
+      value: 
+      objectReference: {fileID: 147454652}
     - target: {fileID: 2205635060374542472, guid: d1374b55cc43aef4c977df52daea22e9, type: 3}
       propertyPath: bulletPrefab
       value: 
@@ -230,6 +247,10 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 3743390652330680519, guid: ac0d6938d6ec6a64e82dadac4285cf64, type: 3}
+    - target: {fileID: 3872899640324059281, guid: d1374b55cc43aef4c977df52daea22e9, type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 8649199480340451305, guid: 42429d32aaed74a48901de4de7d4faed, type: 3}
     - target: {fileID: 4038651881111199910, guid: d1374b55cc43aef4c977df52daea22e9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
