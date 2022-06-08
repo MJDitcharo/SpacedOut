@@ -83,6 +83,12 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("Rifle Page", 0);
         PlayerPrefs.SetInt("Heavy Page", 0);
 
+        //store data
+        PlayerPrefs.SetInt("PistolPage", 1);
+        PlayerPrefs.SetInt("ShotgunPage", 0);
+        PlayerPrefs.SetInt("HeavyPage", 0);
+        PlayerPrefs.SetInt("RiflePage", 0);
+
         LoadingScene(1);
     }
     public void Continue()

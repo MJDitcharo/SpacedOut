@@ -20,13 +20,14 @@ public class WeaponUpgradePage : StorePage
 
     protected int currentTier = 0;
     private int maxTier;
-    protected string weaponName; //MUST be set in the start function for each child. This is an abstract field
+    protected string pageName; //MUST be set in the start function for each child. This is an abstract field
     bool firstLoad = true;
 
     protected override void Start()
     {
         base.Start();
         maxTier = upgradeTiers.Count;
+        TiersFromPlayerPrefs(pageName);
     }
     protected override void SetInitialPrices()
     {
@@ -140,7 +141,7 @@ public class WeaponUpgradePage : StorePage
         }
     }
     /// <summary>
-    /// First Tier Assumes that the weapon has already been unlocked
+    ///  ONLY call this on the default unlock weapon's start method: PistolPage
     /// </summary>
     public void FirstTier()
     {
@@ -195,12 +196,9 @@ public class WeaponUpgradePage : StorePage
         }
     }
 
-    protected void TiersFromPlayerPrefs(string name)
+    protected void TiersFromPlayerPrefs(string pageName)
     {
-        if (firstLoad)
-        {
-
-        }
-        firstLoad = false;
+        for (int i = 0; i < PlayerPrefs.GetInt(pageName); i++)
+            NextTier();
     }
 }

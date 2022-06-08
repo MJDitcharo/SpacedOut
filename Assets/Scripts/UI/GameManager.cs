@@ -30,8 +30,6 @@ public class GameManager : MonoBehaviour
     public UIStore shopUI;
     public bool menuIsActive = false;
 
-    private bool firstSave = true;
-    private bool firstLoad = true;
     public bool Lockdown { get; set; } = false;
 
     // Start is called before the first frame update
@@ -153,8 +151,18 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetString("Weapon " + i, WeaponHolder.instance.unlockedWeapons[i]);
         }
         PlayerPrefs.SetInt("Child Count", WeaponHolder.instance.currentChildCount);
-        firstSave = false;
+
+        //save the store datat
+        if (PistolPage.instance != null)
+            PlayerPrefs.SetInt("PistolPage", PistolPage.instance.GetCurrentTier());
+        if (ShotgunPage.instance != null)
+            PlayerPrefs.SetInt("ShotgunPage", ShotgunPage.instance.GetCurrentTier());
+        if (RiflePage.instance != null)
+            PlayerPrefs.SetInt("RiflePage", RiflePage.instance.GetCurrentTier());
+        if (HeavyPage.instance != null)
+            PlayerPrefs.SetInt("HeavyPage", HeavyPage.instance.GetCurrentTier());
     }
+
 
     public void LoadGame()
     {
@@ -206,6 +214,5 @@ public class GameManager : MonoBehaviour
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Heavy>() != null && PlayerPrefs.HasKey("Heavy Ammo"))
                 WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount = PlayerPrefs.GetInt("Heavy Ammo");
         }
-        firstLoad = false;
     }
 }

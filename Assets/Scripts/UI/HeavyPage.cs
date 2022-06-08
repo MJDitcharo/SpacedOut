@@ -8,6 +8,7 @@ public class HeavyPage : WeaponUpgradePage
     protected override void Start()
     {
         instance = this;
+        pageName = "HeavyPage";
         base.Start();
         CheckUnlock("Heavy");
     }
