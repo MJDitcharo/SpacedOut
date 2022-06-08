@@ -68,7 +68,6 @@ public class UIStore : PopUpMenu
         {
             shopVisual.SetActive(true);
             GameManager.instance.menuIsActive = true;
-            //GameObject.Find("Weapon Upgrades Page").gameObject.SetActive(false);
             FreezeWorld();
         }
     }
@@ -76,6 +75,8 @@ public class UIStore : PopUpMenu
     {
         shopVisual.SetActive(false);
         GameManager.instance.menuIsActive = false;
+        if (purchaseMessageObj.activeInHierarchy)
+            purchaseMessageObj.SetActive(false);
         UnfreezeWorld();
     }
 
