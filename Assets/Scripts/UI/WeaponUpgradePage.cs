@@ -14,7 +14,7 @@ public class WeaponUpgradePage : StorePage
     public float fireRateQuantity, damageQuantity;
     [SerializeField]
     protected GameObject buyAmmo, buyWeapon;
-    [SerializeField]
+    [SerializeField] 
     protected List<GameObject> upgradeTiers = new();
     protected string tier2Choice = "";
 
