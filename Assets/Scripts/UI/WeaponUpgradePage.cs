@@ -16,7 +16,7 @@ public class WeaponUpgradePage : StorePage
     protected GameObject buyAmmo, buyWeapon;
     [SerializeField]
     protected List<GameObject> upgradeTiers = new();
-    protected string tier2Choice;
+    protected string tier2Choice = "";
 
     protected int currentTier = 0;
     private int maxTier;
