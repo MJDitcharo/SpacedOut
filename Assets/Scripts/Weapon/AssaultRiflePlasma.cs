@@ -21,12 +21,15 @@ public class AssaultRiflePlasma : Rifle
                 hp.DoDamage((int)damage);
             }
         }
-        
+        ammoCount--;
+        GameManager.instance.ammoCount.Subtract();
+
     }
 
     private IEnumerator SpawnTrail(TrailRenderer trail, Vector3 hitPoint, float speed)
     {
         GameObject tracer = Instantiate(bulletPrefab, firePoint[0].position, Quaternion.identity);
+        Destroy(tracer, 2);
 
         float time = 0;
 
