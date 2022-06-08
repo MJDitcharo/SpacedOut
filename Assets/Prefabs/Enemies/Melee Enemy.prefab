@@ -245,9 +245,11 @@ MonoBehaviour:
   noticeDistance: 9
   movementSpeed: 3
   walkTime: 5
+  walkTimeMultiplier: 1
   obsticleAvoidanceDistance: 6
   fire: {fileID: 0}
   turnSpeed: 90
+  minimunTurnTime: 0.5
   layerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -330,6 +332,9 @@ MonoBehaviour:
   maxHealth: 30
   currHealth: 30
   vulnerable: 0
+  isStunned: 0
+  burnTimer: 0
+  fireTickTime: 1
   vulnAmount: 1.5
   vulnTime: 5
   drops: {fileID: 6076811627386069490, guid: d0306af4078577240a9a23e69fb7f953, type: 3}
@@ -351,10 +356,11 @@ MonoBehaviour:
   attackDistance: 10
   engageState: {fileID: 3514033138011270804}
   enemyMovement: {fileID: 3514033138011270796}
-  dashSpeed: 5
-  dashTime: 1
+  dashSpeed: 25
+  dashTime: 1.5
+  dashDistance: 40
   rotationSpeed: 10
-  pushbackMultiplier: 1
+  pushbackMultiplier: 0.5
 --- !u!1 &8666466293595160913
 GameObject:
   m_ObjectHideFlags: 0
