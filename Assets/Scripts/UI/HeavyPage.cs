@@ -10,6 +10,5 @@ public class HeavyPage : WeaponUpgradePage
         instance = this;
         base.Start();
         CheckUnlock("Heavy");
-        TiersFromPlayerPrefs("Heavy Page");
     }
 }
