@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     public UIStore shopUI;
     public bool menuIsActive = false;
 
+    private bool firstSave = true;
+    private bool firstLoad = true;
     public bool Lockdown { get; set; } = false;
 
     // Start is called before the first frame update
@@ -134,11 +136,24 @@ public class GameManager : MonoBehaviour
         }
 
         WeaponHolder.instance.SaveLoadout();
-        for(int i = 0; i < WeaponHolder.instance.unlockedWeapons.Count; i++)
+        //save the tier index of each page for the store
+        if (!firstSave)
+        {
+            if (PistolPage.instance != null)
+                PlayerPrefs.SetInt("Pistol Page", PistolPage.instance.GetCurrentTier());
+            if (ShotgunPage.instance != null)
+                PlayerPrefs.SetInt("Shogun Page", ShotgunPage.instance.GetCurrentTier());
+            if (RiflePage.instance!= null)
+                PlayerPrefs.SetInt("Rifle Page", RiflePage.instance.GetCurrentTier());
+            if (HeavyPage.instance != null)
+                PlayerPrefs.SetInt("Heavy Page", HeavyPage.instance.GetCurrentTier());
+        }
+        for (int i = 0; i < WeaponHolder.instance.unlockedWeapons.Count; i++)
         {
             PlayerPrefs.SetString("Weapon " + i, WeaponHolder.instance.unlockedWeapons[i]);
         }
         PlayerPrefs.SetInt("Child Count", WeaponHolder.instance.currentChildCount);
+        firstSave = false;
     }
 
     public void LoadGame()
@@ -176,6 +191,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        //tiers for pages
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
         {
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Pistol>() != null && PlayerPrefs.HasKey("Pistol Ammo"))
@@ -190,5 +206,6 @@ public class GameManager : MonoBehaviour
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Heavy>() != null && PlayerPrefs.HasKey("Heavy Ammo"))
                 WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount = PlayerPrefs.GetInt("Heavy Ammo");
         }
+        firstLoad = false;
     }
 }
