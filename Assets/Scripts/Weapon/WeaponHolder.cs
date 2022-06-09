@@ -236,7 +236,6 @@ public class WeaponHolder : MonoBehaviour
                     id.SetFireRateMultiplier(PlayerPrefs.GetFloat("Rifle Fire Rate"));
                     break;
             }
-            Debug.Log(id.gameObject.name + "D: " + id.GetDamageMultiplier() + "FR: " + id.GetFireRateMultiplier());
         }
     }
 
