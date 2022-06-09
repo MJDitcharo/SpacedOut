@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class health : MonoBehaviour
 {
@@ -20,8 +21,7 @@ public class health : MonoBehaviour
     float fireTick = 0;
     [SerializeField] float vulnAmount = 1.5f;
     [SerializeField] int vulnTime = 5;
-
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +55,7 @@ public class health : MonoBehaviour
             currHealth = (int)(_dmg * 1.5f);
         else
             currHealth -= (int)_dmg;
-
+        DamagePopUpManager.Instance.StartCoroutine(DamagePopUpManager.Instance.DamageIndicator(_dmg, gameObject.transform.position));
         if (currHealth <= 0)
         {
             GetComponent<Collider>().enabled = false;
@@ -131,4 +131,6 @@ public class health : MonoBehaviour
 
         stun = null;
     }
+
+   
 }
