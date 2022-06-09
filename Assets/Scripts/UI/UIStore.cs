@@ -12,6 +12,11 @@ public class UIStore : PopUpMenu
     [HideInInspector]
     public GameObject purchaseMessageObj;
     [SerializeField]
+    public GameObject weaponDescription;
+    [HideInInspector]
+    public TMPro.TextMeshProUGUI descriptionText;
+    public Vector3 descriptionPos1, descriptionPos2;
+    [SerializeField]
     private GameObject[] pages;
     bool first = true;
     //singleton
@@ -24,8 +29,9 @@ public class UIStore : PopUpMenu
         if (instance == null)
             instance = this;
         purchaseMessageObj = purchaseMessage.gameObject;
-
-        foreach(GameObject game in pages)
+        descriptionText = weaponDescription.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>();
+        weaponDescription.SetActive(false);
+        foreach (GameObject game in pages)
         {
             if (first)
             {

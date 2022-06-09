@@ -385,7 +385,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 200
-  currHealth: 30
+  currHealth: 200
+  vulnerable: 0
+  isStunned: 0
+  burnTimer: 0
+  fireTickTime: 1
+  vulnAmount: 1.5
+  vulnTime: 5
   vulnerable: 0
   isStunned: 0
   burnTimer: 0

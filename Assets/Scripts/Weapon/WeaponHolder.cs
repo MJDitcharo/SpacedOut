@@ -247,4 +247,22 @@ public class WeaponHolder : MonoBehaviour
         for (int i = 0; i <= currentChildCount; i++)
             unlockedWeapons.Add(transform.GetChild(i).name);
     }
+
+    public string GetEquippedWeaponName(WeaponBase.WeaponID weaponID)
+    {
+
+        for (int i = 0; i <= currentChildCount; i++)
+        {
+            if (weaponID == transform.GetChild(i).GetComponent<WeaponBase>().weaponID)
+                return transform.GetChild(i).name;
+        }
+        return string.Empty;
+    }
+
+    
+
+    public string GetWeaponDescription(string weaponName)
+    {
+        return transform.Find(weaponName).GetComponent<WeaponBase>().weaponDescription;
+    }
 }
