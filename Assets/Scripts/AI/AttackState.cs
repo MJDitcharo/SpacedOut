@@ -32,7 +32,10 @@ public class AttackState : State
 
         if (lookCoroutine == null)
             lookCoroutine = StartCoroutine(TurnToPlayer());
-        
+        //if (movement.GetAgent().remainingDistance == movement.GetAgent().stoppingDistance)
+        //{
+        //    animator.SetBool("Running", false);
+        //}
         Attack();
 
         return this;

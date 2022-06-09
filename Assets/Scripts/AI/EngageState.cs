@@ -6,7 +6,7 @@ public class EngageState : State
 {
     [SerializeField] State attackState;
     [SerializeField] SuicideAttackState suicideAttackState;
-    [SerializeField] Animator animator;
+    
 
     [SerializeField] float attackDistance;
 

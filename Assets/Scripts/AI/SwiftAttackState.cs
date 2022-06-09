@@ -9,7 +9,6 @@ public class SwiftAttackState : State
     [SerializeField] AttackType attackType = AttackType.normal;
     [SerializeField] float attackDistance;
     [SerializeField] EngageState engageState;
-    [SerializeField] Animator animator;
 
     [SerializeField] float rotationSpeed = 10f;
     Coroutine lookCoroutine;
