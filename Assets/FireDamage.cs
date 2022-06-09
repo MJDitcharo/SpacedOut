@@ -8,7 +8,8 @@ public class FireDamage : MonoBehaviour
     [SerializeField]
     int burnTimer;
     [SerializeField]
-    bool keepDamaging;
+    bool keepDamaging; //resets the timer 
+
     [SerializeField]
     GameObject fire;
     private void OnTriggerEnter(Collider other)
@@ -24,6 +25,18 @@ public class FireDamage : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         DealFireDamage(collision.collider);
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (keepDamaging)
+            DealFireDamage(collision.collider);
+    }
+    private void OnCollisionExit(Collision other)
+    {
+        health hp = other.gameObject.GetComponent<health>();
+        if (hp != null)
+            StartCoroutine(EndEffect(other.collider));
     }
 
     private void OnTriggerExit(Collider other)
