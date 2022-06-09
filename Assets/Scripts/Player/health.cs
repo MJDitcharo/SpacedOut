@@ -21,11 +21,6 @@ public class health : MonoBehaviour
     float fireTick = 0;
     [SerializeField] float vulnAmount = 1.5f;
     [SerializeField] int vulnTime = 5;
-
-    [SerializeField] GameObject damagePopUP;
-    TextMeshProUGUI tmp;
-    Color color;
-
     
     // Start is called before the first frame update
     void Start()
@@ -60,7 +55,7 @@ public class health : MonoBehaviour
             currHealth = (int)(_dmg * 1.5f);
         else
             currHealth -= (int)_dmg;
-        StartCoroutine(DamageIndicator(_dmg));
+        DamagePopUpManager.Instance.StartCoroutine(DamagePopUpManager.Instance.DamageIndicator(_dmg, gameObject.transform.position));
         if (currHealth <= 0)
         {
             GetComponent<Collider>().enabled = false;
@@ -137,35 +132,5 @@ public class health : MonoBehaviour
         stun = null;
     }
 
-    public IEnumerator DamageIndicator(int damage)
-    {
-        int seconds = 15;
-        float distance = 1;
-        float fadeSpeed = 1f;
-        GameObject go = Instantiate(damagePopUP, gameObject.transform.position + new Vector3(0,5,0), Quaternion.Euler(90,0,0));
-        tmp = go.GetComponent<TextMeshProUGUI>();
-        tmp.text = "-" + damage.ToString();
-        color = tmp.color;
-
-        while (seconds > 0)
-        {
-            go.transform.position = Vector3.Lerp(go.transform.position, go.transform.position + new Vector3(distance, 0, 0), 1);
-            yield return new WaitForEndOfFrame();
-            distance *= 0.5f;
-            seconds--;
-
-        }
-        while(seconds <= 0)
-        {
-       
-            color.a -= fadeSpeed * Time.deltaTime;
-            tmp.color = color;
-            yield return null;
-            if(tmp.color.a <= 0f)
-            {
-                Destroy(go);
-            }
-        }
-
-    }
+   
 }
