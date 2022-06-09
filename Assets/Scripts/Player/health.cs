@@ -21,7 +21,7 @@ public class health : MonoBehaviour
     float fireTick = 0;
     [SerializeField] float vulnAmount = 1.5f;
     [SerializeField] int vulnTime = 5;
-    public GameObject fire;
+    public GameObject fireParticleEffect;
     
     // Start is called before the first frame update
     void Start()
@@ -43,11 +43,6 @@ public class health : MonoBehaviour
                 fireTick = 0;
                 //Debug.Break();
             }
-        }
-        else
-        {
-            if (fire != null)
-                Destroy(fire);
         }
     }
 
