@@ -21,6 +21,7 @@ public class health : MonoBehaviour
     float fireTick = 0;
     [SerializeField] float vulnAmount = 1.5f;
     [SerializeField] int vulnTime = 5;
+    [HideInInspector]
     public GameObject fireParticleEffect;
     
     // Start is called before the first frame update
