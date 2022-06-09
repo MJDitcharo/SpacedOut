@@ -32,16 +32,16 @@ public class playerHealth : health
             return;
         delayDamge = Time.time + 1f / delayRate;
         currHealth -= dmg;
-        DamagePopUpManager.Instance.StartCoroutine(DamagePopUpManager.Instance.DamageIndicator(dmg, gameObject.transform.position));
+        //DamagePopUpManager.Instance.StartCoroutine(DamagePopUpManager.Instance.DamageIndicator(dmg, gameObject.transform.position));
         StartCoroutine(GetComponent<EnemyFlashRed>().FlashRed());
         GameManager.instance.healthBar.SetHealth((float)currHealth / maxHealth); 
-        if (currHealth <= 0)
-        {
-            //GameManager.instance.Respawn();
-            gameOverScreen.SetActive(true);
-            Time.timeScale = 0;
+        //if (currHealth <= 0)
+        //{
+        //    //GameManager.instance.Respawn();
+        //    gameOverScreen.SetActive(true);
+        //    Time.timeScale = 0;
             
-        }
+        //}
     }
 
     public void AddMaxHealth(int value)

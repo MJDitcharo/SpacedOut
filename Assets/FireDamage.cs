@@ -9,14 +9,31 @@ public class FireDamage : MonoBehaviour
     int damage, delaySeconds;
     [SerializeField]
     bool keepDamaging;
+    [SerializeField]
+    GameObject fire;
+    private void OnTriggerEnter(Collider other)
+    {
+        DealFireDamage(other);
+    }
 
-    private void OnTriggerStay(Collider other)
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        DealFireDamage(collision.collider);   
+    }
+
+    private void DealFireDamage(Collider other)
     {
         Debug.Log("found: " + other.gameObject.name);
         health hp = other.gameObject.GetComponent<health>();
         if (hp != null)
+        {
             hp.burnTimer = 3;
+            hp.fire = Instantiate(fire, other.transform.position, Quaternion.identity, other.transform);
+        }
     }
+}
+
     //private void OnTriggerExit(Collider other)
     //{
     //    keepDamaging = false;
