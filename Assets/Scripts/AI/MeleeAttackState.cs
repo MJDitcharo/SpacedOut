@@ -38,6 +38,7 @@ public class MeleeAttackState : State
 
         if (attackCoroutine == null)
         {
+            animator.SetBool("Running", false);
             Debug.Log("Attacking now");
             attackCoroutine = StartCoroutine(DashAttack()); 
         }
