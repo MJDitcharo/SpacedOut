@@ -173,13 +173,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2abe195c268d3469c068cdd60547f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currHealth: 100
+  maxHealth: 1000
+  currHealth: 1000
   vulnerable: 0
   isStunned: 0
+  burnTimer: 0
   fireTickTime: 1
   vulnAmount: 1.5
   vulnTime: 5
+  damagePopUP: {fileID: 6974688863927324932, guid: 657d1332955968e469ff9d0094bee4d4, type: 3}
   drops: {fileID: 6076811627386069490, guid: d0306af4078577240a9a23e69fb7f953, type: 3}
   dropQuantity: 5
   bossAttacks: {fileID: 1298989228}
@@ -219,7 +221,7 @@ MonoBehaviour:
   teleportingState: {fileID: 1298989237}
   currentAttack: 3
   damage: 20
-  pushbackMultiplier: 4
+  pushbackMultiplier: 1
   dashAttackTime: 1
   dashSpeed: 10
   dashWaitTime: 1

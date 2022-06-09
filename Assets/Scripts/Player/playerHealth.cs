@@ -32,8 +32,9 @@ public class playerHealth : health
             return;
         delayDamge = Time.time + 1f / delayRate;
         currHealth -= dmg;
+        StartCoroutine(DamageIndicator(dmg));
         StartCoroutine(GetComponent<EnemyFlashRed>().FlashRed());
-        GameManager.instance.healthBar.SetHealth((float)currHealth / maxHealth);
+        GameManager.instance.healthBar.SetHealth((float)currHealth / maxHealth); 
         if (currHealth <= 0)
         {
             //GameManager.instance.Respawn();
