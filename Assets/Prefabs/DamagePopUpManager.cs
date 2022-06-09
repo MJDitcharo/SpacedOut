@@ -25,7 +25,7 @@ public class DamagePopUpManager : MonoBehaviour
     }
     public IEnumerator DamageIndicator(int damage, Vector3 position)
     {
-        float seconds = 0.7f;
+        float seconds = 1f;
         float distance = 5;
         float fadeSpeed = 1f;
         GameObject go = Instantiate(damagePopUP, position + new Vector3(0, 5, 0), Quaternion.Euler(90, 0, 0));
@@ -35,19 +35,18 @@ public class DamagePopUpManager : MonoBehaviour
         Color color;
         color = tmp.color;
         Vector3 pushback = new Vector3(distance, distance, 0);
-        float pushbackFalloffSpeed = 10f;
+        float pushbackFalloffSpeed = 20f;
 
         while (seconds > 0)
         {
-            position = Vector3.Lerp(position, position + pushback, pushbackFalloffSpeed * Time.deltaTime);
+            Vector3 positionChange = Vector3.Lerp(pushback, Vector3.zero, pushbackFalloffSpeed * Time.deltaTime) * Time.deltaTime;
+            go.transform.position += positionChange;
             yield return new WaitForEndOfFrame();
-            distance *= 0.5f;
             seconds -= Time.deltaTime;
 
         }
         while (seconds <= 0)
         {
-
             color.a -= fadeSpeed * Time.deltaTime;
             tmp.color = color;
             yield return null;
