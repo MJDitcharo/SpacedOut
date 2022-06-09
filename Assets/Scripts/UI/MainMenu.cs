@@ -142,11 +142,11 @@ public class MainMenu : MonoBehaviour
     {
         if (MenuType == "Audio")
         {
-            LoadPrefs.Instance.musicVolume = 10f;
             volumeSlider.value = 10f;
+            LoadPrefs.Instance.musicVolume = volumeSlider.value/100;
             volumeValueText.text = "10";
-            LoadPrefs.Instance.sfxVolume = 100f;
-            sfxVolueSlider.value = 1000f;
+            sfxVolueSlider.value = 10f;
+            LoadPrefs.Instance.sfxVolume = sfxVolueSlider.value/100;
             sfxVolumeText.text = "10";
             ApplyAudioSetting(); 
         }
@@ -158,8 +158,8 @@ public class MainMenu : MonoBehaviour
         audioSaved = true;
         if (audioSaved == true)
         {
-            PlayerPrefs.SetFloat("MusicVolume", LoadPrefs.Instance.musicVolume);
-            PlayerPrefs.SetFloat("SFXVolume", LoadPrefs.Instance.sfxVolume);
+            PlayerPrefs.SetFloat("MusicVolume", volumeSlider.value);
+            PlayerPrefs.SetFloat("SFXVolume", sfxVolueSlider.value);
         }
         audioSaved = false;
     }
