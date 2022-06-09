@@ -22,14 +22,19 @@ public class bullet : MonoBehaviour
         
         if(explosiveRadius > 0)
         {
+            float distance = Vector3.Distance(transform.position, GameManager.instance.player.transform.position);
+            float shakeMagnitude = 10 / (distance);
+            ScreenShake.instance.StartCoroutine(ScreenShake.instance.ShakeScreen(1, shakeMagnitude));
+
             Collider[] colliders = Physics.OverlapSphere(transform.position, explosiveRadius);
             for(int i = 0; i < colliders.Length; i++)
             {
                 health healthScript = colliders[i].GetComponent<health>();
                 //RaycastHit hit;
-                if(healthScript != null /*&& Physics.Raycast(transform.position, colliders[i].transform.position - transform.position, out hit, Mathf.Infinity) && hit.collider.gameObject == colliders[i].gameObject*/)
+                if(healthScript != null/* Physics.Raycast(transform.position, colliders[i].transform.position - transform.position, out hit, Mathf.Infinity) && hit.collider.gameObject == colliders[i].gameObject*/)
                 {
-                    colliders[i].GetComponent<EnemyMovement>().pushback += (-pushbackMultiplier* (transform.position - colliders[i].transform.position).normalized);
+                    if(colliders[i].GetComponent<EnemyMovement>() != null)
+                        colliders[i].GetComponent<EnemyMovement>().pushback += (-pushbackMultiplier* (transform.position - colliders[i].transform.position).normalized);
                     healthScript.DoDamage(damage);
                 }
             }
