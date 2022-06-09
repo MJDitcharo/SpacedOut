@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour
                 PlayerPrefs.SetInt("Heavy Ammo", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount);
         }
 
-        WeaponHolder.instance.SaveLoadout();
+       WeaponHolder.instance.SaveLoadout();
         //save the tier index of each page for the store
         //if (!firstSave)
         //{
@@ -198,7 +198,6 @@ public class GameManager : MonoBehaviour
         }
 
         WeaponHolder.instance.currentChildCount = PlayerPrefs.GetInt("Child Count");
-
         WeaponHolder.instance.unlockedWeapons.Clear();
         for (int i = 0; i < 4; i++)
         {
@@ -206,6 +205,7 @@ public class GameManager : MonoBehaviour
             {
                 string name = PlayerPrefs.GetString("Weapon " + i);
                 WeaponHolder.instance.AddToUnlockedItems(name);
+                WeaponHolder.instance.ArrangeHierarchy(name, i);
                 //WeaponHolder.instance.ArrangeHierarchy(name, UIStoreButtons.purchaseIndex++);
                 //WeaponHolder.instance.currentChildCount++;
             }
