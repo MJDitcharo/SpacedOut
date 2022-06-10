@@ -5,6 +5,10 @@ using UnityEngine;
 public class PistolPage : WeaponUpgradePage
 {
     static public PistolPage instance;
+    private void Awake()
+    {
+        pageID = WeaponBase.WeaponID.Pistol;
+    }
     protected override void Start()
     {
         instance = this;
@@ -12,5 +16,4 @@ public class PistolPage : WeaponUpgradePage
         base.Start();
         CheckUnlock("Pistol");
     }
-
 }

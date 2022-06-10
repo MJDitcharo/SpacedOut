@@ -123,6 +123,7 @@ public class UIStoreButtons : MonoBehaviour
     #region Shop Buttons
     public void ExitShop()
     {
+        UIStore.instance.purchaseMessageObj.SetActive(false);
         UIStore.instance.Deactivate();
     }
     #region PickupButtons
@@ -202,6 +203,7 @@ public class UIStoreButtons : MonoBehaviour
             PistolPage.instance.NextTier();
         PistolPage.instance.SetTier2Choice("Deagle");
         GameManager.instance.SaveGame();
+        WeaponHolder.instance.SwitchWeapons(WeaponBase.WeaponID.Pistol);
     }
 
     public void PistolDualWieldUpgrade()
@@ -213,6 +215,7 @@ public class UIStoreButtons : MonoBehaviour
             PistolPage.instance.SetTier2Choice("Dual Wield");
         }
         GameManager.instance.SaveGame();
+        WeaponHolder.instance.SwitchWeapons(WeaponBase.WeaponID.Pistol);
     }
     public void PistolVoidUpgrade()
     {
@@ -220,6 +223,7 @@ public class UIStoreButtons : MonoBehaviour
         if (!purchaseFailed)
             PistolPage.instance.NextTier();
         GameManager.instance.SaveGame();
+        WeaponHolder.instance.SwitchWeapons(WeaponBase.WeaponID.Pistol);
     }
     public void PistolPlasmaUpgrade()
     {
@@ -227,6 +231,7 @@ public class UIStoreButtons : MonoBehaviour
         if (!purchaseFailed)
             PistolPage.instance.NextTier();
         GameManager.instance.SaveGame();
+        WeaponHolder.instance.SwitchWeapons(WeaponBase.WeaponID.Pistol);
     }
     #endregion
 
@@ -247,6 +252,7 @@ public class UIStoreButtons : MonoBehaviour
         if (!purchaseFailed)
             ShotgunPage.instance.NextTier();
         GameManager.instance.SaveGame();
+        WeaponHolder.instance.SwitchWeapons(WeaponBase.WeaponID.Shotgun);
     }
 
     public void ShotgunAmmo()
@@ -280,6 +286,7 @@ public class UIStoreButtons : MonoBehaviour
             ShotgunPage.instance.SetTier2Choice("Slug");
         }
         GameManager.instance.SaveGame();
+        WeaponHolder.instance.SwitchWeapons(WeaponBase.WeaponID.Shotgun);
     }
     public void ShotgunUpgradeSawedOff()
     {
@@ -290,6 +297,7 @@ public class UIStoreButtons : MonoBehaviour
             ShotgunPage.instance.SetTier2Choice("Sawed-Off");
         }
         GameManager.instance.SaveGame();
+        WeaponHolder.instance.SwitchWeapons(WeaponBase.WeaponID.Shotgun);
     }
     public void ShotgunPlasmaUpgrade()
     {
@@ -297,6 +305,7 @@ public class UIStoreButtons : MonoBehaviour
         if (!purchaseFailed)
             ShotgunPage.instance.NextTier();
         GameManager.instance.SaveGame();
+        WeaponHolder.instance.SwitchWeapons(WeaponBase.WeaponID.Shotgun);
     }
 
     public void ShotgunVoidUpgrade()
@@ -305,6 +314,7 @@ public class UIStoreButtons : MonoBehaviour
         if (!purchaseFailed)
             ShotgunPage.instance.NextTier();
         GameManager.instance.SaveGame();
+        WeaponHolder.instance.SwitchWeapons(WeaponBase.WeaponID.Shotgun);
     }
     #endregion
 
@@ -313,6 +323,7 @@ public class UIStoreButtons : MonoBehaviour
     public void RifleBuyWeapon()
     {
         bool purchaseFailed;
+        string message = "";
         if (GameManager.instance.skrapCount.GetQuantity() >= RiflePage.instance.weaponCost)
         {
             UnlockWeapon("Rifle");
@@ -321,11 +332,16 @@ public class UIStoreButtons : MonoBehaviour
             WeaponHolder.instance.currentChildCount++;
         }
         else
+        {
+            if (GameManager.instance.skrapCount.GetQuantity() < RiflePage.instance.weaponCost)
+                message = "Not enough skrap!";
             purchaseFailed = true;
-        StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
+        }
+        StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed, message));
         if (!purchaseFailed)
             RiflePage.instance.NextTier();
         GameManager.instance.SaveGame();
+        WeaponHolder.instance.SwitchWeapons(WeaponBase.WeaponID.Rifle);
     }
     public void RifleAmmo()
     {
@@ -358,6 +374,7 @@ public class UIStoreButtons : MonoBehaviour
             RiflePage.instance.SetTier2Choice("Burst");
         }
         GameManager.instance.SaveGame();
+        WeaponHolder.instance.SwitchWeapons(WeaponBase.WeaponID.Rifle);
     }
 
     public void RifleAssault()
@@ -369,6 +386,7 @@ public class UIStoreButtons : MonoBehaviour
             RiflePage.instance.SetTier2Choice("Assault");
         }
         GameManager.instance.SaveGame();
+        WeaponHolder.instance.SwitchWeapons(WeaponBase.WeaponID.Rifle);
     }
 
     public void RiflePlasmaUpgrade()
@@ -377,6 +395,7 @@ public class UIStoreButtons : MonoBehaviour
         if (!purchaseFailed)
             RiflePage.instance.NextTier();
         GameManager.instance.SaveGame();
+        WeaponHolder.instance.SwitchWeapons(WeaponBase.WeaponID.Rifle);
     }
     public void RifleVoidUpgrade()
     {
@@ -384,6 +403,7 @@ public class UIStoreButtons : MonoBehaviour
         if (!purchaseFailed)
             RiflePage.instance.NextTier();
         GameManager.instance.SaveGame();
+        WeaponHolder.instance.SwitchWeapons(WeaponBase.WeaponID.Rifle);
     }
 
     #endregion
@@ -406,6 +426,7 @@ public class UIStoreButtons : MonoBehaviour
         if (!purchaseFailed)
             HeavyPage.instance.NextTier();
         GameManager.instance.SaveGame();
+        WeaponHolder.instance.SwitchWeapons(WeaponBase.WeaponID.Heavy);
     }
 
     public void HeavyAmmo()
@@ -439,6 +460,7 @@ public class UIStoreButtons : MonoBehaviour
             HeavyPage.instance.SetTier2Choice("Grenade Launcher");
         }
         GameManager.instance.SaveGame();
+        WeaponHolder.instance.SwitchWeapons(WeaponBase.WeaponID.Heavy);
     }
 
     public void HeavyMinigun()
@@ -450,6 +472,7 @@ public class UIStoreButtons : MonoBehaviour
             HeavyPage.instance.SetTier2Choice("Minigun");
         }
         GameManager.instance.SaveGame();
+        WeaponHolder.instance.SwitchWeapons(WeaponBase.WeaponID.Heavy);
     }
 
     public void HeavyVoidUpgrade()
@@ -458,6 +481,7 @@ public class UIStoreButtons : MonoBehaviour
         if (!purchaseFailed)
             HeavyPage.instance.NextTier();
         GameManager.instance.SaveGame();
+        WeaponHolder.instance.SwitchWeapons(WeaponBase.WeaponID.Heavy);
     }
 
     public void HeavyPlasmaUpgrade()
@@ -466,6 +490,7 @@ public class UIStoreButtons : MonoBehaviour
         if (!purchaseFailed)
             HeavyPage.instance.NextTier();
         GameManager.instance.SaveGame();
+        WeaponHolder.instance.SwitchWeapons(WeaponBase.WeaponID.Heavy);
     }
     #endregion
     #endregion

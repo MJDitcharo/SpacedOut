@@ -25,6 +25,7 @@ public class WeaponBase : MonoBehaviour
     [SerializeField] protected float fireRateMultiplier = 1;
     protected float nextShotFired = 0f; //counter for next bullet that is fired
     public string weaponDescription;
+    public string weaponName;
     private void Start()
     {
         //grab ammo for UI.Only do this one time
