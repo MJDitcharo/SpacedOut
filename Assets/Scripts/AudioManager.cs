@@ -52,6 +52,18 @@ public class AudioManager : MonoBehaviour
             musicSource.Play();
         }
     }
+    public void PlaySFX(Sound soundEffect)
+    {
+        if (soundEffect.audioType == AudioStyle.sfx)
+        {
+            aSource.PlayOneShot(soundEffect.audio);
+        }
+        else if (soundEffect.audioType == AudioStyle.music)
+        {
+            musicSource.clip = soundEffect.audio;
+            musicSource.Play();
+        }
+    }
 }
 
 [System.Serializable]

@@ -17,11 +17,26 @@ public class MeleeAttackState : State
     [SerializeField] float rotationSpeed = 10f;
     [SerializeField] float pushbackMultiplier = 1;
 
+    [SerializeField] AudioClip swingAudio;
+    [SerializeField] AudioClip chargeAudio;
+
+    Sound swingSound;
+    Sound chargeSound;
     Coroutine lookCoroutine;
     Coroutine attackCoroutine;
 
     bool damageDealt = false;
 
+    private void Start()
+    {
+        swingSound = new Sound();
+        swingSound.audio = swingAudio;
+        swingSound.audioType = AudioStyle.sfx;
+
+        chargeSound = new Sound();
+        chargeSound.audio = chargeAudio;
+        chargeSound.audioType = AudioStyle.sfx;
+    }
 
     public override State RunCurrentState()
     {
@@ -69,9 +84,11 @@ public class MeleeAttackState : State
         animator.SetBool("Running", false);
         enemyMovement.GetAgent().isStopped = true;
         damageDealt = false;
+        AudioManager.Instance.PlaySFX(chargeSound);
 
         yield return new WaitForSeconds(dashTime);
         animator.SetBool("Swinging", true);
+        AudioManager.Instance.PlaySFX(swingSound);
 
         movement.pushback += (-dashDistance * (transform.position - GameManager.instance.player.transform.position).normalized);
 
