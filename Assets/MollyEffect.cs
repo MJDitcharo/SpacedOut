@@ -8,6 +8,7 @@ public class MollyEffect : MonoBehaviour
     ParticleSystem particle;
     void Start()
     {
-        particle.Emit(100);
+        particle.Simulate(4, true);
+        particle.Play();
     }
 }

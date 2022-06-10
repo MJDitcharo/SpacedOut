@@ -53,7 +53,7 @@ public class FireDamage : MonoBehaviour
         if (hp != null)
         {
             hp.burnTimer = burnTimer;
-            hp.fireParticleEffect = Instantiate(fire, other.transform.position, Quaternion.identity, other.transform);
+            hp.fireParticleEffect = Instantiate(fire, other.transform.position, Quaternion.Euler(270, other.transform.rotation.y, other.transform.rotation.x), other.transform);
         }
     }
 
