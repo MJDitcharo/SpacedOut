@@ -20,8 +20,8 @@ public class FireDamage : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (keepDamaging)
-            KeepDamaging(other);
+        //if (keepDamaging)
+        //    KeepDamaging(other);
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -30,8 +30,8 @@ public class FireDamage : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (keepDamaging)
-            KeepDamaging(collision.collider);
+        //if (keepDamaging)
+        //    KeepDamaging(collision.collider);
     }
     private void OnCollisionExit(Collision other)
     {

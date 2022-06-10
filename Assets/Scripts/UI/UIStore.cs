@@ -54,7 +54,8 @@ public class UIStore : PopUpMenu
         else
         {
             UIStore.instance.purchaseMessage.color = Color.red;
-            message = "Transaction Failed!";
+            if (message == "")
+                message = "Transaction Failed!";
         }
         UIStore.instance.purchaseMessage.text = message;
         UIStore.instance.purchaseMessageObj.SetActive(true);

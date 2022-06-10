@@ -179,13 +179,6 @@ public class WeaponHolder : MonoBehaviour
             //hierarchy for gunImages
             Transform oldImage = gunImages.transform.Find(weaponName);
             gunImages.transform.Find(weaponName).SetSiblingIndex(index);
-            //if (tier2Upgrade != "")
-            //{
-            //    //swap the guns
-            //    SwapToBottom(old, transform.Find(weaponName), transform.childCount);
-            //    //swap the gun images
-            //    SwapToBottom(oldImage, gunImages.transform.Find(weaponName), gunImages.transform.childCount);
-            //}
         }
     }
 
@@ -249,7 +242,6 @@ public class WeaponHolder : MonoBehaviour
 
     public string GetEquippedWeaponName(WeaponBase.WeaponID weaponID)
     {
-
         for (int i = 0; i <= currentChildCount; i++)
         {
             if (weaponID == transform.GetChild(i).GetComponent<WeaponBase>().weaponID)
@@ -258,7 +250,30 @@ public class WeaponHolder : MonoBehaviour
         return string.Empty;
     }
 
-    
+    public void SwitchWeapons(WeaponBase.WeaponID weaponID)
+    {
+        //find the weapon with specified id
+        WeaponBase weapon = null;
+        for (int i = 0; i <= currentChildCount; i++)
+        {
+            weapon = transform.GetChild(i).GetComponent<WeaponBase>();
+            if (weaponID == weapon.weaponID)
+            {
+                selectedWeapon = i;
+                SelectWeapon();
+                break;
+            }
+        }
+
+        if (weapon == null)
+        {
+            Debug.Log("Weapon Not Found!!");
+            return;
+        }
+        //change the gunimage to the correct weapon
+        //change the ammo count to the correct image
+        //disable all other weapon images
+    }
 
     public string GetWeaponDescription(string weaponName)
     {

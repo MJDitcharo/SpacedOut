@@ -17,7 +17,7 @@ public class WeaponUpgradePage : StorePage
     [SerializeField]
     protected List<GameObject> upgradeTiers = new();
     protected string tier2Choice = "";
-
+    protected WeaponBase.WeaponID pageID;
     protected int currentTier = 0;
     private int maxTier;
     protected string pageName; //MUST be set in the start function for each child. This is an abstract field
@@ -28,6 +28,16 @@ public class WeaponUpgradePage : StorePage
         base.Start();
         maxTier = upgradeTiers.Count;
         TiersFromPlayerPrefs(pageName);
+    }
+
+    private void OnEnable()
+    {
+        if(gameObject.activeInHierarchy)
+        {
+            Debug.Log("Switching");
+            WeaponHolder.instance.SwitchWeapons(pageID);
+            firstLoad = false;
+        }
     }
     protected override void SetInitialPrices()
     {
@@ -71,7 +81,6 @@ public class WeaponUpgradePage : StorePage
         //add the ammo first
         pricesText.Add(buyAmmo.transform.Find("Price Icon").transform.Find("Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>());
         pricesText.Add(upgradeTiers[0].transform.Find("Price Icon").transform.Find("Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>());
-        Debug.Log(upgradeTiers[0].name);
         UpgradeMeshes(upgradeTiers[1]);
         UpgradeMeshes(upgradeTiers[2]);
         UpgradeMeshes(upgradeTiers[3]);
@@ -119,4 +128,5 @@ public class WeaponUpgradePage : StorePage
         for (int i = 0; i < PlayerPrefs.GetInt(pageName); i++)
             NextTier();
     }
+
 }
