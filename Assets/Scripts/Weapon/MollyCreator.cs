@@ -14,7 +14,7 @@ public class MollyCreator : MonoBehaviour
 
     public IEnumerator ContinuouslyCreateMollies(float timeInterval)
     {
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.3f); //make sure bullets don't spawn on the player
         while(true)
         {
             GameObject fire = Instantiate(molly, transform.position, Quaternion.identity);
