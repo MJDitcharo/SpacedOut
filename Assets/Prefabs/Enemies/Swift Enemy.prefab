@@ -97,7 +97,6 @@ GameObject:
   - component: {fileID: 1210459101014310159}
   - component: {fileID: 1210459101014310158}
   - component: {fileID: 1210459101014310161}
-  - component: {fileID: 1210459101014310160}
   - component: {fileID: 1210459101014310163}
   - component: {fileID: 1210459101014310165}
   - component: {fileID: 1210459101014310155}
@@ -228,32 +227,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 1210459101014310155}
+  animator: {fileID: 0}
   engageState: {fileID: 1210459101014310163}
---- !u!114 &1210459101014310160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210459101014310164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d39050ac66439b34cb8d431839f6f785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement: {fileID: 1210459101014310155}
-  attackState: {fileID: 0}
-  noticeDistance: 9
-  movementSpeed: 3
-  walkTime: 5
-  walkTimeMultiplier: 1
-  obsticleAvoidanceDistance: 6
-  fire: {fileID: 0}
-  turnSpeed: 90
-  minimunTurnTime: 0.5
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &1210459101014310163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,9 +242,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 1210459101014310155}
+  animator: {fileID: 95767405240622411}
   attackState: {fileID: 2909596921257475889}
   suicideAttackState: {fileID: 0}
-  animator: {fileID: 95767405240622411}
   attackDistance: 15
 --- !u!114 &1210459101014310165
 MonoBehaviour:
@@ -285,7 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 1210459101014310161}
   idleState: {fileID: 1210459101014310161}
-  wanderState: {fileID: 1210459101014310160}
+  wanderState: {fileID: 0}
 --- !u!114 &1210459101014310155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,7 +314,7 @@ MonoBehaviour:
   fireTickTime: 1
   vulnAmount: 1.5
   vulnTime: 5
-  damagePopUP: {fileID: 6974688863927324932, guid: 657d1332955968e469ff9d0094bee4d4, type: 3}
+  fireParticleEffect: {fileID: 0}
   drops: {fileID: 6076811627386069490, guid: d0306af4078577240a9a23e69fb7f953, type: 3}
   dropQuantity: 10
 --- !u!114 &2909596921257475889
@@ -355,10 +330,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 1210459101014310155}
+  animator: {fileID: 95767405240622411}
   attackType: 0
   attackDistance: 15
   engageState: {fileID: 1210459101014310163}
-  animator: {fileID: 95767405240622411}
   rotationSpeed: 40
   firePoints:
   - {fileID: 2358946977049929279}
@@ -371,6 +346,8 @@ MonoBehaviour:
   dashTime: 0.3
   burstSpacing: 0.15
   burstBulletCount: 3
+  shootAudio: {fileID: 8300000, guid: 1e940d15337ad1e43b0cc1b2430d7c06, type: 3}
+  boostAudio: {fileID: 8300000, guid: fdf59d7aba7f70d418c540e79fe57099, type: 3}
 --- !u!1 &6362822712387605206
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,18 +395,6 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4090538843458608, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090538843458608, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090538843458608, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090538843458608, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -469,30 +434,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 95767405963661038, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 5e57f184489bc16459aa4c53a6139d2f, type: 2}
-    - target: {fileID: 95767405963661038, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 137860620618225078, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
       propertyPath: m_ProbeAnchor
       value: 
       objectReference: {fileID: 1210459101014310154}
-    - target: {fileID: 137860620618225078, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
-      propertyPath: m_AABB.m_Extent.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 137860620618225078, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
-      propertyPath: m_AABB.m_Extent.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 137860620618225078, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
-      propertyPath: m_AABB.m_Extent.z
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cde8179277215b4fafbb51cd3f7fcd0, type: 3}
 --- !u!4 &4090537948716949 stripped
