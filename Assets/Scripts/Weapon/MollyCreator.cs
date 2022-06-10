@@ -14,6 +14,7 @@ public class MollyCreator : MonoBehaviour
 
     public IEnumerator ContinuouslyCreateMollies(float timeInterval)
     {
+        yield return new WaitForSeconds(.3f);
         while(true)
         {
             GameObject fire = Instantiate(molly, transform.position, Quaternion.identity);

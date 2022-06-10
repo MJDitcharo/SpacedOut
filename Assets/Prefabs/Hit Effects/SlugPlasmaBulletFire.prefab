@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1343031573247902959}
   - component: {fileID: 4321796724528498833}
   - component: {fileID: 8898751711223382545}
-  - component: {fileID: 1082955871131826947}
   m_Layer: 0
   m_Name: Molly Effect
   m_TagString: Untagged
@@ -4827,21 +4826,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 1343031573247902959}
---- !u!114 &1082955871131826947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7018399828386019178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d90defa8036847e42890073e311493f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  burnTimer: 2
-  keepDamaging: 1
-  fire: {fileID: 7911532890973092836, guid: c6cb706fd80045843b8c025735473c42, type: 3}
 --- !u!1 &8535496859614532281
 GameObject:
   m_ObjectHideFlags: 0
@@ -4855,6 +4839,7 @@ GameObject:
   - component: {fileID: 7801803445949569963}
   - component: {fileID: 1288713592542603202}
   - component: {fileID: 354404614168416345}
+  - component: {fileID: 1502795990}
   m_Layer: 7
   m_Name: SlugPlasmaBulletFire
   m_TagString: Fire
@@ -4928,3 +4913,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8535496859614532281}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1502795990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8535496859614532281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90defa8036847e42890073e311493f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burnTimer: 5
+  keepDamaging: 1
+  fire: {fileID: 7911532890973092836, guid: c6cb706fd80045843b8c025735473c42, type: 3}
