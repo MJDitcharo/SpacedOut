@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 3514033138011270796}
+  animator: {fileID: 0}
   engageState: {fileID: 3514033138011270804}
 --- !u!114 &3514033138011270807
 MonoBehaviour:
@@ -241,6 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 3514033138011270796}
+  animator: {fileID: 0}
   attackState: {fileID: 6777620719103775249}
   noticeDistance: 9
   movementSpeed: 3
@@ -266,6 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 3514033138011270796}
+  animator: {fileID: 0}
   attackState: {fileID: 6777620719103775249}
   suicideAttackState: {fileID: 0}
   attackDistance: 10
@@ -337,7 +340,7 @@ MonoBehaviour:
   fireTickTime: 1
   vulnAmount: 1.5
   vulnTime: 5
-  damagePopUP: {fileID: 6974688863927324932, guid: 657d1332955968e469ff9d0094bee4d4, type: 3}
+  fireParticleEffect: {fileID: 0}
   drops: {fileID: 6076811627386069490, guid: d0306af4078577240a9a23e69fb7f953, type: 3}
   dropQuantity: 10
 --- !u!114 &6777620719103775249
@@ -353,11 +356,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 3514033138011270796}
+  animator: {fileID: 0}
   damage: 10
   attackDistance: 10
   engageState: {fileID: 3514033138011270804}
   enemyMovement: {fileID: 3514033138011270796}
-  dashSpeed: 25
+  dashSpeed: 15
   dashTime: 1.5
   dashDistance: 40
   rotationSpeed: 10
