@@ -33,6 +33,21 @@ public class SwiftAttackState : State
     [SerializeField] int burstBulletCount = 3;
     int bulletsFired = 0;
 
+    [SerializeField] AudioClip shootAudio;
+    [SerializeField] AudioClip boostAudio;
+    Sound shootSound;
+    Sound boostSound;
+
+    private void Start()
+    {
+        shootSound = new Sound();
+        shootSound.audio = shootAudio;
+        shootSound.audioType = AudioStyle.sfx;
+        boostSound = new Sound();
+        boostSound.audio = boostAudio;
+        boostSound.audioType = AudioStyle.sfx;
+    }
+
     public override State RunCurrentState()
     {
         enemyMovement.GetAgent().isStopped = true;
@@ -64,6 +79,7 @@ public class SwiftAttackState : State
         //dash if true
         if(bulletsFired >= burstBulletCount)
         {
+            //AudioManager.Instance.PlaySFX(boostSound);
             //if(turnRight == null)
                 //turnRight = StartCoroutine(TurnForRoll());
             animator.SetBool("Dashing", true);
@@ -94,6 +110,8 @@ public class SwiftAttackState : State
             burstTimer = 0;
             bulletsFired++;
             Shoot();
+            if (bulletsFired >= burstBulletCount)
+                AudioManager.Instance.PlaySFX(boostSound);
         }
 
         burstTimer += Time.deltaTime;
@@ -126,7 +144,7 @@ public class SwiftAttackState : State
                     firepointIndex = 0;
                 break;
         }
-
+        AudioManager.Instance.PlaySFX(shootSound);
     }
 
     IEnumerator TurnToPlayer()
