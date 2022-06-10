@@ -14,13 +14,14 @@ public class FireDamage : MonoBehaviour
     GameObject fire;
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Fire damage");
         DealFireDamage(other);
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (keepDamaging)
-            DealFireDamage(other);
+            KeepDamaging(other);
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -30,7 +31,7 @@ public class FireDamage : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         if (keepDamaging)
-            DealFireDamage(collision.collider);
+            KeepDamaging(collision.collider);
     }
     private void OnCollisionExit(Collision other)
     {
@@ -55,6 +56,13 @@ public class FireDamage : MonoBehaviour
             hp.burnTimer = burnTimer;
             hp.fireParticleEffect = Instantiate(fire, other.transform.position, Quaternion.Euler(270, other.transform.rotation.y, other.transform.rotation.x), other.transform);
         }
+    }
+
+    private void KeepDamaging(Collider other)
+    {
+        health hp = other.gameObject.GetComponent<health>();
+        if (hp != null)
+            hp.burnTimer = burnTimer;
     }
 
     private void StopFireDamage(Collider other)
