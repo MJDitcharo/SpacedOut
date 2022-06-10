@@ -114,26 +114,6 @@ public class WeaponUpgradePage : StorePage
         return currentTier;
     }
 
-    public void SetCurrentTier(int tier)
-    {
-        currentTier = tier;
-    }
-
-    private void ApplyTier()
-    {
-        int i = 0;
-        foreach (GameObject item in upgradeTiers)
-        {
-            if (i == currentTier)
-            {
-                item.SetActive(true);
-            }
-            else
-                item.SetActive(false);
-            i++;
-        }
-    }
-
     protected void TiersFromPlayerPrefs(string pageName)
     {
         for (int i = 0; i < PlayerPrefs.GetInt(pageName); i++)
