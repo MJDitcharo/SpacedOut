@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class State : MonoBehaviour
 {
     public EnemyMovement movement;
+    [SerializeField] public Animator animator;
 
     public abstract State RunCurrentState();
 }
