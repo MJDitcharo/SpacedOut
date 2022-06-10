@@ -38,7 +38,6 @@ public class MeleeAttackState : State
 
         if (attackCoroutine == null)
         {
-            animator.SetBool("Running", false);
             Debug.Log("Attacking now");
             attackCoroutine = StartCoroutine(DashAttack()); 
         }
@@ -67,13 +66,20 @@ public class MeleeAttackState : State
 
     IEnumerator DashAttack()
     {
+        animator.SetBool("Running", false);
         enemyMovement.GetAgent().isStopped = true;
         damageDealt = false;
 
         yield return new WaitForSeconds(dashTime);
+        animator.SetBool("Swinging", true);
 
         movement.pushback += (-dashDistance * (transform.position - GameManager.instance.player.transform.position).normalized);
-       
+
+
+        yield return new WaitForSeconds(dashTime);
+        animator.SetBool("Swinging", false);
+        animator.SetBool("Running", true);
+
         attackCoroutine = null;
         enemyMovement.GetAgent().isStopped = false;
     }
