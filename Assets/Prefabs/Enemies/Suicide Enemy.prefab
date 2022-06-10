@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 8422706744265589457}
+  animator: {fileID: 0}
   engageState: {fileID: 8422706744265589449}
 --- !u!114 &8422706744265589450
 MonoBehaviour:
@@ -272,6 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 8422706744265589457}
+  animator: {fileID: 0}
   attackState: {fileID: 0}
   noticeDistance: 9
   movementSpeed: 3
@@ -297,9 +299,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 8422706744265589457}
+  animator: {fileID: 0}
   attackState: {fileID: 0}
   suicideAttackState: {fileID: 2969690508906272559}
   attackDistance: 4
+  layer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &8422706744265589455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,6 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 8422706744265589457}
+  animator: {fileID: 0}
   timeToDeath: 1
   explodingDistance: 5
   pushbackMultiplier: 5
@@ -389,6 +396,7 @@ MonoBehaviour:
   fireTickTime: 1
   vulnAmount: 1.5
   vulnTime: 5
-  damagePopUP: {fileID: 6974688863927324932, guid: 657d1332955968e469ff9d0094bee4d4, type: 3}
+  fireParticleEffect: {fileID: 0}
+  stunParticleEffect: {fileID: 1997773235792374, guid: ca1b1da5e83888f49b3a1148500975b9, type: 3}
   drops: {fileID: 6076811627386069490, guid: d0306af4078577240a9a23e69fb7f953, type: 3}
   dropQuantity: 40

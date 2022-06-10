@@ -304,6 +304,9 @@ MonoBehaviour:
   attackState: {fileID: 2291179577105618355}
   suicideAttackState: {fileID: 0}
   attackDistance: 20
+  layer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &2291179577105618355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +405,7 @@ MonoBehaviour:
   vulnAmount: 1.5
   vulnTime: 5
   fireParticleEffect: {fileID: 0}
+  stunParticleEffect: {fileID: 1997773235792374, guid: ca1b1da5e83888f49b3a1148500975b9, type: 3}
   drops: {fileID: 6076811627386069490, guid: d0306af4078577240a9a23e69fb7f953, type: 3}
   dropQuantity: 200
 --- !u!1 &6290055366700743287
