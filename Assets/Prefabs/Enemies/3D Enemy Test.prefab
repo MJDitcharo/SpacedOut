@@ -127,8 +127,6 @@ GameObject:
   - component: {fileID: 6761313578797408137}
   - component: {fileID: 6761313578797408138}
   - component: {fileID: 6761313578797408139}
-  - component: {fileID: 6761313578797408148}
-  - component: {fileID: 6761313578797408149}
   - component: {fileID: 6761313578797408150}
   - component: {fileID: 6761313578797408151}
   - component: {fileID: 6761313578797408144}
@@ -245,45 +243,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6761313578797408148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6761313578797408145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b264ca6e0e077b40a7cda889a6938a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement: {fileID: 6761313578797408142}
-  engageState: {fileID: 6761313578797408150}
---- !u!114 &6761313578797408149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6761313578797408145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d39050ac66439b34cb8d431839f6f785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement: {fileID: 6761313578797408142}
-  attackState: {fileID: 0}
-  noticeDistance: 9
-  movementSpeed: 3
-  walkTime: 5
-  walkTimeMultiplier: 1
-  obsticleAvoidanceDistance: 6
-  fire: {fileID: 0}
-  turnSpeed: 90
-  minimunTurnTime: 0.5
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &6761313578797408150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,9 +256,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 6761313578797408142}
+  animator: {fileID: 0}
   attackState: {fileID: 6761313578797408151}
   suicideAttackState: {fileID: 0}
   attackDistance: 15
+  layer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &6761313578797408151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,6 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 6761313578797408142}
+  animator: {fileID: 0}
   attackType: 0
   attackDistance: 15
   engageState: {fileID: 6761313578797408150}
@@ -324,6 +288,9 @@ MonoBehaviour:
   firerate: 1
   bulletForce: 20
   Damage: 10
+  lm:
+    serializedVersion: 2
+    m_Bits: 4215
 --- !u!114 &6761313578797408144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,9 +303,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14c6771dd7a37394bbc67a2319db63f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 6761313578797408148}
-  idleState: {fileID: 6761313578797408148}
-  wanderState: {fileID: 6761313578797408149}
+  currentState: {fileID: 6761313578797408150}
+  idleState: {fileID: 0}
+  wanderState: {fileID: 0}
 --- !u!114 &6761313578797408142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,6 +359,7 @@ MonoBehaviour:
   fireTickTime: 1
   vulnAmount: 1.5
   vulnTime: 5
-  damagePopUP: {fileID: 6974688863927324932, guid: 657d1332955968e469ff9d0094bee4d4, type: 3}
+  fireParticleEffect: {fileID: 0}
+  stunParticleEffect: {fileID: 1997773235792374, guid: ca1b1da5e83888f49b3a1148500975b9, type: 3}
   drops: {fileID: 6076811627386069490, guid: d0306af4078577240a9a23e69fb7f953, type: 3}
   dropQuantity: 10

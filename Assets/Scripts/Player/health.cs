@@ -23,6 +23,8 @@ public class health : MonoBehaviour
     [SerializeField] int vulnTime = 5;
     [HideInInspector]
     public GameObject fireParticleEffect;
+
+    [SerializeField] GameObject stunParticleEffect;
     
     // Start is called before the first frame update
     void Start()
@@ -115,6 +117,9 @@ public class health : MonoBehaviour
     }
     public IEnumerator Stun()
     {
+        GameObject particles = Instantiate(stunParticleEffect, transform);
+        particles.transform.localScale = new Vector3(particles.transform.localScale.x * particles.transform.parent.localScale.x, particles.transform.localScale.y * particles.transform.parent.localScale.y, particles.transform.localScale.z * particles.transform.parent.localScale.z);
+
         Debug.Log("stunning");
         AttackState AS = gameObject.GetComponent<AttackState>();
         EnemyMovement EM = gameObject.GetComponent<EnemyMovement>();
@@ -130,7 +135,8 @@ public class health : MonoBehaviour
             AS.firerate *= .5f;
         if (EM != null)
             EM.GetAgent().speed *= 2f;
-
+        
+        Destroy(particles);
         stun = null;
     }
 

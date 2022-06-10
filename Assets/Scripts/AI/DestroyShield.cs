@@ -26,5 +26,10 @@ public class DestroyShield : MonoBehaviour
     void DamageShield(int damage)
     {
         currentShieldHealth -=damage;
+
+        if (currentShieldHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
