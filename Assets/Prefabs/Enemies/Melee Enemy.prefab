@@ -96,8 +96,6 @@ GameObject:
   - component: {fileID: 3514033138011270795}
   - component: {fileID: 3514033138011270792}
   - component: {fileID: 3514033138011270793}
-  - component: {fileID: 3514033138011270806}
-  - component: {fileID: 3514033138011270807}
   - component: {fileID: 3514033138011270804}
   - component: {fileID: 3514033138011270802}
   - component: {fileID: 3514033138011270796}
@@ -215,47 +213,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3514033138011270806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3514033138011270803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b264ca6e0e077b40a7cda889a6938a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement: {fileID: 3514033138011270796}
-  animator: {fileID: 0}
-  engageState: {fileID: 3514033138011270804}
---- !u!114 &3514033138011270807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3514033138011270803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d39050ac66439b34cb8d431839f6f785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement: {fileID: 3514033138011270796}
-  animator: {fileID: 0}
-  attackState: {fileID: 6777620719103775249}
-  noticeDistance: 9
-  movementSpeed: 3
-  walkTime: 5
-  walkTimeMultiplier: 1
-  obsticleAvoidanceDistance: 6
-  fire: {fileID: 0}
-  turnSpeed: 90
-  minimunTurnTime: 0.5
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &3514033138011270804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,7 +232,7 @@ MonoBehaviour:
   attackDistance: 10
   layer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4215
 --- !u!114 &3514033138011270802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,8 +246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: {fileID: 3514033138011270804}
-  idleState: {fileID: 3514033138011270806}
-  wanderState: {fileID: 3514033138011270807}
+  idleState: {fileID: 0}
+  wanderState: {fileID: 0}
 --- !u!114 &3514033138011270796
 MonoBehaviour:
   m_ObjectHideFlags: 0

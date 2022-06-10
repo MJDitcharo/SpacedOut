@@ -127,8 +127,6 @@ GameObject:
   - component: {fileID: 8422706744265589462}
   - component: {fileID: 8422706744265589461}
   - component: {fileID: 8422706744265589460}
-  - component: {fileID: 8422706744265589451}
-  - component: {fileID: 8422706744265589450}
   - component: {fileID: 8422706744265589449}
   - component: {fileID: 8422706744265589455}
   - component: {fileID: 8422706744265589457}
@@ -245,47 +243,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8422706744265589451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8422706744265589454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b264ca6e0e077b40a7cda889a6938a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement: {fileID: 8422706744265589457}
-  animator: {fileID: 0}
-  engageState: {fileID: 8422706744265589449}
---- !u!114 &8422706744265589450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8422706744265589454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d39050ac66439b34cb8d431839f6f785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement: {fileID: 8422706744265589457}
-  animator: {fileID: 0}
-  attackState: {fileID: 0}
-  noticeDistance: 9
-  movementSpeed: 3
-  walkTime: 5
-  walkTimeMultiplier: 1
-  obsticleAvoidanceDistance: 6
-  fire: {fileID: 0}
-  turnSpeed: 90
-  minimunTurnTime: 0.5
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &8422706744265589449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +262,7 @@ MonoBehaviour:
   attackDistance: 4
   layer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4215
 --- !u!114 &8422706744265589455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,9 +275,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14c6771dd7a37394bbc67a2319db63f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 8422706744265589451}
-  idleState: {fileID: 8422706744265589451}
-  wanderState: {fileID: 8422706744265589450}
+  currentState: {fileID: 0}
+  idleState: {fileID: 0}
+  wanderState: {fileID: 0}
 --- !u!114 &8422706744265589457
 MonoBehaviour:
   m_ObjectHideFlags: 0
