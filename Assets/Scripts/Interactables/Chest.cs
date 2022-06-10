@@ -135,7 +135,7 @@ public class Chest : MonoBehaviour
     private void RewardContents()
     {
         WeaponBase weaponToUpdate = null; //weapon to update the visual
-        for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
+        for (int i = 0; i <= WeaponHolder.instance.currentChildCount; i++)
         {
             WeaponBase currentWeapon = WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>();
             currentWeapon.ammoCount += ammo;

@@ -6,6 +6,7 @@ public class EngageState : State
 {
     [SerializeField] State attackState;
     [SerializeField] SuicideAttackState suicideAttackState;
+    
 
     [SerializeField] float attackDistance;
 
@@ -17,6 +18,7 @@ public class EngageState : State
 
     public override State RunCurrentState()
     {
+        animator.SetBool("Running", true);
         RaycastHit hit = new RaycastHit();
         if (Vector3.Distance(transform.position, GameManager.instance.player.transform.position) <= attackDistance && Physics.Raycast(transform.position, GameManager.instance.player.transform.position + new Vector3(0, 1, 0) - transform.position, out hit, Mathf.Infinity) && hit.collider.gameObject == GameManager.instance.player)
         {

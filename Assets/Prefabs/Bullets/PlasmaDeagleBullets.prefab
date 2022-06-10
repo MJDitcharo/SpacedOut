@@ -300,8 +300,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosiveRadius: 0
-  pushbackMultiplier: 1
+  pushbackMultiplier: 0
   hitEffect: {fileID: 2194280494519805251, guid: 1dae4c2bfa9b849409d5f8d4045ea14e, type: 3}
   damage: 10
   bulletAmount: 3
   splitBullet: {fileID: 3743390652330680519, guid: a64edb9f5d6dc1741804e1b98511b08f, type: 3}
+  splitForce: 20
+  ignore: {fileID: 0}

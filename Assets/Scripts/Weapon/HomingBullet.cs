@@ -5,37 +5,38 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class HomingBullet : bullet
 {
-    public float speed;
+    public float speed = 20f;
     public float yOffset = 1;
     private Coroutine homingCoroutine;
     private Transform target;
 
-
-    private void Start()
+    private void Update()
     {
-        target = GameObject.FindGameObjectWithTag("Enemy").transform;
-        if (homingCoroutine != null)
-        {
-            StopCoroutine(homingCoroutine);
-        }
-
-        homingCoroutine = StartCoroutine(FindTarget());
-
-        Destroy(gameObject, 3);
+        FindTarget();
     }
 
-    private IEnumerator FindTarget()
+    private void FindTarget()
     {
-        Vector3 startPosition = transform.position;
-        float time = 0;
-
-        while(time < 1)
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 20);
+        if (colliders.Length != 0)
         {
-            transform.position = Vector3.Lerp(startPosition, target.position + new Vector3(0 , yOffset, 0), time);
-            transform.LookAt(target.position + new Vector3(0, yOffset, 0));
+            GameObject closest = null;
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (colliders[i].gameObject.tag == "Enemy")
+                {
+                    if (closest == null)
+                        closest = colliders[i].gameObject;
+                    if (Vector3.Distance(colliders[i].transform.position, transform.position) < Vector3.Distance(closest.transform.position, transform.position))
+                    {
+                        closest = colliders[i].gameObject;
+                    }
+                }
+            }
 
-            time += Time.deltaTime * speed;
-            yield return null;
+            Debug.Log(closest);
+            transform.LookAt(closest.transform.position);
         }
+        GetComponent<Rigidbody>().velocity = transform.forward * speed;
     }
 }

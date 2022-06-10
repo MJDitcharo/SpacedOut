@@ -8,6 +8,7 @@ public class PistolPage : WeaponUpgradePage
     protected override void Start()
     {
         instance = this;
+        pageName = "PistolPage";
         base.Start();
         CheckUnlock("Pistol");
     }

@@ -38,6 +38,7 @@ public class MeleeAttackState : State
 
         if (attackCoroutine == null)
         {
+            animator.SetBool("Running", false);
             Debug.Log("Attacking now");
             attackCoroutine = StartCoroutine(DashAttack()); 
         }
@@ -50,7 +51,7 @@ public class MeleeAttackState : State
                 playerHealth playerHP = colArr[i].GetComponent<playerHealth>();
                 if (playerHP != null && playerHP.isDamageable && !damageDealt)
                 {
-                    GameManager.instance.movement.pushback += (-pushbackMultiplier * (transform.right - GameManager.instance.player.transform.position).normalized);
+                    GameManager.instance.movement.pushback += (-pushbackMultiplier * (-transform.forward - GameManager.instance.player.transform.position).normalized);
                     playerHP.DoDamage(damage);
                     damageDealt = true;
                     Debug.Log("Damage Done");

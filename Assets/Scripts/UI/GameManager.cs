@@ -61,14 +61,16 @@ public class GameManager : MonoBehaviour
         }
 
         //ui stuff
-        pmenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
         ammoCount = GameObject.FindGameObjectWithTag("AmmoCount").GetComponent<ItemCount>();
+        pmenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
         boardWipeCount = GameObject.FindGameObjectWithTag("BoardWipeCount").GetComponent<ItemCount>();
         grenadeCount = GameObject.FindGameObjectWithTag("GrenadeCount").GetComponent<ItemCount>();
         skrapCount = GameObject.Find("Skrap Count").GetComponent<ItemCount>();
         prompt = GameObject.Find("UIPrompt").GetComponent<UIPrompt>();
         chestUI = GameObject.Find("Chest UI").GetComponent<UIChest>();
         shopUI = GameObject.Find("Shop UI").GetComponent<UIStore>();
+
+        AudioManager.Instance.PlaySFX("GameMusic");
     }
 
     private void Start()
@@ -122,7 +124,6 @@ public class GameManager : MonoBehaviour
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Pistol>() != null)
             {
                 PlayerPrefs.SetInt("Pistol Ammo", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount);
-                Debug.Log("saved the pistol");
             }
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Shotgun>() != null)
                 PlayerPrefs.SetInt("Shotgun Ammo", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount);
@@ -131,6 +132,49 @@ public class GameManager : MonoBehaviour
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Heavy>() != null)
                 PlayerPrefs.SetInt("Heavy Ammo", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount);
         }
+
+       WeaponHolder.instance.SaveLoadout();
+        //save the tier index of each page for the store
+        //if (!firstSave)
+        //{
+        //    if (PistolPage.instance != null)
+        //        PlayerPrefs.SetInt("Pistol Page", PistolPage.instance.GetCurrentTier());
+        //    if (ShotgunPage.instance != null)
+        //        PlayerPrefs.SetInt("Shogun Page", ShotgunPage.instance.GetCurrentTier());
+        //    if (RiflePage.instance!= null)
+        //        PlayerPrefs.SetInt("Rifle Page", RiflePage.instance.GetCurrentTier());
+        //    if (HeavyPage.instance != null)
+        //        PlayerPrefs.SetInt("Heavy Page", HeavyPage.instance.GetCurrentTier());
+        //}
+        for (int i = 0; i < WeaponHolder.instance.unlockedWeapons.Count; i++)
+        {
+            PlayerPrefs.SetString("Weapon " + i, WeaponHolder.instance.unlockedWeapons[i]);
+        }
+        PlayerPrefs.SetInt("Child Count", WeaponHolder.instance.currentChildCount);
+
+        //save the store datat
+        if (PistolPage.instance != null)
+            PlayerPrefs.SetInt("PistolPage", PistolPage.instance.GetCurrentTier());
+        if (ShotgunPage.instance != null)
+            PlayerPrefs.SetInt("ShotgunPage", ShotgunPage.instance.GetCurrentTier());
+        if (RiflePage.instance != null)
+            PlayerPrefs.SetInt("RiflePage", RiflePage.instance.GetCurrentTier());
+        if (HeavyPage.instance != null)
+            PlayerPrefs.SetInt("HeavyPage", HeavyPage.instance.GetCurrentTier());
+
+        //firerate and damage for each weapon
+        PlayerPrefs.SetFloat("Pistol Damage", WeaponHolder.instance.GetWeaponDamage(WeaponBase.WeaponID.Pistol));
+        PlayerPrefs.SetFloat("Pistol Fire Rate", WeaponHolder.instance.GetWeaponFireRate(WeaponBase.WeaponID.Pistol));
+
+        PlayerPrefs.SetFloat("Shotgun Damage", WeaponHolder.instance.GetWeaponDamage(WeaponBase.WeaponID.Shotgun));
+        PlayerPrefs.SetFloat("Shotgun Fire Rate", WeaponHolder.instance.GetWeaponFireRate(WeaponBase.WeaponID.Shotgun));
+
+        PlayerPrefs.SetFloat("Rifle Damage", WeaponHolder.instance.GetWeaponDamage(WeaponBase.WeaponID.Rifle));
+        PlayerPrefs.SetFloat("Rifle Fire Rate", WeaponHolder.instance.GetWeaponFireRate(WeaponBase.WeaponID.Rifle));
+
+        PlayerPrefs.SetFloat("Heavy Damage", WeaponHolder.instance.GetWeaponDamage(WeaponBase.WeaponID.Heavy));
+        PlayerPrefs.SetFloat("Heavy Fire Rate", WeaponHolder.instance.GetWeaponFireRate(WeaponBase.WeaponID.Heavy));
+
     }
 
     public void LoadGame()
@@ -153,12 +197,27 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("Heavy Ammo", 7);
         }
 
+        WeaponHolder.instance.currentChildCount = PlayerPrefs.GetInt("Child Count");
+        WeaponHolder.instance.unlockedWeapons.Clear();
+        for (int i = 0; i < 4; i++)
+        {
+            if (PlayerPrefs.HasKey("Weapon " + i))
+            {
+                string name = PlayerPrefs.GetString("Weapon " + i);
+                WeaponHolder.instance.AddToUnlockedItems(name);
+                WeaponHolder.instance.ArrangeHierarchy(name, i);
+                //WeaponHolder.instance.ArrangeHierarchy(name, UIStoreButtons.purchaseIndex++);
+                //WeaponHolder.instance.currentChildCount++;
+            }
+        }
+
+        //tiers for pages
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
         {
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Pistol>() != null && PlayerPrefs.HasKey("Pistol Ammo"))
             {
-                //Debug.Log("loaded the pistol");
                 WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount = PlayerPrefs.GetInt("Pistol Ammo");
+
             }
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Shotgun>() != null && PlayerPrefs.HasKey("Shotgun Ammo"))
                 WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount = PlayerPrefs.GetInt("Shotgun Ammo");

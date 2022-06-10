@@ -12,6 +12,11 @@ public class UIStore : PopUpMenu
     [HideInInspector]
     public GameObject purchaseMessageObj;
     [SerializeField]
+    public GameObject weaponDescription;
+    [HideInInspector]
+    public TMPro.TextMeshProUGUI descriptionText;
+    public Vector3 descriptionPos1, descriptionPos2;
+    [SerializeField]
     private GameObject[] pages;
     bool first = true;
     //singleton
@@ -24,8 +29,9 @@ public class UIStore : PopUpMenu
         if (instance == null)
             instance = this;
         purchaseMessageObj = purchaseMessage.gameObject;
-
-        foreach(GameObject game in pages)
+        descriptionText = weaponDescription.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>();
+        weaponDescription.SetActive(false);
+        foreach (GameObject game in pages)
         {
             if (first)
             {
@@ -37,13 +43,37 @@ public class UIStore : PopUpMenu
         }
         Deactivate(); //should be off by default
     }
+
+    public IEnumerator HandlePurchaseMessage(bool purchaseFailed, string message = "")
+    {
+        if (!purchaseFailed)
+        {
+            UIStore.instance.purchaseMessage.color = Color.green;
+            message = "Transaction Success!";
+        }
+        else
+        {
+            UIStore.instance.purchaseMessage.color = Color.red;
+            message = "Transaction Failed!";
+        }
+        UIStore.instance.purchaseMessage.text = message;
+        UIStore.instance.purchaseMessageObj.SetActive(true);
+        yield return new WaitForSecondsRealtime(2);
+        //do the specified next tier
+        UIStore.instance.purchaseMessageObj.SetActive(false);
+    }
+
+    private int a(Func<double> func)
+    {
+        return 2;
+    }
+
     public void Activate()
     {
         if (!GameManager.instance.pmenu.gameIsPaused)
         {
             shopVisual.SetActive(true);
             GameManager.instance.menuIsActive = true;
-            //GameObject.Find("Weapon Upgrades Page").gameObject.SetActive(false);
             FreezeWorld();
         }
     }
@@ -51,6 +81,8 @@ public class UIStore : PopUpMenu
     {
         shopVisual.SetActive(false);
         GameManager.instance.menuIsActive = false;
+        if (purchaseMessageObj.activeInHierarchy)
+            purchaseMessageObj.SetActive(false);
         UnfreezeWorld();
     }
 

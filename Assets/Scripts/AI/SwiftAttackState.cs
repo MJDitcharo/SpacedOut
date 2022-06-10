@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class SwiftAttackState : State
 {
@@ -11,6 +12,7 @@ public class SwiftAttackState : State
 
     [SerializeField] float rotationSpeed = 10f;
     Coroutine lookCoroutine;
+    Coroutine turnRight;
 
     public Transform[] firePoints;
     public int firepointIndex = 0;
@@ -37,18 +39,36 @@ public class SwiftAttackState : State
 
         if(dashTimer >= dashTime)
         {
+            
             burstTimer = 0;
             bulletsFired = 0;
             dashTimer = 0;
             dashRight = !dashRight;
             enemyMovement.GetAgent().isStopped = false;
-
-            return engageState;
+            
+            RaycastHit hit = new RaycastHit();
+            if (Vector3.Distance(transform.position, GameManager.instance.player.transform.position) <= attackDistance && Physics.Raycast(transform.position, GameManager.instance.player.transform.position + new Vector3(0, 1, 0) - transform.position, out hit, Mathf.Infinity) && hit.collider.gameObject == GameManager.instance.player)
+            {
+                animator.SetBool("Dashing", false);
+                animator.SetBool("Running", false);
+                return this;
+            }
+            else
+            {
+                animator.SetBool("Dashing", false);
+                animator.SetBool("Running", true);
+                return engageState;
+            }
         }
 
         //dash if true
         if(bulletsFired >= burstBulletCount)
         {
+            //if(turnRight == null)
+                //turnRight = StartCoroutine(TurnForRoll());
+            animator.SetBool("Dashing", true);
+            animator.SetBool("Running", false);
+            
             if (dashRight)
             {
                 enemyMovement.GetAgent().Move(transform.right * dashSpeed * Time.deltaTime);
@@ -57,6 +77,9 @@ public class SwiftAttackState : State
             {
                 enemyMovement.GetAgent().Move(transform.right * -dashSpeed * Time.deltaTime);
             }
+
+            //enemyMovement.GetAgent().Move(transform.forward * dashSpeed * Time.deltaTime);
+
             dashTimer += Time.deltaTime;
             return this;
         }
@@ -66,6 +89,8 @@ public class SwiftAttackState : State
 
         if (burstTimer >= burstSpacing)
         {
+            animator.SetBool("Dashing", false);
+            animator.SetBool("Running", false);
             burstTimer = 0;
             bulletsFired++;
             Shoot();
@@ -120,5 +145,23 @@ public class SwiftAttackState : State
             yield return null;
         }
         lookCoroutine = null;
+    }
+
+    IEnumerator TurnForRoll()
+    {
+        bool rotatedRight = dashRight;
+        if (rotatedRight)
+            transform.Rotate(0,-90,0);
+        else
+            transform.Rotate(0, 90, 0);
+
+        yield return new WaitForSeconds(dashTime - .1f);
+
+        if (rotatedRight)
+            transform.Rotate(0, 90, 0);
+        else
+            transform.Rotate(0, -90, 0);
+
+        turnRight = null;
     }
 }

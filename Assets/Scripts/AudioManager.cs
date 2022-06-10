@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     public Dictionary<string, Sound> soundStorage = new Dictionary<string, Sound>();
     [SerializeField] AudioSource aSource;
+    [SerializeField] AudioSource musicSource;
     private static AudioManager instance;
     public static AudioManager Instance
     {
@@ -21,14 +22,16 @@ public class AudioManager : MonoBehaviour
             instance = value;
         }
     }
-    private void Start()
+    private void Update()
     {
-        aSource = GetComponent<AudioSource>();
+        aSource.volume = LoadPrefs.Instance.sfxVolume;
+        musicSource.volume = LoadPrefs.Instance.musicVolume;
+
     }
     private void Awake()
     {
         instance = this;
-
+        DontDestroyOnLoad(this.gameObject);
         for (int i = 0; i < sfx.Count; i++)
         {
             soundStorage.Add(sfx[i].audioTyping,sfx[i].sound);
@@ -41,15 +44,13 @@ public class AudioManager : MonoBehaviour
 
         if (soundEffect.audioType == AudioStyle.sfx)
         {
-            aSource.volume = LoadPrefs.Instance.sfxVolume;
+            aSource.PlayOneShot(soundEffect.audio);
         }
         else if(soundEffect.audioType == AudioStyle.music)
         {
-            aSource.volume = AudioListener.volume;
+            musicSource.clip = soundEffect.audio;
+            musicSource.Play();
         }
-        aSource.PlayOneShot(soundEffect.audio);
-
-        
     }
 }
 

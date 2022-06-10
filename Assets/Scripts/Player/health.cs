@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class health : MonoBehaviour
 {
@@ -11,22 +12,39 @@ public class health : MonoBehaviour
 
     // Vulnerable Debuff Fields
     private Coroutine vulnCoroutine;
+    public Coroutine stun;
     public bool vulnerable = false;
+    public bool isStunned = false;
+
+    public float burnTimer = 0;
     [SerializeField] float fireTickTime = 1;
     float fireTick = 0;
     [SerializeField] float vulnAmount = 1.5f;
     [SerializeField] int vulnTime = 5;
-
-
+    [HideInInspector]
+    public GameObject fireParticleEffect;
+    
     // Start is called before the first frame update
     void Start()
     {
+        burnTimer = 0;
         currHealth = maxHealth;
     }
 
     protected void Update()
     {
         fireTick += Time.deltaTime;
+        burnTimer -= Time.deltaTime;
+        if (burnTimer > 0)
+        {
+            if (fireTick >= fireTickTime)
+            {
+                Debug.Log("Burning");
+                DoDamage(10);
+                fireTick = 0;
+                //Debug.Break();
+            }
+        }
     }
 
     // Health takes damage
@@ -39,7 +57,7 @@ public class health : MonoBehaviour
             currHealth = (int)(_dmg * 1.5f);
         else
             currHealth -= (int)_dmg;
-
+        DamagePopUpManager.Instance.StartCoroutine(DamagePopUpManager.Instance.DamageIndicator(_dmg, gameObject.transform.position));
         if (currHealth <= 0)
         {
             GetComponent<Collider>().enabled = false;
@@ -90,4 +108,31 @@ public class health : MonoBehaviour
         yield return new WaitForSeconds(vulnTime);
         vulnerable = false;
     }
+
+    public void StunMethod()
+    {
+        stun = StartCoroutine(Stun());
+    }
+    public IEnumerator Stun()
+    {
+        Debug.Log("stunning");
+        AttackState AS = gameObject.GetComponent<AttackState>();
+        EnemyMovement EM = gameObject.GetComponent<EnemyMovement>();
+        if(AS != null)
+            AS.firerate *= 2f;
+        if(EM != null)
+            EM.GetAgent().speed *= .5f;
+
+        yield return new WaitForSeconds(4);
+
+        Debug.Log("stunning done");
+        if (AS != null)
+            AS.firerate *= .5f;
+        if (EM != null)
+            EM.GetAgent().speed *= 2f;
+
+        stun = null;
+    }
+
+   
 }

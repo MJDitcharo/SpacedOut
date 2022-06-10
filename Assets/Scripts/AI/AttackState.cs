@@ -16,23 +16,30 @@ public class AttackState : State
     public int firepointIndex = 0;
     public GameObject bulletPrefab; //instance of bullet prefab
 
-    [SerializeField] float firerate = 1;
+    public float firerate = 1;
     float nextShot;
     public float bulletForce = 20f;
     public float Damage; //damage
+    [SerializeField] LayerMask lm;
 
     public override State RunCurrentState()
     {
         RaycastHit hit;
-        Physics.Raycast(transform.position, GameManager.instance.player.transform.position + new Vector3(0, 1, 0) - transform.position, out hit, Mathf.Infinity);
-        if(Vector3.Distance(transform.position, GameManager.instance.player.transform.position) >= attackDistance + 2 || hit.collider == null || hit.collider.gameObject != GameManager.instance.player)
+        Physics.Raycast(transform.position, GameManager.instance.player.transform.position + new Vector3(0, 1, 0) - transform.position, out hit, Mathf.Infinity,lm);
+        if (Vector3.Distance(transform.position, GameManager.instance.player.transform.position) >= attackDistance + 2 || (hit.collider == null && hit.collider.gameObject != GameManager.instance.player))
         {
+            Debug.Log("switching");
             return engageState;
         }
 
         if (lookCoroutine == null)
             lookCoroutine = StartCoroutine(TurnToPlayer());
-        
+        if(movement.GetAgent().velocity.magnitude == 0)
+        {
+            animator.SetBool("Running", false);
+           
+        }
+
         Attack();
 
         return this;

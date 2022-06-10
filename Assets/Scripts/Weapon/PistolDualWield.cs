@@ -5,8 +5,6 @@ using UnityEngine;
 public class PistolDualWield : Pistol
 {
 
-    
-
     public override void Shoot()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint[firePointIndex].position, firePoint[firePointIndex].rotation); //spawn the bullet and reference the bullet to modify 
@@ -14,7 +12,9 @@ public class PistolDualWield : Pistol
         rb.AddForce(firePoint[firePointIndex].forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
         GameManager.instance.bullets.Add(bullet);
         firePointIndex++;
+        
         if (firePointIndex >= firePoint.Length)
             firePointIndex = 0;
+        AudioManager.Instance.PlaySFX("Pistol");
     }
 }
