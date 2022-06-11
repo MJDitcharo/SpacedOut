@@ -28,10 +28,15 @@ public class WanderState : State
         else if(walkTimer >= walkTime / walkTimeMultiplier)
         {
             walkTimer = 0;
+            animator.SetBool("Running", false);
+
             return attackState;
         }
         else
+        {
             movement.GetAgent().Move(transform.forward * movementSpeed * Time.deltaTime);
+            animator.SetBool("Running", true);
+        }
         walkTimer += Time.deltaTime;
 
         return this;

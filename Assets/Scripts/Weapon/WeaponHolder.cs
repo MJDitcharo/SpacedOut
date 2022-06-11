@@ -83,6 +83,13 @@ public class WeaponHolder : MonoBehaviour
 
         if (Time.timeScale > 0)
         {
+            for (int i = 0; i <= currentChildCount; i++)
+            {
+                if (allUnlocked)
+                    break;
+                if (Input.GetKey(keys[i]))
+                    selectedWeapon = i;
+            }
             if (Input.GetAxis("Mouse ScrollWheel") > 0f)
             {
                 Debug.Log("Check Child: " + currentChildCount + "  Selected: " + selectedWeapon);
@@ -98,11 +105,6 @@ public class WeaponHolder : MonoBehaviour
                     selectedWeapon = currentChildCount;
                 else
                     selectedWeapon--;
-            }
-            for (int i = 0; i < keys.Count; i++)
-            {
-                if (Input.GetKey(keys[i]))
-                    selectedWeapon = i;
             }
             SelectWeapon();
         }
