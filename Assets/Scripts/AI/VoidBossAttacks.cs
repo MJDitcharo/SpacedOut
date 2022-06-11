@@ -36,6 +36,8 @@ public class VoidBossAttacks : State
     [SerializeField] float cloneAttackChaseSpeed = 8;
     [SerializeField] float pullStrength = 10;
 
+
+
     public override State RunCurrentState()
     {
         RaycastHit hit;
@@ -50,11 +52,13 @@ public class VoidBossAttacks : State
             else
                 return teleportingState;
         }
+        
+        Attack();
 
         Collider[] colArr = Physics.OverlapSphere(transform.position, 2);
         for (int i = 0; i < colArr.Length; i++)
         {
-            if (colArr[i].tag == "Player")
+            if (colArr[i].tag == "Player" && currentAttack != Attacks.clone)
             {
                 playerHealth playerHP = colArr[i].GetComponent<playerHealth>();
                 if (playerHP != null && playerHP.isDamageable && !damageDealt)
@@ -66,8 +70,6 @@ public class VoidBossAttacks : State
                 }
             }
         }
-
-        Attack();
 
         return this;
     }
@@ -188,23 +190,26 @@ public class VoidBossAttacks : State
 
         int startingHP = GetComponent<health>().currHealth;
         bool gotHit = false;
+
         while(!gotHit)
         {
             movement.MoveToLocation(GameManager.instance.player.transform.position);
+
             Collider[] colArr = Physics.OverlapSphere(transform.position, 2);
             for (int i = 0; i < colArr.Length; i++)
             {
                 if (colArr[i].tag == "Player")
                 {
-                    Debug.Log("touching player");
+                    //Debug.Log("touching player");
                     playerHealth playerHP = colArr[i].GetComponent<playerHealth>();
                     if (playerHP != null && playerHP.isDamageable && !damageDealt)
                     {
+                        gotHit = true;
                         GameManager.instance.movement.pushback += (-pushbackMultiplier * (transform.right - GameManager.instance.player.transform.position).normalized);
                         playerHP.DoDamage(damage);
                         damageDealt = true;
-                        gotHit = true;
-                        //Debug.Log("Damage Done");
+                        
+                        Debug.Log("Damage Done");
                     }
                 }
             }
@@ -217,7 +222,7 @@ public class VoidBossAttacks : State
                 {
                     if (colliders[j].tag == "Player")
                     {
-                        Debug.Log("touching player");
+                        //Debug.Log("touching player");
                         playerHealth playerHP = colliders[j].GetComponent<playerHealth>();
                         if (playerHP != null && playerHP.isDamageable && !damageDealt)
                         {
@@ -245,8 +250,11 @@ public class VoidBossAttacks : State
 
             }
 
+            Debug.Log("gotHit = " + gotHit);
             yield return new WaitForEndOfFrame();
         }
+        
+        animator.SetBool("Running", false);
 
         for (int i = 0; i < clones.Count; i++)
         {

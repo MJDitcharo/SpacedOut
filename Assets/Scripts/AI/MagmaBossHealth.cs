@@ -13,7 +13,7 @@ public class MagmaBossHealth : EnemyHealth
     private void Start()
     {
         GameManager.instance.bossHealthBar.SetActive(true);
-        bossHealthBar = GameManager.instance.bossHealthBar.transform.GetChild(1).GetComponent<Image>();
+        bossHealthBar = GameManager.instance.bossHealthBar.GetComponent<Image>();
     }
 
     public override void DoDamage(int _dmg)
