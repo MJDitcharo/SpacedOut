@@ -85,6 +85,8 @@ public class WeaponHolder : MonoBehaviour
         {
             for (int i = 0; i <= currentChildCount; i++)
             {
+                if (allUnlocked)
+                    break;
                 if (Input.GetKey(keys[i]))
                     selectedWeapon = i;
             }
