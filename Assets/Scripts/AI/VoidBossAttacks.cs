@@ -100,15 +100,21 @@ public class VoidBossAttacks : State
 
     IEnumerator DashAttack()
     {
+        animator.SetBool("Running", false);
+        animator.SetBool("Crouching", true);
         movement.GetAgent().isStopped = true;
         damageDealt = false;
 
 
         yield return new WaitForSeconds(dashAttackTime);
+        animator.SetBool("Dashing", true);
+        animator.SetBool("Crouching", false);
 
         movement.pushback += (-dashDistance * (transform.position - GameManager.instance.player.transform.position).normalized);
         
         yield return new WaitForSeconds(.5f);
+
+        animator.SetBool("Dashing", false);
 
         movement.GetAgent().isStopped = false;
 
@@ -118,6 +124,9 @@ public class VoidBossAttacks : State
     }
     IEnumerator WaveAttack()
     {
+        animator.SetBool("Running", false);
+        animator.SetBool("Casting", true);
+
         movement.GetAgent().isStopped = true;
         for(int i = 0; i < waveNumber; i++)
         {
@@ -134,7 +143,9 @@ public class VoidBossAttacks : State
             if (firepointIndex >= firePoints.Length)
                 firepointIndex = 0;
         }
-        
+
+        animator.SetBool("Casting", false);
+
         currentAttack = (Attacks)Random.Range(0, 1 + bossIntensityMultiplier);
         attackCoroutine = null;
         attacking = false;
@@ -143,6 +154,7 @@ public class VoidBossAttacks : State
 
     IEnumerator CloneAttack()
     {
+        animator.SetBool("Running", true);
         damageDealt = false;
         bool done = false;
         while (!done) 
@@ -221,6 +233,8 @@ public class VoidBossAttacks : State
 
             if(GetComponent<health>().currHealth < startingHP)
             {
+                animator.SetBool("Stunned", true);
+                animator.SetBool("Running", false);
                 for (int i = 0; i < clones.Count; i++)
                 {
                     Destroy(clones[i].gameObject);
@@ -250,6 +264,7 @@ public class VoidBossAttacks : State
                 done = true;
             }
         }
+        animator.SetBool("Stunned", false);
 
         currentAttack = (Attacks)Random.Range(0, 1 + bossIntensityMultiplier);
         attackCoroutine = null;
@@ -258,12 +273,16 @@ public class VoidBossAttacks : State
 
     void PullAttack()
     {
+        animator.SetBool("Running", false);
+        animator.SetBool("Pulling", true);
         damageDealt = false;
 
         Vector3 direction = (pullStrength * (transform.position - GameManager.instance.player.transform.position).normalized);
         GameManager.instance.movement.pushback += direction;
 
         currentAttack = (Attacks)Random.Range(0, 2);
+        animator.SetBool("Pulling", false);
+
     }
 
     IEnumerator TurnToPlayer()

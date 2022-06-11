@@ -21,6 +21,7 @@ public class TeleportingState : State
         {
             movement.GetAgent().isStopped = false;
             done = false;
+            animator.SetBool("Teleporting", false);
             return engageState;
         }
         if(teleportCoroutine == null)
@@ -33,6 +34,7 @@ public class TeleportingState : State
 
     public IEnumerator Teleport()
     {
+        animator.SetBool("Teleporting", true);
         int numberOfTeleports = Random.Range(1, 4);
         
         for(int i = 0; i < numberOfTeleports; i++)
