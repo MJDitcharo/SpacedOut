@@ -119,7 +119,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 10
+  m_Speed: 15
   m_Acceleration: 60
   avoidancePriority: 50
   m_AngularSpeed: 600
@@ -242,7 +242,7 @@ MonoBehaviour:
   shadowClone: {fileID: 8610774889371348657, guid: 84070daa507b7fc4aa86899cbbf1b869, type: 3}
   cloneCount: 3
   cloneAttackChaseSpeed: 8
-  pullStrength: 10
+  pullStrength: 5
 --- !u!114 &1298989236
 MonoBehaviour:
   m_ObjectHideFlags: 0
