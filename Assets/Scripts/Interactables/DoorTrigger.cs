@@ -10,6 +10,8 @@ public class DoorTrigger : MonoBehaviour
     GameObject doorSliderL;
     [SerializeField]
     GameObject doorSliderR;
+    [SerializeField]
+    GameObject shade;
     public bool closed { private get; set; }
 
     //Vector3 sliderLTransform;
@@ -63,5 +65,9 @@ public class DoorTrigger : MonoBehaviour
     {
         doorSliderL.SetActive(false);
         doorSliderR.SetActive(false);
+        //remove shade
+        if (shade != null)
+            shade.SetActive(false);
+
     }
 }
