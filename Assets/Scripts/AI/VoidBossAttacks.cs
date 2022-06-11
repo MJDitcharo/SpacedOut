@@ -36,6 +36,8 @@ public class VoidBossAttacks : State
     [SerializeField] float cloneAttackChaseSpeed = 8;
     [SerializeField] float pullStrength = 10;
 
+
+
     public override State RunCurrentState()
     {
         RaycastHit hit;
