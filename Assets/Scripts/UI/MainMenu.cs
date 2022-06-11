@@ -93,14 +93,14 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetFloat("Pistol Damage", 1);
         PlayerPrefs.SetFloat("Pistol Fire Rate", 1);
 
-        PlayerPrefs.SetFloat("Shotgun Damage", -1);
-        PlayerPrefs.SetFloat("Shotgun Fire Rate", -1);
+        PlayerPrefs.SetFloat("Shotgun Damage", 1);
+        PlayerPrefs.SetFloat("Shotgun Fire Rate", 1);
 
-        PlayerPrefs.SetFloat("Rifle Damage", -1);
-        PlayerPrefs.SetFloat("Rifle Fire Rate", -1);
+        PlayerPrefs.SetFloat("Rifle Damage", 1);
+        PlayerPrefs.SetFloat("Rifle Fire Rate", 1);
 
-        PlayerPrefs.SetFloat("Heavy Damage", -1);
-        PlayerPrefs.SetFloat("Heavy Fire Rate", -1);
+        PlayerPrefs.SetFloat("Heavy Damage", 1);
+        PlayerPrefs.SetFloat("Heavy Fire Rate", 1);
 
         LoadingScene(1);
     }

@@ -82,11 +82,6 @@ public class GameManager : MonoBehaviour
         LoadGame();
     }
 
-    private void LateUpdate()
-    {
-
-    }
-
     public void Respawn()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -186,16 +181,6 @@ public class GameManager : MonoBehaviour
         playerHealth.maxHealth = PlayerPrefs.GetInt("Max Player Health");
         healthBar.SetHealth((float)playerHealth.currHealth / playerHealth.maxHealth);
         boardWipeCount.SetQuantity(PlayerPrefs.GetInt("Board Wipes"));
-
-        //NOTE
-        //THIS IS A TEMPERARY FIX
-        if (checkpointIndex == 0)
-        {
-            PlayerPrefs.SetInt("Pistol Ammo", 45);
-            PlayerPrefs.SetInt("Shotgun Ammo", 15);
-            PlayerPrefs.SetInt("Rifle Ammo", 100);
-            PlayerPrefs.SetInt("Heavy Ammo", 7);
-        }
 
         WeaponHolder.instance.currentChildCount = PlayerPrefs.GetInt("Child Count");
         WeaponHolder.instance.unlockedWeapons.Clear();
