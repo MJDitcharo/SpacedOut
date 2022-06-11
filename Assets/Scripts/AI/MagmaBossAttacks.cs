@@ -12,6 +12,7 @@ public class MagmaBossAttacks : State
     [SerializeField] GameObject mollyPrefab;
     [SerializeField] GameObject fireBall;
     [SerializeField] GameObject blastAttackBullet;
+    [SerializeField] GameObject attackEffect;
 
     enum Attacks { mollies, blast, spray }
 
@@ -54,17 +55,27 @@ public class MagmaBossAttacks : State
             case Attacks.mollies:
                 Debug.Log("Molly attack");
                 if(attackCoroutine == null)
+                {
+                    animator.SetTrigger("Molly");
                     attackCoroutine = StartCoroutine(MollyAttack());
+                }
                 break;
             case Attacks.blast:
                 if(lookCoroutine == null)
                     lookCoroutine = StartCoroutine(TurnToPlayer());
+                
                 if (attackCoroutine == null)
+                {
+                    animator.SetTrigger("Blast");
                     attackCoroutine = StartCoroutine(BlastAttack());
+                }
                 break;
             case Attacks.spray:
                 if (attackCoroutine == null)
+                {
+                    animator.SetTrigger("Spray");
                     attackCoroutine = StartCoroutine(SprayAttack());
+                }
                 break;
         }
     }
@@ -80,6 +91,8 @@ public class MagmaBossAttacks : State
         {
             yield return new WaitForSeconds(mollyTossDelay / bossIntensityMultiplier);
 
+            Instantiate(attackEffect, transform);
+
             lookRoation = Quaternion.LookRotation(GameManager.instance.player.transform.position - new Vector3(transform.position.x, GameManager.instance.player.transform.position.y, transform.position.z));
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRoation, 1);
 
@@ -93,14 +106,15 @@ public class MagmaBossAttacks : State
         attackCoroutine = null;
         attacking = false;
         if(bossIntensityMultiplier == 1)
-            currentAttack = (Attacks)((int)Mathf.Round(Random.Range(0, 2)));
+            currentAttack = (Attacks)Random.Range(0, 2);
         else
-            currentAttack = (Attacks)((int)Mathf.Round(Random.Range(0, 3)));
+            currentAttack = (Attacks)Random.Range(0, 3);
     }
     IEnumerator BlastAttack()
     {
         yield return new WaitForSeconds(1 / bossIntensityMultiplier);
 
+        Instantiate(attackEffect, transform);
         GameObject blast = Instantiate(blastAttackBullet, transform.position, Quaternion.identity);
         blast.transform.rotation = transform.rotation;
         Rigidbody blastRB = blast.GetComponent<Rigidbody>();
@@ -111,16 +125,18 @@ public class MagmaBossAttacks : State
         attackCoroutine = null;
         attacking = false;
         if (bossIntensityMultiplier == 1)
-            currentAttack = (Attacks)((int)Mathf.Round(Random.Range(0, 2)));
+            currentAttack = (Attacks)Random.Range(0, 2);
         else
-            currentAttack = (Attacks)((int)Mathf.Round(Random.Range(0, 3)));
+            currentAttack = (Attacks)Random.Range(0, 3);
     }
     IEnumerator SprayAttack()
     {
         yield return new WaitForSeconds(sprayWaitTime / bossIntensityMultiplier);
 
-        for(int i = 0; i < sprayMollyCount * bossIntensityMultiplier; i++)
+
+        for (int i = 0; i < sprayMollyCount * bossIntensityMultiplier; i++)
         {
+            Instantiate(attackEffect, transform);
             GameObject bullet = Instantiate(fireBall, sprayFirePoint.position, Quaternion.identity);
             Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
 
@@ -133,9 +149,9 @@ public class MagmaBossAttacks : State
         attackCoroutine = null;
         attacking = false;
         if (bossIntensityMultiplier == 1)
-            currentAttack = (Attacks)((int)Mathf.Round(Random.Range(0, 2)));
+            currentAttack = (Attacks)Random.Range(0, 2);
         else
-            currentAttack = (Attacks)((int)Mathf.Round(Random.Range(0, 3)));
+            currentAttack = (Attacks)Random.Range(0, 3);
     }
 
     IEnumerator TurnToPlayer()
