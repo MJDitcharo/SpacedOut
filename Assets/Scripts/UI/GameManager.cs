@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
     public UIStore shopUI;
     public bool shopIsActive = false;
 
+    public Texture2D fightingCursor;
+    public Texture2D normalCursor;
+
     public bool Lockdown { get; set; } = false;
 
     // Start is called before the first frame update
@@ -43,7 +46,7 @@ public class GameManager : MonoBehaviour
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
         bossHealthBar = GameObject.FindGameObjectWithTag("Boss Health Bar");
-        bossHealthBar.SetActive(false);
+        bossHealthBar.transform.parent.parent.gameObject.SetActive(false);
         checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
 
         //sort the array of checkpoints by name
@@ -79,6 +82,7 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("Max Player Health", 100);
         }
+        SetFightingCursor();
         LoadGame();
     }
 
@@ -209,5 +213,15 @@ public class GameManager : MonoBehaviour
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Heavy>() != null && PlayerPrefs.HasKey("Heavy Ammo"))
                 WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount = PlayerPrefs.GetInt("Heavy Ammo");
         }
+    }
+
+    public void SetFightingCursor()
+    {
+        Cursor.SetCursor(fightingCursor, new Vector3(32,32,32), CursorMode.ForceSoftware);
+    }
+
+    public void SetNormalCursor()
+    {
+        Cursor.SetCursor(normalCursor, Vector3.zero, CursorMode.ForceSoftware);
     }
 }
