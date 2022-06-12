@@ -13,10 +13,8 @@ public class TutorialBase : PopUpMenu
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == GameManager.instance.player)
-        {
+         if (other.gameObject == GameManager.instance.player)
             Teach();
-        }
     }
 
     protected virtual void Teach()

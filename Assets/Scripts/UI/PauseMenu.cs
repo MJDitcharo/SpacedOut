@@ -22,7 +22,7 @@ public class PauseMenu : PopUpMenu
 
     private void Update()
     {
-        if(Input.GetButtonUp("Cancel") && !GameManager.instance.menuIsActive)
+        if(Input.GetButtonUp("Cancel") && !GameManager.instance.shopIsActive)
         {
             if (gameIsPaused)
                 UnpauseGame();
