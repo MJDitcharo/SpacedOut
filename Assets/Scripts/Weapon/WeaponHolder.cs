@@ -277,6 +277,10 @@ public class WeaponHolder : MonoBehaviour
         //disable all other weapon images
     }
 
+    public WeaponBase GetEquippedWeapon()
+    {
+        return transform.GetChild(selectedWeapon).GetComponent<WeaponBase>();
+    }
     public string GetWeaponDescription(string weaponName)
     {
         return transform.Find(weaponName).GetComponent<WeaponBase>().weaponDescription;

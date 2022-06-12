@@ -79,7 +79,7 @@ public class WeaponUpgradePage : StorePage
     protected override void AssignTextMeshes()
     {
         //add the ammo first
-        pricesText.Add(buyAmmo.transform.Find("Price Icon").transform.Find("Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>());
+        pricesText.Add(buyAmmo.transform.Find("Price Icon").transform.Find("Price").GetComponent<TMPro.TextMeshProUGUI>());
         pricesText.Add(upgradeTiers[0].transform.Find("Price Icon").transform.Find("Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>());
         UpgradeMeshes(upgradeTiers[1]);
         UpgradeMeshes(upgradeTiers[2]);

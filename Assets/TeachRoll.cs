@@ -8,7 +8,7 @@ public class TeachRoll : TutorialBase
     private void Update()
     {
         //check if the player pressed space to roll
-        if(Input.GetKeyDown(KeyCode.Space) && prompt.activeInHierarchy)
+        if(Input.GetKeyDown(KeyCode.Space) && promptCanvas.activeInHierarchy)
         {
             StopTeach();
             GameManager.instance.movement.PlayerRoll();

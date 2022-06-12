@@ -6,10 +6,10 @@ public class TutorialBase : PopUpMenu
 {
     // Start is called before the first frame update
     [SerializeField]
-    protected GameObject prompt;
+    protected GameObject promptCanvas;
     protected virtual void Start()
     {
-        prompt.SetActive(false);
+        promptCanvas.SetActive(false);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -22,14 +22,14 @@ public class TutorialBase : PopUpMenu
     protected virtual void Teach()
     {
         FreezeWorld();
-        prompt.SetActive(true);
+        promptCanvas.SetActive(true);
     }
 
     protected virtual void StopTeach()
     {
         UnfreezeWorld();
-        prompt.SetActive(false); //disable the prompt
-        //gameObject.SetActive(false); //disable the object
+        promptCanvas.SetActive(false); //disable the prompt
+        gameObject.SetActive(false); //disable the object
 
     }
 }
