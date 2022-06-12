@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingPlatform : MonoBehaviour
+public class PatientMovingPlatform : MonoBehaviour
 {
     [SerializeField]
     GameObject[] waypoints;
     int target;
     [SerializeField]
     float speed;
+    bool passenger;
     // Update is called once per frame
     protected virtual void FixedUpdate()
     {
-        MovePlatform();
+        if (passenger)
+            MovePlatform();
     }
 
     protected void MovePlatform()
@@ -32,6 +34,7 @@ public class MovingPlatform : MonoBehaviour
         {
             Debug.Log("Enter");
             collision.gameObject.transform.SetParent(transform);
+            passenger = true;
         }
     }
 
@@ -41,6 +44,7 @@ public class MovingPlatform : MonoBehaviour
         {
             Debug.Log("exti");
             collision.gameObject.transform.SetParent(null);
+            passenger = false;
         }
     }
 }
