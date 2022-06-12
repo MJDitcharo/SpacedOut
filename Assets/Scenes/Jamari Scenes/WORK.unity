@@ -852,6 +852,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1202460331018620792, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -82.94
+      objectReference: {fileID: 0}
     - target: {fileID: 1657507142454605602, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 39.424698
@@ -1415,6 +1419,14 @@ PrefabInstance:
     - target: {fileID: 7050469253697097897, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7425552321701973071, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 79.400024
+      objectReference: {fileID: 0}
+    - target: {fileID: 7425552321701973071, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -203.14001
       objectReference: {fileID: 0}
     - target: {fileID: 7437564176842532849, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -8664,9 +8676,81 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 244843584693871565, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: minigun plasma
+      objectReference: {fileID: 0}
+    - target: {fileID: 244843584693871565, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: minigun plasma
+      objectReference: {fileID: 0}
+    - target: {fileID: 410749624193925123, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: dual wield
+      objectReference: {fileID: 0}
+    - target: {fileID: 410749624193925123, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: dual wield
+      objectReference: {fileID: 0}
+    - target: {fileID: 555785742933519836, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: minigun void
+      objectReference: {fileID: 0}
+    - target: {fileID: 555785742933519836, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: minigun void
+      objectReference: {fileID: 0}
     - target: {fileID: 838436677032490679, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840656723247236764, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: grenade launcher plasma
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840656723247236764, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: grenade launcher plasma
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034082778794910998, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: Heavy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034082778794910998, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: basic heavy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236132447587056983, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: Rifle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236132447587056983, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: Basic rifle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585645528057910593, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: Deagle Plasma
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585645528057910593, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: deagle plasma
+      objectReference: {fileID: 0}
+    - target: {fileID: 3242601681828945976, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: minigun
+      objectReference: {fileID: 0}
+    - target: {fileID: 3242601681828945976, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: minigun
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116291599425709048, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: grenade launcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116291599425709048, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: grenade launcher
       objectReference: {fileID: 0}
     - target: {fileID: 4917769016987335044, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8676,6 +8760,70 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.0422
       objectReference: {fileID: 0}
+    - target: {fileID: 5354159600384611919, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: dual wield void
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354159600384611919, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: dual wield void
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967177601681836946, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: burst plasma
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967177601681836946, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: burst plasma
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474200884167367197, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: Deagle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474200884167367197, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: deagle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6680954963502212863, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: assault
+      objectReference: {fileID: 0}
+    - target: {fileID: 6680954963502212863, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: assault
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761808650789558780, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: slug
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761808650789558780, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: slug
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902021695055979978, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: slug void
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902021695055979978, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: slug void
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134694589149542523, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: assault plasma
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134694589149542523, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: assault plasma
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164436005101397385, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: burst
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164436005101397385, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: burst
+      objectReference: {fileID: 0}
     - target: {fileID: 7255540441145991202, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.0203
@@ -8683,6 +8831,94 @@ PrefabInstance:
     - target: {fileID: 7255540441145991202, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.0361
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340519206384674755, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340519206384674755, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: Basic pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362497233516221133, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: Sawed-Off
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362497233516221133, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: sawed off
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592154640375935576, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: grenade launcher void
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592154640375935576, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: grenade launcher void
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960323399169806640, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: sawed off plasma
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960323399169806640, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: sawed off plasma
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019059728329901773, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: sawed off void
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019059728329901773, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: sawed off void
+      objectReference: {fileID: 0}
+    - target: {fileID: 8230262843847633097, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: slug plasma
+      objectReference: {fileID: 0}
+    - target: {fileID: 8230262843847633097, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: slug plasma
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299428905123003174, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: dual wield plasma
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299428905123003174, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: dual wield plasma
+      objectReference: {fileID: 0}
+    - target: {fileID: 8612183058260369704, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: assault void
+      objectReference: {fileID: 0}
+    - target: {fileID: 8612183058260369704, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: assault void
+      objectReference: {fileID: 0}
+    - target: {fileID: 8677040459085189360, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: Deagle Void
+      objectReference: {fileID: 0}
+    - target: {fileID: 8677040459085189360, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: deagle void
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731587446065600563, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: Shotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731587446065600563, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: Basic shotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787247221602082560, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponName
+      value: burst void
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787247221602082560, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: weaponDescription
+      value: burst void
       objectReference: {fileID: 0}
     - target: {fileID: 9181412415466589408, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
       propertyPath: m_Mesh
