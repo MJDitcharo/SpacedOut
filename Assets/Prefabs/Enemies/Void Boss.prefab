@@ -243,6 +243,7 @@ MonoBehaviour:
   cloneCount: 3
   cloneAttackChaseSpeed: 8
   pullStrength: 5
+  tpEffect: {fileID: 2436585879131664473, guid: a309f84ff5008aa4da2016dd7e4a92a2, type: 3}
   swingAudio: {fileID: 8300000, guid: 7f060ba67e75d0b4cbb97796c7e7f08e, type: 3}
   chargeAudio: {fileID: 8300000, guid: 6f8187f685dbfdc4a81544f704f1b75f, type: 3}
   waveAudio: {fileID: 8300000, guid: 1b601360356cd4e479073f64e1454f0d, type: 3}
@@ -282,6 +283,8 @@ MonoBehaviour:
   engageState: {fileID: 2175127431587173250}
   tpLocations: []
   timeBetweenTeleports: 2
+  tpEffect: {fileID: 2436585879131664473, guid: a309f84ff5008aa4da2016dd7e4a92a2, type: 3}
+  teleportAudio: {fileID: 8300000, guid: 315dc016002df97438b60d1a04602d93, type: 3}
 --- !u!1 &6515992368984731398
 GameObject:
   m_ObjectHideFlags: 0

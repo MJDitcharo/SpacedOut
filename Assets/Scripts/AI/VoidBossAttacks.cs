@@ -36,6 +36,8 @@ public class VoidBossAttacks : State
     [SerializeField] float cloneAttackChaseSpeed = 8;
     [SerializeField] float pullStrength = 10;
 
+    [SerializeField] GameObject tpEffect;
+
     [SerializeField] AudioClip swingAudio;
     [SerializeField] AudioClip chargeAudio;
     [SerializeField] AudioClip waveAudio;
@@ -201,7 +203,9 @@ public class VoidBossAttacks : State
             if(Vector3.Distance(teleportingState.tpLocations[spot].transform.position, GameManager.instance.player.transform.position) >= 15)
             {
                 AudioManager.Instance.PlaySFX(teleportSound);
+                Instantiate(tpEffect, transform.position, Quaternion.identity);
                 movement.GetAgent().Warp(teleportingState.tpLocations[spot].transform.position);
+                Instantiate(tpEffect, transform.position, Quaternion.identity);
                 done = true;
             }
             
@@ -223,6 +227,7 @@ public class VoidBossAttacks : State
                 }
             }
             clones.Add(Instantiate(shadowClone, spawnPosition, Quaternion.identity).GetComponent<NavMeshAgent>());
+            Instantiate(tpEffect, spawnPosition, Quaternion.identity);
         }
 
         int startingHP = GetComponent<health>().currHealth;
@@ -279,6 +284,7 @@ public class VoidBossAttacks : State
                 animator.SetBool("Running", false);
                 for (int i = 0; i < clones.Count; i++)
                 {
+                    Instantiate(tpEffect, clones[i].gameObject.transform.position, Quaternion.identity);
                     Destroy(clones[i].gameObject);
                 }
 
@@ -297,6 +303,7 @@ public class VoidBossAttacks : State
         {
             if (clones[i] == null)
                 break;
+            Instantiate(tpEffect, clones[i].gameObject.transform.position, Quaternion.identity);
             Destroy(clones[i].gameObject);
         }
 
@@ -306,7 +313,9 @@ public class VoidBossAttacks : State
             if (Vector3.Distance(teleportingState.tpLocations[spot].transform.position, GameManager.instance.player.transform.position) >= 15)
             {
                 AudioManager.Instance.PlaySFX(teleportSound);
+                Instantiate(tpEffect, transform.position, Quaternion.identity);
                 movement.GetAgent().Warp(teleportingState.tpLocations[spot].transform.position);
+                Instantiate(tpEffect, transform.position, Quaternion.identity);
                 done = true;
             }
         }

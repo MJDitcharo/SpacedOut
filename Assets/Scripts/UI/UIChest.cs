@@ -22,12 +22,14 @@ public class UIChest : PopUpMenu
 
     public void Activate()
     {
+        GameManager.instance.SetNormalCursor();
         chestVisual.SetActive(true);
         FreezeWorld();
     }
 
     public void Deactivate()
     {
+        GameManager.instance.SetFightingCursor();
         chestVisual.SetActive(false);
         foreach (TMPro.TextMeshProUGUI text in childrenText)
             text.text = string.Empty;
