@@ -369,9 +369,12 @@ MonoBehaviour:
   fireTickTime: 1
   vulnAmount: 1.5
   vulnTime: 5
+  fireParticleEffect: {fileID: 0}
+  stunParticleEffect: {fileID: 0}
   isDamageable: 1
   delayRate: 1
   gameOverScreen: {fileID: 0}
+  playerHitAudio: {fileID: 8300000, guid: d01fd091fb6253c42ba3e8e5bac35aa9, type: 3}
 --- !u!114 &1938996591304382425
 MonoBehaviour:
   m_ObjectHideFlags: 0
