@@ -34,10 +34,7 @@ public class PlayerMovement : MonoBehaviour
         rollTimer += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Space) && rollTimer >= rollCooldown)
         {
-            rollTimer = 0f;
-            pushback += transform.forward.normalized * rollSpeed;
-            playerAnimation.SetTrigger("Roll");
-            StartCoroutine(Rolling());
+            PlayerRoll();
         }
 
       
@@ -60,6 +57,14 @@ public class PlayerMovement : MonoBehaviour
             warpedPositon = Vector3.zero;
             cc.enabled = true;
         }
+    }
+
+    public void PlayerRoll()
+    {
+        rollTimer = 0f;
+        pushback += transform.forward.normalized * rollSpeed;
+        playerAnimation.SetTrigger("Roll");
+        StartCoroutine(Rolling());
     }
 
     public IEnumerator Rolling()
