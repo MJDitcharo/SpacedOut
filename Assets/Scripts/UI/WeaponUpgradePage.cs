@@ -60,7 +60,7 @@ public class WeaponUpgradePage : StorePage
                 isFirst = false;
                 continue;
             }
-            pricesText.Add(level1.Find("Price Icon").transform.Find("Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>());
+            pricesText.Add(level1.Find("Price Icon").transform.Find("Price").GetComponent<TMPro.TextMeshProUGUI>());
         }
     }
 
