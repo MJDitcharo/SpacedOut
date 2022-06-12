@@ -80,7 +80,7 @@ public class WeaponUpgradePage : StorePage
     {
         //add the ammo first
         pricesText.Add(buyAmmo.transform.Find("Price Icon").transform.Find("Price").GetComponent<TMPro.TextMeshProUGUI>());
-        pricesText.Add(upgradeTiers[0].transform.Find("Price Icon").transform.Find("Text (TMP)").GetComponent<TMPro.TextMeshProUGUI>());
+        pricesText.Add(upgradeTiers[0].transform.Find("Price Icon").transform.Find("Price").GetComponent<TMPro.TextMeshProUGUI>());
         UpgradeMeshes(upgradeTiers[1]);
         UpgradeMeshes(upgradeTiers[2]);
         UpgradeMeshes(upgradeTiers[3]);
