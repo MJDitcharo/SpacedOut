@@ -123,6 +123,7 @@ public class UIStoreButtons : MonoBehaviour
     #region Shop Buttons
     public void ExitShop()
     {
+        GameManager.instance.SetFightingCursor();
         UIStore.instance.purchaseMessageObj.SetActive(false);
         UIStore.instance.Deactivate();
     }

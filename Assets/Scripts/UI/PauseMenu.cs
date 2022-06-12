@@ -22,7 +22,7 @@ public class PauseMenu : PopUpMenu
 
     private void Update()
     {
-        if(Input.GetButtonUp("Cancel") && !GameManager.instance.menuIsActive)
+        if(Input.GetButtonUp("Cancel") && !GameManager.instance.shopIsActive)
         {
             if (gameIsPaused)
                 UnpauseGame();
@@ -33,6 +33,7 @@ public class PauseMenu : PopUpMenu
 
     public void PauseGame()
     {
+        GameManager.instance.SetNormalCursor();
         gameIsPaused = true;
         FreezeWorld();
         pauseMenuVisual.SetActive(gameIsPaused);
@@ -41,6 +42,7 @@ public class PauseMenu : PopUpMenu
 
     public void UnpauseGame()
     {
+        GameManager.instance.SetFightingCursor();
         gameIsPaused = false;
         UnfreezeWorld(pauseMenuVisual);
         pauseMenuVisual.SetActive(gameIsPaused);

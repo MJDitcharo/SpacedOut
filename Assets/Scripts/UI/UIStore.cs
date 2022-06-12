@@ -73,15 +73,17 @@ public class UIStore : PopUpMenu
     {
         if (!GameManager.instance.pmenu.gameIsPaused)
         {
+            GameManager.instance.SetNormalCursor();
             shopVisual.SetActive(true);
-            GameManager.instance.menuIsActive = true;
+            GameManager.instance.shopIsActive = true;
             FreezeWorld();
         }
     }
     public void Deactivate()
     {
+        GameManager.instance.SetFightingCursor();
         shopVisual.SetActive(false);
-        GameManager.instance.menuIsActive = false;
+        GameManager.instance.shopIsActive = false;
         if (purchaseMessageObj.activeInHierarchy)
             purchaseMessageObj.SetActive(false);
         UnfreezeWorld();
