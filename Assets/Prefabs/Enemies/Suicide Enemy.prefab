@@ -330,8 +330,8 @@ MonoBehaviour:
   explodingDistance: 5
   pushbackMultiplier: 5
   scaleChange: 0.5
-  flashColor: {r: 1, g: 1, b: 1, a: 0}
-  rend: {fileID: 8422706744265589462}
+  flashColor: {r: 1, g: 0.7370882, b: 0.6084906, a: 0}
+  rend: {fileID: 137721361606954458}
   flashInterval: 0.1
   hitEffect: {fileID: 3440073099274173548, guid: 58d68c2e5c2dd494681e2a0e15044d16, type: 3}
 --- !u!114 &-1995094943282613553
@@ -443,5 +443,10 @@ Transform:
 --- !u!95 &95248355396833146 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95248355258483074, guid: feefc8bdbd5cd3340a37ddc39f079c5a, type: 3}
+  m_PrefabInstance: {fileID: 943787768}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &137721361606954458 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 137721362550735650, guid: feefc8bdbd5cd3340a37ddc39f079c5a, type: 3}
   m_PrefabInstance: {fileID: 943787768}
   m_PrefabAsset: {fileID: 0}
