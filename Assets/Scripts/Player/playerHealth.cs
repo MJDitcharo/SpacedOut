@@ -33,7 +33,7 @@ public class playerHealth : health
         delayDamge = Time.time + 1f / delayRate;
         currHealth -= dmg;
         DamagePopUpManager.Instance.StartCoroutine(DamagePopUpManager.Instance.DamageIndicator(dmg, gameObject.transform.position));
-        ScreenShake.instance.StartCoroutine(ScreenShake.instance.ShakeScreen(1, 2));
+        ScreenShake.instance.StartCoroutine(ScreenShake.instance.ShakeScreen(.3f, 1));
         StartCoroutine(GetComponent<EnemyFlashRed>().FlashRed());
         GameManager.instance.healthBar.SetHealth((float)currHealth / maxHealth); 
         //if (currHealth <= 0)
