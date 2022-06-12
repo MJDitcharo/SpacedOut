@@ -11,7 +11,7 @@ public class DoorTrigger : MonoBehaviour
     [SerializeField]
     GameObject doorSliderR;
     [SerializeField]
-    GameObject shade;
+    GameObject lights;
     public bool closed { private get; set; }
 
     //Vector3 sliderLTransform;
@@ -26,16 +26,8 @@ public class DoorTrigger : MonoBehaviour
     //how far the door panels open
     const float doorMovement = 1f;
 
-    private void Awake()
+    private void Start()
     {
-        //sliderLTransform = doorSliderL.transform.position;
-        //sliderRTransform = doorSliderR.transform.position;
-
-        //closedPositionL = sliderLTransform;
-        //openPositionL = new Vector3(sliderLTransform.x - doorMovement, sliderLTransform.y, sliderLTransform.z);
-
-        //closedPositionR = sliderRTransform;
-        //openPositionR= new Vector3(sliderRTransform.x + doorMovement, sliderRTransform.y, sliderRTransform.z);
 
     }
 
@@ -65,9 +57,9 @@ public class DoorTrigger : MonoBehaviour
     {
         doorSliderL.SetActive(false);
         doorSliderR.SetActive(false);
-        //remove shade
-        if (shade != null)
-            shade.SetActive(false);
+        //turn on the lights
+        if (lights != null)
+            lights.SetActive(false);
 
     }
 }
