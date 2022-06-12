@@ -11,9 +11,15 @@ public class playerHealth : health
     [SerializeField] float delayRate = 1f;
     private float delayDamge = 0f;
     [SerializeField]GameObject gameOverScreen;
+    [SerializeField] AudioClip playerHitAudio;
+    Sound playerHitSound;
 
     private void Start()
     {
+        playerHitSound = new Sound();
+        playerHitSound.audio = playerHitAudio;
+        playerHitSound.audioType = AudioStyle.sfx;
+
         currHealth = PlayerPrefs.GetInt("Player Health");
     }
 
@@ -30,6 +36,8 @@ public class playerHealth : health
     {
         if (!isDamageable)
             return;
+        
+        AudioManager.Instance.PlaySFX(playerHitSound);
         delayDamge = Time.time + 1f / delayRate;
         currHealth -= dmg;
         DamagePopUpManager.Instance.StartCoroutine(DamagePopUpManager.Instance.DamageIndicator(dmg, gameObject.transform.position));
