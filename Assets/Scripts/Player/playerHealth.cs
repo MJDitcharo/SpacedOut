@@ -10,7 +10,6 @@ public class playerHealth : health
 
     [SerializeField] float delayRate = 1f;
     private float delayDamge = 0f;
-    [SerializeField]GameObject gameOverScreen;
     [SerializeField] AudioClip playerHitAudio;
     Sound playerHitSound;
 
@@ -37,6 +36,7 @@ public class playerHealth : health
         if (!isDamageable)
             return;
 
+        Debug.Log("Took damage");
         AudioManager.Instance.PlaySFX(playerHitSound);
         delayDamge = Time.time + 1f / delayRate;
         currHealth -= dmg;
@@ -44,18 +44,26 @@ public class playerHealth : health
         ScreenShake.instance.StartCoroutine(ScreenShake.instance.ShakeScreen(.3f, 1));
         StartCoroutine(GetComponent<EnemyFlashRed>().FlashRed());
         GameManager.instance.healthBar.SetHealth((float)currHealth / maxHealth); 
-        //if (currHealth <= 0)
-        //{
-        //    //GameManager.instance.Respawn();
-        //    gameOverScreen.SetActive(true);
-        //    Time.timeScale = 0;
-            
-        //}
+        if (currHealth <= 0)
+        {
+            Death();
+        }
     }
 
     public void AddMaxHealth(int value)
     {
         maxHealth += value;
         //change the ui max value
+    }
+
+    protected override void Death()
+    {
+        if(deathParticle != null)
+        {
+            Instantiate(deathParticle, transform.position, Quaternion.identity);
+        }
+        GameManager.instance.gameOverScreen.SetActive(true);
+        GameManager.instance.SetNormalCursor();
+        gameObject.SetActive(false);
     }
 }
