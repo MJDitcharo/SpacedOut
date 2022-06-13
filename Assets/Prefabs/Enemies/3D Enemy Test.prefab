@@ -338,7 +338,7 @@ MonoBehaviour:
   ph: {fileID: 0}
   collideColor: {r: 1, g: 0, b: 0, a: 0}
   normalColor: []
-  rend: {fileID: 6761313578797408137}
+  rend: {fileID: 137672992090876883}
   flashTime: 0.1
 --- !u!114 &-1760568414838636820
 MonoBehaviour:
@@ -460,6 +460,11 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 95248355258483074, guid: feefc8bdbd5cd3340a37ddc39f079c5a, type: 3}
   m_PrefabInstance: {fileID: 765828469}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &137672992090876883 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 137672992432354982, guid: feefc8bdbd5cd3340a37ddc39f079c5a, type: 3}
+  m_PrefabInstance: {fileID: 765828469}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1369350212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -526,6 +531,10 @@ PrefabInstance:
     - target: {fileID: 4416509164870928, guid: 070737ca19fedf044b465dbbcd97d924, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 64847287875836804, guid: 070737ca19fedf044b465dbbcd97d924, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 070737ca19fedf044b465dbbcd97d924, type: 3}

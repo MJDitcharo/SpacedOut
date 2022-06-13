@@ -7,12 +7,20 @@ public class TeleportingState : State
     [SerializeField] State engageState;
     public GameObject[] tpLocations;
     [SerializeField] float timeBetweenTeleports = 2;
+    [SerializeField] GameObject tpEffect;
     Coroutine teleportCoroutine;
     bool done = false;
+
+    [SerializeField] AudioClip teleportAudio;
+    Sound teleportSound;
 
     private void Start()
     {
         tpLocations = GameObject.FindGameObjectsWithTag("Teleport Location");
+
+        teleportSound = new Sound();
+        teleportSound.audio = teleportAudio;
+        teleportSound.audioType = AudioStyle.sfx;
     }
     public override State RunCurrentState()
     {
@@ -50,7 +58,10 @@ public class TeleportingState : State
                 if(Vector3.Distance(tpLocations[locationIndex].transform.position, GameManager.instance.player.transform.position) >= 15)
                 {
                     locationDecided = true;
+                    Instantiate(tpEffect, transform.position, Quaternion.identity);
                     movement.GetAgent().Warp(tpLocations[locationIndex].transform.position);
+                    AudioManager.Instance.PlaySFX(teleportSound);
+                    Instantiate(tpEffect, transform.position, Quaternion.identity);
                 }
             }
         }
