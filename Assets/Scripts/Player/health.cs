@@ -19,11 +19,11 @@ public class health : MonoBehaviour
     public float burnTimer = 0;
     [SerializeField] float fireTickTime = 1;
     float fireTick = 0;
+ 
     [SerializeField] float vulnAmount = 1.5f;
     [SerializeField] int vulnTime = 5;
-    [HideInInspector]
-    public GameObject fireParticleEffect;
-
+   
+    [SerializeField] GameObject fireParticleEffect;
     [SerializeField] GameObject stunParticleEffect;
     
     // Start is called before the first frame update
@@ -43,6 +43,8 @@ public class health : MonoBehaviour
             {
                 Debug.Log("Burning");
                 DoDamage(10);
+
+                Instantiate(fireParticleEffect, transform);
                 fireTick = 0;
                 //Debug.Break();
             }
@@ -97,6 +99,7 @@ public class health : MonoBehaviour
             Debug.Log("Touching Fire");
             if (burnTimer <= 0)
             {
+                Instantiate(fireParticleEffect, transform);
                 DoDamage(10);
             }
             burnTimer = 1.5f;

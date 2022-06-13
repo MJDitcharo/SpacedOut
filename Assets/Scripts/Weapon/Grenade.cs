@@ -5,10 +5,10 @@ using UnityEngine.UI;
 public class Grenade : MonoBehaviour
 {
     public GameObject hitEffect;
-    protected float detonateTime = 1f;
-    protected float explosiveRadius = 5;
-    protected float pushbackMultiplier = 5;
-    protected int damage = 50;
+    public int damage = 50;
+    public float detonateTime = 1f;
+    public float explosiveRadius = 5;
+    public float pushbackMultiplier = 5;
 
     //when the grenade is instantiated
     private void Awake()

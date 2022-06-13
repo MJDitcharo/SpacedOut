@@ -81,7 +81,7 @@ MonoBehaviour:
   firePoint:
   - {fileID: 141830493614453116}
   firePointIndex: 0
-  bulletPrefab: {fileID: 3743390652330680519, guid: ac0d6938d6ec6a64e82dadac4285cf64, type: 3}
+  bulletPrefab: {fileID: 3743390652330680519, guid: b20b8c65cc807e34b970dbc59de75c5d, type: 3}
   fireRate: 1
   bulletForce: 20
   ammoCount: 100
@@ -91,6 +91,10 @@ MonoBehaviour:
   fireRateMultiplier: 1
   weaponDescription: 
   weaponName: 
+  gunshotAudio: {fileID: 8300000, guid: 159aa6b3153429349b06479ba4bcb8fc, type: 3}
+  gunshotSound:
+    audioType: 0
+    audio: {fileID: 0}
   shotgunSpread: 60
   shotgunAngleChange: 5
 --- !u!1 &141830494280789696

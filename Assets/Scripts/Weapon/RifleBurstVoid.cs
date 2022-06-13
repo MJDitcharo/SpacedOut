@@ -23,29 +23,37 @@ public class RifleBurstVoid : RifleBurst
     }
     public override void Shoot()
     {
-        //spawn the bullet and reference the bullet to modify 
-        for (float i = 0; i < seconds; )
-        {
-            if(GameManager.instance.ammoCount.GetQuantity() == 0)
-                return;
-
-            GameObject _bullet = Instantiate(bulletPrefab, firePoint[firePointIndex].position, firePoint[firePointIndex].rotation);
-            Rigidbody rb = _bullet.GetComponent<Rigidbody>();
-            bullet bulletScript = _bullet.GetComponent<bullet>();
-            bulletScript.damage = (int)(damage * damageMultiplier);
-            firePoint[firePointIndex].transform.localRotation = Quaternion.Euler(0, firePoint[firePointIndex].transform.localRotation.y + Random.Range(-fireSpread, fireSpread), 0);
-            rb.AddForce(firePoint[firePointIndex].forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
-            i += .1f; 
-
-            //deplete ammo
-            ammoCount = GameManager.instance.ammoCount.GetQuantity();
-            ammoCount--;
-            GameManager.instance.ammoCount.Subtract();
-        }
-        //AudioManager.Instance.PlaySFX("baseGun");
-        seconds = 0;
+        StartCoroutine(Burst());
     }
 
-    
+    IEnumerator Burst()
+    {
+        for (float i = 0; i < seconds;)
+        {
+            if (GameManager.instance.ammoCount.GetQuantity() == 0)
+            {
+
+            }
+            else
+            {
+
+                yield return new WaitForSeconds(.1f);
+                GameObject _bullet = Instantiate(bulletPrefab, firePoint[firePointIndex].position, firePoint[firePointIndex].rotation);
+                Rigidbody rb = _bullet.GetComponent<Rigidbody>();
+                bullet bulletScript = _bullet.GetComponent<bullet>();
+                bulletScript.damage = (int)(damage * damageMultiplier);
+                firePoint[firePointIndex].transform.localRotation = Quaternion.Euler(0, firePoint[firePointIndex].transform.localRotation.y + Random.Range(-fireSpread, fireSpread), 0);
+                rb.AddForce(firePoint[firePointIndex].forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
+                i += .1f;
+
+                //deplete ammo
+                ammoCount = GameManager.instance.ammoCount.GetQuantity();
+                ammoCount--;
+                GameManager.instance.ammoCount.Subtract();
+                AudioManager.Instance.PlaySFX(gunshotSound);
+                seconds = 0;
+            }
+        }
+    }
         
 }

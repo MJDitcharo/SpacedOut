@@ -147,7 +147,7 @@ MonoBehaviour:
   firePoint:
   - {fileID: 3784773297445493842}
   firePointIndex: 0
-  bulletPrefab: {fileID: 3743390652330680519, guid: ac0d6938d6ec6a64e82dadac4285cf64, type: 3}
+  bulletPrefab: {fileID: 3743390652330680519, guid: 4d77cb0787e872f4b91545ea379f23eb, type: 3}
   fireRate: 1.5
   bulletForce: 20
   ammoCount: 100
@@ -157,7 +157,11 @@ MonoBehaviour:
   fireRateMultiplier: 1
   weaponDescription: 
   weaponName: 
-  shotgunSpread: 5
+  gunshotAudio: {fileID: 8300000, guid: 442236ed9689a411f93aa76b690d1e71, type: 3}
+  gunshotSound:
+    audioType: 0
+    audio: {fileID: 0}
+  shotgunSpread: 0
   shotgunAngleChange: 5
 --- !u!1 &3784773297445493843
 GameObject:
@@ -183,7 +187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3784773297445493843}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.500001, y: 0.15999931, z: 3.8000007}
+  m_LocalPosition: {x: -1.1, y: 0.15999931, z: 0.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

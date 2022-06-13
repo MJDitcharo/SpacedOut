@@ -251,7 +251,7 @@ MonoBehaviour:
   - {fileID: 3083125432376515547}
   - {fileID: 5756602429844901519}
   firePointIndex: 0
-  bulletPrefab: {fileID: 3743390652330680519, guid: ac0d6938d6ec6a64e82dadac4285cf64, type: 3}
+  bulletPrefab: {fileID: 3743390652330680519, guid: 8cf4e5bc4192b0041a694ef65f5c3029, type: 3}
   fireRate: 7
   bulletForce: 20
   ammoCount: 10000
@@ -261,6 +261,10 @@ MonoBehaviour:
   fireRateMultiplier: 1
   weaponDescription: 
   weaponName: 
+  gunshotAudio: {fileID: 8300000, guid: 92d35fe1c59bbd14eaee9e3d3b54cea7, type: 3}
+  gunshotSound:
+    audioType: 0
+    audio: {fileID: 0}
 --- !u!1 &6154969293922758941
 GameObject:
   m_ObjectHideFlags: 0
