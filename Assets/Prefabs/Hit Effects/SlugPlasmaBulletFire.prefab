@@ -170,7 +170,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1487,12 +1487,12 @@ ParticleSystem:
     flipU: 0
     flipV: 0
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
-      minScalar: 0
+      minMaxState: 3
+      scalar: -0.35
+      minScalar: 0.35
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1543,9 +1543,9 @@ ParticleSystem:
         m_RotationOrder: 4
     y:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
-      minScalar: 0
+      minMaxState: 3
+      scalar: -0.35
+      minScalar: 0.35
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1596,9 +1596,9 @@ ParticleSystem:
         m_RotationOrder: 4
     z:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
-      minScalar: 0
+      minMaxState: 3
+      scalar: 0.1
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4785,7 +4785,7 @@ ParticleSystemRenderer:
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
-  m_SortMode: 0
+  m_SortMode: 4
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
@@ -4835,11 +4835,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9151880767417594260}
-  - component: {fileID: 3511044584896063384}
   - component: {fileID: 7801803445949569963}
   - component: {fileID: 1288713592542603202}
   - component: {fileID: 354404614168416345}
   - component: {fileID: 1502795990}
+  - component: {fileID: 1530631058146504476}
   m_Layer: 7
   m_Name: SlugPlasmaBulletFire
   m_TagString: Fire
@@ -4856,26 +4856,13 @@ Transform:
   m_GameObject: {fileID: 8535496859614532281}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0, z: 0}
-  m_LocalScale: {x: 2.134582, y: 5, z: 2.43275}
+  m_LocalScale: {x: 2.134582, y: 3, z: 2.43275}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1325134162667141662}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3511044584896063384
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8535496859614532281}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7801803445949569963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4888,7 +4875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7fb309acae932d4c835f0e457c2902a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 3
+  lifetime: 5
 --- !u!54 &1288713592542603202
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4928,3 +4915,17 @@ MonoBehaviour:
   burnTimer: 5
   keepDamaging: 1
   fire: {fileID: 7911532890973092836, guid: c6cb706fd80045843b8c025735473c42, type: 3}
+--- !u!136 &1530631058146504476
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8535496859614532281}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 1.7887394
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.39436856, z: 0}

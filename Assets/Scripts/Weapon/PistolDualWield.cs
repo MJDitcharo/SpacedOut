@@ -15,6 +15,6 @@ public class PistolDualWield : Pistol
         
         if (firePointIndex >= firePoint.Length)
             firePointIndex = 0;
-        AudioManager.Instance.PlaySFX("Pistol");
+        AudioManager.Instance.PlaySFX(gunshotSound);
     }
 }

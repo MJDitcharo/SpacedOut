@@ -16,6 +16,6 @@ public class ShotgunSlugVoid : Shotgun
         ammoCount = GameManager.instance.ammoCount.GetQuantity();
         ammoCount--;
         GameManager.instance.ammoCount.Subtract();
-        AudioManager.Instance.PlaySFX("Shotgun");
+        AudioManager.Instance.PlaySFX(gunshotSound);
     }
 }
