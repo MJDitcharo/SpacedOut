@@ -60,7 +60,13 @@ MonoBehaviour:
   fireRateMultiplier: 1
   weaponDescription: 
   weaponName: 
+  gunshotAudio: {fileID: 0}
+  gunshotSound:
+    audioType: 0
+    audio: {fileID: 0}
   fireSpread: 5
+  windUpSpeed: 1
+  barrelSpeed: 1
 --- !u!1 &512329357448769762
 GameObject:
   m_ObjectHideFlags: 0
