@@ -25,12 +25,6 @@ public class DoorTrigger : MonoBehaviour
 
     //how far the door panels open
     const float doorMovement = 1f;
-
-    private void Start()
-    {
-
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         //opendoor
@@ -50,13 +44,15 @@ public class DoorTrigger : MonoBehaviour
     private void CloseDoor()
     {
         doorSliderL.SetActive(true);
-        doorSliderR.SetActive(true);
+        if (doorSliderR != null)
+            doorSliderR.SetActive(true);
 
     }
     private void OpenDoor()
     {
         doorSliderL.SetActive(false);
-        doorSliderR.SetActive(false);
+        if (doorSliderR != null)
+            doorSliderR.SetActive(false);
         //turn on the lights
         if (lights != null)
             lights.SetActive(false);
