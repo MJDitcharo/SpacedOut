@@ -22,7 +22,7 @@ public class HeavyMinigun : WeaponBase
             Shoot(); //shoot method
             
         }
-        else if(barrelSpeed > 1 && !Input.GetButton("Fire1"))
+        else if(barrelSpeed >= 1 && !Input.GetButton("Fire1"))
         {
             barrelSpeed -= 25 * Time.deltaTime;
         }
