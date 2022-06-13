@@ -24,6 +24,8 @@ public class EnemyHealth : health
         }
         GameObject drop = Instantiate(drops, gameObject.transform.position, Quaternion.identity);
         drop.GetComponent<SkrapPickup>().quantity = dropQuantity;
+        if (deathParticle != null)
+            Instantiate(deathParticle, transform.position, Quaternion.identity);
         Destroy(gameObject);
 
     }
