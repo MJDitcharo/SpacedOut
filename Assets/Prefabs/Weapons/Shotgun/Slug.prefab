@@ -157,7 +157,11 @@ MonoBehaviour:
   fireRateMultiplier: 1
   weaponDescription: 
   weaponName: 
-  shotgunSpread: 5
+  gunshotAudio: {fileID: 0}
+  gunshotSound:
+    audioType: 0
+    audio: {fileID: 0}
+  shotgunSpread: 0
   shotgunAngleChange: 5
 --- !u!1 &3784773297445493843
 GameObject:
