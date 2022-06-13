@@ -36,7 +36,7 @@ public class playerHealth : health
     {
         if (!isDamageable)
             return;
-        
+
         AudioManager.Instance.PlaySFX(playerHitSound);
         delayDamge = Time.time + 1f / delayRate;
         currHealth -= dmg;
