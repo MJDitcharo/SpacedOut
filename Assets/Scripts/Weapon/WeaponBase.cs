@@ -26,6 +26,9 @@ public class WeaponBase : MonoBehaviour
     protected float nextShotFired = 0f; //counter for next bullet that is fired
     public string weaponDescription;
     public string weaponName;
+
+    [SerializeField] public AudioClip gunshotAudio;
+    [HideInInspector] public Sound gunshotSound;
     private void Start()
     {
         //grab ammo for UI.Only do this one time
@@ -34,6 +37,10 @@ public class WeaponBase : MonoBehaviour
             UpdateVisual();
             weaponOnStart = true;
         }
+
+        gunshotSound = new Sound();
+        gunshotSound.audio = gunshotAudio;
+        gunshotSound.audioType = AudioStyle.sfx;
     }
     private void OnEnable()
     {
@@ -62,6 +69,7 @@ public class WeaponBase : MonoBehaviour
         ammoCount = GameManager.instance.ammoCount.GetQuantity(); 
         ammoCount--;
         GameManager.instance.ammoCount.Subtract();
+        AudioManager.Instance.PlaySFX(gunshotSound);
     }
 
     public void AddAmmo(int ammo = System.Int32.MaxValue)
