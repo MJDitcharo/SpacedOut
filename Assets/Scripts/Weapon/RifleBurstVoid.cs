@@ -30,14 +30,14 @@ public class RifleBurstVoid : RifleBurst
     {
         for (float i = 0; i < seconds;)
         {
-            if (GameManager.instance.ammoCount.GetQuantity() == 0)
+            if (GameManager.instance.ammoCount.GetQuantity() <= 0)
             {
 
             }
             else
             {
-
-                yield return new WaitForSeconds(.1f);
+                Debug.Log("shooting burst");
+                yield return new WaitForSeconds(.05f);
                 GameObject _bullet = Instantiate(bulletPrefab, firePoint[firePointIndex].position, firePoint[firePointIndex].rotation);
                 Rigidbody rb = _bullet.GetComponent<Rigidbody>();
                 bullet bulletScript = _bullet.GetComponent<bullet>();
@@ -51,9 +51,9 @@ public class RifleBurstVoid : RifleBurst
                 ammoCount--;
                 GameManager.instance.ammoCount.Subtract();
                 AudioManager.Instance.PlaySFX(gunshotSound);
-                seconds = 0;
             }
         }
+        seconds = 0;
     }
         
 }

@@ -7,8 +7,8 @@ public class EnemyFlashRed : MonoBehaviour
     [SerializeField] playerHealth ph;
 
     [SerializeField] Color collideColor;
-    [SerializeField] Color[] normalColor;
-    [SerializeField] Renderer rend;
+    public Color[] normalColor;
+    public Renderer rend;
 
     [SerializeField] float flashTime = .1f;
 

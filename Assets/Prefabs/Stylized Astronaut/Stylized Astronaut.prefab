@@ -366,14 +366,14 @@ MonoBehaviour:
   vulnerable: 0
   isStunned: 0
   burnTimer: 0
-  fireTickTime: 1
+  fireTickTime: 0.5
   vulnAmount: 1.5
   vulnTime: 5
   fireParticleEffect: {fileID: 3510295273408693937, guid: 77fef4f80ccf4fc45848ec800b8bd6ac, type: 3}
   stunParticleEffect: {fileID: 0}
+  deathParticle: {fileID: 3230906660309774650, guid: 1ae7b09f5219fe74b9ba89df7a65f6b9, type: 3}
   isDamageable: 1
-  delayRate: 1
-  gameOverScreen: {fileID: 0}
+  delayRate: 10
   playerHitAudio: {fileID: 8300000, guid: d01fd091fb6253c42ba3e8e5bac35aa9, type: 3}
 --- !u!114 &1938996591304382425
 MonoBehaviour:

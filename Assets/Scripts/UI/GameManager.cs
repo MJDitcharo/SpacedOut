@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public UIChest chestUI;
     public UIStore shopUI;
     public bool shopIsActive = false;
+    public GameObject gameOverScreen;
 
     public Texture2D fightingCursor;
     public Texture2D normalCursor;
@@ -72,6 +73,8 @@ public class GameManager : MonoBehaviour
         prompt = GameObject.Find("UIPrompt").GetComponent<UIPrompt>();
         chestUI = GameObject.Find("Chest UI").GetComponent<UIChest>();
         shopUI = GameObject.Find("Shop UI").GetComponent<UIStore>();
+        gameOverScreen = GameObject.FindGameObjectWithTag("GameOver");
+        gameOverScreen.SetActive(false);
 
         AudioManager.Instance.PlaySFX("GameMusic");
     }
@@ -101,12 +104,25 @@ public class GameManager : MonoBehaviour
             Destroy(bullets[i]);
         }
 
+        GameObject[] particles = GameObject.FindGameObjectsWithTag("Death Particles");
+        for (int i = 0; i < particles.Length; i++)
+        {
+            Debug.Log(i);
+            Destroy(particles[i]);
+        }
+
         LoadGame();
 
         Debug.Log("End lockdown");
         checkpoints[checkpointIndex].GetComponent<RoomManager>().EndLockDown();
         checkpoints[checkpointIndex + 1].GetComponent<RoomManager>().collider.enabled = true;
         checkpoints[checkpointIndex + 1].GetComponent<RoomManager>().doorEnter.SetActive(false);
+
+        EnemyFlashRed flasher = playerHealth.GetComponent<EnemyFlashRed>();
+        for (int i = 0; i < flasher.normalColor.Length; i++)
+        {
+            flasher.rend.materials[i].color = flasher.normalColor[i];
+        }
     }
 
     public void SaveGame()

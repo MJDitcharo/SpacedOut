@@ -25,6 +25,7 @@ public class health : MonoBehaviour
    
     [SerializeField] GameObject fireParticleEffect;
     [SerializeField] GameObject stunParticleEffect;
+    [SerializeField] protected GameObject deathParticle;
     
     // Start is called before the first frame update
     void Start()
@@ -71,6 +72,8 @@ public class health : MonoBehaviour
 
     protected virtual void Death()
     {
+        if (deathParticle != null)
+            Instantiate(deathParticle, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
