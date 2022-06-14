@@ -40,6 +40,6 @@ public class RoomManager : MonoBehaviour
         if (other.tag != "Player")
             return;
 
-        LockDownRoom();
+            LockDownRoom();
     }
 }

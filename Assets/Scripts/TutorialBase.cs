@@ -7,19 +7,24 @@ public class TutorialBase : PopUpMenu
     // Start is called before the first frame update
     [SerializeField]
     protected GameObject promptCanvas;
+
+    [SerializeField]
+    bool freeze;
+
     protected virtual void Start()
     {
         promptCanvas.SetActive(false);
     }
     private void OnTriggerEnter(Collider other)
     {
-         if (other.gameObject == GameManager.instance.player)
+        if (other.gameObject == GameManager.instance.player)
             Teach();
     }
 
     protected virtual void Teach()
     {
-        FreezeWorld();
+        if (freeze)
+            FreezeWorld();
         promptCanvas.SetActive(true);
     }
 
@@ -30,4 +35,7 @@ public class TutorialBase : PopUpMenu
         gameObject.SetActive(false); //disable the object
 
     }
+
+
+
 }
