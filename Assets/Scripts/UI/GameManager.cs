@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     public Texture2D fightingCursor;
     public Texture2D normalCursor;
 
+    public GameObject gunImages;
+
     public bool Lockdown { get; set; } = false;
 
     // Start is called before the first frame update
@@ -74,6 +76,7 @@ public class GameManager : MonoBehaviour
         chestUI = GameObject.Find("Chest UI").GetComponent<UIChest>();
         shopUI = GameObject.Find("Shop UI").GetComponent<UIStore>();
         gameOverScreen = GameObject.FindGameObjectWithTag("GameOver");
+        gunImages = GameObject.FindGameObjectWithTag("Gun Images");
         gameOverScreen.SetActive(false);
 
         AudioManager.Instance.PlaySFX("GameMusic");
