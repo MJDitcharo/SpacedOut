@@ -140,12 +140,12 @@ public class UIStoreButtons : MonoBehaviour
     // Allows you to buy anything in the shop taking away the proper amount of skrap while adding the item
     public void BuyBoardWipe()
     {
-        CheckPurchaseItem(GameManager.instance.boardWipeCount, GeneralPage.instance.boardWipe);
+        //CheckPurchaseItem(GameManager.instance.boardWipeCount, GeneralPage.instance.boardWipe);
         GameManager.instance.SaveGame();
     }
     public void BuyGrenade()
     {
-        CheckPurchaseItem(GameManager.instance.grenadeCount, GeneralPage.instance.grenade);
+        //CheckPurchaseItem(GameManager.instance.grenadeCount, GeneralPage.instance.grenade);
     }
     public void BuyHealth()
     {
