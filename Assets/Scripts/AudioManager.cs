@@ -30,7 +30,16 @@ public class AudioManager : MonoBehaviour
     }
     private void Awake()
     {
+        if (instance != null)
+        {
+            instance.aSource.Stop();
+            instance.musicSource.Stop();
+            Destroy(instance);
+        }
+            
+        
         instance = this;
+
         DontDestroyOnLoad(this.gameObject);
         for (int i = 0; i < sfx.Count; i++)
         {
