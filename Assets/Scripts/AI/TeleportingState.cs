@@ -58,10 +58,10 @@ public class TeleportingState : State
                 if(Vector3.Distance(tpLocations[locationIndex].transform.position, GameManager.instance.player.transform.position) >= 15)
                 {
                     locationDecided = true;
-                    Instantiate(tpEffect, transform.position, Quaternion.Euler(-90, 0, 0));
+                    Instantiate(tpEffect, transform.position, Quaternion.identity);
                     movement.GetAgent().Warp(tpLocations[locationIndex].transform.position);
                     AudioManager.Instance.PlaySFX(teleportSound);
-                    Instantiate(tpEffect, transform.position, Quaternion.Euler(-90,0,0));
+                    Instantiate(tpEffect, transform.position, Quaternion.identity);
                 }
             }
         }

@@ -25,17 +25,26 @@ public class UIStoreButtons : MonoBehaviour
     private void PurchaseAmmo(string weaponName, int cost, int quantity = 0)
     {
         bool purchaseFailed;
-        if (GameManager.instance.skrapCount.GetQuantity() >= cost)
+        string message = "";
+        if (GameManager.instance.skrapCount.GetQuantity() >= cost) //check for money
         {
-            WeaponBase currentWeapon = WeaponHolder.instance.transform.Find(weaponName).GetComponent<WeaponBase>();
-            GameManager.instance.ammoCount.SetQuantity(quantity);
-            currentWeapon.AddAmmo(quantity);
-            GameManager.instance.skrapCount.Subtract(cost);
-            purchaseFailed = false;
+            if(GameManager.instance.ammoCount.GetQuantity() == GameManager.instance.ammoCount.GetMaximumQuantity()) //check for max ammo already owned
+            {
+                message = "Already have max ammo!";
+                purchaseFailed = true;
+            }
+            else
+            {
+                WeaponBase currentWeapon = WeaponHolder.instance.transform.Find(weaponName).GetComponent<WeaponBase>();
+                GameManager.instance.ammoCount.SetQuantity(quantity);
+                currentWeapon.AddAmmo(quantity);
+                GameManager.instance.skrapCount.Subtract(cost);
+                purchaseFailed = false;
+            }
         }
         else
             purchaseFailed = true;
-        StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
+        StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed, message));
     }
     private void CheckPurchaseItem(int weaponIndex, float multiplier, int cost)
     {
@@ -131,12 +140,12 @@ public class UIStoreButtons : MonoBehaviour
     // Allows you to buy anything in the shop taking away the proper amount of skrap while adding the item
     public void BuyBoardWipe()
     {
-        //CheckPurchaseItem(GameManager.instance.boardWipeCount, GeneralPage.instance.boardWipe);
+        CheckPurchaseItem(GameManager.instance.boardWipeCount, GeneralPage.instance.boardWipe);
         GameManager.instance.SaveGame();
     }
     public void BuyGrenade()
     {
-        //CheckPurchaseItem(GameManager.instance.grenadeCount, GeneralPage.instance.grenade);
+        CheckPurchaseItem(GameManager.instance.grenadeCount, GeneralPage.instance.grenade);
     }
     public void BuyHealth()
     {
