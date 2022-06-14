@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Skrap Count", skrapCount.GetQuantity());
         PlayerPrefs.SetInt("Player Health", playerHealth.currHealth);
         PlayerPrefs.SetInt("Max Player Health", playerHealth.maxHealth);
-        PlayerPrefs.SetInt("Board Wipes", boardWipeCount.GetQuantity());
+        //PlayerPrefs.SetInt("Board Wipes", boardWipeCount.GetQuantity());
 
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
         {
