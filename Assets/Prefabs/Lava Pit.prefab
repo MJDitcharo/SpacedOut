@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8043478465404407215}
   - component: {fileID: 8043478465404407212}
   - component: {fileID: 8043478465404407208}
-  - component: {fileID: 8043478465404407213}
   m_Layer: 0
   m_Name: Lava Pit
   m_TagString: Fire
@@ -112,18 +111,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.01, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8043478465404407213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8043478465404407202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d90defa8036847e42890073e311493f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  burnTimer: 5
-  keepDamaging: 0
-  fire: {fileID: 7911532890973092836, guid: c6cb706fd80045843b8c025735473c42, type: 3}
