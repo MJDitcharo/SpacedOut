@@ -37,7 +37,7 @@ public class playerHealth : health
             return;
 
         Debug.Log("Took damage");
-        AudioManager.Instance.PlaySFX(playerHitSound);
+        //AudioManager.Instance.PlaySFX(playerHitSound);
         delayDamge = Time.time + 1f / delayRate;
         currHealth -= dmg;
         DamagePopUpManager.Instance.StartCoroutine(DamagePopUpManager.Instance.DamageIndicator(dmg, gameObject.transform.position));

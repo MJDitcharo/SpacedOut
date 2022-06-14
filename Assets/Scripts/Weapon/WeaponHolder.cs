@@ -25,7 +25,7 @@ public class WeaponHolder : MonoBehaviour
 
     private void Start()
     {
-        gunImages = GameObject.FindGameObjectWithTag("Gun Images");
+        gunImages = GameManager.instance.gunImages;
         if (unlockedWeapons.Count == 0)
             unlockedWeapons.Add(gameObject.transform.Find("Pistol").name);
         ReadPlayerPrefs();
