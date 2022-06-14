@@ -44,9 +44,9 @@ public class Chest : MonoBehaviour
     {
         pLight = GetComponent<Light>(); //get light component in the box
 
-        grenadeCountInst = GameManager.instance.grenadeCount;
+        //grenadeCountInst = GameManager.instance.grenadeCount;
         ammoCountInst = GameManager.instance.ammoCount;
-        boardWipeInst = GameManager.instance.boardWipeCount;
+        //boardWipeInst = GameManager.instance.boardWipeCount;
         skrapCountInst = GameManager.instance.skrapCount;
         healthBarInst = GameManager.instance.healthBar;
         playerHealthInst = GameManager.instance.playerHealth;

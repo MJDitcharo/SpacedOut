@@ -203,9 +203,9 @@ public class VoidBossAttacks : State
             if(Vector3.Distance(teleportingState.tpLocations[spot].transform.position, GameManager.instance.player.transform.position) >= 15)
             {
                 AudioManager.Instance.PlaySFX(teleportSound);
-                Instantiate(tpEffect, transform.position, Quaternion.identity);
+                Instantiate(tpEffect, transform.position, Quaternion.Euler(-90, 0, 0));
                 movement.GetAgent().Warp(teleportingState.tpLocations[spot].transform.position);
-                Instantiate(tpEffect, transform.position, Quaternion.identity);
+                Instantiate(tpEffect, transform.position, Quaternion.Euler(-90, 0, 0));
                 done = true;
             }
             
@@ -227,7 +227,7 @@ public class VoidBossAttacks : State
                 }
             }
             clones.Add(Instantiate(shadowClone, spawnPosition, Quaternion.identity).GetComponent<NavMeshAgent>());
-            Instantiate(tpEffect, spawnPosition, Quaternion.identity);
+            Instantiate(tpEffect, spawnPosition, Quaternion.Euler(-90, 0, 0));
         }
 
         int startingHP = GetComponent<health>().currHealth;
@@ -284,7 +284,7 @@ public class VoidBossAttacks : State
                 animator.SetBool("Running", false);
                 for (int i = 0; i < clones.Count; i++)
                 {
-                    Instantiate(tpEffect, clones[i].gameObject.transform.position, Quaternion.identity);
+                    Instantiate(tpEffect, clones[i].gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
                     Destroy(clones[i].gameObject);
                 }
 
@@ -303,7 +303,7 @@ public class VoidBossAttacks : State
         {
             if (clones[i] == null)
                 break;
-            Instantiate(tpEffect, clones[i].gameObject.transform.position, Quaternion.identity);
+            Instantiate(tpEffect, clones[i].gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
             Destroy(clones[i].gameObject);
         }
 
@@ -313,9 +313,9 @@ public class VoidBossAttacks : State
             if (Vector3.Distance(teleportingState.tpLocations[spot].transform.position, GameManager.instance.player.transform.position) >= 15)
             {
                 AudioManager.Instance.PlaySFX(teleportSound);
-                Instantiate(tpEffect, transform.position, Quaternion.identity);
+                Instantiate(tpEffect, transform.position, Quaternion.Euler(-90, 0, 0));
                 movement.GetAgent().Warp(teleportingState.tpLocations[spot].transform.position);
-                Instantiate(tpEffect, transform.position, Quaternion.identity);
+                Instantiate(tpEffect, transform.position, Quaternion.Euler(-90, 0, 0));
                 done = true;
             }
         }
