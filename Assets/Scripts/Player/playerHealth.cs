@@ -22,11 +22,6 @@ public class playerHealth : health
         currHealth = PlayerPrefs.GetInt("Player Health");
     }
 
-    protected override void Update() 
-    {
-        burnTimer -= Time.deltaTime;    
-    }
-
     public void AddHealth(float percentage)
     {
         currHealth += (int)(maxHealth * percentage);
@@ -52,21 +47,6 @@ public class playerHealth : health
         if (currHealth <= 0)
         {
             Death();
-        }
-    }
-
-    protected override void OnTriggerStay(Collider other)
-    {
-        if (other.tag == "Fire" && isDamageable)
-        {
-            Debug.Log("Touching Fire");
-            if (burnTimer <= 0)
-            {
-                Instantiate(fireParticleEffect, transform);
-                DoDamage(10);
-                burnTimer = .5f;
-            }
-            
         }
     }
 

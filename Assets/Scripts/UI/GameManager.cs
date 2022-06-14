@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour
     public GameObject bossHealthBar;
     public GameObject pauseMenu;
     public ItemCount ammoCount;
-    //public ItemCount boardWipeCount;
-    //public ItemCount grenadeCount;
+    public ItemCount boardWipeCount;
+    public ItemCount grenadeCount;
     public ItemCount skrapCount;
     public playerHealth playerHealth;
     public UIPrompt prompt;
@@ -67,8 +67,8 @@ public class GameManager : MonoBehaviour
         //ui stuff
         ammoCount = GameObject.FindGameObjectWithTag("AmmoCount").GetComponent<ItemCount>();
         pmenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
-        //boardWipeCount = GameObject.FindGameObjectWithTag("BoardWipeCount").GetComponent<ItemCount>();
-        //grenadeCount = GameObject.FindGameObjectWithTag("GrenadeCount").GetComponent<ItemCount>();
+        boardWipeCount = GameObject.FindGameObjectWithTag("BoardWipeCount").GetComponent<ItemCount>();
+        grenadeCount = GameObject.FindGameObjectWithTag("GrenadeCount").GetComponent<ItemCount>();
         skrapCount = GameObject.Find("Skrap Count").GetComponent<ItemCount>();
         prompt = GameObject.Find("UIPrompt").GetComponent<UIPrompt>();
         chestUI = GameObject.Find("Chest UI").GetComponent<UIChest>();
@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Skrap Count", skrapCount.GetQuantity());
         PlayerPrefs.SetInt("Player Health", playerHealth.currHealth);
         PlayerPrefs.SetInt("Max Player Health", playerHealth.maxHealth);
-        //PlayerPrefs.SetInt("Board Wipes", boardWipeCount.GetQuantity());
+        PlayerPrefs.SetInt("Board Wipes", boardWipeCount.GetQuantity());
 
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
         {
@@ -200,7 +200,7 @@ public class GameManager : MonoBehaviour
         playerHealth.currHealth = PlayerPrefs.GetInt("Player Health");
         playerHealth.maxHealth = PlayerPrefs.GetInt("Max Player Health");
         healthBar.SetHealth((float)playerHealth.currHealth / playerHealth.maxHealth);
-        //boardWipeCount.SetQuantity(PlayerPrefs.GetInt("Board Wipes"));
+        boardWipeCount.SetQuantity(PlayerPrefs.GetInt("Board Wipes"));
 
         WeaponHolder.instance.currentChildCount = PlayerPrefs.GetInt("Child Count");
         WeaponHolder.instance.unlockedWeapons.Clear();

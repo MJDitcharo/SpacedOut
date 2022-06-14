@@ -23,7 +23,7 @@ public class health : MonoBehaviour
     [SerializeField] float vulnAmount = 1.5f;
     [SerializeField] int vulnTime = 5;
    
-    [SerializeField] protected GameObject fireParticleEffect;
+    [SerializeField] GameObject fireParticleEffect;
     [SerializeField] GameObject stunParticleEffect;
     [SerializeField] protected GameObject deathParticle;
     
@@ -34,7 +34,7 @@ public class health : MonoBehaviour
         currHealth = maxHealth;
     }
 
-    protected virtual void Update()
+    protected void Update()
     {
         fireTick += Time.deltaTime;
         burnTimer -= Time.deltaTime;
@@ -95,7 +95,7 @@ public class health : MonoBehaviour
         }
     }
 
-    protected virtual void OnTriggerStay(Collider other)
+    protected void OnTriggerStay(Collider other)
     {
         if(other.tag == "Fire")
         {

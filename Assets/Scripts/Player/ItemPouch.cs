@@ -11,10 +11,10 @@ public class ItemPouch : MonoBehaviour
     float throwForce = 20;
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.E) && GameManager.instance.boardWipeCount.GetQuantity() > 0)
-            //ThrowBoardWipe();
-        //else if (Input.GetKeyDown(KeyCode.Q) && GameManager.instance.grenadeCount.GetQuantity() > 0)
-            //ThrowGrenade();
+        if (Input.GetKeyDown(KeyCode.E) && GameManager.instance.boardWipeCount.GetQuantity() > 0)
+            ThrowBoardWipe();
+        else if (Input.GetKeyDown(KeyCode.Q) && GameManager.instance.grenadeCount.GetQuantity() > 0)
+            ThrowGrenade();
     }
 
     private void ThrowItem(GameObject itemToThrow)
@@ -27,13 +27,13 @@ public class ItemPouch : MonoBehaviour
     private void ThrowGrenade()
     {
         ThrowItem(grenade);
-        //GameManager.instance.grenadeCount.Subtract();
+        GameManager.instance.grenadeCount.Subtract();
     }
 
     private void ThrowBoardWipe()
     {
         ThrowItem(boardWipe);
-        //GameManager.instance.boardWipeCount.Subtract();
+        GameManager.instance.boardWipeCount.Subtract();
     }
 
 }

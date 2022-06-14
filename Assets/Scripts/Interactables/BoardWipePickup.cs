@@ -6,7 +6,7 @@ public class BoardWipePickup : Pickups
 {
     protected override void Increment()
     {
-        //GameManager.instance.boardWipeCount.Add(quantity);
+        GameManager.instance.boardWipeCount.Add(quantity);
     }
 
     protected override void InitialValues()
