@@ -99,13 +99,12 @@ public class health : MonoBehaviour
     {
         if(other.tag == "Fire")
         {
-            Debug.Log("Touching Fire");
-            if (burnTimer <= 0)
+            if(fireTickTime <= fireTick)
             {
                 Instantiate(fireParticleEffect, transform);
                 DoDamage(10);
+                fireTick = 0;
             }
-            burnTimer = 1.5f;
         }
     }
 
