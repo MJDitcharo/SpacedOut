@@ -51,7 +51,8 @@ public class GameOverButtons : PopUpMenu
         PlayerPrefs.SetInt("Chest Opened", 0);
         PlayerPrefs.SetInt("Child Count", 0);
         PlayerPrefs.SetString("Weapon 0", "Pistol");
-        PlayerPrefs.SetInt("Pistol Ammo", 45);
+        PlayerPrefs.SetInt("Pistol Ammo", 1000);
+        MainMenu.instance.DefaultPrefs();
         
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
