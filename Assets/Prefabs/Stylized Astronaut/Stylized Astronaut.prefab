@@ -344,7 +344,7 @@ MonoBehaviour:
   ph: {fileID: 8001050053760360989}
   moveSpeed: 10
   pushbackFalloffSpeed: 4
-  rollSpeed: 4
+  rollSpeed: 2
   rollCooldown: 1
   rollInvulnerability: 0.5
   pushback: {x: 0, y: 0, z: 0}
@@ -1252,6 +1252,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dual Wield Plasma
       objectReference: {fileID: 0}
+    - target: {fileID: 6177471341573309950, guid: 5b4092b927e471e41aeed6f30d95cde0, type: 3}
+      propertyPath: weaponDescription
+      value: Bullets make enemies take more damage
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b4092b927e471e41aeed6f30d95cde0, type: 3}
 --- !u!4 &5712485528920347146 stripped
@@ -1313,6 +1317,10 @@ PrefabInstance:
     - target: {fileID: 141830494273814483, guid: 821e4aea87eed4841863ad88e55588c0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 246538795581246780, guid: 821e4aea87eed4841863ad88e55588c0, type: 3}
+      propertyPath: weaponDescription
+      value: 'Shoots bullets that ignite the enemy '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 821e4aea87eed4841863ad88e55588c0, type: 3}
@@ -1376,6 +1384,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6984070218454866177, guid: b8a06b96960c9014cba3201474d1fd8b, type: 3}
+      propertyPath: weaponDescription
+      value: Shoots a moving blackhole
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8a06b96960c9014cba3201474d1fd8b, type: 3}
 --- !u!4 &4552490690861268177 stripped
@@ -1390,6 +1402,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 819579282}
     m_Modifications:
+    - target: {fileID: 4302465339452372594, guid: 4b009c506ffbb3f48bdaddc0a61deca1, type: 3}
+      propertyPath: weaponDescription
+      value: Shoots a laser beam
+      objectReference: {fileID: 0}
     - target: {fileID: 5547271253448468729, guid: 4b009c506ffbb3f48bdaddc0a61deca1, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -1496,6 +1512,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8731587446779546870, guid: 487a830279963e146b026fb7d0b2cb17, type: 3}
+      propertyPath: weaponDescription
+      value: Close range weapon
+      objectReference: {fileID: 0}
     - target: {fileID: 8830912256881924189, guid: 487a830279963e146b026fb7d0b2cb17, type: 3}
       propertyPath: m_Name
       value: Shotgun
@@ -1562,6 +1582,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 246538795581246780, guid: 7e0550a1cf8facd468101e637f46ca60, type: 3}
+      propertyPath: weaponDescription
+      value: 'Increased spread and bullet count '
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e0550a1cf8facd468101e637f46ca60, type: 3}
 --- !u!4 &1701090754385630347 stripped
@@ -1576,6 +1600,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 819579282}
     m_Modifications:
+    - target: {fileID: 2835095403929169977, guid: ae1f80265a047374d8d32cbefd068685, type: 3}
+      propertyPath: weaponDescription
+      value: Shoots a cluster grenade
+      objectReference: {fileID: 0}
     - target: {fileID: 5646561234416039059, guid: ae1f80265a047374d8d32cbefd068685, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -1682,6 +1710,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1898625812266393881, guid: ed438d7a0ca0f514f800963c1b126a23, type: 3}
+      propertyPath: weaponDescription
+      value: Double pistol
+      objectReference: {fileID: 0}
     - target: {fileID: 2139935855889050209, guid: ed438d7a0ca0f514f800963c1b126a23, type: 3}
       propertyPath: m_Name
       value: Dual Wield
@@ -1700,6 +1732,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 819579282}
     m_Modifications:
+    - target: {fileID: 2034082779831576936, guid: 9c2136d695c26ca45852f722e40b1a51, type: 3}
+      propertyPath: weaponDescription
+      value: Rocket launcher
+      objectReference: {fileID: 0}
     - target: {fileID: 7475352714956614141, guid: 9c2136d695c26ca45852f722e40b1a51, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -1810,6 +1846,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 246538795581246780, guid: a57fec45717e5c64eb9801c3d569aae6, type: 3}
+      propertyPath: weaponDescription
+      value: Bullets do heavy knockback
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a57fec45717e5c64eb9801c3d569aae6, type: 3}
 --- !u!4 &3159145456836687892 stripped
@@ -1824,6 +1864,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 819579282}
     m_Modifications:
+    - target: {fileID: 1625069643301922479, guid: 2b4b5431ddf3cef48bf12460e3b39f87, type: 3}
+      propertyPath: weaponDescription
+      value: Shoots a burst of bullets
+      objectReference: {fileID: 0}
     - target: {fileID: 7782461859044474609, guid: 2b4b5431ddf3cef48bf12460e3b39f87, type: 3}
       propertyPath: m_Name
       value: Burst
@@ -1886,6 +1930,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 819579282}
     m_Modifications:
+    - target: {fileID: 2236132448918309343, guid: 1ddbd39f58afe2449b27708c921355fd, type: 3}
+      propertyPath: weaponDescription
+      value: An automatic weapon
+      objectReference: {fileID: 0}
     - target: {fileID: 7475352714956614141, guid: 1ddbd39f58afe2449b27708c921355fd, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -1996,6 +2044,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6823715423930132518, guid: 78a2f3ef09c74534d9b80daf1ad81686, type: 3}
+      propertyPath: weaponDescription
+      value: Homing bullets
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78a2f3ef09c74534d9b80daf1ad81686, type: 3}
 --- !u!4 &3520011777270587916 stripped
@@ -2010,6 +2062,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 819579282}
     m_Modifications:
+    - target: {fileID: 698418662123353008, guid: cda931242964e1840bcacb856a82d694, type: 3}
+      propertyPath: weaponDescription
+      value: Spawns a black hole when bullet lands
+      objectReference: {fileID: 0}
     - target: {fileID: 1292733270179818475, guid: cda931242964e1840bcacb856a82d694, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2174,6 +2230,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 819579282}
     m_Modifications:
+    - target: {fileID: 5818193396920804496, guid: ff68ed86d3e09964b93930cefda1fcef, type: 3}
+      propertyPath: weaponDescription
+      value: Leaves a fire trail
+      objectReference: {fileID: 0}
     - target: {fileID: 6765331950245995283, guid: ff68ed86d3e09964b93930cefda1fcef, type: 3}
       propertyPath: m_Name
       value: Slug Plasma
@@ -2236,6 +2296,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 819579282}
     m_Modifications:
+    - target: {fileID: 3274009981602253223, guid: a41865496aa5d8a44ba70aa78b8b9e4a, type: 3}
+      propertyPath: weaponDescription
+      value: Less spread higher damage
+      objectReference: {fileID: 0}
     - target: {fileID: 3784773296243239376, guid: a41865496aa5d8a44ba70aa78b8b9e4a, type: 3}
       propertyPath: m_Name
       value: Slug
@@ -2298,6 +2362,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 819579282}
     m_Modifications:
+    - target: {fileID: 3769023593618704603, guid: 754304b2596658543a580d732878e888, type: 3}
+      propertyPath: weaponDescription
+      value: Fast firerate rifle
+      objectReference: {fileID: 0}
     - target: {fileID: 5547271253448468729, guid: 754304b2596658543a580d732878e888, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -2360,6 +2428,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 819579282}
     m_Modifications:
+    - target: {fileID: -870542023872000834, guid: a77c2dd12af562547a8ef3ca770a2936, type: 3}
+      propertyPath: weaponDescription
+      value: Shoots grenade projectile
+      objectReference: {fileID: 0}
     - target: {fileID: 567340602639022516, guid: a77c2dd12af562547a8ef3ca770a2936, type: 3}
       propertyPath: m_Name
       value: Grenade Launcher
@@ -2426,6 +2498,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deagle
       objectReference: {fileID: 0}
+    - target: {fileID: 3842353211891667039, guid: 35c68ea5ea75f2846971d28b537ab990, type: 3}
+      propertyPath: weaponDescription
+      value: low fire rate higher damage
+      objectReference: {fileID: 0}
     - target: {fileID: 3977185348991013030, guid: 35c68ea5ea75f2846971d28b537ab990, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2484,6 +2560,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 819579282}
     m_Modifications:
+    - target: {fileID: -6394928463290878200, guid: 5128fc76b9345944cb83922492148f72, type: 3}
+      propertyPath: weaponDescription
+      value: 'Hold button down to charge burst '
+      objectReference: {fileID: 0}
     - target: {fileID: 7782461859044474609, guid: 5128fc76b9345944cb83922492148f72, type: 3}
       propertyPath: m_Name
       value: RifleBurstVoid
@@ -2590,6 +2670,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1898625812266393881, guid: debf70483c18ed24cb3a8daf9e034400, type: 3}
+      propertyPath: weaponDescription
+      value: 'Bullets disable enemies '
+      objectReference: {fileID: 0}
     - target: {fileID: 2139935855889050209, guid: debf70483c18ed24cb3a8daf9e034400, type: 3}
       propertyPath: m_Name
       value: Dual Wield Void
@@ -2608,6 +2692,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 819579282}
     m_Modifications:
+    - target: {fileID: 3841972999448457562, guid: f71ec62d8f5422043beeae7f18233c44, type: 3}
+      propertyPath: weaponDescription
+      value: 'Does more damage after each hit '
+      objectReference: {fileID: 0}
     - target: {fileID: 7782461859044474609, guid: f71ec62d8f5422043beeae7f18233c44, type: 3}
       propertyPath: m_Name
       value: Burst Plasma
@@ -2670,6 +2758,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 819579282}
     m_Modifications:
+    - target: {fileID: 3421281343190295243, guid: a068c39ff2f310d489076dffff7426ac, type: 3}
+      propertyPath: weaponDescription
+      value: Spray and pray
+      objectReference: {fileID: 0}
     - target: {fileID: 7845268370878411828, guid: a068c39ff2f310d489076dffff7426ac, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -2780,6 +2872,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6365688491702503770, guid: 74203b44bf520fd4e88de1f7a1fd06f5, type: 3}
+      propertyPath: weaponDescription
+      value: Leaves a fire pit after detonation
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74203b44bf520fd4e88de1f7a1fd06f5, type: 3}
 --- !u!4 &6503723244938714288 stripped
@@ -2794,6 +2890,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 819579282}
     m_Modifications:
+    - target: {fileID: 698418662123353008, guid: 9df87b2de29ed084fb1834da7189233d, type: 3}
+      propertyPath: weaponDescription
+      value: 'Bullets in 3 after hitting something '
+      objectReference: {fileID: 0}
     - target: {fileID: 1292733270179818475, guid: 9df87b2de29ed084fb1834da7189233d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2856,6 +2956,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 819579282}
     m_Modifications:
+    - target: {fileID: 3421281343190295243, guid: 8965e087ad5f3154990e0909c9c74cea, type: 3}
+      propertyPath: weaponDescription
+      value: Bullets have a delayed explosion on hit
+      objectReference: {fileID: 0}
     - target: {fileID: 7845268370878411828, guid: 8965e087ad5f3154990e0909c9c74cea, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -2918,6 +3022,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 819579282}
     m_Modifications:
+    - target: {fileID: 3769023593618704603, guid: a75f7d4695172724d9af34ce295568ac, type: 3}
+      propertyPath: weaponDescription
+      value: 'Defeated enemies leave a shadow clone '
+      objectReference: {fileID: 0}
     - target: {fileID: 5547271253448468729, guid: a75f7d4695172724d9af34ce295568ac, type: 3}
       propertyPath: m_RootOrder
       value: 19
