@@ -61,6 +61,13 @@ public class SuicideAttackState : State
             GameManager.instance.movement.pushback += (-pushbackMultiplier * (transform.position - GameManager.instance.player.transform.position).normalized);
         }
         GameManager.instance.enemyCount--;
+        if (GameManager.instance.enemyCount <= 0)
+        {
+            GameManager.instance.checkpointIndex++;
+            GameManager.instance.checkpoints[GameManager.instance.checkpointIndex].GetComponent<RoomManager>().EndLockDown();
+            GameManager.instance.SaveGame();
+            PlayerPrefs.SetInt("Chest Opened", 0);
+        }
         //StopCoroutine(flashing);
         Instantiate(hitEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
