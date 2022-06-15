@@ -30,7 +30,7 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         AudioManager.Instance.PlaySFX("MenuMusic");
-        instance = this;
+        //instance = this;
         //DontDestroyOnLoad(this.gameObject);
     }
 
@@ -60,7 +60,7 @@ public class MainMenu : MonoBehaviour
             overrideSave.SetActive(true);
         }
     }
-    public void DefaultPrefs()
+    public static void DefaultPrefs()
     {
         for(int i = 0; i < 4; i++)
         {
