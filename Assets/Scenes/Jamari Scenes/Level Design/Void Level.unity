@@ -537,6 +537,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 215626688247617715, guid: 2653c846a905c1f468efd72234e5035e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -327.86868
+      objectReference: {fileID: 0}
     - target: {fileID: 3746376230915061625, guid: 2653c846a905c1f468efd72234e5035e, type: 3}
       propertyPath: doorCollider
       value: 
@@ -635,3 +639,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2653c846a905c1f468efd72234e5035e, type: 3}
+--- !u!1 &215626687879907422 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8549172902810553309, guid: 2653c846a905c1f468efd72234e5035e, type: 3}
+  m_PrefabInstance: {fileID: 215626687879907421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &215626687879907423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215626687879907422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cbac8f61bc8e7f499776ba6d25d8e63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
