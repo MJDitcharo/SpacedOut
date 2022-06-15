@@ -9,6 +9,7 @@ public class Grenade : MonoBehaviour
     public float detonateTime = 1f;
     public float explosiveRadius = 5;
     public float pushbackMultiplier = 5;
+    [SerializeField] public Sound audioS;
 
     //when the grenade is instantiated
     private void Awake()
@@ -33,6 +34,7 @@ public class Grenade : MonoBehaviour
             }
         }
         Instantiate(hitEffect, transform.position, Quaternion.identity); //create a bullet with no rotation at the postion 
+        AudioManager.Instance.PlaySFX(audioS);
         Destroy(gameObject);     //destroy game object and effect upon detonation
     }
 }

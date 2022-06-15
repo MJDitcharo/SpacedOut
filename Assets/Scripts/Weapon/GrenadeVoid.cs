@@ -8,6 +8,7 @@ public class GrenadeVoid : Grenade
     [SerializeField] GameObject childGrenade;
     [SerializeField] int clusterAmount = 3;
     [SerializeField] int force = 20;
+    [SerializeField] public Sound audioS;
 
     public override IEnumerator Detonate()
     {
@@ -27,6 +28,7 @@ public class GrenadeVoid : Grenade
             }
         }
         Instantiate(hitEffect, transform.position, Quaternion.identity); //create a bullet with no rotation at the postion 
+        AudioManager.Instance.PlaySFX(audioS);
         Destroy(gameObject);     //destroy game object and effect upon detonation
         for (int i = 0; i < clusterAmount; i++)
         {
