@@ -15,6 +15,7 @@ public class ShotgunPage : WeaponUpgradePage
         pageName = "ShotgunPage";
         base.Start();
         CheckUnlock("Shotgun");
+
     }
 
 

@@ -28,6 +28,8 @@ public class WeaponUpgradePage : StorePage
         base.Start();
         maxTier = upgradeTiers.Count;
         TiersFromPlayerPrefs(pageName);
+        if (WeaponHolder.instance.GetWeapon(pageID) != null && currentTier > 2)
+            tier2Choice = WeaponHolder.instance.GetEquippedWeaponName(pageID);
     }
 
     private void OnEnable()

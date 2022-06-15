@@ -8,6 +8,10 @@ public class HeavyMinigun : WeaponBase
     [SerializeField] float windUpSpeed = 1;
     public float barrelSpeed = .5f;
 
+    private void Awake()
+    {
+        weaponID = WeaponID.Heavy;
+    }
     public override void Update()
     {
         if (Input.GetButton("Fire1") && Time.time >= nextShotFired && ammoCount > 0 && Time.timeScale > 0) //if the first mouse button is down

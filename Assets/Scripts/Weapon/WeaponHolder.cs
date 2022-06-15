@@ -281,6 +281,17 @@ public class WeaponHolder : MonoBehaviour
     {
         return transform.GetChild(selectedWeapon).GetComponent<WeaponBase>();
     }
+
+    public WeaponBase GetWeapon(WeaponBase.WeaponID weaponID)
+    {
+        for (int i = 0; i <= currentChildCount; i++)
+        {
+            if (weaponID == transform.GetChild(i).GetComponent<WeaponBase>().weaponID)
+                return transform.GetChild(i).GetComponent<WeaponBase>();
+        }
+        return null;
+    }
+
     public string GetWeaponDescription(string weaponName)
     {
         return transform.Find(weaponName).GetComponent<WeaponBase>().weaponDescription;
