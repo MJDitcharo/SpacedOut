@@ -60,7 +60,7 @@ public class MainMenu : MonoBehaviour
             overrideSave.SetActive(true);
         }
     }
-    public static void DefaultPrefs()
+    public void DefaultPrefs()
     {
         for(int i = 0; i < 4; i++)
         {
