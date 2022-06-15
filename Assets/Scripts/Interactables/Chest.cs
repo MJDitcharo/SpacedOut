@@ -116,8 +116,8 @@ public class Chest : MonoBehaviour
         //should only grab the types inside of chestContents
         playerItems.Add(ammoCountInst.GetQuantity());
         playerItems.Add(skrapCountInst.GetQuantity());
-        playerItems.Add(grenadeCountInst.GetQuantity());
-        playerItems.Add(boardWipeInst.GetQuantity());
+        //playerItems.Add(grenadeCountInst.GetQuantity());
+        //playerItems.Add(boardWipeInst.GetQuantity());
         playerItems.Add(healthBarInst.GetHealthInt());
         //store the quantity of the specified items the player has in playerCounts
     }
@@ -127,8 +127,8 @@ public class Chest : MonoBehaviour
         //set rewards, fill the chestQuantities list
         playerRewards.Add(new Drop(ammo, ammoCountInst.GetMaximumQuantity(), "Ammo", playerItems[(int)Rewards.Ammo]));
         playerRewards.Add(new Drop(skrap, skrapCountInst.GetMaximumQuantity(), "Skrap", playerItems[(int)Rewards.Skrap]));
-        playerRewards.Add(new Drop(grenade, grenadeCountInst.GetMaximumQuantity(), "Grenade", playerItems[(int)Rewards.Grenade]));
-        playerRewards.Add(new Drop(boardWipe, boardWipeInst.GetMaximumQuantity(), "Board Wipe", playerItems[(int)Rewards.BoardWipe]));
+        //playerRewards.Add(new Drop(grenade, grenadeCountInst.GetMaximumQuantity(), "Grenade", playerItems[(int)Rewards.Grenade]));
+        //playerRewards.Add(new Drop(boardWipe, boardWipeInst.GetMaximumQuantity(), "Board Wipe", playerItems[(int)Rewards.BoardWipe]));
         playerRewards.Add(new Drop(health, healthBarInst.GetMaxHealth(), "Health", playerItems[(int)Rewards.Health]));
     }
 
@@ -149,8 +149,8 @@ public class Chest : MonoBehaviour
             weaponToUpdate.UpdateVisual();
         //ammoCountInst.Add(ammo);
         skrapCountInst.Add(skrap);
-        grenadeCountInst.Add(grenade);
-        boardWipeInst.Add(boardWipe);
+        //grenadeCountInst.Add(grenade);
+        //boardWipeInst.Add(boardWipe);
         healthBarInst.AddHealth((float)(health * .01f));
         ShowQuantityChange();
         GameManager.instance.SaveGame();
