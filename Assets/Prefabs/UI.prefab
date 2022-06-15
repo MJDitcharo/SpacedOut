@@ -953,7 +953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoCost: 100
-  weaponCost: 200
+  weaponCost: 500
   ammoQuantity: 50
   tier1Upgrade: 300
   tier2Upgrade: 400
@@ -1757,12 +1757,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391486dd9b09dba4492ebfbcff4a991e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoCost: 200
+  ammoCost: 500
   weaponCost: 600
   ammoQuantity: 3
-  tier1Upgrade: 100
-  tier2Upgrade: 200
-  tier3Upgrade: 300
+  tier1Upgrade: 200
+  tier2Upgrade: 500
+  tier3Upgrade: 1000
   fireRateQuantity: 1.5
   damageQuantity: 2
   buyAmmo: {fileID: 8339084461912111614}
@@ -6891,12 +6891,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0626d3e83c397744d891ea9dfe277572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoCost: 10
-  weaponCost: 50
+  ammoCost: 200
+  weaponCost: 300
   ammoQuantity: 20
-  tier1Upgrade: 100
-  tier2Upgrade: 200
-  tier3Upgrade: 300
+  tier1Upgrade: 300
+  tier2Upgrade: 400
+  tier3Upgrade: 500
   fireRateQuantity: 1.5
   damageQuantity: 1.5
   buyAmmo: {fileID: 6554770771061743214}
@@ -12557,11 +12557,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59afae8cdce8f1a42a60c34903dad977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoCost: 1
+  ammoCost: 100
   weaponCost: 21
   ammoQuantity: 20
-  tier1Upgrade: 100
-  tier2Upgrade: 200
+  tier1Upgrade: 200
+  tier2Upgrade: 300
   tier3Upgrade: 300
   fireRateQuantity: 1.5
   damageQuantity: 1.5

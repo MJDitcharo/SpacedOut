@@ -35,7 +35,8 @@ public class HomingBullet : bullet
             }
 
             Debug.Log(closest);
-            transform.LookAt(closest.transform.position);
+            if (closest != null)
+                transform.LookAt(closest.transform.position);
         }
         GetComponent<Rigidbody>().velocity = transform.forward * speed;
     }
