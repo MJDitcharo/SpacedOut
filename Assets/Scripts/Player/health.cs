@@ -59,7 +59,7 @@ public class health : MonoBehaviour
 
         // Do more damage to people with vulnerable debuff
         if (vulnerable)
-            currHealth = (int)(_dmg * 1.5f);
+            currHealth -= (int)(_dmg * 1.5f);
         else
             currHealth -= (int)_dmg;
         DamagePopUpManager.Instance.StartCoroutine(DamagePopUpManager.Instance.DamageIndicator(_dmg, gameObject.transform.position));
