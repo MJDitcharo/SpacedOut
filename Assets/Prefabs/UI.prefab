@@ -5179,6 +5179,7 @@ MonoBehaviour:
   gameOverScreen: {fileID: 0}
   fightingCursor: {fileID: 2800000, guid: 9895d1cef452f9c449bbb4bef137e34b, type: 3}
   normalCursor: {fileID: 2800000, guid: 2e71a8202d3b4a3448ec85ced5a40265, type: 3}
+  gunImages: {fileID: 0}
 --- !u!114 &4421062569754089657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29404,6 +29405,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3360415821844632147}
     m_Modifications:
+    - target: {fileID: 262894056, guid: 654f69a088f31044980866aeb9c508d1, type: 3}
+      propertyPath: max
+      value: 100000000
+      objectReference: {fileID: 0}
     - target: {fileID: 421947934699435987, guid: 654f69a088f31044980866aeb9c508d1, type: 3}
       propertyPath: m_Name
       value: Skrap UI
