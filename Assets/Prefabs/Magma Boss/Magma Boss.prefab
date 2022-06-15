@@ -326,8 +326,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4dad5a713cb364886fceace318be02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 500
-  currHealth: 500
+  maxHealth: 5000
+  currHealth: 5000
   vulnerable: 0
   isStunned: 0
   burnTimer: 0
@@ -336,6 +336,7 @@ MonoBehaviour:
   vulnTime: 5
   fireParticleEffect: {fileID: 0}
   stunParticleEffect: {fileID: 0}
+  deathParticle: {fileID: 0}
   drops: {fileID: 6076811627386069490, guid: d0306af4078577240a9a23e69fb7f953, type: 3}
   dropQuantity: 5
   bossAttacks: {fileID: 6119080226200538546}
