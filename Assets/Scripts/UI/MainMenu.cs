@@ -77,7 +77,7 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("Chest Opened", 0);
         PlayerPrefs.SetInt("Child Count", 0);
         PlayerPrefs.SetString("Weapon 0", "Pistol");
-        PlayerPrefs.SetInt("Pistol Ammo", 45);
+        PlayerPrefs.SetInt("Pistol Ammo", 1000);
         PlayerPrefs.SetInt("Pistol Page", 0);
         PlayerPrefs.SetInt("Shotgun Page", 0);
         PlayerPrefs.SetInt("Rifle Page", 0);
