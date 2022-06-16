@@ -117,4 +117,8 @@ public class WeaponBase : MonoBehaviour
         return fireRateMultiplier;
     }
 
+    public virtual void OnWeaponSwitch()
+    {
+        Debug.Log("Switched");
+    }
 }
