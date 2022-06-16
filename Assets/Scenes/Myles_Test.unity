@@ -317,11 +317,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59063444}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &66412108 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2044950927790256750, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
-  m_PrefabInstance: {fileID: 293933126}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &66412109 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2283644677995238117, guid: 0d11b2d0a973354469f575ccbadcb3bd, type: 3}
@@ -2054,14 +2049,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 819579283, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
-      propertyPath: gunImages
-      value: 
-      objectReference: {fileID: 66412108}
-    - target: {fileID: 819579283, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
-      propertyPath: allUnlocked
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1147752367711628, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
       propertyPath: m_Name
       value: Stylized Astronaut
@@ -2109,10 +2096,6 @@ PrefabInstance:
     - target: {fileID: 4268597916284530, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8019059728329901773, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
-      propertyPath: shotgunAngleChange
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
