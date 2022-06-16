@@ -15,6 +15,8 @@ public class PatientMovingPlatform : MonoBehaviour
     {
         if (passenger)
             MovePlatform();
+        if (GameManager.instance.gameOverScreen.activeInHierarchy) //if the player died
+            GameManager.instance.player.transform.SetParent(null);
     }
 
     protected void MovePlatform()
