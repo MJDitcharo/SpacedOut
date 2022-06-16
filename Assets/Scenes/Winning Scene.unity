@@ -2745,7 +2745,7 @@ GameObject:
   - component: {fileID: 1534705301}
   - component: {fileID: 1534705300}
   - component: {fileID: 1534705299}
-  - component: {fileID: 1534705298}
+  - component: {fileID: 1534705302}
   m_Layer: 5
   m_Name: Quit (2)
   m_TagString: Untagged
@@ -2774,18 +2774,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1534705298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1534705296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0628ad96d7f94204caef9e62f40d4c28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1534705299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2830,9 +2818,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1534705298}
-        m_TargetAssemblyTypeName: GenericMenuButtons, Assembly-CSharp
-        m_MethodName: QuitClicked
+      - m_Target: {fileID: 1534705302}
+        m_TargetAssemblyTypeName: GameOverButtons, Assembly-CSharp
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2880,6 +2868,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1534705296}
   m_CullTransparentMesh: 1
+--- !u!114 &1534705302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534705296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dae647eebfe6a14f988e54f0a5693a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1549269960
 GameObject:
   m_ObjectHideFlags: 0

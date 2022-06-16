@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 2291179577105618346}
   - component: {fileID: 5863445506168100210}
   - component: {fileID: -3005862007651072849}
+  - component: {fileID: 2798051394643761729}
   m_Layer: 8
   m_Name: Turret Enemy
   m_TagString: Enemy
@@ -277,7 +278,7 @@ MonoBehaviour:
   movement: {fileID: 2291179577105618346}
   animator: {fileID: 0}
   attackState: {fileID: 0}
-  noticeDistance: 9
+  noticeDistance: 12
   movementSpeed: 3
   walkTime: 5
   walkTimeMultiplier: 1
@@ -410,6 +411,19 @@ MonoBehaviour:
   deathParticle: {fileID: 1290715649332758, guid: 587eaecaa621be74486f351c78b4f0a8, type: 3}
   drops: {fileID: 6076811627386069490, guid: d0306af4078577240a9a23e69fb7f953, type: 3}
   dropQuantity: 200
+--- !u!65 &2798051394643761729
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2291179577105618357}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.4460794, z: 1.5542678}
+  m_Center: {x: 0, y: -0.2769603, z: 0.2771322}
 --- !u!1 &6290055366700743287
 GameObject:
   m_ObjectHideFlags: 0
