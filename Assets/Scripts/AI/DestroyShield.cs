@@ -26,6 +26,7 @@ public class DestroyShield : MonoBehaviour
     void DamageShield(int damage)
     {
         currentShieldHealth -=damage;
+        DamagePopUpManager.Instance.StartCoroutine(DamagePopUpManager.Instance.DamageIndicator(damage, gameObject.transform.position));
 
         if (currentShieldHealth <= 0)
         {
