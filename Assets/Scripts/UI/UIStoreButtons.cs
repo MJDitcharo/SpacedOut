@@ -36,7 +36,7 @@ public class UIStoreButtons : MonoBehaviour
             else
             {
                 WeaponBase currentWeapon = WeaponHolder.instance.transform.Find(weaponName).GetComponent<WeaponBase>();
-                GameManager.instance.ammoCount.SetQuantity(quantity);
+                //GameManager.instance.ammoCount.Add(quantity);
                 currentWeapon.AddAmmo(quantity);
                 GameManager.instance.skrapCount.Subtract(cost);
                 purchaseFailed = false;
