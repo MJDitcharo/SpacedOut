@@ -6,15 +6,6 @@ using UnityEngine;
 public class Chest : MonoBehaviour
 {
 
-    enum Rewards
-    {
-        Ammo,
-        Skrap,
-        Grenade,
-        BoardWipe,
-        Health
-    };
-
     [SerializeField]
     Transform crateTop;
     Light pLight;
@@ -23,33 +14,21 @@ public class Chest : MonoBehaviour
     [SerializeField] Vector3 offset;
     [SerializeField] float time = 0.01f;
     public int associatedCheckpoint = 0;
-    public int health, ammo, skrap, grenade, boardWipe;
+    public int skrap;
+    int oldSkrapCount;
 
-    List<Drop> playerRewards = new();
-
-    List<int> playerItems = new();
     bool chestOpened = false;
 
 
     //convenience variables
-    ItemCount grenadeCountInst;
-    ItemCount ammoCountInst;
-    ItemCount boardWipeInst;
     ItemCount skrapCountInst;
-    HealthBar healthBarInst;
-    playerHealth playerHealthInst;
 
     // Start is called before the first frame update
     void Start()
     {
         pLight = GetComponent<Light>(); //get light component in the box
 
-        grenadeCountInst = GameManager.instance.grenadeCount;
-        ammoCountInst = GameManager.instance.ammoCount;
-        boardWipeInst = GameManager.instance.boardWipeCount;
         skrapCountInst = GameManager.instance.skrapCount;
-        healthBarInst = GameManager.instance.healthBar;
-        playerHealthInst = GameManager.instance.playerHealth;
 
         defaultVec = crateTop.position;
 
@@ -94,7 +73,6 @@ public class Chest : MonoBehaviour
         //grab the player's current items
         GetPlayerItems();
         //fill chest contents
-        FillChest();
 
         //turn off prompt and start animation
         GameManager.instance.prompt.HidePrompt();
@@ -114,61 +92,20 @@ public class Chest : MonoBehaviour
     {
         //get current items player has
         //should only grab the types inside of chestContents
-        playerItems.Add(ammoCountInst.GetQuantity());
-        playerItems.Add(skrapCountInst.GetQuantity());
-        //playerItems.Add(grenadeCountInst.GetQuantity());
-        //playerItems.Add(boardWipeInst.GetQuantity());
-        playerItems.Add(healthBarInst.GetHealthInt());
-        //store the quantity of the specified items the player has in playerCounts
+        oldSkrapCount = skrapCountInst.GetQuantity();
     }
 
-    private void FillChest()
-    {
-        //set rewards, fill the chestQuantities list
-        playerRewards.Add(new Drop(ammo, ammoCountInst.GetMaximumQuantity(), "Ammo", playerItems[(int)Rewards.Ammo]));
-        playerRewards.Add(new Drop(skrap, skrapCountInst.GetMaximumQuantity(), "Skrap", playerItems[(int)Rewards.Skrap]));
-        //playerRewards.Add(new Drop(grenade, grenadeCountInst.GetMaximumQuantity(), "Grenade", playerItems[(int)Rewards.Grenade]));
-        //playerRewards.Add(new Drop(boardWipe, boardWipeInst.GetMaximumQuantity(), "Board Wipe", playerItems[(int)Rewards.BoardWipe]));
-        playerRewards.Add(new Drop(health, healthBarInst.GetMaxHealth(), "Health", playerItems[(int)Rewards.Health]));
-    }
 
     private void RewardContents()
     {
-        WeaponBase weaponToUpdate = null; //weapon to update the visual
-        for (int i = 0; i <= WeaponHolder.instance.currentChildCount; i++)
-        {
-            WeaponBase currentWeapon = WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>();
-            currentWeapon.ammoCount += ammo;
-            if (currentWeapon.ammoCount > currentWeapon.maxAmmo)
-                currentWeapon.ammoCount = currentWeapon.maxAmmo;
-            if (currentWeapon.isActiveAndEnabled)
-                weaponToUpdate = currentWeapon;
-        }
-
-        if (weaponToUpdate != null)
-            weaponToUpdate.UpdateVisual();
-        //ammoCountInst.Add(ammo);
         skrapCountInst.Add(skrap);
-        //grenadeCountInst.Add(grenade);
-        //boardWipeInst.Add(boardWipe);
-        healthBarInst.AddHealth((float)(health * .01f));
-        ShowQuantityChange();
+        AddToSlots();
         GameManager.instance.SaveGame();
         PlayerPrefs.SetInt("Chest Opened", 1);
     }
-
-    private void ShowQuantityChange()
+    private void AddToSlots()
     {
-        foreach (int rewards in Enum.GetValues(typeof(Rewards)))
-        {
-            if (playerItems[(int)rewards] + playerRewards[(int)rewards].Quantity != playerItems[(int)rewards])
-                AddToSlots((Rewards)rewards);
-        }
-    }
-
-    private void AddToSlots(Rewards reward)
-    {
-        GameManager.instance.chestUI.SetText(playerRewards[(int)reward].ItemName);
+        GameManager.instance.chestUI.SetText("Skrap x " + skrap + "   " + oldSkrapCount + " -> " + skrapCountInst.GetQuantity());
     }
 
 }
