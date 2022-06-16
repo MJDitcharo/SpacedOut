@@ -167,7 +167,7 @@ public class UIStoreButtons : MonoBehaviour
         bool purchaseFailed;
         if (GameManager.instance.skrapCount.GetQuantity() >= GeneralPage.instance.maxHealth)
         {
-            GameManager.instance.playerHealth.AddMaxHealth(10);
+            GameManager.instance.healthBar.IncreaseMaxHealth();
             GameManager.instance.skrapCount.Subtract(GeneralPage.instance.maxHealth);
             purchaseFailed = false;
         }
