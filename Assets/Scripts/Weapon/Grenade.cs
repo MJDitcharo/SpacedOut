@@ -9,7 +9,7 @@ public class Grenade : MonoBehaviour
     public float detonateTime = 1f;
     public float explosiveRadius = 5;
     public float pushbackMultiplier = 5;
-    [SerializeField] public Sound audioS;
+    public Sound audioS;
 
     //when the grenade is instantiated
     private void Awake()
