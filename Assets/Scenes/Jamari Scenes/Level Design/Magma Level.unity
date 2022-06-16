@@ -979,6 +979,10 @@ PrefabInstance:
       propertyPath: collider
       value: 
       objectReference: {fileID: 2731330965465070496, guid: 17ed8e3571ef3cf40b77711ad046057a, type: 3}
+    - target: {fileID: 3093279435908922436, guid: 17ed8e3571ef3cf40b77711ad046057a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3542793567008962458, guid: 17ed8e3571ef3cf40b77711ad046057a, type: 3}
       propertyPath: m_Name
       value: Magma Level
@@ -1027,5 +1031,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8512176446163629922, guid: 17ed8e3571ef3cf40b77711ad046057a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 17ed8e3571ef3cf40b77711ad046057a, type: 3}
