@@ -8,6 +8,10 @@ public class HeavyMinigun : WeaponBase
     [SerializeField] float windUpSpeed = 1;
     public float barrelSpeed = .5f;
 
+    private void OnEnable()
+    {
+        OnWeaponSwitch();
+    }
     private void Awake()
     {
         weaponID = WeaponID.Heavy;
@@ -26,9 +30,9 @@ public class HeavyMinigun : WeaponBase
             Shoot(); //shoot method
             
         }
-        else if(barrelSpeed >= 2 && !Input.GetButton("Fire1"))
+        if(barrelSpeed >= 2 && Input.GetButtonUp("Fire1"))
         {
-            barrelSpeed -= 25 * Time.deltaTime;
+            barrelSpeed = 2;
         }
     }
     public override void Shoot()
@@ -47,5 +51,11 @@ public class HeavyMinigun : WeaponBase
         ammoCount--;
         GameManager.instance.ammoCount.Subtract();
         AudioManager.Instance.PlaySFX(gunshotSound);
+    }
+
+    public override void OnWeaponSwitch()
+    {
+        base.OnWeaponSwitch();
+        barrelSpeed = 2;
     }
 }

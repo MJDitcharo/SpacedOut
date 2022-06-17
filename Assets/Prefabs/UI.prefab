@@ -5245,6 +5245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 7857890310951132700}
+  rectTransform: {fileID: 0}
 --- !u!1 &1872468734214967407
 GameObject:
   m_ObjectHideFlags: 0
@@ -22976,6 +22977,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3360415821844632147}
     m_Modifications:
+    - target: {fileID: 1013217550, guid: 06ab47b4e93f142258104dd2262d5a7a, type: 3}
+      propertyPath: rectTransform
+      value: 
+      objectReference: {fileID: 1202460331018620792}
     - target: {fileID: 992760515724017535, guid: 06ab47b4e93f142258104dd2262d5a7a, type: 3}
       propertyPath: m_SizeDelta.x
       value: -18.0422
@@ -23054,7 +23059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 992760515949305101, guid: 06ab47b4e93f142258104dd2262d5a7a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 295.8
+      value: 291
       objectReference: {fileID: 0}
     - target: {fileID: 992760515949305101, guid: 06ab47b4e93f142258104dd2262d5a7a, type: 3}
       propertyPath: m_AnchoredPosition.y

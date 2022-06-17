@@ -5,7 +5,7 @@ using UnityEngine;
 public class PatientMovingPlatform : MonoBehaviour
 {
     [SerializeField]
-    GameObject[] waypoints;
+    GameObject[] waypoints; //first index is the starting point
     int target;
     [SerializeField]
     float speed;
@@ -15,6 +15,8 @@ public class PatientMovingPlatform : MonoBehaviour
     {
         if (passenger)
             MovePlatform();
+        if (GameManager.instance.gameOverScreen.activeInHierarchy) //if the player died
+            ResetPlatform();
     }
 
     protected void MovePlatform()
@@ -26,6 +28,13 @@ public class PatientMovingPlatform : MonoBehaviour
                 target = 0;
         }
         transform.position = Vector3.MoveTowards(transform.position, waypoints[target].transform.position, speed * Time.deltaTime);
+    }
+
+    private void ResetPlatform()
+    {
+        passenger = false;
+        GameManager.instance.transform.SetParent(null);
+        transform.position = waypoints[0].transform.position;
     }
 
     private void OnTriggerEnter(Collider collision)

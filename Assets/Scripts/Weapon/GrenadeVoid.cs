@@ -8,7 +8,6 @@ public class GrenadeVoid : Grenade
     [SerializeField] GameObject childGrenade;
     [SerializeField] int clusterAmount = 3;
     [SerializeField] int force = 20;
-    [SerializeField] public Sound audioS;
 
     public override IEnumerator Detonate()
     {

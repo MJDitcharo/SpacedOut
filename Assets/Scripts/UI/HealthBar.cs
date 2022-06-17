@@ -7,7 +7,9 @@ public class HealthBar : MonoBehaviour
     [SerializeField]
     private Image image;
     int maxHealth;
-
+    [SerializeField]
+    RectTransform rectTransform;
+    int moreHealth = 20;
 
     private void Awake()
     {
@@ -49,6 +51,15 @@ public class HealthBar : MonoBehaviour
     public int GetMaxHealth()
     {
         return maxHealth;
+    }
+
+    public void IncreaseMaxHealth()
+    {
+        int increaseSize = moreHealth * 2;
+        rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x + increaseSize, rectTransform.sizeDelta.y); //increase the width of the bar
+        rectTransform.position = new Vector3(rectTransform.position.x + increaseSize / 2, rectTransform.position.y, rectTransform.position.z); //reposition the bar
+
+        GameManager.instance.playerHealth.AddMaxHealth(moreHealth);
     }
 
 }

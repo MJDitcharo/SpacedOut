@@ -39,7 +39,7 @@ public class UIStoreButtons : MonoBehaviour
             else
             {
                 WeaponBase currentWeapon = WeaponHolder.instance.transform.Find(weaponName).GetComponent<WeaponBase>();
-                GameManager.instance.ammoCount.SetQuantity(quantity);
+                //GameManager.instance.ammoCount.Add(quantity);
                 currentWeapon.AddAmmo(quantity);
                 GameManager.instance.skrapCount.Subtract(cost);
                 purchaseFailed = false;
@@ -170,7 +170,7 @@ public class UIStoreButtons : MonoBehaviour
         bool purchaseFailed;
         if (GameManager.instance.skrapCount.GetQuantity() >= GeneralPage.instance.maxHealth)
         {
-            GameManager.instance.playerHealth.AddMaxHealth(10);
+            GameManager.instance.healthBar.IncreaseMaxHealth();
             GameManager.instance.skrapCount.Subtract(GeneralPage.instance.maxHealth);
             purchaseFailed = false;
         }

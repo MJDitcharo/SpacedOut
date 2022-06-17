@@ -26,6 +26,7 @@ public class WeaponBase : MonoBehaviour
     protected float nextShotFired = 0f; //counter for next bullet that is fired
     public string weaponDescription;
     public string weaponName;
+    public Sprite gunImage;
 
     [SerializeField] public AudioClip gunshotAudio;
     [HideInInspector] public Sound gunshotSound;
@@ -116,4 +117,8 @@ public class WeaponBase : MonoBehaviour
         return fireRateMultiplier;
     }
 
+    public virtual void OnWeaponSwitch()
+    {
+        Debug.Log("Switched");
+    }
 }

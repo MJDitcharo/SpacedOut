@@ -37,6 +37,11 @@ public class UIChest : PopUpMenu
         UnfreezeWorld();
     }
 
+    public bool VisualIsActive()
+    {
+        return chestVisual.activeInHierarchy;
+    }
+
     public int GetChildCount()
     {
         return slotParent.transform.childCount;
