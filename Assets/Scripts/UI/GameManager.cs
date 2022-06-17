@@ -241,6 +241,11 @@ public class GameManager : MonoBehaviour
         }
         */
 
+        for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
+        {
+            Destroy(WeaponHolder.instance.transform.GetChild(i).gameObject);
+        }
+
         if (!PlayerPrefs.HasKey("Weapon 0"))
         {
             Debug.Log("no pistol key");
