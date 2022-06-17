@@ -12,6 +12,7 @@ public class HeavyGrenade : Heavy
 
         //deplete ammo
         ammoCount--;
+        UpdateVisual();
         AudioManager.Instance.PlaySFX(gunshotSound);
     }
 }

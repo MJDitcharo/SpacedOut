@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 0.3974563, y: 0.3974563, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5057632585666314479}
+  m_Father: {fileID: 3602733653405349863}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4906259797338870827
@@ -125,7 +125,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5057632585666314479}
+  m_Father: {fileID: 3602733653405349863}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2104766498762996289
@@ -136,7 +136,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5057632585666314479}
+  - component: {fileID: 3602733653405349863}
   - component: {fileID: 698418662123353008}
   m_Layer: 0
   m_Name: Deagle Plasma
@@ -145,15 +145,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &5057632585666314479
-RectTransform:
+--- !u!4 &3602733653405349863
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104766498762996289}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.7220425}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -164,11 +164,6 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 96.235504, y: 53.876858}
-  m_SizeDelta: {x: 1920, y: 1080}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &698418662123353008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +224,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2944290453166439685}
-  m_Father: {fileID: 5057632585666314479}
+  m_Father: {fileID: 3602733653405349863}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -552,7 +547,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 5057632585666314479}
+    m_TransformParent: {fileID: 3602733653405349863}
     m_Modifications:
     - target: {fileID: 1504796084044844319, guid: 3bb607a6e4c937545a0ab5b43567fbb1, type: 3}
       propertyPath: m_RootOrder

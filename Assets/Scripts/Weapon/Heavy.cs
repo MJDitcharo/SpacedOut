@@ -33,7 +33,6 @@ public class Heavy : WeaponBase
         //deplete ammo
         ammoCount--;
         UpdateVisual();
-        //GameManager.instance.ammoCount.Subtract();
         AudioManager.Instance.PlaySFX(gunshotSound);
     }
 }
