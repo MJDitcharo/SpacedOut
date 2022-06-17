@@ -102,6 +102,12 @@ public class GameManager : MonoBehaviour
         }
         enemyCount = 0;
 
+        GameObject[] fire = GameObject.FindGameObjectsWithTag("BossFire");
+        for (int i = 0; i < fire.Length; i++)
+        {
+            Destroy(fire[i]);
+        }
+
         GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
         for (int i = 0; i < bullets.Length; i++)
         {
