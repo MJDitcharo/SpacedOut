@@ -47,7 +47,10 @@ public class ShopFunctions : MonoBehaviour
     public void BuyPistol(int gunIndex)
     {
         if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        {
+            UIStore.instance.StartMessageCoroutine(true);
             return;
+        }
 
         WeaponBase weapon;
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
@@ -81,10 +84,33 @@ public class ShopFunctions : MonoBehaviour
         previous.SetActive(false);
     }
 
+    public void BuyPistolAmmo(int gunIndex)
+    {
+        int ammoToAdd = 20;
+        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        {
+            UIStore.instance.StartMessageCoroutine(true);
+            return;
+        }
+        for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
+        {
+            Pistol gun = WeaponHolder.instance.transform.GetChild(i).GetComponent<Pistol>();
+
+            if (gun != null)
+            {
+                gun.AddAmmo(ammoToAdd);
+                UIStore.instance.StartMessageCoroutine(false);
+                return;
+            }
+        }
+    }
     public void BuyShotgun(int gunIndex)
     {
         if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        {
+            UIStore.instance.StartMessageCoroutine(true);
             return;
+        }
 
         WeaponBase weapon;
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
@@ -121,9 +147,11 @@ public class ShopFunctions : MonoBehaviour
     public void BuyRifle(int gunIndex)
     {
         if (GameManager.instance.skrapCount.GetQuantity() <= price)
-            return;
+        {
+            UIStore.instance.StartMessageCoroutine(true);
+        }
 
-        WeaponBase weapon;
+            WeaponBase weapon;
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
         {
             Rifle gun = WeaponHolder.instance.transform.GetChild(i).GetComponent<Rifle>();
@@ -158,7 +186,9 @@ public class ShopFunctions : MonoBehaviour
     public void BuyHeavy(int gunIndex)
     {
         if (GameManager.instance.skrapCount.GetQuantity() <= price)
-            return;
+        {
+            UIStore.instance.StartMessageCoroutine(true);
+        }
 
         WeaponBase weapon;
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
