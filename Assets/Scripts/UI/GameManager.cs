@@ -70,8 +70,6 @@ public class GameManager : MonoBehaviour
         //ui stuff
         //ammoCount = GameObject.FindGameObjectWithTag("AmmoCount").GetComponent<ItemCount>();
         pmenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
-        //boardWipeCount = GameObject.FindGameObjectWithTag("BoardWipeCount").GetComponent<ItemCount>();
-        //grenadeCount = GameObject.FindGameObjectWithTag("GrenadeCount").GetComponent<ItemCount>();
         skrapCount = GameObject.Find("Skrap Count").GetComponent<ItemCount>();
         prompt = GameObject.Find("UIPrompt").GetComponent<UIPrompt>();
         chestUI = GameObject.Find("Chest UI").GetComponent<UIChest>();
@@ -131,8 +129,7 @@ public class GameManager : MonoBehaviour
         checkpoints[checkpointIndex].GetComponent<RoomManager>().doorEnter.SetActive(true);
         checkpoints[checkpointIndex + 1].GetComponent<RoomManager>().collider.enabled = true;
         checkpoints[checkpointIndex + 1].GetComponent<RoomManager>().doorEnter.SetActive(false);
-        ammoCount.SetQuantity(WeaponHolder.instance.transform.GetChild(0).GetComponent<WeaponBase>().ammoCount);
-        ammoCount.UpdateVisual();
+        //ammoCount.UpdateVisual();
 
         EnemyFlashRed flasher = playerHealth.GetComponent<EnemyFlashRed>();
         for (int i = 0; i < flasher.normalColor.Length; i++)
@@ -247,6 +244,11 @@ public class GameManager : MonoBehaviour
             }
         }
         */
+
+        for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
+        {
+            Destroy(WeaponHolder.instance.transform.GetChild(i).gameObject);
+        }
 
         if (!PlayerPrefs.HasKey("Weapon 0"))
         {

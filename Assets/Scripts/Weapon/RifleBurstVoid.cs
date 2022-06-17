@@ -17,8 +17,8 @@ public class RifleBurstVoid : RifleBurst
         }
         if (Input.GetButtonUp("Fire1"))
         {
-           nextShotFired = Time.time + 1f / fireRate / fireRateMultiplier;
-           Shoot();
+            nextShotFired = Time.time + 1f / fireRate / fireRateMultiplier;
+            Shoot();
         }
     }
     public override void Shoot()
@@ -30,7 +30,7 @@ public class RifleBurstVoid : RifleBurst
     {
         for (float i = 0; i < seconds;)
         {
-            if (GameManager.instance.ammoCount.GetQuantity() <= 0)
+            if (ammoCount <= 0)
             {
 
             }
@@ -47,13 +47,12 @@ public class RifleBurstVoid : RifleBurst
                 i += .1f;
 
                 //deplete ammo
-                ammoCount = GameManager.instance.ammoCount.GetQuantity();
                 ammoCount--;
-                GameManager.instance.ammoCount.Subtract();
+                UpdateVisual();
                 AudioManager.Instance.PlaySFX(gunshotSound);
             }
         }
         seconds = 0;
     }
-        
+
 }

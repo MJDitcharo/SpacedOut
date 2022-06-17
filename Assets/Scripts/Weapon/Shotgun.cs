@@ -36,7 +36,7 @@ public class Shotgun : WeaponBase
 
         //deplete ammo
         ammoCount--;
-        GameManager.instance.ammoCount.Subtract();
+        UpdateVisual();
         AudioManager.Instance.PlaySFX(gunshotSound);
     }
 }

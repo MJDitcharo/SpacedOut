@@ -22,7 +22,7 @@ public class AssaultRiflePlasma : Rifle
             }
         }
         ammoCount--;
-        GameManager.instance.ammoCount.Subtract();
+        UpdateVisual();
         AudioManager.Instance.PlaySFX(gunshotSound);
 
     }

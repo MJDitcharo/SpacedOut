@@ -58,6 +58,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 3440073099274173548, guid: 58d68c2e5c2dd494681e2a0e15044d16, type: 3}
+  damage: 50
+  detonateTime: 1
+  explosiveRadius: 5
+  pushbackMultiplier: 5
+  audioS:
+    audioType: 0
+    audio: {fileID: 0}
 --- !u!54 &-2833133266172627105
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -81,7 +88,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738636767962388003}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 516488fff7ada1949a1c2a4127cec90b, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -100,6 +107,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 8787315842163262575, guid: 5fadc328bd4c9f3418a80a7025153909, type: 3}
+  damage: 50
+  detonateTime: 1
+  explosiveRadius: 5
+  pushbackMultiplier: 5
+  audioS:
+    audioType: 0
+    audio: {fileID: 0}
 --- !u!1001 &1518887389424049031
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,9 +13,8 @@ public class ShotgunSlugVoid : Shotgun
         rb.velocity = (firePoint[firePointIndex].forward * bulletForce); //add a force in the up vector
 
 
-        ammoCount = GameManager.instance.ammoCount.GetQuantity();
         ammoCount--;
-        GameManager.instance.ammoCount.Subtract();
+        UpdateVisual();
         AudioManager.Instance.PlaySFX(gunshotSound);
     }
 }

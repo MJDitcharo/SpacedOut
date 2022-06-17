@@ -23,7 +23,7 @@ public class RifleBurst : Rifle
 
     public IEnumerator FireBurst()
     {
-       
+
         for (int i = 0; i < burstSize; i++)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint[firePointIndex].position, firePoint[firePointIndex].rotation); //spawn the bullet and reference the bullet to modify 
@@ -33,10 +33,9 @@ public class RifleBurst : Rifle
             rb.AddForce(firePoint[firePointIndex].forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
 
             //deplete ammo
-            ammoCount = GameManager.instance.ammoCount.GetQuantity();
             ammoCount--;
-            GameManager.instance.ammoCount.Subtract();
-           AudioManager.Instance.PlaySFX(gunshotSound);
+            UpdateVisual();
+            AudioManager.Instance.PlaySFX(gunshotSound);
 
             yield return new WaitForSeconds(burstFireRate); // wait till the next round
         }

@@ -126,9 +126,6 @@ MonoBehaviour:
   childGrenade: {fileID: 738636767962388003, guid: 7e68e880335a93d4181683c3b61ccb51, type: 3}
   clusterAmount: 5
   force: 10
-  audioS:
-    audioType: 0
-    audio: {fileID: 8300000, guid: 97b5820b1e079ab4bbbe90e89bd4db5d, type: 3}
 --- !u!135 &7311631412148693344
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -136,7 +133,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4997510832697111409}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 516488fff7ada1949a1c2a4127cec90b, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

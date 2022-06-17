@@ -13,9 +13,8 @@ public class PistolDualWield : Pistol
         GameManager.instance.bullets.Add(bullet);
         firePointIndex++;
 
-        ammoCount = GameManager.instance.ammoCount.GetQuantity();
         ammoCount--;
-        GameManager.instance.ammoCount.Subtract();
+        UpdateVisual();
         if (firePointIndex >= firePoint.Length)
             firePointIndex = 0;
         AudioManager.Instance.PlaySFX(gunshotSound);
