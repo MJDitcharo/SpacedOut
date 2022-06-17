@@ -31893,18 +31893,18 @@ PrefabInstance:
     - target: {fileID: 6818109402835331301, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 6496828953755553829}
+      objectReference: {fileID: 2947820033882166112}
     - target: {fileID: 6818109402835331301, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6818109402835331301, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShotgunAmmo
+      value: BuyShotgunAmmo
       objectReference: {fileID: 0}
     - target: {fileID: 6818109402835331301, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UIStoreButtons, Assembly-CSharp
+      value: ShopFunctions, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6818109402835331301, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -31950,7 +31950,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6818109402835331307, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
   m_PrefabInstance: {fileID: 6219361570010878581}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6496828953755553829
+--- !u!114 &2947820033882166112
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31959,11 +31959,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 635383604963637918}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Script: {fileID: 11500000, guid: 6933b8d68229f644186132a0081fba47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closePage: {fileID: 0}
-  openPage: {fileID: 0}
+  pistolUpgrades: []
+  shotgunUpgrades: []
+  rifleUpgrades: []
+  heavyUpgrades: []
+  price: 0
+  ammoOverride: 0
+  pistolPages: []
+  shotgunPages: []
+  riflePages: []
+  heavyPages: []
 --- !u!1001 &6325436884852367561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36503,7 +36511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6818109402835331301, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6818109402835331301, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -37057,18 +37065,18 @@ PrefabInstance:
     - target: {fileID: 6818109402835331301, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 6609518997244299170}
+      objectReference: {fileID: 479545169022725868}
     - target: {fileID: 6818109402835331301, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6818109402835331301, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RifleAmmo
+      value: BuyRifleAmmo
       objectReference: {fileID: 0}
     - target: {fileID: 6818109402835331301, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UIStoreButtons, Assembly-CSharp
+      value: ShopFunctions, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6818109402835331301, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -37109,7 +37117,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6818109402835331307, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
   m_PrefabInstance: {fileID: 8435533589561771996}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6609518997244299170
+--- !u!114 &479545169022725868
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37118,11 +37126,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 3138942402567647031}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Script: {fileID: 11500000, guid: 6933b8d68229f644186132a0081fba47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closePage: {fileID: 0}
-  openPage: {fileID: 0}
+  pistolUpgrades: []
+  shotgunUpgrades: []
+  rifleUpgrades: []
+  heavyUpgrades: []
+  price: 0
+  ammoOverride: 0
+  pistolPages: []
+  shotgunPages: []
+  riflePages: []
+  heavyPages: []
 --- !u!224 &3138942402567647032 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6818109402835331300, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
@@ -40030,18 +40046,18 @@ PrefabInstance:
     - target: {fileID: 6818109402835331301, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 5616924619578014404}
+      objectReference: {fileID: 7439665609899670432}
     - target: {fileID: 6818109402835331301, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6818109402835331301, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HeavyAmmo
+      value: BuyHeavyAmmo
       objectReference: {fileID: 0}
     - target: {fileID: 6818109402835331301, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UIStoreButtons, Assembly-CSharp
+      value: ShopFunctions, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6818109402835331301, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -40087,7 +40103,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6818109402835331307, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
   m_PrefabInstance: {fileID: 9152092957569545701}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5616924619578014404
+--- !u!114 &7439665609899670432
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40096,11 +40112,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2421826568793447694}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bff3d328860d2640845169ba220e141, type: 3}
+  m_Script: {fileID: 11500000, guid: 6933b8d68229f644186132a0081fba47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closePage: {fileID: 0}
-  openPage: {fileID: 0}
+  pistolUpgrades: []
+  shotgunUpgrades: []
+  rifleUpgrades: []
+  heavyUpgrades: []
+  price: 0
+  ammoOverride: 0
+  pistolPages: []
+  shotgunPages: []
+  riflePages: []
+  heavyPages: []
 --- !u!1001 &9181345189556695181
 PrefabInstance:
   m_ObjectHideFlags: 0
