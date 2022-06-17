@@ -14,6 +14,7 @@ public class ShotgunSlugVoid : Shotgun
 
 
         ammoCount--;
+        UpdateVisual();
         AudioManager.Instance.PlaySFX(gunshotSound);
     }
 }

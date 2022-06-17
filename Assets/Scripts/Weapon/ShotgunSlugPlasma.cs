@@ -15,7 +15,7 @@ public class ShotgunSlugPlasma : Shotgun
         blastRB.velocity = transform.forward * projectileSpeed;
 
         ammoCount--;
-
+        UpdateVisual();
         AudioManager.Instance.PlaySFX(gunshotSound);
     }
 }

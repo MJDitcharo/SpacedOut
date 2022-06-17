@@ -17,8 +17,8 @@ public class RifleBurstVoid : RifleBurst
         }
         if (Input.GetButtonUp("Fire1"))
         {
-           nextShotFired = Time.time + 1f / fireRate / fireRateMultiplier;
-           Shoot();
+            nextShotFired = Time.time + 1f / fireRate / fireRateMultiplier;
+            Shoot();
         }
     }
     public override void Shoot()
@@ -48,10 +48,11 @@ public class RifleBurstVoid : RifleBurst
 
                 //deplete ammo
                 ammoCount--;
+                UpdateVisual();
                 AudioManager.Instance.PlaySFX(gunshotSound);
             }
         }
         seconds = 0;
     }
-        
+
 }
