@@ -98,7 +98,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 5847625997216316259}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.56
   m_Height: 2
   m_Direction: 1
@@ -147,7 +147,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!1 &6732581321258463462
 GameObject:
@@ -306,6 +306,10 @@ PrefabInstance:
     - target: {fileID: 8588744877008330660, guid: 514090ab84051ec4aa03425442adcb9e, type: 3}
       propertyPath: m_Name
       value: Black Hole Sucker
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588744877008330661, guid: 514090ab84051ec4aa03425442adcb9e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8588744877008330664, guid: 514090ab84051ec4aa03425442adcb9e, type: 3}
       propertyPath: m_RootOrder
