@@ -28,8 +28,8 @@ public class WeaponUpgradePage : StorePage
         base.Start();
         maxTier = upgradeTiers.Count;
         TiersFromPlayerPrefs(pageName);
-        if (WeaponHolder.instance.GetWeapon(pageID) != null && currentTier > 2)
-            tier2Choice = WeaponHolder.instance.GetEquippedWeaponName(pageID);
+        //if (WeaponHolder.instance.GetWeapon(pageID) != null && currentTier > 2)
+        //    tier2Choice = WeaponHolder.instance.GetEquippedWeaponName(pageID);
     }
 
     private void OnEnable()
@@ -37,7 +37,7 @@ public class WeaponUpgradePage : StorePage
         if(gameObject.activeInHierarchy)
         {
             Debug.Log("Switching");
-            WeaponHolder.instance.SwitchWeapons(pageID);
+            //WeaponHolder.instance.SwitchWeapons(pageID);
             firstLoad = false;
         }
     }
@@ -91,12 +91,12 @@ public class WeaponUpgradePage : StorePage
 
     protected void CheckUnlock(string weaponName)
     {
-        if (WeaponHolder.instance.IsWeaponUnlocked(weaponName))
+        /*if (WeaponHolder.instance.IsWeaponUnlocked(weaponName))
         {
             //set tier 1 upgrade and ammo true, buy weapon to false
             upgradeTiers[0].SetActive(false);
             buyAmmo.SetActive(true);
-        }
+        }*/
         
     }
 

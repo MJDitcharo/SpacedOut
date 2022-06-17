@@ -9,7 +9,7 @@ public class TeachShoot : TutorialBase
         if(promptCanvas.activeInHierarchy && Input.GetButton("Fire1"))
         {
             StopTeach();
-            WeaponHolder.instance.GetEquippedWeapon().Shoot();
+            //WeaponHolder.instance.GetEquippedWeapon().Shoot();
         }
     }
 }

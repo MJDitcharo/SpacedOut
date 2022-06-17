@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public UIStore shopUI;
     public bool shopIsActive = false;
     public GameObject gameOverScreen;
+    public ShopFunctions shopFunctions;
 
     public Texture2D fightingCursor;
     public Texture2D normalCursor;
@@ -67,7 +68,7 @@ public class GameManager : MonoBehaviour
         }
 
         //ui stuff
-        ammoCount = GameObject.FindGameObjectWithTag("AmmoCount").GetComponent<ItemCount>();
+        //ammoCount = GameObject.FindGameObjectWithTag("AmmoCount").GetComponent<ItemCount>();
         pmenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
         //boardWipeCount = GameObject.FindGameObjectWithTag("BoardWipeCount").GetComponent<ItemCount>();
         //grenadeCount = GameObject.FindGameObjectWithTag("GrenadeCount").GetComponent<ItemCount>();
@@ -78,8 +79,9 @@ public class GameManager : MonoBehaviour
         gameOverScreen = GameObject.FindGameObjectWithTag("GameOver");
         gunImages = GameObject.FindGameObjectWithTag("Gun Images");
         gameOverScreen.SetActive(false);
+        shopFunctions = GameObject.FindGameObjectWithTag("Shop").GetComponent<ShopFunctions>();
 
-        AudioManager.Instance.PlaySFX("GameMusic");
+        
     }
 
     private void Start()
@@ -90,6 +92,7 @@ public class GameManager : MonoBehaviour
         }
         SetFightingCursor();
         Respawn();
+        AudioManager.Instance.PlaySFX("GameMusic");
     }
 
     public void Respawn()
@@ -146,16 +149,30 @@ public class GameManager : MonoBehaviour
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Pistol>() != null)
             {
                 PlayerPrefs.SetInt("Pistol Ammo", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount);
+                PlayerPrefs.SetFloat("Pistol Fire Rate", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().GetFireRateMultiplier());
+                PlayerPrefs.SetFloat("Pistol Damage", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().GetDamageMultiplier());
             }
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Shotgun>() != null)
+            {
                 PlayerPrefs.SetInt("Shotgun Ammo", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount);
+                PlayerPrefs.SetFloat("Shotgun Fire Rate", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().GetFireRateMultiplier());
+                PlayerPrefs.SetFloat("Shotgun Damage", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().GetDamageMultiplier());
+            }
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Rifle>() != null)
+            {
                 PlayerPrefs.SetInt("Rifle Ammo", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount);
+                PlayerPrefs.SetFloat("Rifle Fire Rate", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().GetFireRateMultiplier());
+                PlayerPrefs.SetFloat("Rifle Damage", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().GetDamageMultiplier());
+            }
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Heavy>() != null)
+            {
                 PlayerPrefs.SetInt("Heavy Ammo", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount);
+                PlayerPrefs.SetFloat("Heavy Fire Rate", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().GetFireRateMultiplier());
+                PlayerPrefs.SetFloat("Heavy Damage", WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().GetDamageMultiplier());
+            }
         }
 
-       WeaponHolder.instance.SaveLoadout();
+        //WeaponHolder.instance.SaveLoadout();
         //save the tier index of each page for the store
         //if (!firstSave)
         //{
@@ -168,13 +185,16 @@ public class GameManager : MonoBehaviour
         //    if (HeavyPage.instance != null)
         //        PlayerPrefs.SetInt("Heavy Page", HeavyPage.instance.GetCurrentTier());
         //}
-        for (int i = 0; i < WeaponHolder.instance.unlockedWeapons.Count; i++)
+        
+        
+        /*for (int i = 0; i < WeaponHolder.instance.unlockedWeapons.Count; i++)
         {
             PlayerPrefs.SetString("Weapon " + i, WeaponHolder.instance.unlockedWeapons[i]);
         }
-        PlayerPrefs.SetInt("Child Count", WeaponHolder.instance.currentChildCount);
+        PlayerPrefs.SetInt("Child Count", WeaponHolder.instance.currentChildCount);*/
 
         //save the store datat
+        /*
         if (PistolPage.instance != null)
             PlayerPrefs.SetInt("PistolPage", PistolPage.instance.GetCurrentTier());
         if (ShotgunPage.instance != null)
@@ -196,7 +216,7 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetFloat("Heavy Damage", WeaponHolder.instance.GetWeaponDamage(WeaponBase.WeaponID.Heavy));
         PlayerPrefs.SetFloat("Heavy Fire Rate", WeaponHolder.instance.GetWeaponFireRate(WeaponBase.WeaponID.Heavy));
-
+        */
     }
 
     public void LoadGame()
@@ -209,7 +229,7 @@ public class GameManager : MonoBehaviour
         healthBar.SetHealth((float)playerHealth.currHealth / playerHealth.maxHealth);
         //boardWipeCount.SetQuantity(PlayerPrefs.GetInt("Board Wipes"));
 
-        WeaponHolder.instance.currentChildCount = PlayerPrefs.GetInt("Child Count");
+        /*WeaponHolder.instance.currentChildCount = PlayerPrefs.GetInt("Child Count");
         WeaponHolder.instance.unlockedWeapons.Clear();
         for (int i = 0; i < 4; i++)
         {
@@ -220,21 +240,78 @@ public class GameManager : MonoBehaviour
                 WeaponHolder.instance.ArrangeHierarchy(name, i);
             }
         }
+        */
 
-        //tiers for pages
+        if (!PlayerPrefs.HasKey("Weapon 0"))
+        {
+            Debug.Log("no pistol key");
+            PlayerPrefs.SetInt("Weapon 0", -1);
+            PlayerPrefs.SetFloat("Pistol Damage", 1);
+            PlayerPrefs.SetFloat("Pistol Fire Rate", 1);
+        }
+            
+        if (!PlayerPrefs.HasKey("Weapon 1"))
+        { 
+            PlayerPrefs.SetInt("Weapon 1", -1);
+            PlayerPrefs.SetFloat("Shotgun Damage", 1);
+            PlayerPrefs.SetFloat("Shotgun Fire Rate", 1);
+        }
+            
+        if (!PlayerPrefs.HasKey("Weapon 2"))
+        {
+            PlayerPrefs.SetInt("Weapon 2", -1);
+            PlayerPrefs.SetFloat("Rifle Damage", 1);
+            PlayerPrefs.SetFloat("Rifle Fire Rate", 1);
+        }
+            
+        if (!PlayerPrefs.HasKey("Weapon 3"))
+        {
+            PlayerPrefs.SetInt("Weapon 3", -1);
+            PlayerPrefs.SetFloat("Heavy Damage", 1);
+            PlayerPrefs.SetFloat("Heavy Fire Rate", 1);
+        }
+            
+
+        int weaponZero = PlayerPrefs.GetInt("Weapon 0");
+        int weaponOne = PlayerPrefs.GetInt("Weapon 1");
+        int weaponTwo = PlayerPrefs.GetInt("Weapon 2");
+        int weaponThree = PlayerPrefs.GetInt("Weapon 3");
+
+        if (weaponZero != -1)
+            WeaponHolder.instance.AddWeapon(shopFunctions.pistolUpgrades[weaponZero]); 
+        if (weaponOne != -1)
+            WeaponHolder.instance.AddWeapon(shopFunctions.shotgunUpgrades[weaponOne]);
+        if (weaponTwo != -1)
+            WeaponHolder.instance.AddWeapon(shopFunctions.rifleUpgrades[weaponTwo]);
+        if (weaponThree != -1)
+            WeaponHolder.instance.AddWeapon(shopFunctions.heavyUpgrades[weaponThree]);
+
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
         {
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Pistol>() != null && PlayerPrefs.HasKey("Pistol Ammo"))
             {
                 WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount = PlayerPrefs.GetInt("Pistol Ammo");
-
+                WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().SetDamageMultiplier(PlayerPrefs.GetFloat("Pistol Damage"));
+                WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().SetFireRateMultiplier(PlayerPrefs.GetFloat("Pistol Fire Rate"));
             }
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Shotgun>() != null && PlayerPrefs.HasKey("Shotgun Ammo"))
+            {
                 WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount = PlayerPrefs.GetInt("Shotgun Ammo");
+                WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().SetDamageMultiplier(PlayerPrefs.GetFloat("Shotgun Damage"));
+                WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().SetFireRateMultiplier(PlayerPrefs.GetFloat("Shotgun Fire Rate"));
+            }
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Rifle>() != null && PlayerPrefs.HasKey("Rifle Ammo"))
+            {
                 WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount = PlayerPrefs.GetInt("Rifle Ammo");
+                WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().SetDamageMultiplier(PlayerPrefs.GetFloat("Rifle Damage"));
+                WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().SetFireRateMultiplier(PlayerPrefs.GetFloat("Rifle Fire Rate"));
+            }
             if (WeaponHolder.instance.transform.GetChild(i).GetComponent<Heavy>() != null && PlayerPrefs.HasKey("Heavy Ammo"))
+            {
                 WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().ammoCount = PlayerPrefs.GetInt("Heavy Ammo");
+                WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().SetDamageMultiplier(PlayerPrefs.GetFloat("Heavy Damage"));
+                WeaponHolder.instance.transform.GetChild(i).GetComponent<WeaponBase>().SetFireRateMultiplier(PlayerPrefs.GetFloat("Heavy Fire Rate"));
+            }
         }
     }
 

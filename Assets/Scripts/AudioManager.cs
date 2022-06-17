@@ -24,8 +24,8 @@ public class AudioManager : MonoBehaviour
     }
     private void Update()
     {
-        aSource.volume = LoadPrefs.Instance.sfxVolume;
-        musicSource.volume = LoadPrefs.Instance.musicVolume;
+        //aSource.volume = LoadPrefs.Instance.sfxVolume;
+        //musicSource.volume = LoadPrefs.Instance.musicVolume;
 
     }
     private void Awake()

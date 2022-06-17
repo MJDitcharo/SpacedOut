@@ -7,6 +7,9 @@ public class UIStoreButtons : MonoBehaviour
     static public int purchaseIndex = 1;
     private string plasma = " Plasma";
     private string voidUpgrade = " Void";
+    [SerializeField] GameObject closePage;
+    [SerializeField] GameObject openPage;
+
     private void CheckPurchaseItem(ItemCount itemCount, int cost, int quantity = 1)
     {
         bool purchaseFailed;
@@ -62,7 +65,7 @@ public class UIStoreButtons : MonoBehaviour
         //StartCoroutine(HandlePurchaseMessage(purchaseFailed));
     }
 
-    private bool UpgradeFireRate(string weaponName, int cost, float fireRate)
+    /*private bool UpgradeFireRate(string weaponName, int cost, float fireRate)
     {
         bool purchaseFailed;
         if (GameManager.instance.skrapCount.GetQuantity() >= cost)
@@ -92,11 +95,11 @@ public class UIStoreButtons : MonoBehaviour
             purchaseFailed = true;
         StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
         return purchaseFailed;
-    }
+    }*/
 
 
 
-    public bool Tier2Upgrade(string baseWeapon, string tier2Weapon, int cost)
+    /*public bool Tier2Upgrade(string baseWeapon, string tier2Weapon, int cost)
     {
         bool purchaseFailed;
         if (GameManager.instance.skrapCount.GetQuantity() >= cost)
@@ -127,7 +130,7 @@ public class UIStoreButtons : MonoBehaviour
         else
             Debug.Log("Weapon NOT Unlocked");
         WeaponHolder.instance.ArrangeHierarchy(weaponName, purchaseIndex++);
-    }
+    }*/
 
     #region Shop Buttons
     public void ExitShop()
@@ -181,6 +184,7 @@ public class UIStoreButtons : MonoBehaviour
 
     #endregion
 
+    /*
     #region WeaponButtons
 
     #region Pistol Page
@@ -504,9 +508,9 @@ public class UIStoreButtons : MonoBehaviour
     }
     #endregion
     #endregion
-
+    */
     #endregion
-
+    
 
 
 

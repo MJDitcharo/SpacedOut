@@ -16,15 +16,15 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     WeaponBase.WeaponID weaponID;
     private void Start()
     {
-        if (isPlasma)
+        /*if (isPlasma)
             tier3Name = " Plasma";
         else
-            tier3Name = " Void";
+            tier3Name = " Void";*/
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
         //see where to move the description
-        if (tier3)
+        /*if (tier3)
         {
             string name = WeaponHolder.instance.GetEquippedWeaponName(weaponID);
             weaponDescription = WeaponHolder.instance.GetWeaponDescription(name + tier3Name);
@@ -32,12 +32,12 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         else 
             weaponDescription = WeaponHolder.instance.GetWeaponDescription(tier2WeaponName);
         UIStore.instance.descriptionText.text = weaponDescription;
-        UIStore.instance.weaponDescription.SetActive(true);
+        UIStore.instance.weaponDescription.SetActive(true);*/
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        UIStore.instance.weaponDescription.SetActive(false);
+        //UIStore.instance.weaponDescription.SetActive(false);
     }
 
 }

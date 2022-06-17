@@ -4,38 +4,50 @@ using UnityEngine;
 
 public class WeaponHolder : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject[] pistolUpgrades;
+    public GameObject[] shotgunUpgrades;
+    public GameObject[] rifleUpgrades;
+    public GameObject[] heavyUpgrades;
 
     [SerializeField]
     private int selectedWeapon = 0;
     static public WeaponHolder instance;
-    public GameObject gunImages;
-    public List<string> unlockedWeapons; //add the pistol by default
+    //public GameObject gunImages;
+    //public List<string> unlockedWeapons; //add the pistol by default
     List<KeyCode> keys = new List<KeyCode> { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, };
-    public int currentChildCount = 0;
-    public bool allUnlocked;
+    //public int currentChildCount = 0;
+    //public bool allUnlocked;
 
     private void Awake()
     {
         instance = this;
-        SelectWeapon();
-        if (allUnlocked)
-            currentChildCount = transform.childCount - 1;
+
+        //SelectWeapon();
+        //if (allUnlocked)
+        //    currentChildCount = transform.childCount - 1;
     }
 
     private void Start()
-    {
-        gunImages = GameManager.instance.gunImages;
-        if (unlockedWeapons.Count == 0)
-            unlockedWeapons.Add(gameObject.transform.Find("Pistol").name);
-        ReadPlayerPrefs();
+    {   
+        if (transform.childCount > 0)
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+            for (int i = 1; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
+        //gunImages = GameManager.instance.gunImages;
+        //if (unlockedWeapons.Count == 0)
+        //    unlockedWeapons.Add(gameObject.transform.Find("Pistol").name);
+        //ReadPlayerPrefs();
     }
     private void Update()
     {
         SwitchWeapons();
-        UnequippedWeapons();
-        if (allUnlocked)
-            currentChildCount = transform.childCount - 1;
+        //UnequippedWeapons();
+        //if (allUnlocked)
+        //    currentChildCount = transform.childCount - 1;
     }
 
     private void SelectWeapon()
@@ -44,7 +56,7 @@ public class WeaponHolder : MonoBehaviour
         //actually equip the weapon
         foreach (Transform t in this.gameObject.transform)
         {
-            if (selectedWeapon == i)
+            if (transform.GetChild(selectedWeapon) == t)
             {
                 t.gameObject.SetActive(true);
             }
@@ -52,14 +64,14 @@ public class WeaponHolder : MonoBehaviour
             {
                 t.gameObject.SetActive(false);
             }
-            if (i == currentChildCount)
-                break;
-            i++;
+            //if (i == currentChildCount)
+            //    break;
+            //i++;
         }
 
         i = 0;
         //change the gun images
-        foreach (Transform t in gunImages.transform)
+        /*foreach (Transform t in gunImages.transform)
         {
             if (selectedWeapon == i)
             {
@@ -74,7 +86,7 @@ public class WeaponHolder : MonoBehaviour
                 gunImages.transform.Find(t.name).gameObject.SetActive(false);
             }
             i++;
-        }
+        }*/
     }
 
     private void SwitchWeapons()
@@ -83,7 +95,7 @@ public class WeaponHolder : MonoBehaviour
 
         if (Time.timeScale > 0)
         {
-            for (int i = 0; i <= currentChildCount; i++)
+            /*for (int i = 0; i <= currentChildCount; i++)
             {
                 if (allUnlocked)
                     break;
@@ -105,31 +117,62 @@ public class WeaponHolder : MonoBehaviour
                     selectedWeapon = currentChildCount;
                 else
                     selectedWeapon--;
+            }*/
+
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+            {
+                selectedWeapon++;
+
+                if (selectedWeapon == transform.childCount)
+                    selectedWeapon = 0;
             }
-            SelectWeapon();
+
+            if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+            {
+                selectedWeapon--;
+
+                if (selectedWeapon < 0)
+                    selectedWeapon = transform.childCount-1;
+            }
+
+            for (int i = 0; i <= transform.childCount; i++)
+            {
+                if (Input.GetKeyDown(keys[i]))
+                    selectedWeapon = i;
+            }
+
+            for (int j = 0; j < transform.childCount; j++)
+            {
+                if (j == selectedWeapon)
+                    transform.GetChild(j).gameObject.SetActive(true);
+                else
+                    transform.GetChild(j).gameObject.SetActive(false);
+            }
+
+            //SelectWeapon();
         }
     }
 
     public void UnequippedWeapons()
     {
-        int i = currentChildCount;
+        //int i = currentChildCount;
         foreach (Transform t in transform)
         {
-            if (t.GetSiblingIndex() <= i)
-                continue;
-            else
-                t.gameObject.SetActive(false);
-            i++;
+            //if (t.GetSiblingIndex() <= i)
+            //    continue;
+            //else
+            //    t.gameObject.SetActive(false);
+            //i++;
         }
     }
 
-    public void UpgradeFireRate(string weapon, float multiplier)
+    public void UpgradeFireRate(WeaponBase gun, float multiplier)
     {
         //Debug.Log(transform.Find(weapon).GetComponent<WeaponBase>());
-        transform.Find(weapon).GetComponent<WeaponBase>().SetFireRateMultiplier(multiplier);
+        gun.SetFireRateMultiplier(multiplier);
     }
 
-    public float GetWeaponFireRate(WeaponBase.WeaponID weaponID)
+    /*public float GetWeaponFireRate(WeaponBase.WeaponID weaponID)
     {
         for (int i = 0; i <= currentChildCount; i++)
         {
@@ -137,15 +180,15 @@ public class WeaponHolder : MonoBehaviour
                 return transform.Find(transform.GetChild(i).name).GetComponent<WeaponBase>().GetFireRateMultiplier();
         }
         return -1f;
-    }
+    }*/
 
-    public void UpgradeDamage(string weapon, float multiplier)
+    public void UpgradeDamage(WeaponBase gun, float multiplier)
     {
         //Debug.Log(transform.Find(weapon).GetComponent<WeaponBase>());
-        transform.Find(weapon).GetComponent<WeaponBase>().SetDamageMultiplier(multiplier);
+        gun.SetDamageMultiplier(multiplier);
     }
 
-    public float GetWeaponDamage(WeaponBase.WeaponID weaponID)
+    /*public float GetWeaponDamage(WeaponBase.WeaponID weaponID)
     {
         for (int i = 0; i <= currentChildCount; i++)
         {
@@ -153,24 +196,24 @@ public class WeaponHolder : MonoBehaviour
                 return transform.Find(transform.GetChild(i).name).GetComponent<WeaponBase>().GetDamageMultiplier();
         }
         return -1f;
-    }
+    }*/
 
-    public bool IsWeaponUnlocked(string weaponName)
+    /*public bool IsWeaponUnlocked(string weaponName)
     {
         if (unlockedWeapons.Contains(weaponName))
             return true;
         else
             return false;
-    }
+    }*/
 
-    public bool AddToUnlockedItems(string weaponName)
+    /*public bool AddToUnlockedItems(string weaponName)
     {
         //if (gameObject.transform.Find(weaponName) != null)
         unlockedWeapons.Add(weaponName);
         return true;
-    }
+    }*/
 
-    public void ArrangeHierarchy(string weaponName, int index, string tier2Upgrade = "")
+    /*public void ArrangeHierarchy(string weaponName, int index, string tier2Upgrade = "")
     {
         //check if the weapon is unlocked
         if (IsWeaponUnlocked(weaponName))
@@ -182,14 +225,15 @@ public class WeaponHolder : MonoBehaviour
             Transform oldImage = gunImages.transform.Find(weaponName);
             gunImages.transform.Find(weaponName).SetSiblingIndex(index);
         }
-    }
+    }*/
 
     /// <summary>
     /// puts a in b's place, moves b to bottom
     /// </summary>
     /// <param name="a"></param>
     /// <param name="b"></param>
-    public void Tier2Upgrade(string tier2Weapon, string baseWeapon, int index)
+    
+    /*public void Tier2Upgrade(string tier2Weapon, string baseWeapon, int index)
     {
         int max = transform.childCount - 1;
         int maxImage = gunImages.transform.childCount - 1;
@@ -205,9 +249,9 @@ public class WeaponHolder : MonoBehaviour
             gunImages.transform.Find(tier2Weapon).SetSiblingIndex(a);
             oldImage.SetSiblingIndex(maxImage);
         }
-    }
+    }*/
 
-    private void ReadPlayerPrefs()
+    /*private void ReadPlayerPrefs()
     {
         for (int i = 0; i <= currentChildCount; i++)
         {
@@ -232,17 +276,17 @@ public class WeaponHolder : MonoBehaviour
                     break;
             }
         }
-    }
+    }*/
 
-    public void SaveLoadout()
+    /*public void SaveLoadout()
     {
         //clear the old loadout
         unlockedWeapons.Clear();
         for (int i = 0; i <= currentChildCount; i++)
             unlockedWeapons.Add(transform.GetChild(i).name);
-    }
+    }*/
 
-    public string GetEquippedWeaponName(WeaponBase.WeaponID weaponID)
+    /*public string GetEquippedWeaponName(WeaponBase.WeaponID weaponID)
     {
         for (int i = 0; i <= currentChildCount; i++)
         {
@@ -250,9 +294,9 @@ public class WeaponHolder : MonoBehaviour
                 return transform.GetChild(i).name;
         }
         return string.Empty;
-    }
+    }*/
 
-    public void SwitchWeapons(WeaponBase.WeaponID weaponID)
+    /*public void SwitchWeapons(WeaponBase.WeaponID weaponID)
     {
         //find the weapon with specified id
         WeaponBase weapon = null;
@@ -275,14 +319,14 @@ public class WeaponHolder : MonoBehaviour
         //change the gunimage to the correct weapon
         //change the ammo count to the correct image
         //disable all other weapon images
-    }
+    }*/
 
-    public WeaponBase GetEquippedWeapon()
+    /*public WeaponBase GetEquippedWeapon()
     {
         return transform.GetChild(selectedWeapon).GetComponent<WeaponBase>();
-    }
+    }*/
 
-    public WeaponBase GetWeapon(WeaponBase.WeaponID weaponID)
+    /*public WeaponBase GetWeapon(WeaponBase.WeaponID weaponID)
     {
         for (int i = 0; i <= currentChildCount; i++)
         {
@@ -290,10 +334,15 @@ public class WeaponHolder : MonoBehaviour
                 return transform.GetChild(i).GetComponent<WeaponBase>();
         }
         return null;
+    }*/
+
+    public string GetWeaponDescription(GameObject gun)
+    {
+        return gun.GetComponent<WeaponBase>().weaponDescription;
     }
 
-    public string GetWeaponDescription(string weaponName)
+    public void AddWeapon(GameObject gun)
     {
-        return transform.Find(weaponName).GetComponent<WeaponBase>().weaponDescription;
+        Instantiate(gun, transform);
     }
 }
