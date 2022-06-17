@@ -14,9 +14,7 @@ public class ShotgunSlugPlasma : Shotgun
         Rigidbody blastRB = blast.GetComponent<Rigidbody>();
         blastRB.velocity = transform.forward * projectileSpeed;
 
-        ammoCount = GameManager.instance.ammoCount.GetQuantity();
         ammoCount--;
-        GameManager.instance.ammoCount.Subtract();
 
         AudioManager.Instance.PlaySFX(gunshotSound);
     }

@@ -33,9 +33,7 @@ public class RifleBurst : Rifle
             rb.AddForce(firePoint[firePointIndex].forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
 
             //deplete ammo
-            ammoCount = GameManager.instance.ammoCount.GetQuantity();
             ammoCount--;
-            GameManager.instance.ammoCount.Subtract();
            AudioManager.Instance.PlaySFX(gunshotSound);
 
             yield return new WaitForSeconds(burstFireRate); // wait till the next round

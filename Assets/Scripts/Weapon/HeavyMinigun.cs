@@ -47,9 +47,7 @@ public class HeavyMinigun : WeaponBase
             firePointIndex = 0;
 
         //deplete ammo
-        ammoCount = GameManager.instance.ammoCount.GetQuantity();
         ammoCount--;
-        GameManager.instance.ammoCount.Subtract();
         AudioManager.Instance.PlaySFX(gunshotSound);
     }
 
