@@ -125,8 +125,7 @@ public class GameManager : MonoBehaviour
         checkpoints[checkpointIndex].GetComponent<RoomManager>().doorEnter.SetActive(true);
         checkpoints[checkpointIndex + 1].GetComponent<RoomManager>().collider.enabled = true;
         checkpoints[checkpointIndex + 1].GetComponent<RoomManager>().doorEnter.SetActive(false);
-        ammoCount.SetQuantity(WeaponHolder.instance.transform.GetChild(0).GetComponent<WeaponBase>().ammoCount);
-        ammoCount.UpdateVisual();
+        //ammoCount.UpdateVisual();
 
         EnemyFlashRed flasher = playerHealth.GetComponent<EnemyFlashRed>();
         for (int i = 0; i < flasher.normalColor.Length; i++)

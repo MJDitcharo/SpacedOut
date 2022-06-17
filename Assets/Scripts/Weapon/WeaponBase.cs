@@ -5,7 +5,7 @@ public class WeaponBase : MonoBehaviour
     public enum WeaponID { Pistol, Shotgun, Heavy, Rifle, Melee };
     [SerializeField]
     private static bool weaponOnStart = false;
-    public WeaponID  weaponID{ get; protected set; }
+    public WeaponID weaponID { get; protected set; }
     [SerializeField]
     public Transform[] firePoint;
     public int firePointIndex = 0;
@@ -23,10 +23,10 @@ public class WeaponBase : MonoBehaviour
     [SerializeField] protected float damage = 10; //damage
     [SerializeField] protected float damageMultiplier = 1;
     [SerializeField] protected float fireRateMultiplier = 1;
+    [SerializeField] protected TMPro.TextMeshProUGUI ammoCountText;
     protected float nextShotFired = 0f; //counter for next bullet that is fired
     public string weaponDescription;
     public string weaponName;
-    public Sprite gunImage;
 
     [SerializeField] public AudioClip gunshotAudio;
     [HideInInspector] public Sound gunshotSound;
@@ -38,15 +38,13 @@ public class WeaponBase : MonoBehaviour
             UpdateVisual();
             weaponOnStart = true;
         }
-
         gunshotSound = new Sound();
         gunshotSound.audio = gunshotAudio;
         gunshotSound.audioType = AudioStyle.sfx;
     }
     private void OnEnable()
     {
-        if (weaponOnStart)
-            UpdateVisual();
+        UpdateVisual();
     }
 
     public virtual void Update()
@@ -67,20 +65,20 @@ public class WeaponBase : MonoBehaviour
         rb.AddForce(firePoint[firePointIndex].forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
 
         //deplete ammo
-        ammoCount = GameManager.instance.ammoCount.GetQuantity(); 
         ammoCount--;
-        GameManager.instance.ammoCount.Subtract();
-        AudioManager.Instance.PlaySFX(gunshotSound);
+        UpdateVisual();
+        //GameManager.instance.ammoCount.Subtract();
+        //AudioManager.Instance.PlaySFX(gunshotSound);
     }
 
     public void AddAmmo(int ammo = System.Int32.MaxValue)
     {
         if (ammo == System.Int32.MaxValue)
-            ammoCount++; 
+            ammoCount++;
         else if (ammo + ammoCount > maxAmmo)
             ammoCount = maxAmmo;
         else
-            ammoCount+= ammo;
+            ammoCount += ammo;
         UpdateVisual();
     }
 
@@ -91,10 +89,7 @@ public class WeaponBase : MonoBehaviour
 
     public void UpdateVisual()
     {
-
-        GameManager.instance.ammoCount.SetQuantity(ammoCount);
-        GameManager.instance.ammoCount.SetMaximumQuatnity(maxAmmo);
-
+        ammoCountText.text = ammoCount.ToString();
     }
 
     public void SetDamageMultiplier(float multiplier)
