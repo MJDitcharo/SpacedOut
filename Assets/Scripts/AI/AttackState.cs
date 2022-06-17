@@ -87,16 +87,18 @@ public class AttackState : State
     {
         //Debug.Log("running coroutine");
         Quaternion lookRoation = Quaternion.LookRotation(GameManager.instance.player.transform.position - new Vector3(transform.position.x, GameManager.instance.player.transform.position.y, transform.position.z));
+        Quaternion originalRotation = transform.rotation;
 
         float time = 0;
 
         while(time < 1)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRoation, time);
+            //Debug.Log(time);
+            transform.rotation = Quaternion.Slerp(originalRotation, lookRoation, time);
 
             time += Time.deltaTime * rotationSpeed;
 
-            yield return null;
+            yield return new WaitForEndOfFrame();
         }
         lookCoroutine = null;
     }
