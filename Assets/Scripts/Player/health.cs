@@ -97,7 +97,7 @@ public class health : MonoBehaviour
 
     protected void OnTriggerStay(Collider other)
     {
-        if(other.tag == "Fire")
+        if(other.tag == "Fire" || other.tag == "BossFire")
         {
             if(fireTickTime <= fireTick)
             {
