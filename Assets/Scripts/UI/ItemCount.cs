@@ -18,7 +18,7 @@ public class ItemCount : MonoBehaviour
 
     public void UpdateVisual()
     {
-        //textMeshPro.text = quantity.ToString();
+        textMeshPro.text = quantity.ToString();
     }
 
     /// <summary>
