@@ -48,6 +48,7 @@ public class HeavyMinigun : WeaponBase
 
         //deplete ammo
         ammoCount--;
+        UpdateVisual();
         AudioManager.Instance.PlaySFX(gunshotSound);
     }
 
