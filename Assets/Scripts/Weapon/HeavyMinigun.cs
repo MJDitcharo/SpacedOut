@@ -11,6 +11,7 @@ public class HeavyMinigun : WeaponBase
     private void OnEnable()
     {
         OnWeaponSwitch();
+        UpdateVisual();
     }
     private void Awake()
     {
