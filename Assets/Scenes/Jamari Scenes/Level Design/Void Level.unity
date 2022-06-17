@@ -655,6 +655,24 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1245762855502432, guid: 1dc55f6dbc165ca4486ab6bbaa048d5c, type: 3}
   m_PrefabInstance: {fileID: 549262338}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &623290988 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6022685729501211257, guid: 2653c846a905c1f468efd72234e5035e, type: 3}
+  m_PrefabInstance: {fileID: 215626687879907421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &623290993
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623290988}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.000001911074, z: -0.0000023841858}
 --- !u!1001 &739527766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1968,6 +1986,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6022685729501211262, guid: 2653c846a905c1f468efd72234e5035e, type: 3}
+      propertyPath: collider
+      value: 
+      objectReference: {fileID: 623290993}
     - target: {fileID: 6022685729501211262, guid: 2653c846a905c1f468efd72234e5035e, type: 3}
       propertyPath: doorEnter
       value: 
