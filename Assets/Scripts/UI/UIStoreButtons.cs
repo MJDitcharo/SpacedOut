@@ -161,7 +161,7 @@ public class UIStoreButtons : MonoBehaviour
         }
         else
             purchaseFailed = true;
-        StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
+        UIStore.instance.StartMessageCoroutine(purchaseFailed);
         GameManager.instance.SaveGame();
     }
 
@@ -176,7 +176,7 @@ public class UIStoreButtons : MonoBehaviour
         }
         else
             purchaseFailed = true;
-        StartCoroutine(UIStore.instance.HandlePurchaseMessage(purchaseFailed));
+        UIStore.instance.StartMessageCoroutine(purchaseFailed);
         GameManager.instance.SaveGame();
     }
 

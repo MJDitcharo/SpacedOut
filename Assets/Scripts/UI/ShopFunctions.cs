@@ -47,7 +47,10 @@ public class ShopFunctions : MonoBehaviour
     public void BuyPistol(int gunIndex)
     {
         if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        {
+            UIStore.instance.StartMessageCoroutine(true);
             return;
+        }
 
         WeaponBase weapon;
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
@@ -81,10 +84,33 @@ public class ShopFunctions : MonoBehaviour
         previous.SetActive(false);
     }
 
+    public void BuyPistolAmmo()
+    {
+        int ammoToAdd = 20;
+        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        {
+            UIStore.instance.StartMessageCoroutine(true);
+            return;
+        }
+        for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
+        {
+            Pistol gun = WeaponHolder.instance.transform.GetChild(i).GetComponent<Pistol>();
+
+            if (gun != null)
+            {
+                gun.AddAmmo(ammoToAdd);
+                UIStore.instance.StartMessageCoroutine(false);
+                return;
+            }
+        }
+    }
     public void BuyShotgun(int gunIndex)
     {
         if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        {
+            UIStore.instance.StartMessageCoroutine(true);
             return;
+        }
 
         WeaponBase weapon;
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
@@ -118,12 +144,35 @@ public class ShopFunctions : MonoBehaviour
         previous.SetActive(false);
     }
 
+    public void BuyShotgunAmmo()
+    {
+        int ammoToAdd = 20;
+        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        {
+            UIStore.instance.StartMessageCoroutine(true);
+            return;
+        }
+        for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
+        {
+            Shotgun gun = WeaponHolder.instance.transform.GetChild(i).GetComponent<Shotgun>();
+
+            if (gun != null)
+            {
+                gun.AddAmmo(ammoToAdd);
+                UIStore.instance.StartMessageCoroutine(false);
+                return;
+            }
+        }
+    }
+
     public void BuyRifle(int gunIndex)
     {
         if (GameManager.instance.skrapCount.GetQuantity() <= price)
-            return;
+        {
+            UIStore.instance.StartMessageCoroutine(true);
+        }
 
-        WeaponBase weapon;
+            WeaponBase weapon;
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
         {
             Rifle gun = WeaponHolder.instance.transform.GetChild(i).GetComponent<Rifle>();
@@ -155,10 +204,32 @@ public class ShopFunctions : MonoBehaviour
         previous.SetActive(false);
     }
 
+    public void BuyRifleAmmo()
+    {
+        int ammoToAdd = 20;
+        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        {
+            UIStore.instance.StartMessageCoroutine(true);
+            return;
+        }
+        for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
+        {
+            Rifle gun = WeaponHolder.instance.transform.GetChild(i).GetComponent<Rifle>();
+
+            if (gun != null)
+            {
+                gun.AddAmmo(ammoToAdd);
+                UIStore.instance.StartMessageCoroutine(false);
+                return;
+            }
+        }
+    }
     public void BuyHeavy(int gunIndex)
     {
         if (GameManager.instance.skrapCount.GetQuantity() <= price)
-            return;
+        {
+            UIStore.instance.StartMessageCoroutine(true);
+        }
 
         WeaponBase weapon;
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
@@ -190,6 +261,27 @@ public class ShopFunctions : MonoBehaviour
         weapon.SetFireRateMultiplier(PlayerPrefs.GetFloat("Heavy Fire Rate"));
         next.SetActive(true);
         previous.SetActive(false);
+    }
+
+    public void BuyHeavyAmmo()
+    {
+        int ammoToAdd = 20;
+        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        {
+            UIStore.instance.StartMessageCoroutine(true);
+            return;
+        }
+        for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
+        {
+            Heavy gun = WeaponHolder.instance.transform.GetChild(i).GetComponent<Heavy>();
+
+            if (gun != null)
+            {
+                gun.AddAmmo(ammoToAdd);
+                UIStore.instance.StartMessageCoroutine(false);
+                return;
+            }
+        }
     }
 
     public void SetPrice(int price)

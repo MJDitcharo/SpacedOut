@@ -44,6 +44,7 @@ public class UIStore : PopUpMenu
         Deactivate(); //should be off by default
     }
 
+
     public IEnumerator HandlePurchaseMessage(bool purchaseFailed, string message = "")
     {
         if (!purchaseFailed)
@@ -55,18 +56,18 @@ public class UIStore : PopUpMenu
         {
             UIStore.instance.purchaseMessage.color = Color.red;
             if (message == "")
-                message = "Transaction Failed!";
+                message = "Not Enough Skrap!";
         }
         UIStore.instance.purchaseMessage.text = message;
         UIStore.instance.purchaseMessageObj.SetActive(true);
         yield return new WaitForSecondsRealtime(2);
-        //do the specified next tier
         UIStore.instance.purchaseMessageObj.SetActive(false);
     }
 
-    private int a(Func<double> func)
+
+    public void StartMessageCoroutine(bool purchaseFailed, string message = "")
     {
-        return 2;
+        StartCoroutine(HandlePurchaseMessage(purchaseFailed, message));
     }
 
     public void Activate()
