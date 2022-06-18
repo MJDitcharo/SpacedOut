@@ -17456,7 +17456,7 @@ GameObject:
   - component: {fileID: 7176342399069900400}
   - component: {fileID: 5797020828474138367}
   - component: {fileID: 4308683741926626979}
-  - component: {fileID: 4857275990874355128}
+  - component: {fileID: 2202452142173708122}
   m_Layer: 5
   m_Name: Buy Weapon
   m_TagString: Untagged
@@ -17642,7 +17642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
---- !u!114 &4857275990874355128
+--- !u!114 &2202452142173708122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17651,13 +17651,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8288777171392554382}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ab3ea5f92305f8498dd662daadf5b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tier2WeaponName: 
-  tier3: 0
-  isPlasma: 0
-  weaponID: 0
+  weaponDescription: 
 --- !u!1 &8435252283267226513
 GameObject:
   m_ObjectHideFlags: 0
@@ -19159,7 +19156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
---- !u!114 &8286856877514521545
+--- !u!114 &6349959027380329365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19168,13 +19165,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6857615232031135929}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ab3ea5f92305f8498dd662daadf5b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tier2WeaponName: 
-  tier3: 1
-  isPlasma: 1
-  weaponID: 1
+  weaponDescription: Shoots a molly, leaving a pit of fire in it's trail
 --- !u!1001 &146250357001055356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20675,7 +20669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
---- !u!114 &4250619347281392959
+--- !u!114 &5069650882937826205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20684,13 +20678,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5563930852711493893}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ab3ea5f92305f8498dd662daadf5b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tier2WeaponName: 
-  tier3: 1
-  isPlasma: 0
-  weaponID: 1
+  weaponDescription: Shoots moving black holes, pulling enemies in
 --- !u!224 &5563930852711493898 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6818109402835331300, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
@@ -21472,22 +21463,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
---- !u!114 &3089132134412733180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5260307265104213586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tier2WeaponName: Minigun
-  tier3: 0
-  isPlasma: 0
-  weaponID: 2
 --- !u!224 &5260307265104213597 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6818109402835331300, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
@@ -21865,7 +21840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
---- !u!114 &9146047580368553142
+--- !u!114 &3861494450992168168
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21874,13 +21849,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5048918713597444264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ab3ea5f92305f8498dd662daadf5b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tier2WeaponName: 
-  tier3: 1
-  isPlasma: 1
-  weaponID: 0
+  weaponDescription: Bullets creates more bullets on impact
 --- !u!1001 &2091339657526058898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22347,7 +22319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
---- !u!114 &7062270706457370323
+--- !u!114 &6727592321598847844
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22356,13 +22328,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 9218092246940448801}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ab3ea5f92305f8498dd662daadf5b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tier2WeaponName: Sawed-Off
-  tier3: 0
-  isPlasma: 0
-  weaponID: 1
+  weaponDescription: Slow fire rate, high damage
 --- !u!114 &9218092246940448812 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6818109402835331302, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
@@ -23769,22 +23738,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6818109402835331307, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
   m_PrefabInstance: {fileID: 2792742804445180854}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3553196438433393844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8673680718145755997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tier2WeaponName: 
-  tier3: 1
-  isPlasma: 1
-  weaponID: 1
 --- !u!114 &5014972398519993813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23799,6 +23752,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
+--- !u!114 &6441642945731655311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8673680718145755997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab3ea5f92305f8498dd662daadf5b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponDescription: 
 --- !u!1001 &2821457307708984087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24409,22 +24375,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6818109402835331307, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
   m_PrefabInstance: {fileID: 3226323762992668575}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2606961240149685447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8239615063138531188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tier2WeaponName: 
-  tier3: 1
-  isPlasma: 0
-  weaponID: 1
 --- !u!114 &4549419552726122317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24439,6 +24389,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
+--- !u!114 &790704437701652255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8239615063138531188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab3ea5f92305f8498dd662daadf5b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponDescription: Does massive knockback on impact
 --- !u!114 &8239615063138531193 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6818109402835331302, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
@@ -24839,22 +24802,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
---- !u!114 &8538425286712668921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8248958461351175454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tier2WeaponName: Grenade Launcher
-  tier3: 0
-  isPlasma: 0
-  weaponID: 2
 --- !u!1001 &3423417824899788744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25211,22 +25158,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
---- !u!114 &8852899738867942894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8150572216910890787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tier2WeaponName: Heavy
-  tier3: 0
-  isPlasma: 0
-  weaponID: 0
 --- !u!224 &8150572216910890796 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6818109402835331300, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
@@ -25774,7 +25705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
---- !u!114 &6254134219072046567
+--- !u!114 &5773546338626235513
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25783,13 +25714,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7938969039593259073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ab3ea5f92305f8498dd662daadf5b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tier2WeaponName: 
-  tier3: 1
-  isPlasma: 0
-  weaponID: 0
+  weaponDescription: Creates a stationary black hole on impact
 --- !u!224 &7938969039593259086 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6818109402835331300, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
@@ -27032,22 +26960,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
---- !u!114 &6163877462774000780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7765450352392966819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tier2WeaponName: 
-  tier3: 1
-  isPlasma: 0
-  weaponID: 2
 --- !u!224 &7765450352392966828 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6818109402835331300, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
@@ -27452,22 +27364,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
---- !u!114 &5894628321670169556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7603821729749723340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tier2WeaponName: 
-  tier3: 1
-  isPlasma: 1
-  weaponID: 3
 --- !u!1001 &3981598586975753141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28108,22 +28004,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6818109402835331307, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
   m_PrefabInstance: {fileID: 4552076287031200846}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5057818180305312437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7039956499673212069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tier2WeaponName: 
-  tier3: 1
-  isPlasma: 0
-  weaponID: 0
 --- !u!114 &5164464232533663474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28138,6 +28018,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
+--- !u!114 &6327363213838695166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7039956499673212069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab3ea5f92305f8498dd662daadf5b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponDescription: Shots stun enemies
 --- !u!224 &7039956499673212074 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6818109402835331300, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
@@ -28485,22 +28378,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6818109402835331307, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
   m_PrefabInstance: {fileID: 4558959566517660318}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &331743715212412374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7051062457835930229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tier2WeaponName: 
-  tier3: 1
-  isPlasma: 1
-  weaponID: 0
 --- !u!114 &1811696793021071778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28515,6 +28392,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
+--- !u!114 &5596198349905806175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7051062457835930229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab3ea5f92305f8498dd662daadf5b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponDescription: Shots weaken enemies
 --- !u!224 &7051062457835930234 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6818109402835331300, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
@@ -29094,22 +28984,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6818109402835331307, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
   m_PrefabInstance: {fileID: 4770367528860295985}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5841507850476065194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066437129625832410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tier2WeaponName: 
-  tier3: 1
-  isPlasma: 1
-  weaponID: 3
 --- !u!114 &8720117475090167829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29966,22 +29840,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
---- !u!114 &7920571915820431767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1778440424694461018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tier2WeaponName: 
-  tier3: 1
-  isPlasma: 0
-  weaponID: 3
 --- !u!1001 &5138717018378400381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30346,7 +30204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
---- !u!114 &8840055104009189063
+--- !u!114 &3729545629498776465
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30355,13 +30213,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1859610089987693206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ab3ea5f92305f8498dd662daadf5b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tier2WeaponName: Sawed-Off
-  tier3: 0
-  isPlasma: 0
-  weaponID: 1
+  weaponDescription: Has a wide range of fire
 --- !u!224 &1859610089987693209 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6818109402835331300, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
@@ -31371,22 +31226,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6818109402835331307, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
   m_PrefabInstance: {fileID: 5919541132774400412}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5919541134062954304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916664136183892343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tier2WeaponName: Rifle
-  tier3: 0
-  isPlasma: 0
-  weaponID: 0
 --- !u!114 &5919541134062954305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33740,22 +33579,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
---- !u!114 &5032299716999898580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4606963941742547266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tier2WeaponName: 
-  tier3: 1
-  isPlasma: 1
-  weaponID: 2
 --- !u!224 &4606963941742547277 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6818109402835331300, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
@@ -34128,7 +33951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
---- !u!114 &3793787772330982675
+--- !u!114 &4267116431693748286
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -34137,13 +33960,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4569664071292744544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ab3ea5f92305f8498dd662daadf5b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tier2WeaponName: Deagle
-  tier3: 0
-  isPlasma: 0
-  weaponID: 0
+  weaponDescription: A slower pistol with strong damage
 --- !u!224 &4569664071292744559 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6818109402835331300, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
@@ -35311,22 +35131,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6818109402835331307, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
   m_PrefabInstance: {fileID: 7603280976016266917}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3708329408136906780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3970641753860439630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tier2WeaponName: Assault
-  tier3: 0
-  isPlasma: 0
-  weaponID: 3
 --- !u!114 &8313593726748173320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35793,22 +35597,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6818109402835331307, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
   m_PrefabInstance: {fileID: 7657941040645386577}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &139268263447898245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3807989942337771962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tier2WeaponName: Shotgun
-  tier3: 0
-  isPlasma: 0
-  weaponID: 0
 --- !u!114 &8673316028417123252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36295,22 +36083,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6818109402835331307, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
   m_PrefabInstance: {fileID: 7783550457547176226}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4776628554472450522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3646353868522885577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tier2WeaponName: 
-  tier3: 1
-  isPlasma: 0
-  weaponID: 2
 --- !u!114 &7946859449721703364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38078,22 +37850,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
---- !u!114 &7251145829831905121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2975683996607800678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tier2WeaponName: 
-  tier3: 1
-  isPlasma: 1
-  weaponID: 2
 --- !u!224 &2975683996607800681 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6818109402835331300, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
@@ -38809,22 +38565,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6818109402835331307, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
   m_PrefabInstance: {fileID: 8776524637218845950}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2174586669861368161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2833521491027729429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tier2WeaponName: Burst
-  tier3: 0
-  isPlasma: 0
-  weaponID: 3
 --- !u!114 &8127396373595382592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39206,13 +38946,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2735838372754325159}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ab3ea5f92305f8498dd662daadf5b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tier2WeaponName: Dual Wield
-  tier3: 0
-  isPlasma: 0
-  weaponID: 0
+  weaponDescription: Increased fire rate with two weapons
 --- !u!114 &7782322282592290165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39917,22 +39654,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closePage: {fileID: 0}
   openPage: {fileID: 0}
---- !u!114 &3935208058038658924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2315302420578331302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f4c544e941f5d42b07d5fa71d336aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tier2WeaponName: 
-  tier3: 1
-  isPlasma: 0
-  weaponID: 3
 --- !u!224 &2315302420578331305 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6818109402835331300, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}

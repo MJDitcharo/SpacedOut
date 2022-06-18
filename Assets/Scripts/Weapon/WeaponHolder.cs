@@ -233,7 +233,7 @@ public class WeaponHolder : MonoBehaviour
     /// </summary>
     /// <param name="a"></param>
     /// <param name="b"></param>
-    
+
     /*public void Tier2Upgrade(string tier2Weapon, string baseWeapon, int index)
     {
         int max = transform.childCount - 1;
@@ -287,15 +287,15 @@ public class WeaponHolder : MonoBehaviour
             unlockedWeapons.Add(transform.GetChild(i).name);
     }*/
 
-    /*public string GetEquippedWeaponName(WeaponBase.WeaponID weaponID)
+    public string GetEquippedWeaponName(WeaponBase.WeaponID weaponID)
     {
-        for (int i = 0; i <= currentChildCount; i++)
+        for (int i = 0; i <= transform.childCount; i++)
         {
             if (weaponID == transform.GetChild(i).GetComponent<WeaponBase>().weaponID)
                 return transform.GetChild(i).name;
         }
         return string.Empty;
-    }*/
+    }
 
     /*public void SwitchWeapons(WeaponBase.WeaponID weaponID)
     {
