@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -120,6 +121,9 @@ public class GameManager : MonoBehaviour
             Debug.Log(i);
             Destroy(particles[i]);
         }
+
+        bossHealthBar.GetComponent<Image>().fillAmount = 1f;
+        bossHealthBar.transform.parent.parent.gameObject.SetActive(false);
 
         LoadGame();
 

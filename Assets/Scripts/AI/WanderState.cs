@@ -50,7 +50,7 @@ public class WanderState : State
 
         while (time < minimunTurnTime)
         {
-            Debug.Log("turning");
+            //Debug.Log("turning");
             transform.Rotate(0, turnSpeed * Time.deltaTime, 0);
 
             time += Time.deltaTime;
