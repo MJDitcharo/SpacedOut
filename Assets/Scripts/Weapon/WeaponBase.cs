@@ -30,14 +30,10 @@ public class WeaponBase : MonoBehaviour
 
     [SerializeField] public AudioClip gunshotAudio;
     [HideInInspector] public Sound gunshotSound;
-    private void Start()
+    protected void Start()
     {
-        //grab ammo for UI.Only do this one time
-        if (!weaponOnStart && gameObject.name == "Pistol")
-        {
-            UpdateVisual();
-            weaponOnStart = true;
-        }
+        UpdateVisual();
+
         gunshotSound = new Sound();
         gunshotSound.audio = gunshotAudio;
         gunshotSound.audioType = AudioStyle.sfx;

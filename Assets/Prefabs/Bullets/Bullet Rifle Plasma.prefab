@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 4840742133819707794}
   - component: {fileID: 6601682541934680389}
   - component: {fileID: 5080664292558789377}
-  - component: {fileID: 3121045659052230213}
   - component: {fileID: 4628129924585378058}
   - component: {fileID: 4015147702858577051}
   - component: {fileID: 4061239304617610174}
+  - component: {fileID: 7543634446882930915}
   m_Layer: 7
   m_Name: Bullet Rifle Plasma
   m_TagString: Bullet
@@ -101,22 +101,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3121045659052230213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2720524356819640305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a87df52d24425c49b94c05559922143, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosiveRadius: 0
-  pushbackMultiplier: 0
-  hitEffect: {fileID: 2194280494519805251, guid: 1dae4c2bfa9b849409d5f8d4045ea14e, type: 3}
-  damage: 10
 --- !u!54 &4628129924585378058
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -303,3 +287,20 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &7543634446882930915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2720524356819640305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dccaac635c53808489d8caeb437e1d17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosiveRadius: 0
+  pushbackMultiplier: 0
+  hitEffect: {fileID: 2194280494519805251, guid: 1dae4c2bfa9b849409d5f8d4045ea14e, type: 3}
+  damage: 10
+  increasedDamageIncrease: 0.25

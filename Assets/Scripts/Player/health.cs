@@ -22,6 +22,9 @@ public class health : MonoBehaviour
  
     [SerializeField] float vulnAmount = 1.5f;
     [SerializeField] int vulnTime = 5;
+
+    public float increasedDamage = 1;
+    [SerializeField] float increasedDamageDecayRate = .5f;
    
     [SerializeField] GameObject fireParticleEffect;
     [SerializeField] GameObject stunParticleEffect;
@@ -49,6 +52,14 @@ public class health : MonoBehaviour
                 fireTick = 0;
                 //Debug.Break();
             }
+        }
+        if(increasedDamage > 1)
+        {
+            increasedDamage -= Time.deltaTime * increasedDamageDecayRate;
+        }
+        else
+        {
+            increasedDamage = 1;
         }
     }
 

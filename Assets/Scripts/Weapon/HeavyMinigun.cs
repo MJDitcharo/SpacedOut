@@ -17,6 +17,7 @@ public class HeavyMinigun : Heavy
     {
         weaponID = WeaponID.Heavy;
     }
+
     public override void Update()
     {
         if (Input.GetButton("Fire1") && Time.time >= nextShotFired && ammoCount > 0 && Time.timeScale > 0) //if the first mouse button is down
@@ -31,9 +32,9 @@ public class HeavyMinigun : Heavy
             Shoot(); //shoot method
             
         }
-        if(barrelSpeed >= 2 && Input.GetButtonUp("Fire1"))
+        else if(barrelSpeed >= 1.1 && !Input.GetButton("Fire1"))
         {
-            barrelSpeed = 2;
+            barrelSpeed -= 25 * Time.deltaTime;
         }
     }
     public override void Shoot()
@@ -56,6 +57,6 @@ public class HeavyMinigun : Heavy
     public override void OnWeaponSwitch()
     {
         base.OnWeaponSwitch();
-        barrelSpeed = 2;
+        barrelSpeed = 1;
     }
 }

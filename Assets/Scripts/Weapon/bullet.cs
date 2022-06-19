@@ -54,7 +54,7 @@ public class bullet : MonoBehaviour
             EnemyMovement EM = other.gameObject.GetComponent<EnemyMovement>();
             if (other.tag != "Player")
             {
-                EM.pushback = -pushbackMultiplier * (other.transform.position - transform.position).normalized; 
+                EM.pushback = pushbackMultiplier * GetComponent<Rigidbody>().velocity.normalized; 
             }
             if(HP.isStunned == true)
             {

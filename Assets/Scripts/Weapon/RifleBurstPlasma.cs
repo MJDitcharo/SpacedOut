@@ -12,18 +12,10 @@ public class RifleBurstPlasma : RifleBurst
         {
             nextShotFired = Time.time + 1f / fireRate / fireRateMultiplier; //delay for the next bullet fired
             Shoot(); //shoot method
-            damageMultiplier = Mathf.Clamp(damageMultiplier, 1, 2);
-            if (gunIsFired == true)
-            {
-                damageMultiplier *= 1.25f;
-                
-            }
         }
     }
     public override void Shoot()
     {
         base.Shoot();
-        gunIsFired = true;
-        
     }
 }
