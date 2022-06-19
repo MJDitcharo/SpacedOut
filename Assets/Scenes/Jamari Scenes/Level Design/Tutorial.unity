@@ -1277,6 +1277,10 @@ PrefabInstance:
       propertyPath: skrap
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 966607101739825896, guid: 38fec1d218fbc3640a09519ca6432e86, type: 3}
+      propertyPath: associatedCheckpoint
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 966607101739825897, guid: 38fec1d218fbc3640a09519ca6432e86, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1340,7 +1344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 966607101739825896, guid: 38fec1d218fbc3640a09519ca6432e86, type: 3}
       propertyPath: associatedCheckpoint
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 966607101739825897, guid: 38fec1d218fbc3640a09519ca6432e86, type: 3}
       propertyPath: m_RootOrder
@@ -1535,6 +1539,14 @@ PrefabInstance:
     - target: {fileID: 156188068586895176, guid: d748161e6002fca40a01b812c7c06bda, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122337435481797231, guid: d748161e6002fca40a01b812c7c06bda, type: 3}
+      propertyPath: m_Name
+      value: RoomManager (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122337436763095810, guid: d748161e6002fca40a01b812c7c06bda, type: 3}
+      propertyPath: m_Name
+      value: RoomManager (3)
       objectReference: {fileID: 0}
     - target: {fileID: 5585863324568414417, guid: d748161e6002fca40a01b812c7c06bda, type: 3}
       propertyPath: m_LocalPosition.z
