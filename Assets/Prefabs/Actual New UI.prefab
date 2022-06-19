@@ -9560,6 +9560,7 @@ GameObject:
   - component: {fileID: 5429942086944924992}
   - component: {fileID: 8525376417613793233}
   - component: {fileID: 8033484640662502473}
+  - component: {fileID: 8659336525607746274}
   m_Layer: 5
   m_Name: Actual New UI
   m_TagString: Untagged
@@ -9700,6 +9701,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagePopUP: {fileID: 6974688863927324932, guid: 657d1332955968e469ff9d0094bee4d4, type: 3}
+--- !u!114 &8659336525607746274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429942086944924995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90c827b10ba6ad84a9aecc1af0539fd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePopUP: {fileID: 6974688863927324932, guid: 2ebc265911ac1c346a07b236ec31fdd8, type: 3}
 --- !u!1 &5515223018597463875
 GameObject:
   m_ObjectHideFlags: 0

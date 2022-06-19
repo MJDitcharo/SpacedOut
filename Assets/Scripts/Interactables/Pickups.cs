@@ -13,7 +13,7 @@ public abstract class Pickups : MonoBehaviour
         drop.Quantity = quantity;
         InitialValues();
     }
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == GameManager.instance.player)
         {

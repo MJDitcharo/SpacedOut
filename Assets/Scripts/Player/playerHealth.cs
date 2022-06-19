@@ -65,5 +65,6 @@ public class playerHealth : health
         GameManager.instance.gameOverScreen.SetActive(true);
         GameManager.instance.SetNormalCursor();
         gameObject.SetActive(false);
+        GameManager.instance.movement.pushback = Vector3.zero;
     }
 }
