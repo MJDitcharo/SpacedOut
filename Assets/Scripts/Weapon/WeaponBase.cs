@@ -68,12 +68,11 @@ public class WeaponBase : MonoBehaviour
 
     public void AddAmmo(int ammo = System.Int32.MaxValue)
     {
-        if (ammo == System.Int32.MaxValue)
-            ammoCount++;
-        else if (ammo + ammoCount > maxAmmo)
+        ammoCount += ammo;
+
+        if (ammoCount > maxAmmo)
             ammoCount = maxAmmo;
-        else
-            ammoCount += ammo;
+
         UpdateVisual();
     }
 
