@@ -18,6 +18,7 @@ public class PistolDeaglePlasma : bullet
             Instantiate(splitBullet, transform).GetComponent<ChildSplitBullet>().ignore = other;
             GameObject bullet = transform.GetChild(0).gameObject;
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
+            bullet.GetComponent<bullet>().damage = damage;
             bullet.transform.SetParent(null);
 
             rb.AddForce(transform.forward * splitForce, ForceMode.Impulse); 

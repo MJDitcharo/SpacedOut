@@ -7,7 +7,9 @@ public class SawedOffPlasma : bullet
 
     public override void OnTriggerEnter(Collider other)
     {
-        other.GetComponent<health>().burnTimer = 5;
+        health hp = other.GetComponent<health>();
+        if(hp != null)
+            hp.burnTimer = 5;
         base.OnTriggerEnter(other);
 
     }

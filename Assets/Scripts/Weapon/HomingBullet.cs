@@ -7,8 +7,8 @@ public class HomingBullet : bullet
 {
     public float speed = 20f;
     public float yOffset = 1;
-    private Coroutine homingCoroutine;
-    private Transform target;
+    Coroutine lookCoroutine;
+    [SerializeField] float trackingStrength = 5;
 
     private void Update()
     {
@@ -35,9 +35,29 @@ public class HomingBullet : bullet
             }
 
             Debug.Log(closest);
-            if (closest != null)
-                transform.LookAt(closest.transform.position);
+            if (closest != null && lookCoroutine == null)
+                StartCoroutine(TurnToTarget(closest.transform.position));
         }
         GetComponent<Rigidbody>().velocity = transform.forward * speed;
+    }
+
+    IEnumerator TurnToTarget(Vector3 target)
+    {
+        //Debug.Log("running coroutine");
+        Quaternion lookRoation = Quaternion.LookRotation(target - new Vector3(transform.position.x, target.y, transform.position.z));
+        Quaternion originalRotation = transform.rotation;
+
+        float time = 0;
+
+        while (time < 1)
+        {
+            //Debug.Log(time);
+            transform.rotation = Quaternion.Slerp(originalRotation, lookRoation, time);
+
+            time += Time.deltaTime * trackingStrength;
+
+            yield return new WaitForEndOfFrame();
+        }
+        lookCoroutine = null;
     }
 }

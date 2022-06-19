@@ -330,7 +330,7 @@ MonoBehaviour:
   explodingDistance: 5
   pushbackMultiplier: 5
   scaleChange: 0.5
-  flashColor: {r: 1, g: 0.7370882, b: 0.6084906, a: 0}
+  flashColor: {r: 1, g: 1, b: 1, a: 0}
   rend: {fileID: 137721361606954458}
   flashInterval: 0.1
   hitEffect: {fileID: 3440073099274173548, guid: 58d68c2e5c2dd494681e2a0e15044d16, type: 3}
@@ -354,6 +354,8 @@ MonoBehaviour:
   fireTickTime: 1
   vulnAmount: 1.5
   vulnTime: 5
+  increasedDamage: 1
+  increasedDamageDecayRate: 1.5
   fireParticleEffect: {fileID: 3510295273408693937, guid: 77fef4f80ccf4fc45848ec800b8bd6ac, type: 3}
   stunParticleEffect: {fileID: 1997773235792374, guid: ca1b1da5e83888f49b3a1148500975b9, type: 3}
   deathParticle: {fileID: 3230906660309774650, guid: 1ae7b09f5219fe74b9ba89df7a65f6b9, type: 3}
