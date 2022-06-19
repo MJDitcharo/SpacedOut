@@ -98,8 +98,14 @@ public class ShopFunctions : MonoBehaviour
 
             if (gun != null)
             {
+                if (gun.ammoCount == gun.maxAmmo)
+                {
+                    UIStore.instance.StartMessageCoroutine(true);
+                    return;
+                }
                 gun.AddAmmo(ammoToAdd);
                 UIStore.instance.StartMessageCoroutine(false);
+                GameManager.instance.skrapCount.SetQuantity(GameManager.instance.skrapCount.GetQuantity() - price);
                 return;
             }
         }
@@ -158,8 +164,14 @@ public class ShopFunctions : MonoBehaviour
 
             if (gun != null)
             {
+                if (gun.ammoCount == gun.maxAmmo)
+                {
+                    UIStore.instance.StartMessageCoroutine(true);
+                    return;
+                }
                 gun.AddAmmo(ammoToAdd);
                 UIStore.instance.StartMessageCoroutine(false);
+                GameManager.instance.skrapCount.SetQuantity(GameManager.instance.skrapCount.GetQuantity() - price);
                 return;
             }
         }
@@ -218,8 +230,14 @@ public class ShopFunctions : MonoBehaviour
 
             if (gun != null)
             {
+                if (gun.ammoCount == gun.maxAmmo)
+                {
+                    UIStore.instance.StartMessageCoroutine(true);
+                    return;
+                }
                 gun.AddAmmo(ammoToAdd);
                 UIStore.instance.StartMessageCoroutine(false);
+                GameManager.instance.skrapCount.SetQuantity(GameManager.instance.skrapCount.GetQuantity() - price);
                 return;
             }
         }
@@ -271,14 +289,21 @@ public class ShopFunctions : MonoBehaviour
             UIStore.instance.StartMessageCoroutine(true);
             return;
         }
+
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
         {
             Heavy gun = WeaponHolder.instance.transform.GetChild(i).GetComponent<Heavy>();
 
             if (gun != null)
             {
+                if (gun.ammoCount == gun.maxAmmo)
+                {
+                    UIStore.instance.StartMessageCoroutine(true);
+                    return;
+                }
                 gun.AddAmmo(ammoToAdd);
                 UIStore.instance.StartMessageCoroutine(false);
+                GameManager.instance.skrapCount.SetQuantity(GameManager.instance.skrapCount.GetQuantity() - price);
                 return;
             }
         }
