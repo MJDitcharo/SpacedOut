@@ -32,6 +32,11 @@ public class MagmaBossHealth : EnemyHealth
     protected override void Death()
     {
         GameManager.instance.bossHealthBar.transform.parent.parent.gameObject.SetActive(false);
+        GameObject[] fire = GameObject.FindGameObjectsWithTag("BossFire");
+        for (int i = 0; i < fire.Length; i++)
+        {
+            Destroy(fire[i]);
+        }
         base.Death();
     }
 }
