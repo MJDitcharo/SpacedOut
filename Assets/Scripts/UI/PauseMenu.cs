@@ -38,7 +38,6 @@ public class PauseMenu : PopUpMenu
         FreezeWorld();
         pauseMenuVisual.SetActive(gameIsPaused);
         Debug.Log("menu is active");
-        ScreenShake.instance.StopAllCoroutines();
     }
 
     public void UnpauseGame()
