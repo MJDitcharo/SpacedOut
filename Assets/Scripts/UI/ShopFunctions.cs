@@ -72,6 +72,7 @@ public class ShopFunctions : MonoBehaviour
                 weapon.SetFireRateMultiplier(PlayerPrefs.GetFloat("Pistol Fire Rate"));
                 next.SetActive(true);
                 previous.SetActive(false);
+                UIStore.instance.StartMessageCoroutine(false);
                 return;
             }
         }
@@ -104,8 +105,8 @@ public class ShopFunctions : MonoBehaviour
                     return;
                 }
                 gun.AddAmmo(ammoToAdd);
-                UIStore.instance.StartMessageCoroutine(false);
                 GameManager.instance.skrapCount.SetQuantity(GameManager.instance.skrapCount.GetQuantity() - price);
+                UIStore.instance.StartMessageCoroutine(false);
                 return;
             }
         }
@@ -138,6 +139,7 @@ public class ShopFunctions : MonoBehaviour
                 weapon.SetFireRateMultiplier(PlayerPrefs.GetFloat("Shotgun Fire Rate"));
                 next.SetActive(true);
                 previous.SetActive(false);
+                UIStore.instance.StartMessageCoroutine(false);
                 return;
             }
         }
@@ -170,8 +172,8 @@ public class ShopFunctions : MonoBehaviour
                     return;
                 }
                 gun.AddAmmo(ammoToAdd);
-                UIStore.instance.StartMessageCoroutine(false);
                 GameManager.instance.skrapCount.SetQuantity(GameManager.instance.skrapCount.GetQuantity() - price);
+                UIStore.instance.StartMessageCoroutine(false);
                 return;
             }
         }
@@ -205,6 +207,7 @@ public class ShopFunctions : MonoBehaviour
                 weapon.SetFireRateMultiplier(PlayerPrefs.GetFloat("Rifle Fire Rate"));
                 next.SetActive(true);
                 previous.SetActive(false);
+                UIStore.instance.StartMessageCoroutine(false);
                 return;
             }
         }
@@ -237,8 +240,8 @@ public class ShopFunctions : MonoBehaviour
                     return;
                 }
                 gun.AddAmmo(ammoToAdd);
-                UIStore.instance.StartMessageCoroutine(false);
                 GameManager.instance.skrapCount.SetQuantity(GameManager.instance.skrapCount.GetQuantity() - price);
+                UIStore.instance.StartMessageCoroutine(false);
                 return;
             }
         }
@@ -271,6 +274,7 @@ public class ShopFunctions : MonoBehaviour
                 weapon.SetFireRateMultiplier(PlayerPrefs.GetFloat("Heavy Fire Rate"));
                 next.SetActive(true);
                 previous.SetActive(false);
+                UIStore.instance.StartMessageCoroutine(false);
                 return;
             }
         }
@@ -304,8 +308,8 @@ public class ShopFunctions : MonoBehaviour
                     return;
                 }
                 gun.AddAmmo(ammoToAdd);
-                UIStore.instance.StartMessageCoroutine(false);
                 GameManager.instance.skrapCount.SetQuantity(GameManager.instance.skrapCount.GetQuantity() - price);
+                UIStore.instance.StartMessageCoroutine(false);
                 return;
             }
         }
@@ -338,6 +342,7 @@ public class ShopFunctions : MonoBehaviour
                 PlayerPrefs.SetFloat("Pistol Fire Rate", newFireRate);
                 next.SetActive(true);
                 previous.SetActive(false);
+                UIStore.instance.StartMessageCoroutine(false);
                 return;
             }
         }
@@ -361,6 +366,7 @@ public class ShopFunctions : MonoBehaviour
                 PlayerPrefs.SetFloat("Shotgun Fire Rate", newFireRate);
                 next.SetActive(true);
                 previous.SetActive(false);
+                UIStore.instance.StartMessageCoroutine(false);
                 return;
             }
         }
@@ -383,6 +389,7 @@ public class ShopFunctions : MonoBehaviour
                 PlayerPrefs.SetFloat("Rifle Fire Rate", newFireRate);
                 next.SetActive(true);
                 previous.SetActive(false);
+                UIStore.instance.StartMessageCoroutine(false);
                 return;
             }
         }
@@ -405,6 +412,7 @@ public class ShopFunctions : MonoBehaviour
                 PlayerPrefs.SetFloat("Heavy Fire Rate", newFireRate);
                 next.SetActive(true);
                 previous.SetActive(false);
+                UIStore.instance.StartMessageCoroutine(false);
                 return;
             }
         }
@@ -427,6 +435,7 @@ public class ShopFunctions : MonoBehaviour
                 PlayerPrefs.SetFloat("Pistol Damage", newDamage);
                 next.SetActive(true);
                 previous.SetActive(false);
+                UIStore.instance.StartMessageCoroutine(false);
                 return;
             }
         }
@@ -449,6 +458,7 @@ public class ShopFunctions : MonoBehaviour
                 PlayerPrefs.SetFloat("Shotgun Damage", newDamage);
                 next.SetActive(true);
                 previous.SetActive(false);
+                UIStore.instance.StartMessageCoroutine(false);
                 return;
             }
         }
@@ -471,6 +481,7 @@ public class ShopFunctions : MonoBehaviour
                 PlayerPrefs.SetFloat("Rifle Damage", newDamage);
                 next.SetActive(true);
                 previous.SetActive(false);
+                UIStore.instance.StartMessageCoroutine(false);
                 return;
             }
         }
@@ -493,6 +504,7 @@ public class ShopFunctions : MonoBehaviour
                 PlayerPrefs.SetFloat("Heavy Damage", newDamage);
                 next.SetActive(true);
                 previous.SetActive(false);
+                UIStore.instance.StartMessageCoroutine(false);
                 return;
             }
         }
