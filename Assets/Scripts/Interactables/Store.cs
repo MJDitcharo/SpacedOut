@@ -9,18 +9,16 @@ public class Store : MonoBehaviour
     // Update is called once per frames
     private void OnTriggerEnter(Collider other)
     {
-         if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
             GameManager.instance.prompt.ShowPrompt(prompt);
     }
 
     private void OnTriggerStay(Collider other)
     {
         //open the chest
-        if (!inStore)
-        {
-            if (other.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.F))
-                EnterStore();
-        }
+        if (other.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.F))
+            EnterStore();
+
     }
 
     private void OnTriggerExit(Collider other)
