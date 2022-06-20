@@ -16,6 +16,8 @@ public class bullet : MonoBehaviour
 
     public virtual void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.name == "Store")
+            return;
         playerHealth playerHP = other.gameObject.GetComponent<playerHealth>();
         if (playerHP != null && !playerHP.isDamageable)
             return;
