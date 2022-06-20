@@ -11,6 +11,7 @@ public class PistolDualWield : Pistol
         Rigidbody rb = bullet.GetComponent<Rigidbody>(); //acess the rigidbody of the game object
         rb.AddForce(firePoint[firePointIndex].forward * bulletForce, ForceMode.Impulse); //add a force in the up vector
         GameManager.instance.bullets.Add(bullet);
+        bullet.GetComponent<bullet>().damage = (int)(damage * damageMultiplier);
         firePointIndex++;
 
         ammoCount--;
