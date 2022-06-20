@@ -22,6 +22,7 @@ public class PopUpMenu : MonoBehaviour
     {
         Time.timeScale = 0;
         GameManager.instance.movement.enabled = false;
+        ScreenShake.instance.StopAllCoroutines();
     }
     public void UnfreezeWorld()
     {

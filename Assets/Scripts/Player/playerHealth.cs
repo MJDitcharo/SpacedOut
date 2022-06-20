@@ -74,5 +74,8 @@ public class playerHealth : health
         GameManager.instance.SetNormalCursor();
         gameObject.SetActive(false);
         GameManager.instance.movement.pushback = Vector3.zero;
+        GameObject[] skrapPickups = GameObject.FindGameObjectsWithTag("SkrapPickup");
+        foreach (GameObject gameObject in skrapPickups)
+            Destroy(gameObject);
     }
 }
