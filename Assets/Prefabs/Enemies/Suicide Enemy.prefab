@@ -334,6 +334,9 @@ MonoBehaviour:
   rend: {fileID: 137721361606954458}
   flashInterval: 0.1
   hitEffect: {fileID: 3440073099274173548, guid: 58d68c2e5c2dd494681e2a0e15044d16, type: 3}
+  goreEffect: {fileID: 3230906660309774650, guid: 1ae7b09f5219fe74b9ba89df7a65f6b9, type: 3}
+  explosionAudio: {fileID: 8300000, guid: 5543cefa2f8fc9e40bb3b5af6eac40ad, type: 3}
+  goreAudio: {fileID: 8300000, guid: ecf4288f1a77d4744bae08a5ec81c946, type: 3}
 --- !u!114 &-1995094943282613553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +362,7 @@ MonoBehaviour:
   fireParticleEffect: {fileID: 3510295273408693937, guid: 77fef4f80ccf4fc45848ec800b8bd6ac, type: 3}
   stunParticleEffect: {fileID: 1997773235792374, guid: ca1b1da5e83888f49b3a1148500975b9, type: 3}
   deathParticle: {fileID: 3230906660309774650, guid: 1ae7b09f5219fe74b9ba89df7a65f6b9, type: 3}
+  deathAudio: {fileID: 8300000, guid: ecf4288f1a77d4744bae08a5ec81c946, type: 3}
   drops: {fileID: 6076811627386069490, guid: d0306af4078577240a9a23e69fb7f953, type: 3}
   dropQuantity: 40
 --- !u!1001 &943787768

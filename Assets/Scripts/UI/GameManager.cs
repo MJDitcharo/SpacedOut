@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
         GameObject[] particles = GameObject.FindGameObjectsWithTag("Death Particles");
         for (int i = 0; i < particles.Length; i++)
         {
-            Debug.Log(i);
+            //Debug.Log(i);
             Destroy(particles[i]);
         }
 

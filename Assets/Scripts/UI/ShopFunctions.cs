@@ -182,6 +182,7 @@ public class ShopFunctions : MonoBehaviour
         if (GameManager.instance.skrapCount.GetQuantity() <= price)
         {
             UIStore.instance.StartMessageCoroutine(true);
+            return;
         }
 
             WeaponBase weapon;
@@ -247,6 +248,7 @@ public class ShopFunctions : MonoBehaviour
         if (GameManager.instance.skrapCount.GetQuantity() <= price)
         {
             UIStore.instance.StartMessageCoroutine(true);
+            return;
         }
 
         WeaponBase weapon;
@@ -405,7 +407,7 @@ public class ShopFunctions : MonoBehaviour
             Pistol gun = WeaponHolder.instance.transform.GetChild(i).GetComponent<Pistol>();
             if (gun != null)
             {
-                gun.SetFireRateMultiplier(newDamage);
+                gun.SetDamageMultiplier(newDamage);
                 GameManager.instance.skrapCount.SetQuantity(GameManager.instance.skrapCount.GetQuantity() - price);
                 PlayerPrefs.SetFloat("Pistol Damage", newDamage);
                 next.SetActive(true);
@@ -424,7 +426,7 @@ public class ShopFunctions : MonoBehaviour
             Shotgun gun = WeaponHolder.instance.transform.GetChild(i).GetComponent<Shotgun>();
             if (gun != null)
             {
-                gun.SetFireRateMultiplier(newDamage);
+                gun.SetDamageMultiplier(newDamage);
                 GameManager.instance.skrapCount.SetQuantity(GameManager.instance.skrapCount.GetQuantity() - price);
                 PlayerPrefs.SetFloat("Shotgun Damage", newDamage);
                 next.SetActive(true);
@@ -443,7 +445,7 @@ public class ShopFunctions : MonoBehaviour
             Rifle gun = WeaponHolder.instance.transform.GetChild(i).GetComponent<Rifle>();
             if (gun != null)
             {
-                gun.SetFireRateMultiplier(newDamage);
+                gun.SetDamageMultiplier(newDamage);
                 GameManager.instance.skrapCount.SetQuantity(GameManager.instance.skrapCount.GetQuantity() - price);
                 PlayerPrefs.SetFloat("Rifle Damage", newDamage);
                 next.SetActive(true);
@@ -462,7 +464,7 @@ public class ShopFunctions : MonoBehaviour
             Heavy gun = WeaponHolder.instance.transform.GetChild(i).GetComponent<Heavy>();
             if (gun != null)
             {
-                gun.SetFireRateMultiplier(newDamage);
+                gun.SetDamageMultiplier(newDamage);
                 GameManager.instance.skrapCount.SetQuantity(GameManager.instance.skrapCount.GetQuantity() - price);
                 PlayerPrefs.SetFloat("Heavy Damage", newDamage);
                 next.SetActive(true);

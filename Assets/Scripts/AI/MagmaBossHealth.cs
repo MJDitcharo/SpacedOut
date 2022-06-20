@@ -12,6 +12,10 @@ public class MagmaBossHealth : EnemyHealth
 
     private void Start()
     {
+        deathSound = new Sound();
+        deathSound.audio = deathAudio;
+        deathSound.audioType = AudioStyle.sfx;
+
         GameManager.instance.bossHealthBar.transform.parent.parent.gameObject.SetActive(true);
         bossHealthBar = GameManager.instance.bossHealthBar.GetComponent<Image>();
     }

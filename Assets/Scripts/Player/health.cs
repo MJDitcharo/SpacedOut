@@ -29,10 +29,16 @@ public class health : MonoBehaviour
     [SerializeField] GameObject fireParticleEffect;
     [SerializeField] GameObject stunParticleEffect;
     [SerializeField] protected GameObject deathParticle;
+    [SerializeField] protected AudioClip deathAudio;
+    protected Sound deathSound;
     
     // Start is called before the first frame update
     void Start()
     {
+        deathSound = new Sound();
+        deathSound.audio = deathAudio;
+        deathSound.audioType = AudioStyle.sfx;
+
         burnTimer = 0;
         currHealth = maxHealth;
     }
@@ -45,7 +51,7 @@ public class health : MonoBehaviour
         {
             if (fireTick >= fireTickTime)
             {
-                Debug.Log("Burning");
+                //Debug.Log("Burning");
                 DoDamage(10);
 
                 Instantiate(fireParticleEffect, transform);
@@ -85,6 +91,9 @@ public class health : MonoBehaviour
     {
         if (deathParticle != null)
             Instantiate(deathParticle, transform.position, Quaternion.identity);
+
+        AudioManager.Instance.PlaySFX(deathSound);
+
         Destroy(gameObject);
     }
 

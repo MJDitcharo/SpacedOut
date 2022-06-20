@@ -7,9 +7,11 @@ public class EnemyHealth : health
     public GameObject drops;
     public int dropQuantity;
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
-        
+        deathSound = new Sound();
+        deathSound.audio = deathAudio;
+        deathSound.audioType = AudioStyle.sfx;
     }
 
     protected override void Death()
@@ -26,6 +28,7 @@ public class EnemyHealth : health
         drop.GetComponent<SkrapPickup>().quantity = dropQuantity;
         if (deathParticle != null)
             Instantiate(deathParticle, transform.position, Quaternion.identity);
+        AudioManager.Instance.PlaySFX(deathSound);
         Destroy(gameObject);
 
     }

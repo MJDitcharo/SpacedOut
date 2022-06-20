@@ -15,6 +15,11 @@ public class SuicideAttackState : State
     [SerializeField] Renderer rend;
     [SerializeField] float flashInterval = .1f;
     [SerializeField] GameObject hitEffect;
+    [SerializeField] GameObject goreEffect;
+    [SerializeField] AudioClip explosionAudio;
+    [SerializeField] AudioClip goreAudio;
+    Sound explosionSound;
+    Sound goreSound;
 
     Color[] initialColor;
     Coroutine flashing;
@@ -23,6 +28,13 @@ public class SuicideAttackState : State
 
     private void Start()
     {
+        explosionSound = new Sound();
+        goreSound = new Sound();
+        explosionSound.audio = explosionAudio;
+        goreSound.audio = goreAudio;
+        explosionSound.audioType = AudioStyle.sfx;
+        goreSound.audioType = AudioStyle.sfx;
+
         startingScale = transform.localScale;
         
         initialColor = new Color[rend.materials.Length];
@@ -70,6 +82,9 @@ public class SuicideAttackState : State
         }
         //StopCoroutine(flashing);
         Instantiate(hitEffect, transform.position, Quaternion.identity);
+        Instantiate(goreEffect, transform.position, Quaternion.identity);
+        AudioManager.Instance.PlaySFX(goreSound);
+        AudioManager.Instance.PlaySFX(explosionSound);
         Destroy(gameObject);
     }
 

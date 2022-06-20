@@ -309,9 +309,12 @@ MonoBehaviour:
   fireTickTime: 0.5
   vulnAmount: 1.5
   vulnTime: 5
+  increasedDamage: 1
+  increasedDamageDecayRate: 0.5
   fireParticleEffect: {fileID: 3510295273408693937, guid: 77fef4f80ccf4fc45848ec800b8bd6ac, type: 3}
   stunParticleEffect: {fileID: 0}
   deathParticle: {fileID: 3230906660309774650, guid: 1ae7b09f5219fe74b9ba89df7a65f6b9, type: 3}
+  deathAudio: {fileID: 8300000, guid: ecf4288f1a77d4744bae08a5ec81c946, type: 3}
   isDamageable: 1
   delayRate: 10
   playerHitAudio: {fileID: 8300000, guid: d01fd091fb6253c42ba3e8e5bac35aa9, type: 3}
