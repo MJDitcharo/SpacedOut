@@ -138,6 +138,8 @@ public class UIStoreButtons : MonoBehaviour
         GameManager.instance.SetFightingCursor();
         UIStore.instance.purchaseMessageObj.SetActive(false);
         UIStore.instance.Deactivate();
+        //show prompt for entering the store
+        GameManager.instance.prompt.ShowPrompt("Press F To Enter");
     }
     #region PickupButtons
     // Allows you to buy anything in the shop taking away the proper amount of skrap while adding the item
