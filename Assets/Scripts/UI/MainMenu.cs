@@ -76,9 +76,9 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("Board Wipes", 0);
         PlayerPrefs.SetInt("Chest Opened", 0);
         PlayerPrefs.SetInt("Child Count", 0);
-        PlayerPrefs.SetString("Weapon 0", "Pistol");
+        //PlayerPrefs.SetString("Weapon 0", "Pistol");
         PlayerPrefs.SetInt("Pistol Ammo", 1000);
-        PlayerPrefs.SetInt("Pistol Page", 0);
+        PlayerPrefs.SetInt("Pistol Page", 1);
         PlayerPrefs.SetInt("Shotgun Page", 0);
         PlayerPrefs.SetInt("Rifle Page", 0);
         PlayerPrefs.SetInt("Heavy Page", 0);
@@ -101,6 +101,8 @@ public class MainMenu : MonoBehaviour
 
         PlayerPrefs.SetFloat("Heavy Damage", 1);
         PlayerPrefs.SetFloat("Heavy Fire Rate", 1);
+
+        PlayerPrefs.SetInt("Weapon 0", 0);
 
         LoadingScene(1);
     }
