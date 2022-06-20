@@ -73,7 +73,7 @@ public class SuicideAttackState : State
             GameManager.instance.movement.pushback += (-pushbackMultiplier * (transform.position - GameManager.instance.player.transform.position).normalized);
         }
         GameManager.instance.enemyCount--;
-        if (GameManager.instance.enemyCount <= 0)
+        if (GameManager.instance.enemyCount <= 0 && GameManager.instance.playerHealth.currHealth > 0)
         {
             GameManager.instance.checkpointIndex++;
             GameManager.instance.checkpoints[GameManager.instance.checkpointIndex].GetComponent<RoomManager>().EndLockDown();

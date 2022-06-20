@@ -17,7 +17,7 @@ public class EnemyHealth : health
     protected override void Death()
     {
         GameManager.instance.enemyCount--;
-        if (GameManager.instance.enemyCount <= 0)
+        if (GameManager.instance.enemyCount <= 0 && GameManager.instance.playerHealth.currHealth > 0)
         {
             GameManager.instance.checkpointIndex++;
             GameManager.instance.checkpoints[GameManager.instance.checkpointIndex].GetComponent<RoomManager>().EndLockDown();
