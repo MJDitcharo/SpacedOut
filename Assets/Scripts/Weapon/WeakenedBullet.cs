@@ -2,19 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeakenedBullet : MonoBehaviour
+public class WeakenedBullet : bullet
 {
-    public float explosiveRadius = 0;
-    [SerializeField] float pushbackMultiplier = 1;
-    public GameObject hitEffect;
-    public int damage = 10;
 
     private void Start()
     {
         Destroy(gameObject, 2);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public override void OnTriggerEnter(Collider other)
     {
         playerHealth playerHP = other.gameObject.GetComponent<playerHealth>();
         if (playerHP != null && !playerHP.isDamageable)

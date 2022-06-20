@@ -46,7 +46,7 @@ public class ShopFunctions : MonoBehaviour
 
     public void BuyPistol(int gunIndex)
     {
-        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        if (GameManager.instance.skrapCount.GetQuantity() < price)
         {
             UIStore.instance.StartMessageCoroutine(true);
             return;
@@ -88,7 +88,7 @@ public class ShopFunctions : MonoBehaviour
     public void BuyPistolAmmo()
     {
         int ammoToAdd = 20;
-        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        if (GameManager.instance.skrapCount.GetQuantity() < price)
         {
             UIStore.instance.StartMessageCoroutine(true);
             return;
@@ -113,7 +113,7 @@ public class ShopFunctions : MonoBehaviour
     }
     public void BuyShotgun(int gunIndex)
     {
-        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        if (GameManager.instance.skrapCount.GetQuantity() < price)
         {
             UIStore.instance.StartMessageCoroutine(true);
             return;
@@ -155,7 +155,7 @@ public class ShopFunctions : MonoBehaviour
     public void BuyShotgunAmmo()
     {
         int ammoToAdd = 20;
-        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        if (GameManager.instance.skrapCount.GetQuantity() < price)
         {
             UIStore.instance.StartMessageCoroutine(true);
             return;
@@ -181,7 +181,7 @@ public class ShopFunctions : MonoBehaviour
 
     public void BuyRifle(int gunIndex)
     {
-        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        if (GameManager.instance.skrapCount.GetQuantity() < price)
         {
             UIStore.instance.StartMessageCoroutine(true);
             return;
@@ -223,7 +223,7 @@ public class ShopFunctions : MonoBehaviour
     public void BuyRifleAmmo()
     {
         int ammoToAdd = 20;
-        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        if (GameManager.instance.skrapCount.GetQuantity() < price)
         {
             UIStore.instance.StartMessageCoroutine(true);
             return;
@@ -248,7 +248,7 @@ public class ShopFunctions : MonoBehaviour
     }
     public void BuyHeavy(int gunIndex)
     {
-        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        if (GameManager.instance.skrapCount.GetQuantity() < price)
         {
             UIStore.instance.StartMessageCoroutine(true);
             return;
@@ -290,7 +290,7 @@ public class ShopFunctions : MonoBehaviour
     public void BuyHeavyAmmo()
     {
         int ammoToAdd = 20;
-        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        if (GameManager.instance.skrapCount.GetQuantity() < price)
         {
             UIStore.instance.StartMessageCoroutine(true);
             return;
@@ -326,7 +326,7 @@ public class ShopFunctions : MonoBehaviour
 
     public void UpgradeFireRatePistol(float newFireRate)
     {
-        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        if (GameManager.instance.skrapCount.GetQuantity() < price)
         {
             UIStore.instance.StartMessageCoroutine(true);
             return;
@@ -350,7 +350,7 @@ public class ShopFunctions : MonoBehaviour
 
     public void UpgradeFireRateShotgun(float newFireRate)
     {
-        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        if (GameManager.instance.skrapCount.GetQuantity() < price)
         {
             UIStore.instance.StartMessageCoroutine(true);
             return;
@@ -373,7 +373,7 @@ public class ShopFunctions : MonoBehaviour
     }
     public void UpgradeFireRateRifle(float newFireRate)
     {
-        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        if (GameManager.instance.skrapCount.GetQuantity() < price)
         {
             UIStore.instance.StartMessageCoroutine();
             return;
@@ -396,7 +396,7 @@ public class ShopFunctions : MonoBehaviour
     }
     public void UpgradeFireRateHeavy(float newFireRate)
     {
-        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        if (GameManager.instance.skrapCount.GetQuantity() < price)
         {
             UIStore.instance.StartMessageCoroutine();
             return;
@@ -419,7 +419,7 @@ public class ShopFunctions : MonoBehaviour
     }
     public void UpgradeDamagePistol(float newDamage)
     {
-        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        if (GameManager.instance.skrapCount.GetQuantity() < price)
         {
             UIStore.instance.StartMessageCoroutine();
             return;
@@ -442,7 +442,7 @@ public class ShopFunctions : MonoBehaviour
     }
     public void UpgradeDamageShotgun(float newDamage)
     {
-        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        if (GameManager.instance.skrapCount.GetQuantity() < price)
         {
             UIStore.instance.StartMessageCoroutine();
             return;
@@ -465,7 +465,7 @@ public class ShopFunctions : MonoBehaviour
     }
     public void UpgradeDamageRifle(float newDamage)
     {
-        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        if (GameManager.instance.skrapCount.GetQuantity() < price)
         {
             UIStore.instance.StartMessageCoroutine();
             return;
@@ -488,7 +488,7 @@ public class ShopFunctions : MonoBehaviour
     }
     public void UpgradeDamageHeavy(float newDamage)
     {
-        if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        if (GameManager.instance.skrapCount.GetQuantity() < price)
         {
             UIStore.instance.StartMessageCoroutine();
             return;
