@@ -23,7 +23,7 @@ public class DestroyShield : MonoBehaviour
         }
     }
 
-    void DamageShield(int damage)
+    public void DamageShield(int damage)
     {
         currentShieldHealth -=damage;
         DamagePopUpManager.Instance.StartCoroutine(DamagePopUpManager.Instance.DamageIndicator(damage, gameObject.transform.position));
