@@ -65,9 +65,9 @@ public class UIStore : PopUpMenu
     }
 
 
-    public void StartMessageCoroutine(bool purchaseFailed, string message = "")
+    public void StartMessageCoroutine(bool purchaseFailed = true, string message = "")
     {
-        StartCoroutine(HandlePurchaseMessage(purchaseFailed, message));
+        StartCoroutine(HandlePurchaseMessage(purchaseFailed, message)); 
     }
 
     public void Activate()

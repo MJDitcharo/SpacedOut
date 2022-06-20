@@ -100,7 +100,7 @@ public class ShopFunctions : MonoBehaviour
             {
                 if (gun.ammoCount == gun.maxAmmo)
                 {
-                    UIStore.instance.StartMessageCoroutine(true);
+                    UIStore.instance.StartMessageCoroutine(true, "Already at max ammo!");
                     return;
                 }
                 gun.AddAmmo(ammoToAdd);
@@ -166,7 +166,7 @@ public class ShopFunctions : MonoBehaviour
             {
                 if (gun.ammoCount == gun.maxAmmo)
                 {
-                    UIStore.instance.StartMessageCoroutine(true);
+                    UIStore.instance.StartMessageCoroutine(true, "Already at max ammo!");
                     return;
                 }
                 gun.AddAmmo(ammoToAdd);
@@ -233,7 +233,7 @@ public class ShopFunctions : MonoBehaviour
             {
                 if (gun.ammoCount == gun.maxAmmo)
                 {
-                    UIStore.instance.StartMessageCoroutine(true);
+                    UIStore.instance.StartMessageCoroutine(true, "Already at max ammo!");
                     return;
                 }
                 gun.AddAmmo(ammoToAdd);
@@ -300,7 +300,7 @@ public class ShopFunctions : MonoBehaviour
             {
                 if (gun.ammoCount == gun.maxAmmo)
                 {
-                    UIStore.instance.StartMessageCoroutine(true);
+                    UIStore.instance.StartMessageCoroutine(true, "Already at max ammo!");
                     return;
                 }
                 gun.AddAmmo(ammoToAdd);
@@ -323,7 +323,10 @@ public class ShopFunctions : MonoBehaviour
     public void UpgradeFireRatePistol(float newFireRate)
     {
         if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        {
+            UIStore.instance.StartMessageCoroutine(true);
             return;
+        }
 
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
         {
@@ -343,7 +346,10 @@ public class ShopFunctions : MonoBehaviour
     public void UpgradeFireRateShotgun(float newFireRate)
     {
         if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        {
+            UIStore.instance.StartMessageCoroutine(true);
             return;
+        }
 
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
         {
@@ -362,7 +368,10 @@ public class ShopFunctions : MonoBehaviour
     public void UpgradeFireRateRifle(float newFireRate)
     {
         if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        {
+            UIStore.instance.StartMessageCoroutine();
             return;
+        }
 
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
         {
@@ -381,7 +390,10 @@ public class ShopFunctions : MonoBehaviour
     public void UpgradeFireRateHeavy(float newFireRate)
     {
         if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        {
+            UIStore.instance.StartMessageCoroutine();
             return;
+        }
 
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
         {
@@ -400,7 +412,10 @@ public class ShopFunctions : MonoBehaviour
     public void UpgradeDamagePistol(float newDamage)
     {
         if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        {
+            UIStore.instance.StartMessageCoroutine();
             return;
+        }
 
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
         {
@@ -419,7 +434,10 @@ public class ShopFunctions : MonoBehaviour
     public void UpgradeDamageShotgun(float newDamage)
     {
         if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        {
+            UIStore.instance.StartMessageCoroutine();
             return;
+        }
 
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
         {
@@ -438,7 +456,10 @@ public class ShopFunctions : MonoBehaviour
     public void UpgradeDamageRifle(float newDamage)
     {
         if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        {
+            UIStore.instance.StartMessageCoroutine();
             return;
+        }
 
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
         {
@@ -457,7 +478,10 @@ public class ShopFunctions : MonoBehaviour
     public void UpgradeDamageHeavy(float newDamage)
     {
         if (GameManager.instance.skrapCount.GetQuantity() <= price)
+        {
+            UIStore.instance.StartMessageCoroutine();
             return;
+        }
 
         for (int i = 0; i < WeaponHolder.instance.transform.childCount; i++)
         {
