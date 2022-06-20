@@ -26,4 +26,9 @@ public class UIPrompt : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    public bool IsActive()
+    {
+        return gameObject.activeInHierarchy;
+    }
 }
