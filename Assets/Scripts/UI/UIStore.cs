@@ -86,7 +86,10 @@ public class UIStore : PopUpMenu
         shopVisual.SetActive(false);
         GameManager.instance.shopIsActive = false;
         if (purchaseMessageObj.activeInHierarchy)
+        {
+            StopAllCoroutines();
             purchaseMessageObj.SetActive(false);
+        }
         UnfreezeWorld();
     }
 
