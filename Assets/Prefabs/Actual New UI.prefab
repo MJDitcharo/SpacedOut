@@ -4082,7 +4082,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6019435880107829293}
-  - component: {fileID: 3468347348457743521}
   m_Layer: 5
   m_Name: Pistol Page
   m_TagString: Untagged
@@ -4120,33 +4119,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000022888, y: 79}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3468347348457743521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1952523550460087294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59afae8cdce8f1a42a60c34903dad977, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammoCost: 100
-  weaponCost: 21
-  ammoQuantity: 20
-  tier1Upgrade: 200
-  tier2Upgrade: 300
-  tier3Upgrade: 300
-  fireRateQuantity: 1.5
-  damageQuantity: 1.5
-  buyAmmo: {fileID: 3377416789674742737}
-  upgradeTiers:
-  - {fileID: 8288777171392554382}
-  - {fileID: 7957883142293628391}
-  - {fileID: 8709573330086448017}
-  - {fileID: 3326435384143901272}
-  - {fileID: 6805613176813409797}
 --- !u!1 &1979921317270041711
 GameObject:
   m_ObjectHideFlags: 0
@@ -10460,7 +10432,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1164846747439212017}
-  - component: {fileID: 2906525718705434788}
   m_Layer: 5
   m_Name: Rifle Page
   m_TagString: Untagged
@@ -10498,33 +10469,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000022888, y: 57.000042}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2906525718705434788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5793609450240152392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5c095f7acce29e46bc26f51f4253248, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammoCost: 100
-  weaponCost: 500
-  ammoQuantity: 50
-  tier1Upgrade: 300
-  tier2Upgrade: 400
-  tier3Upgrade: 500
-  fireRateQuantity: 1.5
-  damageQuantity: 1.5
-  buyAmmo: {fileID: 3138942402567647031}
-  upgradeTiers:
-  - {fileID: 916664136183892343}
-  - {fileID: 3562712528914440962}
-  - {fileID: 6598103273603866931}
-  - {fileID: 7488988272111953598}
-  - {fileID: 5918195615485474085}
 --- !u!1 &5796793444115682338
 GameObject:
   m_ObjectHideFlags: 0
@@ -11970,7 +11914,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4848611423644815552}
-  - component: {fileID: 1196665189362125085}
   m_Layer: 5
   m_Name: Heavy Page
   m_TagString: Untagged
@@ -12008,33 +11951,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000022888, y: 57.000042}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1196665189362125085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6092276462098982076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 391486dd9b09dba4492ebfbcff4a991e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammoCost: 500
-  weaponCost: 600
-  ammoQuantity: 3
-  tier1Upgrade: 200
-  tier2Upgrade: 500
-  tier3Upgrade: 1000
-  fireRateQuantity: 1.5
-  damageQuantity: 2
-  buyAmmo: {fileID: 2421826568793447694}
-  upgradeTiers:
-  - {fileID: 8150572216910890787}
-  - {fileID: 276557676755369014}
-  - {fileID: 6897604693951757652}
-  - {fileID: 9039564857980132043}
-  - {fileID: 1051488247693593642}
 --- !u!1 &6142503479732182687
 GameObject:
   m_ObjectHideFlags: 0
@@ -13561,7 +13477,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PLAC
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17678,7 +17594,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3759363193406672675}
-  - component: {fileID: 7604711274092369359}
   m_Layer: 5
   m_Name: Shotgun Page
   m_TagString: Untagged
@@ -17716,33 +17631,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000022888, y: 57.000042}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7604711274092369359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8435252283267226513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0626d3e83c397744d891ea9dfe277572, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammoCost: 200
-  weaponCost: 300
-  ammoQuantity: 20
-  tier1Upgrade: 300
-  tier2Upgrade: 400
-  tier3Upgrade: 500
-  fireRateQuantity: 1.5
-  damageQuantity: 1.5
-  buyAmmo: {fileID: 635383604963637918}
-  upgradeTiers:
-  - {fileID: 3807989942337771962}
-  - {fileID: 4952675486089853216}
-  - {fileID: 5590180243846432327}
-  - {fileID: 4776126082122079737}
-  - {fileID: 8957947608318947622}
 --- !u!1 &8709573330086448017
 GameObject:
   m_ObjectHideFlags: 0
@@ -32103,11 +31991,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6818109402835331300, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
   m_PrefabInstance: {fileID: 6219361570010878581}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &635383604963637918 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6818109402835331307, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
-  m_PrefabInstance: {fileID: 6219361570010878581}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6325436884852367561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36776,11 +36659,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
---- !u!1 &3377416789674742737 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6818109402835331307, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
-  m_PrefabInstance: {fileID: 8088522989131332410}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3377416789674742750 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6818109402835331300, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
@@ -37331,11 +37209,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
---- !u!1 &3138942402567647031 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6818109402835331307, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
-  m_PrefabInstance: {fileID: 8435533589561771996}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3138942402567647032 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6818109402835331300, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
@@ -40341,11 +40214,6 @@ PrefabInstance:
 --- !u!224 &2421826568793447681 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6818109402835331300, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
-  m_PrefabInstance: {fileID: 9152092957569545701}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2421826568793447694 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6818109402835331307, guid: e8e57731185ae934e9bd0db4f617eda7, type: 3}
   m_PrefabInstance: {fileID: 9152092957569545701}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9181345189556695181
