@@ -77,5 +77,7 @@ public class playerHealth : health
         GameObject[] skrapPickups = GameObject.FindGameObjectsWithTag("SkrapPickup");
         foreach (GameObject gameObject in skrapPickups)
             Destroy(gameObject);
+        //double check that the color is normal
+        this.gameObject.GetComponent<EnemyFlashRed>().ToNormalColor();
     }
 }

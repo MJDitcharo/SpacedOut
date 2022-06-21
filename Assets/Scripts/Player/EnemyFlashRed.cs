@@ -11,7 +11,6 @@ public class EnemyFlashRed : MonoBehaviour
     public Renderer rend;
 
     [SerializeField] float flashTime = .1f;
-
     private void Start()
     {
         normalColor = new Color[rend.materials.Length];
@@ -38,6 +37,11 @@ public class EnemyFlashRed : MonoBehaviour
             rend.materials[i].color = collideColor;
         }
         yield return new WaitForSeconds(flashTime);
+        ToNormalColor();
+    }
+
+    public void ToNormalColor()
+    {
         for (int i = 0; i < normalColor.Length; i++)
         {
             rend.materials[i].color = normalColor[i];
