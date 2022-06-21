@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc6f9bbdf63b0545a4fdc8fc1c64904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8520191430088977699, guid: 25a2958753bbf524cb089657d48e29aa, type: 3}
+  bulletPrefab: {fileID: 8520191430088977699, guid: ef6cd244aa4b8df4080437607702161e, type: 3}
   bulletSpeed: 20
   shootDelay: 0.5
 --- !u!1 &7730637241128934362
@@ -132,7 +132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5302849942716584988
 Transform:
   m_ObjectHideFlags: 0
@@ -163,7 +163,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7730637241128934362}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -208,6 +208,10 @@ PrefabInstance:
     - target: {fileID: 100014, guid: 02dd6406ed1ebc248b2fafd0485e0de9, type: 3}
       propertyPath: m_Name
       value: Astronaut
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: 02dd6406ed1ebc248b2fafd0485e0de9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400014, guid: 02dd6406ed1ebc248b2fafd0485e0de9, type: 3}
       propertyPath: m_RootOrder
