@@ -11,6 +11,7 @@ public class ShotgunSlugPlasma : Shotgun
     {
         GameObject blast = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         blast.transform.rotation = transform.rotation;
+        blast.GetComponent<bullet>().damage = (int)(damage * damageMultiplier);
         Rigidbody blastRB = blast.GetComponent<Rigidbody>();
         blastRB.velocity = transform.forward * projectileSpeed;
 

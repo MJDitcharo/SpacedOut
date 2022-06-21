@@ -138,6 +138,8 @@ public class UIStoreButtons : MonoBehaviour
         GameManager.instance.SetFightingCursor();
         UIStore.instance.purchaseMessageObj.SetActive(false);
         UIStore.instance.Deactivate();
+        //show prompt for entering the store
+        GameManager.instance.prompt.ShowPrompt("Press F To Enter");
     }
     #region PickupButtons
     // Allows you to buy anything in the shop taking away the proper amount of skrap while adding the item
@@ -153,15 +155,24 @@ public class UIStoreButtons : MonoBehaviour
     public void BuyHealth()
     {
         bool purchaseFailed;
-        if (GameManager.instance.skrapCount.GetQuantity() >= GeneralPage.instance.healthCost)
+        if (GameManager.instance.skrapCount.GetQuantity() >= GeneralPage.instance.healthCost && GameManager.instance.playerHealth.currHealth < GameManager.instance.playerHealth.maxHealth)
         {
             GameManager.instance.playerHealth.AddHealth((float)(GeneralPage.instance.healthQuantity * .01f));
             GameManager.instance.skrapCount.Subtract(GeneralPage.instance.healthCost);
             purchaseFailed = false;
+            UIStore.instance.StartMessageCoroutine(purchaseFailed);
+        }
+        else if (GameManager.instance.playerHealth.currHealth >= GameManager.instance.playerHealth.maxHealth)
+        {
+            purchaseFailed = true;
+            UIStore.instance.StartMessageCoroutine(purchaseFailed, "At Max health");
         }
         else
+        {
             purchaseFailed = true;
-        UIStore.instance.StartMessageCoroutine(purchaseFailed);
+            UIStore.instance.StartMessageCoroutine(purchaseFailed);
+        }
+        
         GameManager.instance.SaveGame();
     }
 

@@ -177,17 +177,13 @@ public class MainMenu : MonoBehaviour
         loadingScreen.SetActive(true);
         operation.allowSceneActivation = false;
         
-        yield return new WaitForSeconds(3);
-        operation.allowSceneActivation = true;
-        //while (!operation.isDone)
-        //{
-            Debug.Log("Loading");
-        //    float loadProgess = Mathf.Clamp01(operation.progress/0.9f);
-        //    loadingBar.fillAmount = loadProgess;
-        //    yield return null;
-        //}
+       yield return new WaitForSeconds(1.5f);
+       float loadProgess = Mathf.Clamp01(operation.progress / 0.9f);
+       loadingBar.fillAmount = loadProgess;
+       yield return new WaitForSeconds(1.5f);
         
-            
+        operation.allowSceneActivation = true;
+
     }
 }
 

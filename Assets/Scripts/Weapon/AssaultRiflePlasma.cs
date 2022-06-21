@@ -18,7 +18,12 @@ public class AssaultRiflePlasma : Rifle
             health hp = hit.collider.gameObject.GetComponent<health>();
             if(hp != null)
             {
-                hp.DoDamage((int)damage);
+                hp.DoDamage((int)(damage * damageMultiplier));
+            }
+            DestroyShield shield = hit.collider.gameObject.GetComponent<DestroyShield>();
+            if(shield != null)
+            {
+                shield.DamageShield((int)(damage * damageMultiplier));
             }
         }
         ammoCount--;
