@@ -23,6 +23,7 @@ public class GenericMenuButtons : PopUpMenu
         GameManager.instance.pmenu.UnpauseGame();
         //GameManager.instance.Respawn();
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        
     }
     
     public void OKChestClicked()

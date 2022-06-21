@@ -24,6 +24,10 @@ public class GameOverButtons : PopUpMenu
         GameManager.instance.Respawn();
         Time.timeScale = 1;
         GameManager.instance.SetFightingCursor();
+        //delete all bullets
+        GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
+        foreach (GameObject bullet in bullets)
+            Destroy(bullet);
     }
 
     private void Update()
