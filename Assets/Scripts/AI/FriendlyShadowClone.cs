@@ -15,7 +15,7 @@ public class FriendlyShadowClone : MonoBehaviour
 
     private void Update()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 20);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 50);
         if (colliders.Length != 0)
         {
             GameObject closest = null;
@@ -33,7 +33,10 @@ public class FriendlyShadowClone : MonoBehaviour
             }
 
             Debug.Log(closest);
-            transform.LookAt(closest.transform.position);
+            if (closest == null)
+                Destroy(gameObject);
+            else
+                transform.LookAt(closest.transform.position);
         }
     }
 
@@ -43,7 +46,7 @@ public class FriendlyShadowClone : MonoBehaviour
         {
             yield return new WaitForSeconds(shootDelay);
 
-            GameObject bul = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            GameObject bul = Instantiate(bulletPrefab, transform.position, transform.rotation);
             bul.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
         }
     }
