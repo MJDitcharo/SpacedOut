@@ -17,7 +17,6 @@ public class TutorialBase : PopUpMenu
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("inside teacher");
         if (other.gameObject == GameManager.instance.player)
             Teach();
     }

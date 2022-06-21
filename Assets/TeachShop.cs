@@ -8,7 +8,7 @@ public class TeachShop : TutorialBase
     float seconds = 2;
     void Update()
     {
-        if (GameManager.instance.shopIsActive)
+        if (promptCanvas.activeInHierarchy && Time.timeScale <= 0)
             StopTeach();
     }
     protected override void Teach()

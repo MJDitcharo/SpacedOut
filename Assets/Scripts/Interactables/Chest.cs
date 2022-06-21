@@ -16,7 +16,6 @@ public class Chest : MonoBehaviour
     public int associatedCheckpoint = 0;
     public int skrap;
     int oldSkrapCount;
-
     bool chestOpened = false;
 
 
@@ -48,7 +47,7 @@ public class Chest : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && !playAni) //only move if colliding eith the player and do it once 
-            GameManager.instance.prompt.ShowPrompt("Press F to Enter");
+            GameManager.instance.prompt.ShowPrompt("Press F To Open");
     }
 
     private void OnTriggerStay(Collider other)
