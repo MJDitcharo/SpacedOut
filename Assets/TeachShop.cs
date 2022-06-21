@@ -22,4 +22,10 @@ public class TeachShop : TutorialBase
         yield return new WaitForSeconds(5);
         StopTeach();
     }
+
+    protected override void StopTeach()
+    {
+        promptCanvas.SetActive(false);
+        gameObject.SetActive(false);
+    }
 }
