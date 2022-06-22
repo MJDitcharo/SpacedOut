@@ -234,6 +234,8 @@ public class GameManager : MonoBehaviour
         playerHealth.currHealth = PlayerPrefs.GetInt("Player Health");
         playerHealth.maxHealth = PlayerPrefs.GetInt("Max Player Health");
         healthBar.SetHealth((float)playerHealth.currHealth / playerHealth.maxHealth);
+        //healthBar.SetHealthFirstTime((float)playerHealth.currHealth / playerHealth.maxHealth, playerHealth.maxHealth);
+
         //boardWipeCount.SetQuantity(PlayerPrefs.GetInt("Board Wipes"));
 
         /*WeaponHolder.instance.currentChildCount = PlayerPrefs.GetInt("Child Count");

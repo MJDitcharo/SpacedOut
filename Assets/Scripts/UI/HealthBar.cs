@@ -62,4 +62,22 @@ public class HealthBar : MonoBehaviour
         GameManager.instance.playerHealth.AddMaxHealth(moreHealth);
     }
 
+    /// <summary>
+    /// Sets the number as well as the visual
+    /// </summary>
+    /// <param name="health"></param>
+    /// <param name="maxHealth"></param>
+    public void SetHealthFirstTime(float health, float maxHealth)
+    {
+        SetHealth(health);
+        //set the visual
+        int length = (int)((maxHealth - 100) / moreHealth);
+        for (int i = 0; i < length; i++)
+        {
+            int increaseSize = moreHealth * 2;
+            rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x + increaseSize, rectTransform.sizeDelta.y); //increase the width of the bar
+            rectTransform.position = new Vector3(rectTransform.position.x + increaseSize / 2, rectTransform.position.y, rectTransform.position.z); //reposition the bar
+        }
+    }
+
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Store : MonoBehaviour
 {
     bool inStore = false;
-    [SerializeField] string prompt = "Press F To Enter";
+    [SerializeField] string prompt = "Press F To Build";
     // Update is called once per frames
     private void OnTriggerEnter(Collider other)
     {
@@ -16,8 +16,13 @@ public class Store : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         //open the chest
-        if (other.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.F))
-            EnterStore();
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (!GameManager.instance.prompt.gameObject.activeInHierarchy)
+                GameManager.instance.prompt.ShowPrompt(prompt);
+            if (Input.GetKey(KeyCode.F))
+                EnterStore();
+        }
 
     }
 
