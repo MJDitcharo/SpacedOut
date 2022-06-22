@@ -135,6 +135,11 @@ public class WeaponHolder : MonoBehaviour
                     selectedWeapon = transform.childCount-1;
             }
 
+            for (int i = 0; i <= transform.childCount - 1; i++)
+            {
+                if (Input.GetKeyDown(keys[i]))
+                    selectedWeapon = i;
+            }
            
 
             for (int j = 0; j < transform.childCount; j++)
@@ -145,11 +150,6 @@ public class WeaponHolder : MonoBehaviour
                     transform.GetChild(j).gameObject.SetActive(false);
             }
 
-            for (int i = 0; i <= transform.childCount; i++)
-            {
-                if (Input.GetKeyDown(keys[i]))
-                    selectedWeapon = i;
-            }
             //SelectWeapon();
         }
     }
