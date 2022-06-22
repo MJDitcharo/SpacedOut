@@ -7,6 +7,10 @@ public class RifleBurstVoid : RifleBurst
     public float seconds;
     int fireSpread = 6;
     // Start is called before the first frame update
+    private void OnEnable()
+    {
+        OnWeaponSwitch();
+    }
     public override void Update()
     {
         if (Input.GetButton("Fire1"))
@@ -24,6 +28,11 @@ public class RifleBurstVoid : RifleBurst
     public override void Shoot()
     {
         StartCoroutine(Burst());
+    }
+    public override void OnWeaponSwitch()
+    {
+        base.OnWeaponSwitch();
+        seconds = 0;
     }
 
     IEnumerator Burst()
@@ -54,5 +63,7 @@ public class RifleBurstVoid : RifleBurst
         }
         seconds = 0;
     }
-
+  
 }
+
+
