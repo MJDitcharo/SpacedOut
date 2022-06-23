@@ -34,7 +34,7 @@ public class DamagePopUpManager : MonoBehaviour
         tmp.text = "-" + damage.ToString();
         Color color;
         color = tmp.color;
-        Vector3 pushback = new Vector3(distance, distance, 0);
+        Vector3 pushback = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized * distance;
         float pushbackFalloffSpeed = 20f;
 
         while (seconds > 0)
