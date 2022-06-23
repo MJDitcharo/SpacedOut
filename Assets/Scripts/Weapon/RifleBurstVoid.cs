@@ -41,7 +41,7 @@ public class RifleBurstVoid : RifleBurst
         {
             if (ammoCount <= 0)
             {
-
+                break;
             }
             else
             {

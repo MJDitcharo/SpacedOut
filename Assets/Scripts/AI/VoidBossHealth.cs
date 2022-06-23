@@ -37,6 +37,16 @@ public class VoidBossHealth : EnemyHealth
 
     protected override void Death()
     {
+        GameObject[] clones = GameObject.FindGameObjectsWithTag("Enemy");
+
+        for(int i = 0; i < clones.Length; i++)
+        {
+            if(clones[i] != gameObject)
+            {
+                Destroy(clones[i]);
+            }
+        }
+
         GameManager.instance.bossHealthBar.transform.parent.parent.gameObject.SetActive(false);
         base.Death();
     }

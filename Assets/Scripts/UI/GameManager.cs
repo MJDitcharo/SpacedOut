@@ -331,7 +331,7 @@ public class GameManager : MonoBehaviour
 
     public void SetFightingCursor()
     {
-        Cursor.SetCursor(fightingCursor, new Vector3(32,32,32), CursorMode.ForceSoftware);
+        Cursor.SetCursor(fightingCursor, new Vector3(30,30,30), CursorMode.ForceSoftware);
     }
 
     public void SetNormalCursor()

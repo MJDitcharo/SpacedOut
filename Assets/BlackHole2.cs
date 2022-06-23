@@ -36,11 +36,14 @@ public class BlackHole2 : MonoBehaviour
         {
 
             EnemyMovement movement = other.GetComponent<EnemyMovement>();
-            movement.pushback += (-pullStrength * (other.transform.position - BlackHoleCenter.transform.position).normalized);
-            if (tick >= tickTime)
+            if (movement != null)
             {
-                other.GetComponent<EnemyHealth>().DoDamage(damage);
-                tick = 0;
+                movement.pushback += (-pullStrength * (other.transform.position - BlackHoleCenter.transform.position).normalized);
+                if (tick >= tickTime)
+                {
+                    other.GetComponent<EnemyHealth>().DoDamage(damage);
+                    tick = 0;
+                }
             }
         }
     }
